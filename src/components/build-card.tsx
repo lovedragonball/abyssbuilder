@@ -46,7 +46,7 @@ export default function BuildCard({ build, showEditButton = false, onDelete }: B
     }
   }, [user, build.votedBy]);
 
-  const handleVote = (e: React.MouseEvent) => {
+  const handleVote = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -59,16 +59,11 @@ export default function BuildCard({ build, showEditButton = false, onDelete }: B
       return;
     }
 
-    const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
-    const buildIndex = savedBuilds.findIndex((b: Build) => b.id === build.id);
-
-    if (buildIndex !== -1) {
-      const votedBy = savedBuilds[buildIndex].votedBy || [];
+    try {
+      const { voteBuild } = await import('@/lib/firestore');
+      await voteBuild(build.id, user.uid, !hasVoted);
       
       if (hasVoted) {
-        // Remove vote
-        savedBuilds[buildIndex].votedBy = votedBy.filter((id: string) => id !== user.uid);
-        savedBuilds[buildIndex].voteCount = Math.max(0, (savedBuilds[buildIndex].voteCount || 0) - 1);
         setHasVoted(false);
         setCurrentVoteCount(prev => Math.max(0, prev - 1));
         toast({
@@ -76,9 +71,6 @@ export default function BuildCard({ build, showEditButton = false, onDelete }: B
           description: 'Your vote has been removed.',
         });
       } else {
-        // Add vote
-        savedBuilds[buildIndex].votedBy = [...votedBy, user.uid];
-        savedBuilds[buildIndex].voteCount = (savedBuilds[buildIndex].voteCount || 0) + 1;
         setHasVoted(true);
         setCurrentVoteCount(prev => prev + 1);
         toast({
@@ -86,25 +78,38 @@ export default function BuildCard({ build, showEditButton = false, onDelete }: B
           description: 'Thanks for voting on this build.',
         });
       }
-
-      localStorage.setItem('builds', JSON.stringify(savedBuilds));
+    } catch (error) {
+      console.error('Error voting:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Failed to vote. Please try again.',
+      });
     }
   };
 
-  const handleDelete = () => {
-    const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
-    const updatedBuilds = savedBuilds.filter((b: Build) => b.id !== build.id);
-    localStorage.setItem('builds', JSON.stringify(updatedBuilds));
+  const handleDelete = async () => {
+    try {
+      const { deleteBuild } = await import('@/lib/firestore');
+      await deleteBuild(build.id);
 
-    toast({
-      title: 'Build Deleted',
-      description: 'Your build has been deleted successfully.',
-    });
+      toast({
+        title: 'Build Deleted',
+        description: 'Your build has been deleted successfully.',
+      });
 
-    setIsDeleteDialogOpen(false);
-    
-    if (onDelete) {
-      onDelete(build.id);
+      setIsDeleteDialogOpen(false);
+      
+      if (onDelete) {
+        onDelete(build.id);
+      }
+    } catch (error) {
+      console.error('Error deleting build:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Failed to delete build. Please try again.',
+      });
     }
   };
 

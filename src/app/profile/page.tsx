@@ -11,6 +11,7 @@ import Link from 'next/link';
 import type { Build } from '@/lib/types';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { getUserBuilds } from '@/lib/firestore';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,12 +28,14 @@ export default function MyProfilePage() {
   const [builds, setBuilds] = useState<Build[]>([]);
   const [areBuildsLoading, setAreBuildsLoading] = useState(true);
 
-  const loadBuilds = () => {
+  const loadBuilds = async () => {
     if (user) {
-      // Load builds from localStorage
-      const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
-      const userBuilds = savedBuilds.filter((b: Build) => b.userId === user.uid);
-      setBuilds(userBuilds);
+      try {
+        const userBuilds = await getUserBuilds(user.uid);
+        setBuilds(userBuilds);
+      } catch (error) {
+        console.error('Error loading builds:', error);
+      }
     }
     setAreBuildsLoading(false);
   };

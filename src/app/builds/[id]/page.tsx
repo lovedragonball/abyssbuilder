@@ -12,6 +12,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { Button } from '@/components/ui/button';
 import type { Character, Weapon, Build, Mod } from '@/lib/types';
 import { useEffect, useState } from 'react';
+import { getBuild, deleteBuild, voteBuild, incrementBuildViews } from '@/lib/firestore';
 import {
     Dialog,
     DialogContent,
@@ -169,12 +170,24 @@ export default function BuildDetailPage() {
     const [currentVoteCount, setCurrentVoteCount] = useState(0);
 
     useEffect(() => {
-        // Load build from localStorage
-        const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
-        const foundBuild = savedBuilds.find((b: Build) => b.id === id);
-        setBuild(foundBuild || null);
-        setCurrentVoteCount(foundBuild?.voteCount || 0);
-        setLoading(false);
+        // Load build from Firestore
+        const loadBuild = async () => {
+            try {
+                const foundBuild = await getBuild(id as string);
+                setBuild(foundBuild);
+                setCurrentVoteCount(foundBuild?.voteCount || 0);
+                
+                // Increment views
+                if (foundBuild) {
+                    await incrementBuildViews(id as string);
+                }
+            } catch (error) {
+                console.error('Error loading build:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        loadBuild();
     }, [id]);
 
     useEffect(() => {
@@ -222,7 +235,7 @@ export default function BuildDetailPage() {
 
     const isOwner = user && build.userId === user.uid;
 
-    const handleVote = () => {
+    const handleVote = async () => {
         if (!user) {
             toast({
                 variant: 'destructive',
@@ -232,16 +245,10 @@ export default function BuildDetailPage() {
             return;
         }
 
-        const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
-        const buildIndex = savedBuilds.findIndex((b: Build) => b.id === build.id);
-
-        if (buildIndex !== -1) {
-            const votedBy = savedBuilds[buildIndex].votedBy || [];
-
+        try {
+            await voteBuild(build.id, user.uid, !hasVoted);
+            
             if (hasVoted) {
-                // Remove vote
-                savedBuilds[buildIndex].votedBy = votedBy.filter((id: string) => id !== user.uid);
-                savedBuilds[buildIndex].voteCount = Math.max(0, (savedBuilds[buildIndex].voteCount || 0) - 1);
                 setHasVoted(false);
                 setCurrentVoteCount((prev) => Math.max(0, prev - 1));
                 toast({
@@ -249,9 +256,6 @@ export default function BuildDetailPage() {
                     description: 'Your vote has been removed.',
                 });
             } else {
-                // Add vote
-                savedBuilds[buildIndex].votedBy = [...votedBy, user.uid];
-                savedBuilds[buildIndex].voteCount = (savedBuilds[buildIndex].voteCount || 0) + 1;
                 setHasVoted(true);
                 setCurrentVoteCount((prev) => prev + 1);
                 toast({
@@ -259,24 +263,34 @@ export default function BuildDetailPage() {
                     description: 'Thanks for voting on this build.',
                 });
             }
-
-            localStorage.setItem('builds', JSON.stringify(savedBuilds));
-            // Update local build state
-            setBuild(savedBuilds[buildIndex]);
+        } catch (error) {
+            console.error('Error voting:', error);
+            toast({
+                variant: 'destructive',
+                title: 'Error',
+                description: 'Failed to vote. Please try again.',
+            });
         }
     };
 
-    const handleDeleteBuild = () => {
-        const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
-        const updatedBuilds = savedBuilds.filter((b: Build) => b.id !== build.id);
-        localStorage.setItem('builds', JSON.stringify(updatedBuilds));
-
-        toast({
-            title: 'Build Deleted',
-            description: 'Your build has been deleted successfully.',
-        });
-
-        router.push('/profile');
+    const handleDeleteBuild = async () => {
+        try {
+            await deleteBuild(build.id);
+            
+            toast({
+                title: 'Build Deleted',
+                description: 'Your build has been deleted successfully.',
+            });
+            
+            router.push('/profile');
+        } catch (error) {
+            console.error('Error deleting build:', error);
+            toast({
+                variant: 'destructive',
+                title: 'Error',
+                description: 'Failed to delete build. Please try again.',
+            });
+        }
     };
 
     return (
