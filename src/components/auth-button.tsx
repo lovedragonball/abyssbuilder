@@ -21,9 +21,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from './ui/dialog';
-import { Input } from './ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Label } from './ui/label';
 import Link from 'next/link';
 
 function UserProfile() {
