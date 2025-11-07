@@ -10,6 +10,7 @@ import { Search, SlidersHorizontal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { allCharacters, allWeapons } from '@/lib/data';
+import { getAllBuilds } from '@/lib/firestore';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,10 +32,16 @@ export default function BuildsPage() {
     const [showFilters, setShowFilters] = useState(false);
 
     useEffect(() => {
-        // Load all public builds
-        const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
-        const publicBuilds = savedBuilds.filter((b: Build) => b.visibility === 'public');
-        setBuilds(publicBuilds);
+        // Load all public builds from Firestore
+        const loadBuilds = async () => {
+            try {
+                const publicBuilds = await getAllBuilds('public');
+                setBuilds(publicBuilds);
+            } catch (error) {
+                console.error('Error loading builds:', error);
+            }
+        };
+        loadBuilds();
     }, []);
 
     const filteredAndSortedBuilds = useMemo(() => {

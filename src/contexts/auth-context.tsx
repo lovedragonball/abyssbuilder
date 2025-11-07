@@ -1,8 +1,14 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { storage, STORAGE_KEYS } from '@/lib/storage';
-import { validateUser } from '@/lib/validation';
+import {
+    signInWithPopup,
+    signOut as firebaseSignOut,
+    onAuthStateChanged,
+    User as FirebaseUser,
+} from 'firebase/auth';
+import { auth, googleProvider } from '@/lib/firebase';
+import { createOrUpdateUserProfile } from '@/lib/firestore';
 
 interface User {
     uid: string;
@@ -15,10 +21,9 @@ interface User {
 interface AuthContextType {
     user: User | null;
     isUserLoading: boolean;
-    signIn: (username: string, password: string) => Promise<void>;
-    signUp: (username: string, password: string) => Promise<void>;
-    signOut: () => void;
-    updateDisplayName: (displayName: string) => void;
+    signInWithGoogle: () => Promise<void>;
+    signOut: () => Promise<void>;
+    updateDisplayName: (displayName: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -28,85 +33,58 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [isUserLoading, setIsUserLoading] = useState(true);
 
     useEffect(() => {
-        // Load user from localStorage on mount
-        const savedUser = storage.getItem<User | null>(STORAGE_KEYS.USER, null);
-        if (savedUser) {
-            setUser(savedUser);
-        }
-        setIsUserLoading(false);
+        // Listen to Firebase auth state changes
+        const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
+            if (firebaseUser) {
+                const userData: User = {
+                    uid: firebaseUser.uid,
+                    username: firebaseUser.email?.split('@')[0] || 'user',
+                    displayName: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'User',
+                    photoURL: firebaseUser.photoURL || `https://api.dicebear.com/8.x/bottts/svg?seed=${firebaseUser.uid}`,
+                    hasSetDisplayName: !!firebaseUser.displayName,
+                };
+                setUser(userData);
+
+                // Create/update user profile in Firestore
+                try {
+                    await createOrUpdateUserProfile(firebaseUser.uid, {
+                        username: userData.username,
+                        displayName: userData.displayName,
+                        photoURL: userData.photoURL,
+                        email: firebaseUser.email,
+                    });
+                } catch (error) {
+                    console.error('Error updating user profile:', error);
+                }
+            } else {
+                setUser(null);
+            }
+            setIsUserLoading(false);
+        });
+
+        return () => unsubscribe();
     }, []);
 
-    const signIn = async (username: string, password: string) => {
-        // Validate input
-        const validation = validateUser({ username, password });
-        if (!validation.success) {
-            throw new Error(validation.errors?.[0]?.message || 'Invalid credentials');
+    const signInWithGoogle = async () => {
+        try {
+            await signInWithPopup(auth, googleProvider);
+        } catch (error) {
+            console.error('Error signing in with Google:', error);
+            throw error;
         }
-
-        // Check if user exists
-        const users = storage.getItem<Record<string, any>>(STORAGE_KEYS.USERS, {});
-        const userData = users[username];
-
-        if (!userData) {
-            throw new Error('User not found');
-        }
-
-        if (userData.password !== password) {
-            throw new Error('Incorrect password');
-        }
-
-        const mockUser: User = {
-            uid: userData.uid,
-            username: username,
-            displayName: userData.displayName || username,
-            photoURL: `https://api.dicebear.com/8.x/bottts/svg?seed=${username}`,
-            hasSetDisplayName: userData.hasSetDisplayName || false,
-        };
-        setUser(mockUser);
-        storage.setItem(STORAGE_KEYS.USER, mockUser);
     };
 
-    const signUp = async (username: string, password: string) => {
-        // Validate input
-        const validation = validateUser({ username, password });
-        if (!validation.success) {
-            throw new Error(validation.errors?.[0]?.message || 'Invalid input');
+    const signOut = async () => {
+        try {
+            await firebaseSignOut(auth);
+            setUser(null);
+        } catch (error) {
+            console.error('Error signing out:', error);
+            throw error;
         }
-
-        // Check if username already exists
-        const users = storage.getItem<Record<string, any>>(STORAGE_KEYS.USERS, {});
-
-        if (users[username]) {
-            throw new Error('Username already exists');
-        }
-
-        // Create new user
-        const uid = Math.random().toString(36).substring(7);
-        users[username] = {
-            uid,
-            password,
-            hasSetDisplayName: false,
-        };
-        storage.setItem(STORAGE_KEYS.USERS, users);
-
-        // Sign in the new user
-        const mockUser: User = {
-            uid,
-            username,
-            displayName: username,
-            photoURL: `https://api.dicebear.com/8.x/bottts/svg?seed=${username}`,
-            hasSetDisplayName: false,
-        };
-        setUser(mockUser);
-        storage.setItem(STORAGE_KEYS.USER, mockUser);
     };
 
-    const signOut = () => {
-        setUser(null);
-        storage.removeItem(STORAGE_KEYS.USER);
-    };
-
-    const updateDisplayName = (displayName: string) => {
+    const updateDisplayName = async (displayName: string) => {
         if (!user) return;
 
         // Validate display name
@@ -114,27 +92,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             throw new Error('Display name must be between 1 and 50 characters');
         }
 
-        const updatedUser = {
-            ...user,
-            displayName,
-            hasSetDisplayName: true,
-        };
+        try {
+            // Update in Firestore
+            await createOrUpdateUserProfile(user.uid, {
+                displayName,
+            });
 
-        // Update user in state
-        setUser(updatedUser);
-        storage.setItem(STORAGE_KEYS.USER, updatedUser);
-
-        // Update in users database
-        const users = storage.getItem<Record<string, any>>(STORAGE_KEYS.USERS, {});
-        if (users[user.username]) {
-            users[user.username].displayName = displayName;
-            users[user.username].hasSetDisplayName = true;
-            storage.setItem(STORAGE_KEYS.USERS, users);
+            // Update local state
+            setUser({
+                ...user,
+                displayName,
+                hasSetDisplayName: true,
+            });
+        } catch (error) {
+            console.error('Error updating display name:', error);
+            throw error;
         }
     };
 
     return (
-        <AuthContext.Provider value={{ user, isUserLoading, signIn, signUp, signOut, updateDisplayName }}>
+        <AuthContext.Provider value={{ user, isUserLoading, signInWithGoogle, signOut, updateDisplayName }}>
             {children}
         </AuthContext.Provider>
     );
