@@ -59,7 +59,7 @@ npm run typecheck    # Check TypeScript types
 
 ---
 
-## 🛠️ New Production Features
+## 🛠️ Production Features
 
 ### Error Handling
 ```typescript
@@ -114,7 +114,6 @@ const debouncedSearch = debounce((query) => {
 | [API Migration](docs/api-migration-guide.md) | How to add a backend |
 | [Testing Guide](docs/testing-guide.md) | Testing strategies |
 | [Contributing](CONTRIBUTING.md) | How to contribute |
-| [Certificate](PRODUCTION_READY_CERTIFICATE.md) | Production readiness proof |
 
 ---
 
@@ -131,14 +130,13 @@ src/
 │   ├── ui/          # Reusable UI (buttons, cards, etc.)
 │   ├── layout/      # Layout components
 │   └── ...
-├── contexts/        # React contexts (auth, etc.)
+├── contexts/        # React contexts
 ├── hooks/           # Custom hooks
 └── lib/             # Utilities & helpers
     ├── data.ts      # Game data (characters, weapons, mods)
     ├── types.ts     # TypeScript types
     ├── storage.ts   # Safe localStorage wrapper
-    ├── validation.ts # Zod schemas
-    └── performance.ts # Performance utilities
+    └── ...
 ```
 
 ---
@@ -183,27 +181,6 @@ export const allMods: Mod[] = [
 ];
 ```
 
-### Create a New Component
-```typescript
-// src/components/my-component.tsx
-'use client';
-
-import { cn } from '@/lib/utils';
-
-interface MyComponentProps {
-  title: string;
-  className?: string;
-}
-
-export function MyComponent({ title, className }: MyComponentProps) {
-  return (
-    <div className={cn('base-classes', className)}>
-      {title}
-    </div>
-  );
-}
-```
-
 ---
 
 ## 🐛 Troubleshooting
@@ -231,84 +208,31 @@ localStorage.clear()
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Static Export (Recommended for Local)
 ```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
+npm run build
+# Files will be in 'out/' directory
 ```
+
+### GitHub Pages
+1. Build the project
+2. Push `out/` folder to `gh-pages` branch
+3. Enable GitHub Pages in repository settings
 
 ### Netlify
-```bash
-# Build command
-npm run build
-
-# Publish directory
-.next
-```
-
-### Docker
-```dockerfile
-FROM node:20-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-CMD ["npm", "start"]
-```
-
----
-
-## 📊 Performance Tips
-
-1. **Search Optimization**
-   - Already debounced (300ms)
-   - Searches name, attributes, and effects
-
-2. **Image Loading**
-   - Uses Next.js Image component
-   - Automatic optimization
-   - Lazy loading enabled
-
-3. **Bundle Size**
-   - Code splitting by route
-   - Dynamic imports for large components
-   - Tree shaking enabled
-
----
-
-## 🔐 Security Best Practices
-
-1. **Input Validation**
-   - All inputs validated with Zod
-   - XSS protection built-in
-   - SQL injection not applicable (no SQL)
-
-2. **Authentication & Data Storage**
-   - Firebase Google Sign-In handles credentials (no passwords stored)
-   - Only minimal profile data cached client-side for UX
-   - Sign out clears any cached session data
-
-3. **Future: Backend**
-   - Verify Firebase ID tokens on the server
-   - Issue JWTs only after verification (if custom API is added)
-   - Validate all API inputs
-   - Use HTTPS only
+1. Connect your repository
+2. Build command: `npm run build`
+3. Publish directory: `out`
 
 ---
 
 ## 💡 Tips & Tricks
 
 ### Keyboard Shortcuts
-- `Ctrl/Cmd + K` - Focus search (if implemented)
 - `Esc` - Close modals
 
 ### Developer Tools
 - React DevTools - Debug components
-- Redux DevTools - Not used (Context API)
 - Performance tab - Monitor performance
 
 ### Best Practices
@@ -331,27 +255,9 @@ CMD ["npm", "start"]
 
 ### TypeScript
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [TypeScript Cheatsheet](https://www.typescriptlang.org/cheatsheets)
 
 ### Tailwind CSS
 - [Tailwind Documentation](https://tailwindcss.com/docs)
-- [Tailwind UI](https://tailwindui.com)
-
----
-
-## 🤝 Getting Help
-
-1. **Check Documentation**
-   - Read the guides in `docs/`
-   - Check `CONTRIBUTING.md`
-
-2. **Search Issues**
-   - Look for similar problems
-   - Check closed issues
-
-3. **Ask Questions**
-   - Open a discussion
-   - Be specific and provide context
 
 ---
 
@@ -366,7 +272,6 @@ CMD ["npm", "start"]
 - [ ] Try creating a build
 - [ ] Review documentation
 - [ ] Make a small change
-- [ ] Submit a PR (optional)
 
 ---
 

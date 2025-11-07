@@ -1923,4 +1923,3 @@ export const builds: Build[] = [
     contentFocus: ['DPS (Skill DMG, Summon)', 'Support (Summon, CC)'],
   },
 ];
-

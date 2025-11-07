@@ -3,9 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import MainLayout from '@/components/layout/main-layout';
 import { cn } from '@/lib/utils';
-import { AuthProvider } from '@/contexts/auth-context';
-import { AuthWrapper } from '@/components/auth-wrapper';
 import { ErrorBoundary } from '@/components/error-boundary';
+import { AuthProvider } from '@/contexts/auth-context';
 
 export const metadata: Metadata = {
   title: 'AbyssBuilds',
@@ -30,11 +29,9 @@ export default function RootLayout({
       <body className={cn('font-body antialiased')}>
         <ErrorBoundary>
           <AuthProvider>
-            <AuthWrapper>
-              <MainLayout>{children}</MainLayout>
-            </AuthWrapper>
+            <MainLayout>{children}</MainLayout>
+            <Toaster />
           </AuthProvider>
-          <Toaster />
         </ErrorBoundary>
       </body>
     </html>

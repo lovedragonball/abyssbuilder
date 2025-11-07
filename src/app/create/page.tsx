@@ -11,9 +11,7 @@ import type { Geniemon, GeniemonElement } from '@/lib/geniemon-data';
 import { Card } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { motion } from 'framer-motion';
-import { useAuth } from '@/contexts/auth-context';
-import { Button } from '@/components/ui/button';
-import { LogIn } from 'lucide-react';
+
 
 const characterElements: (Element | 'all')[] = ['all', 'Lumino', 'Anemo', 'Hydro', 'Pyro', 'Electro', 'Umbro'];
 const weaponTypes: (WeaponType | RangedWeaponType | 'all')[] = ['all', ...allWeaponTypes];
@@ -153,31 +151,6 @@ const GeniemonGrid = () => {
 
 
 export default function CreateBuildPage() {
-  const { user } = useAuth();
-
-  if (!user) {
-    return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-md mx-auto text-center">
-          <div className="mb-6">
-            <LogIn className="h-16 w-16 mx-auto text-muted-foreground" />
-          </div>
-          <h1 className="text-3xl font-headline font-bold mb-4">
-            Login Required
-          </h1>
-          <p className="text-muted-foreground mb-8">
-            You need to be logged in to create builds. Please login to continue.
-          </p>
-          <Button asChild size="lg">
-            <Link href="/">
-              Go to Home
-            </Link>
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-headline font-bold text-center mb-8">

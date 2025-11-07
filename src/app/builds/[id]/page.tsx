@@ -6,13 +6,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { User, Calendar, ArrowLeft, Star, Trash2, ThumbsUp } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { User, Calendar, ArrowLeft, Star, Trash2 } from 'lucide-react';
+
 import { formatDistanceToNow } from 'date-fns';
 import { Button } from '@/components/ui/button';
 import type { Character, Weapon, Build, Mod } from '@/lib/types';
 import { useEffect, useState } from 'react';
-import { getBuild, deleteBuild, voteBuild, incrementBuildViews } from '@/lib/firestore';
+import { getBuild, deleteBuild, incrementBuildViews } from '@/lib/firestore';
 import {
     Dialog,
     DialogContent,
@@ -22,7 +22,7 @@ import {
     DialogFooter,
 } from '@/components/ui/dialog';
 import { ChevronRight } from 'lucide-react';
-import { useAuth } from '@/contexts/auth-context';
+
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
@@ -34,7 +34,7 @@ import {
     hoverScale,
     tapScale,
 } from '@/lib/animations';
-import { AnimatedCounter } from '@/components/animated-counter';
+
 import { SkeletonBuildDetail } from '@/components/skeleton-loader';
 
 function SupportItemCard({
@@ -160,22 +160,18 @@ function SupportItemCard({
 export default function BuildDetailPage() {
     const params = useParams();
     const { id } = params;
-    const { user } = useAuth();
     const router = useRouter();
     const { toast } = useToast();
     const [build, setBuild] = useState<Build | null>(null);
     const [loading, setLoading] = useState(true);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
-    const [hasVoted, setHasVoted] = useState(false);
-    const [currentVoteCount, setCurrentVoteCount] = useState(0);
 
     useEffect(() => {
-        // Load build from Firestore
+        // Load build from Local Storage
         const loadBuild = async () => {
             try {
                 const foundBuild = await getBuild(id as string);
                 setBuild(foundBuild);
-                setCurrentVoteCount(foundBuild?.voteCount || 0);
                 
                 // Increment views
                 if (foundBuild) {
@@ -189,12 +185,6 @@ export default function BuildDetailPage() {
         };
         loadBuild();
     }, [id]);
-
-    useEffect(() => {
-        if (user && build?.votedBy) {
-            setHasVoted(build.votedBy.includes(user.uid));
-        }
-    }, [user, build?.votedBy]);
 
     if (loading) {
         return (
@@ -233,56 +223,16 @@ export default function BuildDetailPage() {
         .map((wpnId) => allWeapons.find((w) => w.id === wpnId))
         .filter(Boolean) as Weapon[];
 
-    const isOwner = user && build.userId === user.uid;
-
-    const handleVote = async () => {
-        if (!user) {
-            toast({
-                variant: 'destructive',
-                title: 'Login Required',
-                description: 'Please login to vote on builds.',
-            });
-            return;
-        }
-
-        try {
-            await voteBuild(build.id, user.uid, !hasVoted);
-            
-            if (hasVoted) {
-                setHasVoted(false);
-                setCurrentVoteCount((prev) => Math.max(0, prev - 1));
-                toast({
-                    title: 'Vote Removed',
-                    description: 'Your vote has been removed.',
-                });
-            } else {
-                setHasVoted(true);
-                setCurrentVoteCount((prev) => prev + 1);
-                toast({
-                    title: 'Voted!',
-                    description: 'Thanks for voting on this build.',
-                });
-            }
-        } catch (error) {
-            console.error('Error voting:', error);
-            toast({
-                variant: 'destructive',
-                title: 'Error',
-                description: 'Failed to vote. Please try again.',
-            });
-        }
-    };
-
     const handleDeleteBuild = async () => {
         try {
             await deleteBuild(build.id);
             
             toast({
                 title: 'Build Deleted',
-                description: 'Your build has been deleted successfully.',
+                description: 'Build has been deleted successfully.',
             });
             
-            router.push('/profile');
+            router.push('/builds');
         } catch (error) {
             console.error('Error deleting build:', error);
             toast({
@@ -308,33 +258,19 @@ export default function BuildDetailPage() {
                 animate="visible"
             >
                 <Button asChild variant="ghost">
-                    <Link href="/profile">
+                    <Link href="/builds">
                         <ArrowLeft className="mr-2 h-4 w-4" />
-                        Back to Profile
+                        Back to Builds
                     </Link>
                 </Button>
                 <div className="flex gap-2">
-                    {!isOwner && (
-                        <Button
-                            variant={hasVoted ? 'default' : 'outline'}
-                            onClick={handleVote}
-                            className={cn(hasVoted && 'bg-primary')}
-                        >
-                            <ThumbsUp className={cn('mr-2 h-4 w-4', hasVoted && 'fill-current')} />
-                            {hasVoted ? 'Voted' : 'Vote'} (<AnimatedCounter value={currentVoteCount} duration={0.5} />)
-                        </Button>
-                    )}
-                    {isOwner && (
-                        <>
-                            <Button asChild variant="outline">
-                                <Link href={`/create/${build.itemId}?buildId=${build.id}`}>Edit Build</Link>
-                            </Button>
-                            <Button variant="destructive" onClick={() => setIsDeleteDialogOpen(true)}>
-                                <Trash2 className="mr-2 h-4 w-4" />
-                                Delete
-                            </Button>
-                        </>
-                    )}
+                    <Button asChild variant="outline">
+                        <Link href={`/create/${build.itemId}?buildId=${build.id}`}>Edit Build</Link>
+                    </Button>
+                    <Button variant="destructive" onClick={() => setIsDeleteDialogOpen(true)}>
+                        <Trash2 className="mr-2 h-4 w-4" />
+                        Delete
+                    </Button>
                 </div>
             </motion.div>
 

@@ -74,8 +74,8 @@ const ModSlot = ({ mod, onDrop, onDragOver, onRemove }: { mod: Mod | null, onDro
                         <RarityStars rarity={mod.rarity} />
                     </div>
                     {onRemove && (
-                        <button 
-                            onClick={onRemove} 
+                        <button
+                            onClick={onRemove}
                             className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground rounded-full p-0.5 z-10 hover:bg-destructive/80 transition-colors opacity-0 group-hover:opacity-100"
                         >
                             <X className="w-3 h-3" />
@@ -301,13 +301,13 @@ const SupportModModal = ({
     };
 
     const toggleModType = (type: ModType) => {
-        setModTypeFilters(prev => 
+        setModTypeFilters(prev =>
             prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
         );
     };
 
     const toggleRarity = (rarity: ModRarity) => {
-        setRarityFilters(prev => 
+        setRarityFilters(prev =>
             prev.includes(rarity) ? prev.filter(r => r !== rarity) : [...prev, rarity]
         );
     };
@@ -316,17 +316,17 @@ const SupportModModal = ({
         return allMods.filter(mod => {
             // Enhanced search - ค้นหาทั้งชื่อ, mainAttribute, และ effect
             const searchLower = searchQuery.toLowerCase();
-            const searchMatch = !searchQuery || 
+            const searchMatch = !searchQuery ||
                 mod.name.toLowerCase().includes(searchLower) ||
                 mod.mainAttribute.toLowerCase().includes(searchLower) ||
                 (mod.effect && mod.effect.toLowerCase().includes(searchLower));
-            
+
             // Multi-select type filter
             const typeMatch = modTypeFilters.length === 0 || modTypeFilters.includes(mod.modType);
-            
+
             // Multi-select rarity filter
             const rarityMatch = rarityFilters.length === 0 || rarityFilters.includes(mod.rarity);
-            
+
             const elementMatch = elementFilter === 'All' || !mod.element || mod.element === elementFilter;
             return searchMatch && typeMatch && rarityMatch && elementMatch;
         });
@@ -545,38 +545,7 @@ export default function CreateBuildDetailPage() {
         notFound();
     }
 
-    if (!user) {
-        return (
-            <div className="container mx-auto px-4 py-16">
-                <div className="max-w-md mx-auto text-center">
-                    <div className="mb-6">
-                        <Users className="h-16 w-16 mx-auto text-muted-foreground" />
-                    </div>
-                    <h1 className="text-3xl font-headline font-bold mb-4">
-                        Login Required
-                    </h1>
-                    <p className="text-muted-foreground mb-8">
-                        You need to be logged in to create builds. Please login to continue.
-                    </p>
-                    <Button asChild size="lg">
-                        <Link href="/">
-                            Go to Home
-                        </Link>
-                    </Button>
-                </div>
-            </div>
-        );
-    }
-
     const handleSaveBuild = () => {
-        if (!user) {
-            toast({
-                variant: 'destructive',
-                title: 'Not Logged In',
-                description: 'Please log in to save your build.',
-            });
-            return;
-        }
 
         // Check if we're editing an existing build
         const urlParams = new URLSearchParams(window.location.search);
@@ -739,13 +708,13 @@ export default function CreateBuildDetailPage() {
 
 
     const toggleModTypeMain = (type: ModType) => {
-        setModTypeFilters(prev => 
+        setModTypeFilters(prev =>
             prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
         );
     };
 
     const toggleRarityMain = (rarity: ModRarity) => {
-        setRarityFilters(prev => 
+        setRarityFilters(prev =>
             prev.includes(rarity) ? prev.filter(r => r !== rarity) : [...prev, rarity]
         );
     };
@@ -754,17 +723,17 @@ export default function CreateBuildDetailPage() {
         return allMods.filter(mod => {
             // Enhanced search - ค้นหาทั้งชื่อ, mainAttribute, และ effect
             const searchLower = searchQuery.toLowerCase();
-            const searchMatch = !searchQuery || 
+            const searchMatch = !searchQuery ||
                 mod.name.toLowerCase().includes(searchLower) ||
                 mod.mainAttribute.toLowerCase().includes(searchLower) ||
                 (mod.effect && mod.effect.toLowerCase().includes(searchLower));
-            
+
             // Multi-select type filter
             const typeMatch = modTypeFilters.length === 0 || modTypeFilters.includes(mod.modType);
-            
+
             // Multi-select rarity filter
             const rarityMatch = rarityFilters.length === 0 || rarityFilters.includes(mod.rarity);
-            
+
             const elementMatch = elementFilter === 'All' || !mod.element || mod.element === elementFilter;
             return searchMatch && typeMatch && rarityMatch && elementMatch;
         });
@@ -969,9 +938,9 @@ export default function CreateBuildDetailPage() {
                             <CardTitle className="text-lg">Write a Guide</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <Textarea 
-                                placeholder="Share your strategy, tips, and playstyle for this build..." 
-                                className="bg-background" 
+                            <Textarea
+                                placeholder="Share your strategy, tips, and playstyle for this build..."
+                                className="bg-background"
                                 rows={6}
                                 value={buildGuide}
                                 onChange={(e) => setBuildGuide(e.target.value)}

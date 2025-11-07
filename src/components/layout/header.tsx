@@ -1,10 +1,7 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
 import Link from "next/link";
-import { AuthButton } from '../auth-button';
 
 const navItems = [
   { href: '/builds', label: 'Builds' },
@@ -27,10 +24,6 @@ export default function Header() {
       </nav>
 
       <div className="flex-grow" />
-      
-      <div className="flex items-center gap-2">
-        <AuthButton />
-      </div>
     </header>
   );
 }

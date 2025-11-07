@@ -1,195 +1,86 @@
-import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  query,
-  where,
-  orderBy,
-  limit,
-  serverTimestamp,
-  increment,
-  arrayUnion,
-  arrayRemove,
-  Timestamp,
-} from 'firebase/firestore';
-import { db } from './firebase';
+// Local Storage implementation (replaces Firebase Firestore)
 import type { Build } from './types';
 
-// Collections
-const BUILDS_COLLECTION = 'builds';
-const USERS_COLLECTION = 'users';
+const BUILDS_KEY = 'builds';
 
-// Build operations
-export const createBuild = async (buildData: Omit<Build, 'id' | 'createdAt' | 'updatedAt'>) => {
-  try {
-    const docRef = await addDoc(collection(db, BUILDS_COLLECTION), {
-      ...buildData,
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-      voteCount: 0,
-      votedBy: [],
-      views: 0,
-    });
-    return docRef.id;
-  } catch (error) {
-    console.error('Error creating build:', error);
-    throw error;
+export async function getAllBuilds(visibility?: 'public' | 'private'): Promise<Build[]> {
+  const builds = JSON.parse(localStorage.getItem(BUILDS_KEY) || '[]');
+  if (visibility) {
+    return builds.filter((b: Build) => b.visibility === visibility);
   }
-};
+  return builds;
+}
 
-export const updateBuild = async (buildId: string, buildData: Partial<Build>) => {
-  try {
-    const buildRef = doc(db, BUILDS_COLLECTION, buildId);
-    await updateDoc(buildRef, {
-      ...buildData,
-      updatedAt: serverTimestamp(),
-    });
-  } catch (error) {
-    console.error('Error updating build:', error);
-    throw error;
-  }
-};
+export async function getBuild(id: string): Promise<Build | null> {
+  const builds = JSON.parse(localStorage.getItem(BUILDS_KEY) || '[]');
+  return builds.find((b: Build) => b.id === id) || null;
+}
 
-export const deleteBuild = async (buildId: string) => {
-  try {
-    const buildRef = doc(db, BUILDS_COLLECTION, buildId);
-    await deleteDoc(buildRef);
-  } catch (error) {
-    console.error('Error deleting build:', error);
-    throw error;
-  }
-};
+export async function deleteBuild(id: string): Promise<void> {
+  const builds = JSON.parse(localStorage.getItem(BUILDS_KEY) || '[]');
+  const filtered = builds.filter((b: Build) => b.id !== id);
+  localStorage.setItem(BUILDS_KEY, JSON.stringify(filtered));
+}
 
-export const getBuild = async (buildId: string): Promise<Build | null> => {
-  try {
-    const buildRef = doc(db, BUILDS_COLLECTION, buildId);
-    const buildSnap = await getDoc(buildRef);
+export async function voteBuild(buildId: string, userId: string, vote: boolean): Promise<void> {
+  const builds = JSON.parse(localStorage.getItem(BUILDS_KEY) || '[]');
+  const buildIndex = builds.findIndex((b: Build) => b.id === buildId);
+  
+  if (buildIndex !== -1) {
+    const build = builds[buildIndex];
+    const votedBy = build.votedBy || [];
     
-    if (buildSnap.exists()) {
-      return {
-        id: buildSnap.id,
-        ...buildSnap.data(),
-      } as Build;
-    }
-    return null;
-  } catch (error) {
-    console.error('Error getting build:', error);
-    throw error;
-  }
-};
-
-export const getAllBuilds = async (visibility: 'public' | 'all' = 'public'): Promise<Build[]> => {
-  try {
-    const buildsRef = collection(db, BUILDS_COLLECTION);
-    let q = query(buildsRef, orderBy('createdAt', 'desc'));
-    
-    if (visibility === 'public') {
-      q = query(buildsRef, where('visibility', '==', 'public'), orderBy('createdAt', 'desc'));
-    }
-    
-    const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as Build[];
-  } catch (error) {
-    console.error('Error getting builds:', error);
-    throw error;
-  }
-};
-
-export const getUserBuilds = async (userId: string): Promise<Build[]> => {
-  try {
-    const buildsRef = collection(db, BUILDS_COLLECTION);
-    const q = query(
-      buildsRef,
-      where('userId', '==', userId),
-      orderBy('createdAt', 'desc')
-    );
-    
-    const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as Build[];
-  } catch (error) {
-    console.error('Error getting user builds:', error);
-    throw error;
-  }
-};
-
-export const voteBuild = async (buildId: string, userId: string, isUpvote: boolean) => {
-  try {
-    const buildRef = doc(db, BUILDS_COLLECTION, buildId);
-    
-    if (isUpvote) {
-      await updateDoc(buildRef, {
-        voteCount: increment(1),
-        votedBy: arrayUnion(userId),
-      });
+    if (vote) {
+      // Add vote
+      if (!votedBy.includes(userId)) {
+        build.votedBy = [...votedBy, userId];
+        build.voteCount = (build.voteCount || 0) + 1;
+      }
     } else {
-      await updateDoc(buildRef, {
-        voteCount: increment(-1),
-        votedBy: arrayRemove(userId),
-      });
+      // Remove vote
+      build.votedBy = votedBy.filter((id: string) => id !== userId);
+      build.voteCount = Math.max(0, (build.voteCount || 0) - 1);
     }
-  } catch (error) {
-    console.error('Error voting build:', error);
-    throw error;
-  }
-};
-
-export const incrementBuildViews = async (buildId: string) => {
-  try {
-    const buildRef = doc(db, BUILDS_COLLECTION, buildId);
-    await updateDoc(buildRef, {
-      views: increment(1),
-    });
-  } catch (error) {
-    console.error('Error incrementing views:', error);
-    // Don't throw error for views increment
-  }
-};
-
-// User profile operations
-export const createOrUpdateUserProfile = async (userId: string, profileData: any) => {
-  try {
-    const userRef = doc(db, USERS_COLLECTION, userId);
-    await updateDoc(userRef, {
-      ...profileData,
-      updatedAt: serverTimestamp(),
-    }).catch(async () => {
-      // If document doesn't exist, create it
-      await addDoc(collection(db, USERS_COLLECTION), {
-        ...profileData,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-      });
-    });
-  } catch (error) {
-    console.error('Error creating/updating user profile:', error);
-    throw error;
-  }
-};
-
-export const getUserProfile = async (userId: string) => {
-  try {
-    const userRef = doc(db, USERS_COLLECTION, userId);
-    const userSnap = await getDoc(userRef);
     
-    if (userSnap.exists()) {
-      return {
-        uid: userSnap.id,
-        ...userSnap.data(),
-      };
-    }
-    return null;
-  } catch (error) {
-    console.error('Error getting user profile:', error);
-    throw error;
+    builds[buildIndex] = build;
+    localStorage.setItem(BUILDS_KEY, JSON.stringify(builds));
   }
-};
+}
+
+export async function incrementBuildViews(buildId: string): Promise<void> {
+  const builds = JSON.parse(localStorage.getItem(BUILDS_KEY) || '[]');
+  const buildIndex = builds.findIndex((b: Build) => b.id === buildId);
+  
+  if (buildIndex !== -1) {
+    builds[buildIndex].views = (builds[buildIndex].views || 0) + 1;
+    localStorage.setItem(BUILDS_KEY, JSON.stringify(builds));
+  }
+}
+
+export async function createBuild(buildData: Omit<Build, 'id' | 'createdAt' | 'updatedAt'>): Promise<string> {
+  const builds = JSON.parse(localStorage.getItem(BUILDS_KEY) || '[]');
+  const newBuild: Build = {
+    ...buildData,
+    id: `build-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  } as Build;
+  
+  builds.push(newBuild);
+  localStorage.setItem(BUILDS_KEY, JSON.stringify(builds));
+  return newBuild.id;
+}
+
+export async function updateBuild(buildId: string, buildData: Partial<Build>): Promise<void> {
+  const builds = JSON.parse(localStorage.getItem(BUILDS_KEY) || '[]');
+  const buildIndex = builds.findIndex((b: Build) => b.id === buildId);
+  
+  if (buildIndex !== -1) {
+    builds[buildIndex] = {
+      ...builds[buildIndex],
+      ...buildData,
+      updatedAt: new Date().toISOString(),
+    };
+    localStorage.setItem(BUILDS_KEY, JSON.stringify(builds));
+  }
+}
