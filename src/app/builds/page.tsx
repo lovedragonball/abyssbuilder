@@ -28,7 +28,6 @@ export default function BuildsPage() {
     const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'popular'>('newest');
     const [filterElement, setFilterElement] = useState<string>('all');
     const [filterWeaponType, setFilterWeaponType] = useState<string>('all');
-    const [filterVisibility, setFilterVisibility] = useState<string>('all');
     const [showFilters, setShowFilters] = useState(false);
 
     useEffect(() => {
@@ -74,11 +73,6 @@ export default function BuildsPage() {
             });
         }
 
-        // Visibility filter
-        if (filterVisibility !== 'all') {
-            result = result.filter((build) => build.visibility === filterVisibility);
-        }
-
         // Sort
         result.sort((a, b) => {
             switch (sortBy) {
@@ -94,7 +88,7 @@ export default function BuildsPage() {
         });
 
         return result;
-    }, [builds, searchQuery, sortBy, filterElement, filterWeaponType, filterVisibility]);
+    }, [builds, searchQuery, sortBy, filterElement, filterWeaponType]);
 
     const handleBuildDeleted = (buildId: string) => {
         setBuilds((prevBuilds) => prevBuilds.filter((b) => b.id !== buildId));
@@ -130,7 +124,7 @@ export default function BuildsPage() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 border rounded-lg bg-card/50"
+                        className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border rounded-lg bg-card/50"
                     >
                         <div>
                             <label className="text-sm font-medium mb-2 block">Sort By</label>
@@ -180,20 +174,6 @@ export default function BuildsPage() {
                                 </SelectContent>
                             </Select>
                         </div>
-
-                        <div>
-                            <label className="text-sm font-medium mb-2 block">Visibility</label>
-                            <Select value={filterVisibility} onValueChange={setFilterVisibility}>
-                                <SelectTrigger>
-                                    <SelectValue />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="all">All</SelectItem>
-                                    <SelectItem value="public">Public Only</SelectItem>
-                                    <SelectItem value="private">Private Only</SelectItem>
-                                </SelectContent>
-                            </Select>
-                        </div>
                     </motion.div>
                 )}
 
@@ -202,7 +182,7 @@ export default function BuildsPage() {
                     <p className="text-sm text-muted-foreground">
                         Found <span className="font-semibold text-foreground">{filteredAndSortedBuilds.length}</span> builds
                     </p>
-                    {(searchQuery || filterElement !== 'all' || filterWeaponType !== 'all' || filterVisibility !== 'all') && (
+                    {(searchQuery || filterElement !== 'all' || filterWeaponType !== 'all') && (
                         <Button
                             variant="ghost"
                             size="sm"
@@ -210,7 +190,6 @@ export default function BuildsPage() {
                                 setSearchQuery('');
                                 setFilterElement('all');
                                 setFilterWeaponType('all');
-                                setFilterVisibility('all');
                             }}
                         >
                             Clear Filters
