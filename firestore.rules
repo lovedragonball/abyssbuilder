@@ -1,0 +1,33 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Users collection
+    match /users/{userId} {
+      // Anyone can read user profiles
+      allow read: if true;
+      // Only the user can write their own profile
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Builds collection
+    match /builds/{buildId} {
+      // Anyone can read public builds
+      allow read: if resource.data.visibility == 'public' || 
+                     (request.auth != null && request.auth.uid == resource.data.userId);
+      
+      // Authenticated users can create builds
+      allow create: if request.auth != null && 
+                       request.resource.data.userId == request.auth.uid;
+      
+      // Only the owner can update their builds
+      allow update: if request.auth != null && 
+                       request.auth.uid == resource.data.userId;
+      
+      // Only the owner can delete their builds
+      allow delete: if request.auth != null && 
+                       request.auth.uid == resource.data.userId;
+    }
+  }
+}
