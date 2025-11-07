@@ -71,11 +71,58 @@ Excludes unnecessary files from deployment.
    - **Output Directory:** `.next` (auto-filled)
    - **Install Command:** `npm install` (auto-filled)
 
-4. **Environment Variables** (Optional)
+4. **Environment Variables** (สำคัญมาก!)
+   
+   คลิก "Environment Variables" และเพิ่มตัวแปรเหล่านี้:
+   
+   **Client-side (NEXT_PUBLIC_):**
    ```
    NEXT_PUBLIC_APP_NAME=AbyssBuilds
    NEXT_PUBLIC_APP_URL=https://your-domain.vercel.app
+   NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyAKugIvZm2EdPj7GdpqZO5bdBGRgtJoo1I
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=abyssbuilder-100a2.firebaseapp.com
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=abyssbuilder-100a2
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=abyssbuilder-100a2.firebasestorage.app
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=928191361520
+   NEXT_PUBLIC_FIREBASE_APP_ID=1:928191361520:web:5e58d9514930d98de82d35
+   NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-PWP663TK0S
    ```
+   
+   **Server-side (Firebase Admin SDK):**
+   ```
+   FIREBASE_PROJECT_ID=abyssbuilder-100a2
+   FIREBASE_CLIENT_EMAIL=firebase-adminsdk-fbsvc@abyssbuilder-100a2.iam.gserviceaccount.com
+   FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDDpH/IkqZZCObe
+uijIEEeyE22Z5obLMqRz337ufOEdDgvKTSLdTN57fqAgnrIKTs7AMoFc8Y8gl9os
+IUyDr4EXBvRijmX/9rhSsh4o014/o20domXyPtyJDxdH8MTevIiGxowYIOzvbi8i
+XLHyUidTU7X2jpp2twCcpUa3esVsSqyI7fe6/+6aOqySkQj+L1jqg0WwmbMK3d3N
+w7Vezph41nxFNH74YGyNju1FqVlRh5TOfmBv/1BtBiTxhHoUyl0GcOzABI3eUCIg
+Etut7rYGgP1TlL4deGVWnHmHpJvlXEiKCvZQLl4Mq5LJOu/U4HvqEOX3eqi88tVc
+79D/dSY/AgMBAAECggEABdAO4zYxjrv8JApIPj1269xg6W2B0Wq6m8i8UY37Suze
+aSR75d2r+eOsEpwJx9L0mJ2c3gE9UpIVxNw5FOveJtbUOai9G2rzVLL/FhEa9UK/
+8gf1BcqxVw8ljsPMDZ7GDam7gtdY7Xo1bfduwAzfJz4kTg7e7v+xRcuGpi/rIAmr
+RFDmmPawZP+9Zat/SaFw7VbX2/lOVnij64RfTHG7gn8CWo++64znwCasVE5EyiS/
+FEupTIyl3cfATl76ttfOJEXM/Vkh19ttZFQhiqb0Vev17SEGLmaGPJMF2X/11b3g
+L7JBHHLI/hvOdd4KaOm6vSS0gulwQGKPkN+jhGlvVQKBgQDyb/WJWRbAwM1T1Y3l
+Y10rVlbcMyY0DEqOJXaJehy9zI9CPBDCAoM2Ap1pZLLKchjnlp8iUn+4T+U/CkA1
+awbNWQygZtPzFkUpLuGF+ahdGWMvAbvcod++fmGN5itz/eoAlOJzCXSo5nuDHCmz
+VfJx1wnw/dOCeEahGs2e2KpVVQKBgQDOll+ru4QSsoPuCbJl9b+Ww6S/5FQ68Uyu
+O0szoWuWfvu3FEeh+DAW1BMLGgJxoa3XkaiPLzt69UbWriXdZHmcEcHUKZShZnnn
+KN5ZN3xGXGnLonf3XG6bLKVFLs9WFx8cplN2zbI4rhdx3ROnbvADbgOP5p4qeggW
+nqnpkl2NQwKBgHpsOuseh7TSJ108K6k4IeYudTJAyfvicQuSs2b8uOLHF1h1CGlP
+534wl9iOtxIvx4+6qaUlT8V84uCQhpfy8b5kR1IAWusXxdjkCZIj3fcVSNaF452o
+SFnja9PB9RNflviwNiGtFrHroVc1s4ER15nQ4v5EzrfFkLTt2gNqmaj5AoGAJQEE
+dANrndnCDfJItUC2p6+1o/WnLMOqI49VYhMo7VUji2CjkByfqIcmPhfTlj0KoZFi
+qvsf4V9r5+pbt/NWYSFBIdqs19g+P6yvXzW0GfpVrPcWHAW/fiYaGHFRDC+qD/yu
++JnRsZtlcazS52vUrBiZpL3/WMZxCnQzJTZlcXcCgYEAyid99D5f4shDiLR3kpqB
+2dcwq33s8el5lAVR1TCwhV2PmOaY3xTZIKxcD+jwzsfFi8RllbDME1BxaQq6lixe
+z53Ad2UqiZDrp25FXeymHyHIDoqQusWklyRMhgUa2LdC7O6C+CwmphZu1UYPc96u
+ktLJtDeHeLR8H4sISKTdAI4=
+-----END PRIVATE KEY-----
+   ```
+   
+   **หมายเหตุ:** สำหรับ FIREBASE_PRIVATE_KEY ใน Vercel ให้วางทั้งหมดรวมถึง line breaks (ไม่ต้องใส่ \n)
 
 5. **Deploy**
    - Click "Deploy"

@@ -1,6 +1,6 @@
-import { createBuild, updateBuild, getBuild } from './firestore';
-import { allMods, allCharacters, allWeapons } from './data';
-import type { Build } from './types';
+import { createBuild, updateBuild, getBuild } from '@/lib/firestore';
+import { allMods, allCharacters, allWeapons } from '@/lib/data';
+import type { Build } from '@/lib/types';
 
 export async function saveBuildToFirestore(
   buildData: Omit<Build, 'id' | 'createdAt' | 'updatedAt'>,
