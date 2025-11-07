@@ -1,0 +1,466 @@
+{
+  "placeholderImages": [
+    {
+      "id": "character-emberlyn",
+      "description": "A fiery female knight character.",
+      "imageUrl": "https://images.unsplash.com/photo-1635921480215-cefbf57cef53?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwd2FycmlvcnxlbnwwfHx8fDE3NjIzNTM4NDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy warrior"
+    },
+    {
+      "id": "character-aquatos",
+      "description": "A hydro male mage character.",
+      "imageUrl": "https://images.unsplash.com/photo-1635921481467-fba710b8e65c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYW50YXN5JTIwbWFnZXxlbnwwfHx8fDE3NjI0MzQwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy mage"
+    },
+    {
+      "id": "character-zephyr",
+      "description": "An anemo female archer character.",
+      "imageUrl": "https://images.unsplash.com/photo-1712577479356-750690c94ade?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmYW50YXN5JTIwYXJjaGVyfGVufDB8fHx8MTc2MjM4NTY1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy archer"
+    },
+    {
+      "id": "character-raiden",
+      "description": "An electro male swordsman character.",
+      "imageUrl": "https://images.unsplash.com/photo-1522008547509-9f935702a244?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxmYW50YXN5JTIwc3dvcmRzbWFufGVufDB8fHx8MTc2MjQ1MzIwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy swordsman"
+    },
+    {
+      "id": "weapon-sunfire-blade",
+      "description": "A legendary fire sword.",
+      "imageUrl": "https://images.unsplash.com/photo-1760048909772-a9ebc1b783d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmYW50YXN5JTIwc3dvcmR8ZW58MHx8fHwxNzYyNDM4NzM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy sword"
+    },
+    {
+      "id": "weapon-tome-of-the-abyss",
+      "description": "A mystical water catalyst.",
+      "imageUrl": "https://images.unsplash.com/photo-1557071661-3015d8b09ed2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtYWdpYyUyMG9yYnxlbnwwfHx8fDE3NjI0MTE3MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "magic orb"
+    },
+    {
+      "id": "weapon-gale-harp",
+      "description": "An elegant wind bow.",
+      "imageUrl": "https://images.unsplash.com/photo-1631290235496-b73219233bbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmYW50YXN5JTIwYm93fGVufDB8fHx8MTc2MjQ1MzIwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy bow"
+    },
+    {
+      "id": "weapon-mountain-splitter",
+      "description": "A heavy geo claymore.",
+      "imageUrl": "https://images.unsplash.com/photo-1626681957222-37e2befb375c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYW50YXN5JTIwZ3JlYXRzd29yZHxlbnwwfHx8fDE3NjI0NTMyMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy greatsword"
+    },
+    {
+      "id": "character-hellfire",
+      "description": "A character named Hellfire.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/hellfire.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-berenica",
+      "description": "A character named Berenica.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/berenica.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-daphne",
+      "description": "A character named Daphne.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/daphne.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-fina",
+      "description": "A character named Fina.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/fina.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-fushu",
+      "description": "A character named Fushu.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/fushu_v2.png",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-hilda",
+      "description": "A character named Hilda.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/hilda.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-kezhou",
+      "description": "A character named Kezhou.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/kezhou.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-lady-nifle",
+      "description": "A character named Lady Nifle.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/lady-nifle_v2.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-lisbell",
+      "description": "A character named Lisbell.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/lisbell.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-lynn",
+      "description": "A character named Lynn.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/lynn_v2.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-margie",
+      "description": "A character named Margie.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/margie.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-outsider",
+      "description": "A character named Outsider.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/outsider_v2.png",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-phantasio",
+      "description": "A character named Phantasio.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/phantasio_v2.png",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-player",
+      "description": "The main player character.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/player.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-psyche",
+      "description": "A character named Psyche.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/psyche.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-randy",
+      "description": "A character named Randy.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/randy_v2.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-rebecca",
+      "description": "A character named Rebecca.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/rebecca.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-rhythm",
+      "description": "A character named Rhythm.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/rhythm_v2.png",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-sibylle",
+      "description": "A character named Sibylle.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/sibylle_v2.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-tabethe",
+      "description": "A character named Tabethe.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/tabethe.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-truffle-and-filbert",
+      "description": "Characters named Truffle and Filbert.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/trufle-filbert_v2.png",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-yale-and-oliver",
+      "description": "Characters named Yale and Oliver.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/yale-oliver.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-yuming",
+      "description": "A character named Yuming.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/yuming.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "character-zhiliu",
+      "description": "A character named Zhiliu.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/character/zhiliu.PNG",
+      "imageHint": "fantasy character"
+    },
+    {
+      "id": "weapon-arclight-apocalypses",
+      "description": "A weapon named Arclight Apocalypses.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/arclight_apocalypses_v2.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-aureate-yore",
+      "description": "A weapon named Aureate Yore.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/aurate_yore_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-blade-amberglow",
+      "description": "A weapon named Blade Amberglow.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/blade_amberglow_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-blast-artistry",
+      "description": "A weapon named Blast Artistry.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/blast_artistry_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-bluecurrent-pulse",
+      "description": "A weapon named Bluecurrent Pulse.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/bluecurrent_pulse_v2.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-day-of-sacred-verdict",
+      "description": "A weapon named Day of Sacred Verdict.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/day_of_sacred_verdict_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-daybreak-hymn",
+      "description": "A weapon named Daybreak Hymn.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/daybreak_hymn_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-destructo",
+      "description": "A weapon named Destructo.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/destructo_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-dreamweavers-feather",
+      "description": "A weapon named Dreamweaver's Feather.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/dreamweaver_feather.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-elpides-abound",
+      "description": "A weapon named Elpides Abound.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/elpides_abound_v2.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-embla-inflorescence",
+      "description": "A weapon named Embla Inflorescence.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/embla_inflorescence_v2.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-entropic-singularity",
+      "description": "A weapon named Entropic Singularity.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/entropic_singularity_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-excresduo",
+      "description": "A weapon named Excresduo.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/excresduo_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-exiled-fangs",
+      "description": "A weapon named Exiled Fangs.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/exiled_fangs_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-exiled-thunderwyrm",
+      "description": "A weapon named Exiled Thunderwyrm.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/exiled_thunderwyrm_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-fathomless-sharkgaze",
+      "description": "A weapon named Fathomless Sharkgaze.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/fathomless_sharkgaze_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-flamme-de-epuration",
+      "description": "A weapon named Flamme De Epuration.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/flamme_de_epuration_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-guixu-ratchet",
+      "description": "A weapon named Guixu Ratchet.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/guixu_ratchet_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-ingenious-tactics",
+      "description": "A weapon named Ingenious Tactics.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/ingenious_tactics_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-ironforger",
+      "description": "A weapon named Ironforger.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/ironforger_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-momiji-itteki",
+      "description": "A weapon named Momiji Itteki.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/momiji_itteki_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-osteobreaker",
+      "description": "A weapon named Osteobreaker.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/osteobreaker_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-punitive-inferno",
+      "description": "A weapon named Punitive Inferno.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/punitive_inferno_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-pyrothirst",
+      "description": "A weapon named Pyrothirst.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/pyrothirst_v2.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-remanent-reminiscence",
+      "description": "A weapon named Remanent Reminiscence.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/remanent_reminiscence_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-rendhusk",
+      "description": "A weapon named Rendhusk.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/rendhusk_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-sacred-favour",
+      "description": "A weapon named Sacred Favour.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/sacred_favour_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-sacrosanct-chorus",
+      "description": "A weapon named Sacrosanct Chorus.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/sacrosanct_chorus_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-sacrosant-decrcee",
+      "description": "A weapon named Sacrosant Decrcee.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/sacrosanct_decree_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-screamshot",
+      "description": "A weapon named Screamshot.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/screamshot_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-searing-sandwhisper",
+      "description": "A weapon named Searing Sandwhisper.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/searing_sandwhisper_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-shackle-of-lonewolf",
+      "description": "A weapon named Shackle of Lonewolf.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/shackle_of_lonewolf_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-silent-sower",
+      "description": "A weapon named Silent Sower.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/silent_sower_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-silverwhite-edict",
+      "description": "A weapon named Silverwhite Edict.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/silverwhite_edict_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-sirens-kiss",
+      "description": "A weapon named Siren's Kiss.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/siren_kiss_v3.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-soulrend",
+      "description": "A weapon named Soulrend.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/soulrend_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-stellar-finality",
+      "description": "A weapon named Stellar Finality.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/stellar_finality_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-submerged-serenade",
+      "description": "A weapon named Submerged Serenade.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/submerged_serenade_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-tetherlash",
+      "description": "A weapon named Tetherlash.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/tetherlash_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-undying-oneiros",
+      "description": "A weapon named Undying Oneiros.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/undying_oneiros_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-vernal-jade-halberd",
+      "description": "A weapon named Vernal Jade Halberd.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/vernal_jade_halberd_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-viridis-reefs",
+      "description": "A weapon named Viridis Reefs.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/viridis_reefs_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-wandering-rose",
+      "description": "A weapon named Wandering Rose.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/wandering_rose_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-wanewraith",
+      "description": "A weapon named Wanewraith.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/wanewraith_v1.PNG",
+      "imageHint": "fantasy weapon"
+    },
+    {
+      "id": "weapon-withershade",
+      "description": "A weapon named Withershade.",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/withershade_v1.PNG",
+      "imageHint": "fantasy weapon"
+    }
+  ]
+}
