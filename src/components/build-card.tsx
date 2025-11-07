@@ -147,9 +147,11 @@ export default function BuildCard({ build, showEditButton = false, onDelete }: B
               </div>
             </CardHeader>
             <CardContent className="flex-grow p-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <User className="h-4 w-4" />
-                <span>{build.creator}</span>
+              <div className="flex items-center gap-2 text-sm mb-2">
+                <User className="h-4 w-4 text-primary" />
+                <span className="font-medium text-foreground">
+                  {build.creator || 'Anonymous'}
+                </span>
               </div>
               {build.contentFocus && build.contentFocus.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-2">

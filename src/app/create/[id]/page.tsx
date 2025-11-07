@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { notFound, useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { allCharacters, allWeapons, allMods } from '@/lib/data';
 import type { Character, Weapon } from '@/lib/types';
 import type { Mod, ModRarity, ModType, Element as ModElement } from '@/lib/types';
@@ -542,6 +543,29 @@ export default function CreateBuildDetailPage() {
 
     if (!item) {
         notFound();
+    }
+
+    if (!user) {
+        return (
+            <div className="container mx-auto px-4 py-16">
+                <div className="max-w-md mx-auto text-center">
+                    <div className="mb-6">
+                        <Users className="h-16 w-16 mx-auto text-muted-foreground" />
+                    </div>
+                    <h1 className="text-3xl font-headline font-bold mb-4">
+                        Login Required
+                    </h1>
+                    <p className="text-muted-foreground mb-8">
+                        You need to be logged in to create builds. Please login to continue.
+                    </p>
+                    <Button asChild size="lg">
+                        <Link href="/">
+                            Go to Home
+                        </Link>
+                    </Button>
+                </div>
+            </div>
+        );
     }
 
     const handleSaveBuild = () => {
