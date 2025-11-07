@@ -16,30 +16,10 @@ export const buildSchema = z.object({
 
 export type BuildInput = z.infer<typeof buildSchema>;
 
-// User validation schema
-export const userSchema = z.object({
-  username: z.string().min(3, 'Username must be at least 3 characters').max(20, 'Username is too long'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
-  displayName: z.string().min(1, 'Display name is required').max(50, 'Display name is too long').optional(),
-});
-
-export type UserInput = z.infer<typeof userSchema>;
-
 // Validation helper functions
 export function validateBuild(data: unknown) {
   try {
     return { success: true, data: buildSchema.parse(data) };
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return { success: false, errors: error.errors };
-    }
-    return { success: false, errors: [{ message: 'Unknown validation error' }] };
-  }
-}
-
-export function validateUser(data: unknown) {
-  try {
-    return { success: true, data: userSchema.parse(data) };
   } catch (error) {
     if (error instanceof z.ZodError) {
       return { success: false, errors: error.errors };

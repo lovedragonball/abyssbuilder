@@ -101,10 +101,8 @@ describe('Build Creation', () => {
 ## Manual Testing Checklist
 
 ### Authentication
-- [ ] Sign up with valid credentials
-- [ ] Sign up with invalid credentials (too short)
-- [ ] Sign in with correct password
-- [ ] Sign in with wrong password
+- [ ] Sign in with Google
+- [ ] Handle Google sign-in cancellation/denial gracefully
 - [ ] Sign out
 - [ ] Update display name
 

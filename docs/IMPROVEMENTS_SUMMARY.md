@@ -66,16 +66,16 @@ storage.setItem(STORAGE_KEYS.BUILDS, builds);
 ### 4. Validation
 **Before:**
 ```typescript
-// No validation - accepts any data
-const signUp = (username, password) => {
-  // Save directly
+// Builds accepted without validation
+const saveBuild = (data: any) => {
+  storage.setItem(STORAGE_KEYS.BUILDS, data);
 };
 ```
 
 **After:**
 ```typescript
-// Zod validation
-const validation = validateUser({ username, password });
+// Zod validation for builds
+const validation = validateBuild(buildInput);
 if (!validation.success) {
   throw new Error(validation.errors[0].message);
 }

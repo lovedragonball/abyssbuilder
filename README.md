@@ -9,7 +9,7 @@ A Next.js application for creating and sharing character/weapon builds.
 - 👥 Team setup with support characters and weapons
 - 📝 Write guides for your builds
 - 🔒 Public/Private build visibility
-- 👤 User authentication with username/password
+- 👤 User authentication with Google Sign-In
 - 💾 Safe data persistence with error handling
 - 🛡️ Global error boundary for crash protection
 - ✅ Input validation with Zod

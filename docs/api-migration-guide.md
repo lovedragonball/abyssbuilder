@@ -82,17 +82,10 @@ export class ApiService {
   }
 
   // Auth
-  static async signIn(username: string, password: string) {
-    return this.request<{ user: User; token: string }>('/api/auth/signin', {
+  static async authenticateWithGoogle(idToken: string) {
+    return this.request<{ user: User; token: string }>('/api/auth/google', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
-    });
-  }
-
-  static async signUp(username: string, password: string) {
-    return this.request<{ user: User; token: string }>('/api/auth/signup', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ idToken }),
     });
   }
 }
@@ -236,8 +229,9 @@ export const buildsRouter = router;
 -- Users table
 CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  username VARCHAR(50) UNIQUE NOT NULL,
-  password_hash VARCHAR(255) NOT NULL,
+  firebase_uid VARCHAR(128) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  username VARCHAR(50),
   display_name VARCHAR(100),
   photo_url TEXT,
   created_at TIMESTAMP DEFAULT NOW(),
@@ -310,8 +304,8 @@ export function authenticateToken(req, res, next) {
 ### Update Auth Context:
 
 ```typescript
-const signIn = async (username: string, password: string) => {
-  const { user, token } = await ApiService.signIn(username, password);
+const authenticateWithGoogle = async (idToken: string) => {
+  const { user, token } = await ApiService.authenticateWithGoogle(idToken);
   
   // Store token
   storage.setItem('auth_token', token);
@@ -345,12 +339,14 @@ import data from './data-export.json';
 
 async function importData() {
   // Import users
-  for (const [username, userData] of Object.entries(data.users)) {
+  for (const [uid, userData] of Object.entries(data.users)) {
     await db.users.create({
       data: {
-        username,
-        password_hash: userData.password, // Hash this!
+        firebase_uid: uid,
+        email: userData.email,
+        username: userData.username,
         display_name: userData.displayName,
+        photo_url: userData.photoURL,
       },
     });
   }

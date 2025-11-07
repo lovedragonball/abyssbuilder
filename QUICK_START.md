@@ -287,14 +287,14 @@ CMD ["npm", "start"]
    - XSS protection built-in
    - SQL injection not applicable (no SQL)
 
-2. **Data Storage**
-   - localStorage only (client-side)
-   - No sensitive data stored
-   - Passwords not hashed (demo only)
+2. **Authentication & Data Storage**
+   - Firebase Google Sign-In handles credentials (no passwords stored)
+   - Only minimal profile data cached client-side for UX
+   - Sign out clears any cached session data
 
 3. **Future: Backend**
-   - Use JWT for authentication
-   - Hash passwords with bcrypt
+   - Verify Firebase ID tokens on the server
+   - Issue JWTs only after verification (if custom API is added)
    - Validate all API inputs
    - Use HTTPS only
 

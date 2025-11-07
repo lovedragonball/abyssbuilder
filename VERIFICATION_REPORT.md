@@ -267,9 +267,8 @@ Route (app)                    Size    First Load JS
 - [x] Error boundaries prevent crashes
 
 ### Future Recommendations
-- [ ] Add backend authentication
-- [ ] Implement JWT tokens
-- [ ] Hash passwords (bcrypt)
+- [ ] Add backend authentication (server-side verification of Firebase ID tokens)
+- [ ] Issue JWT tokens after verifying Google-authenticated users (if building custom API)
 - [ ] Add rate limiting
 - [ ] Implement CORS properly
 

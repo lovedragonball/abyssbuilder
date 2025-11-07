@@ -23,6 +23,11 @@
 - ✅ Animation status and usage examples
 - ✅ Troubleshooting guide
 
+### Authentication
+- ✅ Replaced legacy username/password flow with Firebase Google Sign-In
+- ✅ Removed unused credential validation utilities
+- ✅ Updated documentation to reflect Google-based authentication
+
 ---
 
 ## [Previous] - Enhanced Build Detail Page with Mod Images 🎨
