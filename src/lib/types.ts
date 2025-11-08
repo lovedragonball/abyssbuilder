@@ -15,6 +15,7 @@ export type Character = {
   ranged: RangedWeaponType;
   rarity?: 4 | 5;
   lore?: string;
+  hasConsonanceWeapon?: boolean;
 };
 
 export type Weapon = {

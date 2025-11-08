@@ -1,6 +1,7 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+  reactStrictMode: false, // ปิด Strict Mode เพื่อแก้ปัญหา Leaflet double initialization
   typescript: {
     ignoreBuildErrors: true,
   },

@@ -30,6 +30,9 @@ export const modImages: Record<string, string> = {
     // Feathered Serpent
     "feathered-serpent": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/feathered_serpent.png",
     
+    // Fenrir
+    "fenrir": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/fenrir.png",
+    
     // Griffin series
     "griffin-anemo": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/griffin_anemo.png",
     "griffin-electro": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/griffin_electro.png",

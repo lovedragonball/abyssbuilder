@@ -7,7 +7,7 @@ const getImage = (id: string) => PlaceHolderImages.find(img => img.id === id)?.i
 const generateId = (name: string) => name.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
 
 export const allCharacters: Character[] = [
-  { name: 'Berenica', element: 'Umbro', role: 'DPS (Weapon DMG)', melee: 'Sword', ranged: 'Dual Pistols' },
+  { name: 'Berenica', element: 'Umbro', role: 'DPS (Weapon DMG)', melee: 'Sword', ranged: 'Dual Pistols', hasConsonanceWeapon: true },
   { name: 'Daphne', element: 'Anemo', role: 'Support (CC, Healing)', melee: 'Whipsword', ranged: 'Assault Rifle' },
   { name: 'Fina', element: 'Hydro', role: 'Support', melee: 'Whipsword', ranged: 'Pistol' },
   { name: 'Fushu', element: 'Umbro', role: 'DPS (Weapon DMG)', melee: 'Katana', ranged: 'Pistol' },
@@ -15,8 +15,8 @@ export const allCharacters: Character[] = [
   { name: 'Hilda', element: 'Electro', role: 'DPS (Skill Damage)', melee: 'Whipsword', ranged: 'Assault Rifle' },
   { name: 'Kezhou', element: 'Pyro', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Grenade Launcher' },
   { name: 'Lady Nifle', element: 'Lumino', role: 'DPS (Skill Damage)', melee: 'Katana', ranged: 'Pistol' },
-  { name: 'Lisbell', element: 'Lumino', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Shotgun' },
-  { name: 'Lynn', element: 'Pyro', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Dual Pistols' },
+  { name: 'Lisbell', element: 'Lumino', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Shotgun', hasConsonanceWeapon: true },
+  { name: 'Lynn', element: 'Pyro', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Dual Pistols', hasConsonanceWeapon: true },
   { name: 'Margie', element: 'Pyro', role: 'DPS (Skill DMG, CC)', melee: 'Polearm', ranged: 'Shotgun' },
   { name: 'Outsider', element: 'Anemo', role: 'DPS (Weapon DMG)', melee: 'Dual Blades', ranged: 'Dual Pistols' },
   { name: 'Phantasio', element: 'Umbro', role: 'DPS (Skill DMG)', melee: 'Greatsword', ranged: 'Shotgun' },
@@ -1855,6 +1855,1326 @@ export const allMods: Mod[] = [
     "tolerance": 10,
     "track": 5,
     "source": "Level 40"
+  }
+,
+  {
+    "name": "Feathered Serpent's Blastwave",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "effect": "Upon landing from a height, deals Smash Damage equal to 128% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Cutoff",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "–",
+    "effect": "While taking damage mid-air, the damage taken is reduced by 10%. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Helido",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "effect": "When performing a Helix Leap, deals Anemo Damage equal to 256% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Ignite",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "effect": "When performing a Helix Leap, deals Pyro Damage equal to 256% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Prance",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "◊",
+    "mainAttribute": "–",
+    "effect": "After defeating an enemy in mid-air, reset the character's air jump count, up to a maximum of 6 times. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Recovery",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "Damage Taken Rate +50%",
+    "effect": "Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Rescue",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "–",
+    "effect": "When using Ultimate Skill, restores HP equal to 3% of max HP to teammates within a 10-metre range. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Sidestep",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "Dodge Attempt +1",
+    "effect": "Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Steadfast",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "effect": "Gains immunity to Hitsun, but Damage Dealt is reduced by 15% (unaffected by other modifiers). Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Unyielding",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "–",
+    "effect": "Survives Fatal damage, reducing the character's HP to 1. This effect can only be triggered once every 300s max. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Feathered Serpent's Vigilant",
+    "rarity": 3,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "–",
+    "effect": "When taking damage, there is a 50% chance to reduce damage taken by 20%. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
+    "tolerance": 7,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Afterimage",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Fenrir's Blade Feint",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "ATK Speed +20%",
+    "effect": "Upgrades the Dual Blades Normal Attack to combine the blades into a returning throw. Deals double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Blitz",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "Sliding Attack DMG +20%.",
+    "tolerance": 17,
+    "track": 5,
+    "source": "Level 55, Level 60"
+  },
+  {
+    "name": "Fenrir's Brutality",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "–",
+    "tolerance": 20,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Fenrir's Commanding Thrust",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "ATK Range +0.8",
+    "effect": "Upgrades the Polearm Normal Attack to summon phantom spears that strike the target. Deals double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Continuity",
+    "rarity": 3,
+    "modType": "Melee Weapon",
+    "mainAttribute": "Combo Duration +6",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Fenrir's Crescent Flurry",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "ATK Range +0.8",
+    "effect": "Upgrades the Katana Charged Attack. Upon striking an enemy, the character leaps into the air and slams down, dealing multiple hits to surrounding foes for double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Divine Herald Hunt",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Fenrir's Dropshot",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "Plunge DMG +20%.",
+    "tolerance": 17,
+    "track": 5,
+    "source": "Level 55"
+  },
+  {
+    "name": "Fenrir's Edgeless Blade",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "ATK Speed +20%",
+    "effect": "Upgrades the Greatsword Normal Attack to unleash 3 swordwaves upon final hit, cleaving through enemies in your path for double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Fervor",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Fenrir's Filthoid Hunt",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Fenrir's Flash Strike",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "Sliding Attack SPD +50%.",
+    "tolerance": 17,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Fenrir's Forsaken Hunt",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Fenrir's Fortune",
+    "rarity": 3,
+    "modType": "Melee Weapon",
+    "mainAttribute": "–",
+    "tolerance": 12,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Fenrir's In Full Bloom",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "ATK Speed +20%",
+    "effect": "Upgrades the Dual Blades Sliding Attack into a lethal dash, slashing through all enemies in your path for double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Kismet",
+    "rarity": 3,
+    "modType": "Melee Weapon",
+    "mainAttribute": "–",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Fenrir's Legion Hunt",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◬",
+    "mainAttribute": "–",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Fenrir's Patrol",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "–",
+    "tolerance": 11,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Fenrir's Pierce",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◬",
+    "mainAttribute": "HP Reduce on Bonus Effect: Spike +80%.",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Fenrir's Piercing Ascent",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "CRIT Chance +40%",
+    "effect": "Upgrades the Polearm Charged Attack to launch a forward dash, damaging enemies in the user's path for double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Puncture Cascade",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "CRIT Damage +50%",
+    "effect": "Upgrades the Polearm Charged Attack to throw 5 polearms forward, attacking enemies in your path for double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Savage Charge",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "ATK +50%",
+    "effect": "Upgrades the Greatsword Charged Attack to allow movement during charging while capturing controllable monsters along the path (up to 4). Spending combos extends the charging window, culminating in a powerful AOE attack upon release or timeout that deals double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Severance",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◬",
+    "mainAttribute": "Shield Reduce on Bonus Effect: Slash +80%.",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 55"
+  },
+  {
+    "name": "Fenrir's Shockwave Echo",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "CRIT Chance +40%",
+    "effect": "Upgrades the Polearm Plunging Attack to trigger a bigger shockwave on impact, dealing double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Sundering Edgefield",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "CRIT Chance +40%",
+    "effect": "Upgrades Sword Charged Attack to deal double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Fenrir's Swift Dropshot",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "Plunge ATK Speed +50%.",
+    "tolerance": 17,
+    "track": 5,
+    "source": "Level 55, Level 60"
+  },
+  {
+    "name": "Fenrir's Swift Momentum",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "Charged ATK Speed +50%",
+    "tolerance": 17,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Fenrir's Utmost",
+    "rarity": 3,
+    "modType": "Melee Weapon",
+    "mainAttribute": "–",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Fenrir's Vigilance",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "–",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Fenrir's Whirl of Illusion",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "symbol": "◊",
+    "mainAttribute": "ATK Speed +20%",
+    "effect": "Upgrades Sword Normal Attack to deal double the damage of the standard attack.",
+    "tolerance": 25,
+    "track": 5,
+    "source": "Shop Exchange"
+  },
+  {
+    "name": "Hastur's Turbulent Cyclone",
+    "rarity": 4,
+    "modType": "Characters",
+    "element": "Anemo",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Duration +24%",
+    "effect": "When an Anemo character character's ranged weapon triggers a bonus effect, grants +5.4% resolve to the user and nearby allies for 10s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Hastur's Turbulent Cyclone",
+    "rarity": 5,
+    "modType": "Characters",
+    "element": "Anemo",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Duration +24%",
+    "effect": "When an Anemo character character's ranged weapon triggers a bonus effect, grants +5.4% resolve to the user and nearby allies for 10s.",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Hastur's Whispering Zephyr",
+    "rarity": 4,
+    "modType": "Characters",
+    "element": "Anemo",
+    "symbol": "⊙",
+    "mainAttribute": "Skill DMG +30%",
+    "effect": "When an Anemo character uses Combat Skills, it gains 84% Skill Damage increase for 6s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Hastur's Whispering Zephyr",
+    "rarity": 5,
+    "modType": "Characters",
+    "element": "Anemo",
+    "symbol": "⊙",
+    "mainAttribute": "Skill DMG +30%",
+    "effect": "When an Anemo character uses Combat Skills, it gains 84% Skill Damage increase for 6s.",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Helios's Glimm & Glimmer",
+    "rarity": 4,
+    "modType": "Characters",
+    "element": "Lumino",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Duration +24%",
+    "effect": "Increases the Lumino character's ATK by [their current Skill Duration x 48.6%], up to 117%.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Helios's Glimm & Glimmer",
+    "rarity": 5,
+    "modType": "Characters",
+    "element": "Lumino",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Duration +24%",
+    "effect": "Increases the Lumino character's ATK by [their current Skill Duration x 48.6%], up to 117%.",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Helios's Prismatic Neon",
+    "rarity": 4,
+    "modType": "Characters",
+    "element": "Lumino",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Duration +24%",
+    "effect": "When enemies near a Lumino character take Weapon DMG, CRIT Chance increases by 32.7%. Gains an additional +8.2% against targets with debuffs.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Helios's Prismatic Neon",
+    "rarity": 5,
+    "modType": "Characters",
+    "element": "Lumino",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Duration +24%",
+    "effect": "When enemies near a Lumino character take Weapon DMG CRIT Chance increases by 32.7%. Gains an additional +8.2% against targets with debuffs.",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Ifrit's Devouring Wildfire",
+    "rarity": 4,
+    "modType": "Characters",
+    "element": "Pyro",
+    "symbol": "⊙",
+    "mainAttribute": "Skill DMG +30%",
+    "effect": "When an Pyro character deals damage, gains 1 stack that increases ATK by 1% for 15s, up to 120 stacks",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Ifrit's Devouring Wildfire",
+    "rarity": 5,
+    "modType": "Characters",
+    "element": "Pyro",
+    "symbol": "⊙",
+    "mainAttribute": "Skill DMG +30%",
+    "effect": "When an Pyro character deals damage, gains 1 stack that increases ATK by 1% for 15s, up to 120 stacks",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Assault Rifle",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Assault Rifle",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Bow",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Bow",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Dual Blades",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Dual Blades",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Dual Pistols",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Dual Pistols",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Greatsword",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Greatsword",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Grenade Launcher",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Grenade Launcher",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Katana",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Katana",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Pistol",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Pistol",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Polearm",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Polearm",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Shotgun",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Shotgun",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Sword",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Sword",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Jormugand's Gleaming Whipsword",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Jormugand's Gleaming Whipsword",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Lilith's Celerity",
+    "rarity": 3,
+    "modType": "Ranged Weapon",
+    "mainAttribute": "ATK Speed +30%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Lilith's Celerity",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "ATK Speed +54%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Lilith's Crusher",
+    "rarity": 3,
+    "modType": "Ranged Weapon",
+    "mainAttribute": "Smash ATK +50%",
+    "tolerance": 12,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Lilith's Crusher",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "symbol": "◬",
+    "mainAttribute": "Smash ATK +54%",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Lilith's Edge",
+    "rarity": 3,
+    "modType": "Ranged Weapon",
+    "mainAttribute": "Slash ATK +50%",
+    "tolerance": 12,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Lilith's Edge",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "symbol": "◬",
+    "mainAttribute": "Slash ATK +54%",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Lilith's Focus",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "symbol": "◬",
+    "mainAttribute": "CRIT Chance +100%",
+    "tolerance": 17,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Lilith's Foldover",
+    "rarity": 3,
+    "modType": "Rangd Weapon",
+    "mainAttribute": "Multishot +60%",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Lilith's Foldover",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "symbol": "⊙",
+    "mainAttribute": "Multishot +82%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Lilith's Impetus",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Lilith's Impetus",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "symbol": "◬",
+    "mainAttribute": "ATK +82%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Lilith's Penetration",
+    "rarity": 3,
+    "modType": "Ranged Weapon",
+    "mainAttribute": "Spike ATK +50%",
+    "tolerance": 12,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Lilith's Penetration",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "symbol": "◬",
+    "mainAttribute": "Spike ATK +54%",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Lilith's Rage",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "symbol": "◬",
+    "mainAttribute": "CRIT Damage +100%",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Lilith's Rain of Quivers",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "symbol": "☽",
+    "mainAttribute": "Multishot +200%",
+    "effect": "Decrease the damage dealt by 60% (unaffected by other modifiers)",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 55"
+  },
+  {
+    "name": "Lilith's Trammel",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "symbol": "☽",
+    "mainAttribute": "Trigger Probability +100%",
+    "tolerance": 12,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Pan's Eternity",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "Skill Duration +20%",
+    "tolerance": 11,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Pan's Inspo",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "Skill Efficiency +16%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Pan's Spectrum",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "Skill Range +30%",
+    "tolerance": 8,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Pan's Volition",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "Skill DMG +24%",
+    "tolerance": 9,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Phoenix's Blaze",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "ATK +60%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Phoenix's Blaze",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Phoenix's Blessing",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "Shield +60%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Phoenix's Blessing",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "Shield +75%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Phoenix's Nirvana",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "HP +60%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Phoenix's Nirvana",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "HP +75%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Phoenix's Nirvana",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "HP +82%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Phoenix's Shield",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "Shield +82%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Phoenix's Standfast",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "DEF +60%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Phoenix's Standfast",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "DEF +75%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Phoenix's Standfast",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "☽",
+    "mainAttribute": "DEF +82%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Phoenix's Wings",
+    "rarity": 3,
+    "modType": "Characters",
+    "mainAttribute": "Max Sanity +40%",
+    "tolerance": 10,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Phoenix's Wings",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "Max Sanity +50%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Sphinx's Duel",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Sphinx's Duel",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Sphinx's Intrepidity",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "HP -27%",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Sphinx's Intrepidity",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "HP -27%",
+    "tolerance": 12,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Sphinx's Onslaught",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 17,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Sphinx's Onslaught",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 14,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Sphinx's Relentless",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Sphinx's Relentless",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 11,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Sphinx's Surge",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Sphinx's Surge",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Sphinx's Trapped",
+    "rarity": 4,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Sphinx's Trapped",
+    "rarity": 5,
+    "modType": "Characters",
+    "symbol": "⊙",
+    "mainAttribute": "–",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Summanus's Ravaging Thunder",
+    "rarity": 4,
+    "modType": "Characters",
+    "element": "Electro",
+    "symbol": "⊙",
+    "mainAttribute": "Skill DMG +30%",
+    "effect": "When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 5.4% for 16s, up to 8 stacks.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Summanus's Ravaging Thunder",
+    "rarity": 5,
+    "modType": "Characters",
+    "element": "Electro",
+    "symbol": "⊙",
+    "mainAttribute": "Skill DMG +30%",
+    "effect": "When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 5.4% for 16s, up to 8 stacks.",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Forge"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Lumino",
+    "mainAttribute": "ATK +40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Umbro",
+    "mainAttribute": "ATK +40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Pyro",
+    "mainAttribute": "ATK +40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Anemo",
+    "mainAttribute": "ATK +40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Electro",
+    "mainAttribute": "ATK +40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Hydro",
+    "mainAttribute": "ATK +40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
   }
 ].map(mod => ({ ...mod, image: getModImage(mod.name, mod.element) } as Mod));
 

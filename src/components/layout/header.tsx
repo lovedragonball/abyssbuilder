@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const navItems = [
-  { href: '/builds', label: 'Builds' },
   { href: '/create', label: 'New Build' },
+  { href: '/my-builds', label: 'My Build' },
+  { href: '/tier-list', label: 'Tier List' },
+  { href: '/map', label: 'Interactive Map' },
+  { href: '/attribute-optimizer', label: 'Attribute Optimizer' },
 ];
 
 

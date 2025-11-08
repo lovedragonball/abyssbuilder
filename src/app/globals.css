@@ -1,3 +1,5 @@
+@import 'leaflet/dist/leaflet.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -82,4 +84,71 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom Leaflet Map Styles */
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  font-family: inherit;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-top: none;
+  border-right: none;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #666;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #333;
+}
+
+/* Custom marker animation */
+.leaflet-marker-icon {
+  animation: markerBounce 0.5s ease-out;
+}
+
+@keyframes markerBounce {
+  0% {
+    transform: translateY(-20px) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(5px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Hover effect for markers */
+.leaflet-marker-icon:hover {
+  filter: brightness(1.2) drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Dark theme for map tiles */
+.leaflet-tile-pane {
+  filter: brightness(0.9) contrast(1.1);
 }

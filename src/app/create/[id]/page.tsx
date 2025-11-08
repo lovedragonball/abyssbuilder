@@ -76,7 +76,7 @@ const ModSlot = ({ mod, onDrop, onDragOver, onRemove }: { mod: Mod | null, onDro
                     {onRemove && (
                         <button
                             onClick={onRemove}
-                            className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground rounded-full p-0.5 z-10 hover:bg-destructive/80 transition-colors opacity-0 group-hover:opacity-100"
+                            className="absolute top-1 right-1 bg-destructive text-destructive-foreground rounded-full p-0.5 z-20 hover:bg-destructive/80 transition-colors"
                         >
                             <X className="w-3 h-3" />
                         </button>
@@ -448,16 +448,18 @@ export default function CreateBuildDetailPage() {
     const [buildName, setBuildName] = useState('');
     const [buildDescription, setBuildDescription] = useState('');
     const [buildGuide, setBuildGuide] = useState('');
-    const [visibility, setVisibility] = useState<'public' | 'private'>('public');
+
 
     const [team, setTeam] = useState<(Character | null)[]>([null, null]);
     const [supportWeapons, setSupportWeapons] = useState<(Weapon | null)[]>([null, null]);
+    const [consonanceWeapon, setConsonanceWeapon] = useState<Weapon | null>(null);
 
     const [supportMods, setSupportMods] = useState<Record<string, (Mod | null)[]>>({
         'support-char-0': Array(8).fill(null),
         'support-char-1': Array(8).fill(null),
         'support-wpn-0': Array(8).fill(null),
         'support-wpn-1': Array(8).fill(null),
+        'consonance-wpn': Array(4).fill(null),
     });
 
     const [isCharModalOpen, setCharModalOpen] = useState(false);
@@ -465,7 +467,7 @@ export default function CreateBuildDetailPage() {
     const [isSupportModModalOpen, setSupportModModalOpen] = useState(false);
 
     const [selectingSupportIndex, setSelectingSupportIndex] = useState<number | null>(null);
-    const [selectingWeaponSlot, setSelectingWeaponSlot] = useState<'support-0' | 'support-1' | null>(null);
+    const [selectingWeaponSlot, setSelectingWeaponSlot] = useState<'support-0' | 'support-1' | 'consonance' | null>(null);
 
     const [editingSupportSlot, setEditingSupportSlot] = useState<string | null>(null);
 
@@ -502,7 +504,7 @@ export default function CreateBuildDetailPage() {
                     setBuildName(existingBuild.buildName);
                     setBuildDescription(existingBuild.description || '');
                     setBuildGuide(existingBuild.guide || '');
-                    setVisibility(existingBuild.visibility || 'public');
+
 
                     // Load mods
                     const loadedMods = (existingBuild.mods || [])
@@ -522,6 +524,12 @@ export default function CreateBuildDetailPage() {
                         .filter(Boolean);
                     setSupportWeapons([...loadedWeapons, ...Array(2 - loadedWeapons.length).fill(null)]);
 
+                    // Load consonance weapon
+                    if (existingBuild.consonanceWeapon) {
+                        const loadedConsonance = allWeapons.find((w) => w.id === existingBuild.consonanceWeapon);
+                        if (loadedConsonance) setConsonanceWeapon(loadedConsonance);
+                    }
+
                     // Load support mods
                     if (existingBuild.supportMods) {
                         const loadedSupportMods: Record<string, (Mod | null)[]> = {};
@@ -529,7 +537,8 @@ export default function CreateBuildDetailPage() {
                             const mods = (modNames as string[])
                                 .map((modName) => allMods.find((m) => m.name === modName))
                                 .filter(Boolean);
-                            loadedSupportMods[key] = [...mods, ...Array(8 - mods.length).fill(null)];
+                            const maxSlots = key === 'consonance-wpn' ? 4 : 8;
+                            loadedSupportMods[key] = [...mods, ...Array(maxSlots - mods.length).fill(null)];
                         });
                         setSupportMods((prev) => ({ ...prev, ...loadedSupportMods }));
                     }
@@ -557,7 +566,7 @@ export default function CreateBuildDetailPage() {
             buildName: buildName,
             description: buildDescription,
             guide: buildGuide,
-            visibility: visibility,
+
             itemType: itemType,
             itemId: item.id,
             itemName: item.name,
@@ -566,6 +575,7 @@ export default function CreateBuildDetailPage() {
             mods: buildSlots.filter(Boolean).map(m => m?.name),
             team: team.filter(Boolean).map(c => c?.id),
             supportWeapons: supportWeapons.filter(Boolean).map(w => w?.id),
+            consonanceWeapon: consonanceWeapon?.id || null,
             supportMods: Object.entries(supportMods).reduce((acc, [key, mods]) => {
                 const filteredMods = mods.filter(Boolean).map(m => m?.name);
                 if (filteredMods.length > 0) {
@@ -597,10 +607,10 @@ export default function CreateBuildDetailPage() {
 
         toast({
             title: existingBuildId ? 'Build Updated!' : 'Build Saved!',
-            description: existingBuildId ? 'Your build has been updated.' : 'Your new build has been added to your profile.',
+            description: existingBuildId ? 'Your build has been updated.' : 'Your new build has been saved.',
         });
 
-        router.push('/profile');
+        router.push('/my-builds');
     };
 
     const handleSelectSupport = (character: Character) => {
@@ -626,6 +636,9 @@ export default function CreateBuildDetailPage() {
             newWeapons[1] = weapon;
             setSupportWeapons(newWeapons);
             slotId = 'support-wpn-1';
+        } else if (selectingWeaponSlot === 'consonance') {
+            setConsonanceWeapon(weapon);
+            slotId = 'consonance-wpn';
         }
 
         if (slotId) {
@@ -635,7 +648,7 @@ export default function CreateBuildDetailPage() {
         setWeaponModalOpen(false);
     }
 
-    const openWeaponModal = (slot: 'support-0' | 'support-1') => {
+    const openWeaponModal = (slot: 'support-0' | 'support-1' | 'consonance') => {
         setSelectingWeaponSlot(slot);
         setWeaponModalOpen(true);
     }
@@ -728,16 +741,33 @@ export default function CreateBuildDetailPage() {
                 mod.mainAttribute.toLowerCase().includes(searchLower) ||
                 (mod.effect && mod.effect.toLowerCase().includes(searchLower));
 
-            // Multi-select type filter
+            // Filter by item type
+            let itemTypeMatch = true;
+            if (itemType === 'character') {
+                // For characters with consonance weapon, show both character and consonance weapon mods
+                if ((item as Character).hasConsonanceWeapon) {
+                    itemTypeMatch = mod.modType === 'Characters' || 
+                                   mod.modType === 'Melee Consonance Weapon' || 
+                                   mod.modType === 'Ranged Consonance Weapon';
+                } else {
+                    // For regular characters, show only character mods
+                    itemTypeMatch = mod.modType === 'Characters';
+                }
+            } else if (itemType === 'weapon') {
+                // For weapons, show only weapon mods (excluding consonance)
+                itemTypeMatch = mod.modType === 'Melee Weapon' || mod.modType === 'Ranged Weapon';
+            }
+
+            // Multi-select type filter (only apply if user has selected filters)
             const typeMatch = modTypeFilters.length === 0 || modTypeFilters.includes(mod.modType);
 
             // Multi-select rarity filter
             const rarityMatch = rarityFilters.length === 0 || rarityFilters.includes(mod.rarity);
 
             const elementMatch = elementFilter === 'All' || !mod.element || mod.element === elementFilter;
-            return searchMatch && typeMatch && rarityMatch && elementMatch;
+            return searchMatch && itemTypeMatch && typeMatch && rarityMatch && elementMatch;
         });
-    }, [searchQuery, modTypeFilters, rarityFilters, elementFilter]);
+    }, [searchQuery, modTypeFilters, rarityFilters, elementFilter, itemType, item]);
 
     const MainModSlot = ({ mod, index }: { mod: Mod | null, index: number }) => (
         <ModSlot
@@ -851,22 +881,6 @@ export default function CreateBuildDetailPage() {
                                         />
                                     </div>
                                 </div>
-                                <div>
-                                    <Label className="text-base font-semibold">Visibility</Label>
-                                    <RadioGroup defaultValue="public" value={visibility} onValueChange={(value) => setVisibility(value as 'public' | 'private')} className="mt-2 flex gap-4">
-                                        <div className="flex items-center space-x-2">
-                                            <RadioGroupItem value="public" id="r1" />
-                                            <Label htmlFor="r1">Public</Label>
-                                        </div>
-                                        <div className="flex items-center space-x-2">
-                                            <RadioGroupItem value="private" id="r2" />
-                                            <Label htmlFor="r2">Private</Label>
-                                        </div>
-                                    </RadioGroup>
-                                    <p className="text-xs text-muted-foreground mt-1">
-                                        Public builds are visible to everyone. Private builds are only visible to you.
-                                    </p>
-                                </div>
                             </div>
                         </CardContent>
                     </Card>
@@ -926,13 +940,54 @@ export default function CreateBuildDetailPage() {
 
                 {/* Center Column - Build Config */}
                 <div className="lg:col-span-6">
-                    <div className="relative aspect-video rounded-lg bg-card/30 flex items-center justify-center p-8">
+                    <div className="relative aspect-video rounded-lg bg-card/30 flex flex-col items-center justify-center p-8">
+                        <h2 className="text-2xl font-bold text-center mb-6 z-10">
+                            {itemType === 'character' ? 'Character Build' : 'Weapon Build'}
+                        </h2>
                         <div className="grid grid-cols-4 gap-4 w-full max-w-lg z-10">
                             {buildSlots.map((mod, i) => (
                                 <MainModSlot key={i} mod={mod} index={i} />
                             ))}
                         </div>
                     </div>
+                    
+                    {itemType === 'character' && (item as Character).hasConsonanceWeapon && (
+                        <Card className="bg-card/50 mt-8">
+                            <CardHeader>
+                                <CardTitle className="flex items-center justify-center gap-2 text-lg">
+                                    <Crosshair className="w-5 h-5" /> Consonance Weapon
+                                </CardTitle>
+                                <p className="text-xs text-muted-foreground text-center">Optional</p>
+                            </CardHeader>
+                            <CardContent className="p-4">
+                                <div className="grid grid-cols-4 gap-2">
+                                    {supportMods['consonance-wpn'].map((mod, i) => (
+                                        <ModSlot
+                                            key={i}
+                                            mod={mod}
+                                            onDrop={(e) => {
+                                                e.preventDefault();
+                                                const modName = e.dataTransfer.getData("modName");
+                                                const foundMod = allMods.find(m => m.name === modName);
+                                                if (foundMod) {
+                                                    const newMods = [...supportMods['consonance-wpn']];
+                                                    newMods[i] = foundMod;
+                                                    setSupportMods(prev => ({ ...prev, 'consonance-wpn': newMods }));
+                                                }
+                                            }}
+                                            onDragOver={handleDragOver}
+                                            onRemove={() => {
+                                                const newMods = [...supportMods['consonance-wpn']];
+                                                newMods[i] = null;
+                                                setSupportMods(prev => ({ ...prev, 'consonance-wpn': newMods }));
+                                            }}
+                                        />
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
+                    )}
+                    
                     <Card className="bg-card/50 mt-8">
                         <CardHeader>
                             <CardTitle className="text-lg">Write a Guide</CardTitle>
@@ -965,13 +1020,22 @@ export default function CreateBuildDetailPage() {
                         <div className="grid grid-cols-1 gap-2">
                             <MultiSelectFilter
                                 label="All Types"
-                                options={[
-                                    { value: 'Characters' as ModType, label: 'Characters' },
-                                    { value: 'Melee Weapon' as ModType, label: 'Melee Weapon' },
-                                    { value: 'Ranged Weapon' as ModType, label: 'Ranged Weapon' },
-                                    { value: 'Melee Consonance Weapon' as ModType, label: 'Melee Consonance' },
-                                    { value: 'Ranged Consonance Weapon' as ModType, label: 'Ranged Consonance' },
-                                ]}
+                                options={
+                                    itemType === 'character' && (item as Character).hasConsonanceWeapon
+                                        ? [
+                                            { value: 'Characters' as ModType, label: 'Characters' },
+                                            { value: 'Melee Consonance Weapon' as ModType, label: 'Melee Consonance' },
+                                            { value: 'Ranged Consonance Weapon' as ModType, label: 'Ranged Consonance' },
+                                        ]
+                                        : itemType === 'character'
+                                        ? [
+                                            { value: 'Characters' as ModType, label: 'Characters' },
+                                        ]
+                                        : [
+                                            { value: 'Melee Weapon' as ModType, label: 'Melee Weapon' },
+                                            { value: 'Ranged Weapon' as ModType, label: 'Ranged Weapon' },
+                                        ]
+                                }
                                 selected={modTypeFilters}
                                 onToggle={toggleModTypeMain}
                                 onClear={() => setModTypeFilters([])}
