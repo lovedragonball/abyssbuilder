@@ -9,6 +9,7 @@ const navItems = [
   { href: '/tier-list', label: 'Tier List' },
   { href: '/map', label: 'Interactive Map' },
   { href: '/attribute-optimizer', label: 'Attribute Optimizer' },
+  { href: '/materials', label: 'Materials/Forging' },
 ];
 
 

@@ -17,38 +17,38 @@ interface TierData {
 const tierListData: Record<TierMode, Record<TierRank, TierData>> = {
   ramming: {
     T0: {
-      dps: ['Lynn', 'Lisbell', 'Berenica', 'Fushu'],
-      support: ['Truffle and Filbert', 'Daphne'],
+      dps: ['Lynn', 'Rebecca', 'Rhythm', 'Psyche', 'Hellfire', 'Lady Nifle', 'Lisbell'],
+      support: ['Tabethe', 'Truffle and Filbert', 'Fina'],
     },
     T1: {
-      dps: ['Kezhou', 'Outsider', 'Psyche', 'Player'],
-      support: ['Fina', 'Yuming', 'Randy'],
+      dps: ['Berenica', 'Outsider', 'Phantasio'],
+      support: ['Daphne', 'Randy', 'Protagonist'],
     },
     T2: {
-      dps: ['Hellfire', 'Rhythm', 'Yale and Oliver', 'Phantasio'],
-      support: ['Tabethe'],
+      dps: ['Sibylle', 'Yale and Oliver'],
+      support: ['Margie'],
     },
     T3: {
-      dps: ['Margie', 'Zhiliu', 'Lady Nifle'],
+      dps: ['Margie'],
       support: [],
     },
   },
   boss: {
     T0: {
-      dps: ['Lynn', 'Berenica', 'Fushu', 'Lisbell', 'Kezhou', 'Lady Nifle'],
-      support: ['Truffle and Filbert', 'Daphne', 'Fina'],
+      dps: ['Lynn', 'Psyche', 'Lady Nifle', 'Lisbell'],
+      support: ['Truffle and Filbert', 'Fina'],
     },
     T1: {
-      dps: ['Outsider', 'Hellfire', 'Phantasio', 'Rhythm'],
-      support: ['Yuming', 'Randy', 'Tabethe'],
+      dps: ['Berenica', 'Phantasio', 'Rebecca', 'Sibylle'],
+      support: ['Daphne', 'Tabethe', 'Protagonist'],
     },
     T2: {
-      dps: ['Yale and Oliver'],
-      support: ['Hilda'],
+      dps: ['Outsider', 'Rhythm', 'Yale and Oliver', 'Hellfire'],
+      support: ['Margie'],
     },
     T3: {
       dps: ['Margie'],
-      support: [],
+      support: ['Randy'],
     },
   },
 };

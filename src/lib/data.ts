@@ -1,10 +1,16 @@
 import type { Build, Character, Weapon, Mod, MeleeWeaponType, RangedWeaponType } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 import { getModImage } from './mod-images';
+import { weaponDetails } from './weapon-details';
 
 const getImage = (id: string) => PlaceHolderImages.find(img => img.id === id)?.imageUrl ?? `https://picsum.photos/seed/${id}/400/400`;
 
 const generateId = (name: string) => name.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
+
+const mergeWeaponDetails = (weapon: Weapon): Weapon => {
+  const details = weaponDetails[weapon.id];
+  return details ? { ...weapon, ...details } : weapon;
+};
 
 export const allCharacters: Character[] = [
   { name: 'Berenica', element: 'Umbro', role: 'DPS (Weapon DMG)', melee: 'Sword', ranged: 'Dual Pistols', hasConsonanceWeapon: true },
@@ -55,7 +61,7 @@ export const allMeleeWeapons: Weapon[] = [
   { name: 'Wandering Rose', type: 'Sword', attackType: 'Spike', maxAttack: 251.04 },
   { name: 'Wanewraith', type: 'Polearm', attackType: 'Slash', maxAttack: 238.49 },
   { name: 'Withershade', type: 'Katana', attackType: 'Smash', maxAttack: 213.39 }
-].map(w => ({ ...w, id: generateId(w.name), image: getImage(`weapon-${generateId(w.name)}`) } as Weapon)).sort((a, b) => a.name.localeCompare(b.name));
+].map(w => mergeWeaponDetails({ ...w, id: generateId(w.name), image: getImage(`weapon-${generateId(w.name)}`) } as Weapon)).sort((a, b) => a.name.localeCompare(b.name));
 
 export const allRangedWeapons: Weapon[] = [
   { name: 'Arclight Apocalypses', type: 'Bow', attackType: 'Smash', maxAttack: 225.94 },
@@ -82,7 +88,7 @@ export const allRangedWeapons: Weapon[] = [
   { name: 'Soulrend', type: 'Bow', attackType: 'Smash', maxAttack: 238.49 },
   { name: 'Stellar Finality', type: 'Grenade Launcher', attackType: 'Smash', maxAttack: 175.73 },
   { name: 'Submerged Serenade', type: 'Assault Rifle', attackType: 'Slash', maxAttack: 200.84 }
-].map(w => ({ ...w, id: generateId(w.name), image: getImage(`weapon-${generateId(w.name)}`) } as Weapon)).sort((a, b) => a.name.localeCompare(b.name));
+].map(w => mergeWeaponDetails({ ...w, id: generateId(w.name), image: getImage(`weapon-${generateId(w.name)}`) } as Weapon)).sort((a, b) => a.name.localeCompare(b.name));
 
 export const allWeapons: Weapon[] = [...allMeleeWeapons, ...allRangedWeapons].sort((a, b) => a.name.localeCompare(b.name));
 export const allWeaponTypes = [...new Set(allWeapons.map(w => w.type))].sort();

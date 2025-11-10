@@ -202,6 +202,95 @@ const WeaponCard = ({ weapon, onSelect }: { weapon: Weapon, onSelect: () => void
     </Card>
 );
 
+const BASE_ATTACK_RATIO = 12.552;
+
+const STAT_LABEL_MAP: Record<string, string> = {
+    critChance: 'CRIT Chance',
+    critDamage: 'CRIT Damage',
+    atkSpeed: 'ATK Speed',
+    triggerProbability: 'Trigger Probability',
+    multishot: 'Multishot',
+    magCapacity: 'Mag Capacity',
+    maxAmmo: 'Max Ammo',
+    ammoConversionRate: 'Ammo Conversion Rate',
+    atkRange: 'ATK Range',
+    projectileExplosionRange: 'Explosion Range',
+};
+
+const formatNumber = (value: number) => (Number.isInteger(value) ? value.toString() : value.toFixed(2));
+const formatStatValue = (value: string | number) => (typeof value === 'number' ? formatNumber(value) : value);
+const formatStatLabel = (key: string) => STAT_LABEL_MAP[key] ?? key.replace(/([A-Z])/g, ' $1').replace(/^./, (char) => char.toUpperCase());
+const getBaseAttack = (weapon: Weapon) => weapon.baseAttack ?? Math.round(weapon.maxAttack / BASE_ATTACK_RATIO);
+
+const StatBadge = ({ label, value }: { label: string; value: string }) => (
+    <div className="rounded-lg border border-border/40 bg-background/60 px-3 py-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{label}</p>
+        <p className="text-base font-semibold text-foreground">{value}</p>
+    </div>
+);
+
+const WeaponInfoCard = ({ weapon }: { weapon: Weapon }) => {
+    const statEntries = Object.entries(weapon.stats ?? {}).filter(
+        (entry): entry is [string, string | number] => entry[1] !== undefined && entry[1] !== null
+    );
+    const attackLabel = `${weapon.attackType.toUpperCase()} ATK`;
+    const baseAttack = getBaseAttack(weapon);
+
+    return (
+        <Card className="bg-card/60 backdrop-blur">
+            <CardHeader>
+                <CardTitle className="text-lg font-semibold tracking-wide">Weapon Details</CardTitle>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    {weapon.element ?? 'Neutral'} • {weapon.type} • {weapon.attackType}
+                </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+                <section className="space-y-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">Stats</p>
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                        <StatBadge label={`${attackLabel} (Lv. 1)`} value={formatNumber(baseAttack)} />
+                        <StatBadge label={`${attackLabel} (Lv. MAX)`} value={formatNumber(weapon.maxAttack)} />
+                        {statEntries.map(([key, value]) => (
+                            <StatBadge key={key} label={formatStatLabel(key)} value={formatStatValue(value)} />
+                        ))}
+                    </div>
+                </section>
+
+                {weapon.attributes && Object.keys(weapon.attributes).length > 0 && (
+                    <section className="space-y-3">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                            Attributes
+                        </p>
+                        <div className="space-y-2 rounded-xl border border-border/40 bg-background/40 p-2">
+                            {Object.entries(weapon.attributes).map(([label, value]) => (
+                                <div
+                                    key={label}
+                                    className="flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors hover:bg-background/60"
+                                >
+                                    <span className="text-muted-foreground">{label}</span>
+                                    <span className="font-semibold text-foreground">
+                                        {typeof value === 'number' ? formatNumber(value) : value}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                <section className="space-y-2">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground">Skill</p>
+                    <div className="rounded-xl border border-border/40 bg-background/50 p-4 space-y-2">
+                        <p className="text-sm font-semibold uppercase text-primary">{weapon.skillType ?? 'Skill'}</p>
+                        <p className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">
+                            {weapon.passiveEffect ?? 'No passive information available yet.'}
+                        </p>
+                    </div>
+                </section>
+            </CardContent>
+        </Card>
+    );
+};
+
 const CharacterSelectionModal = ({ onSelect, open, onOpenChange }: { onSelect: (character: Character) => void, open: boolean, onOpenChange: (open: boolean) => void }) => (
     <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="max-w-4xl">
@@ -884,6 +973,10 @@ export default function CreateBuildDetailPage() {
                             </div>
                         </CardContent>
                     </Card>
+
+                    {itemType === 'weapon' && (
+                        <WeaponInfoCard weapon={item as Weapon} />
+                    )}
 
                     {itemType === 'character' && (
                         <Card className="bg-card/50">

@@ -25,8 +25,25 @@ export type Weapon = {
   type: WeaponType | RangedWeaponType;
   attackType: AttackType;
   maxAttack: number;
+  baseAttack?: number;
   rarity?: 3 | 4 | 5;
   description?: string;
+  element?: Element | 'Neutral';
+  skillType?: 'Skill';
+  passiveEffect?: string;
+  stats?: {
+    critChance?: string;
+    critDamage?: string;
+    atkSpeed?: number;
+    triggerProbability?: string;
+    multishot?: number;
+    magCapacity?: number;
+    maxAmmo?: number;
+    ammoConversionRate?: string;
+    atkRange?: number;
+    projectileExplosionRange?: number;
+  };
+  attributes?: Record<string, string | number>;
 };
 
 export type ModRarity = 2 | 3 | 4 | 5;
