@@ -44,6 +44,15 @@ export type Weapon = {
     projectileExplosionRange?: number;
   };
   attributes?: Record<string, string | number>;
+  crafting?: {
+    cost: number;
+    time: number;
+    materials: {
+      name: string;
+      quantity: number;
+    }[];
+    components: string[];
+  };
 };
 
 export type ModRarity = 2 | 3 | 4 | 5;

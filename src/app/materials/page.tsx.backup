@@ -70,11 +70,213 @@ const weaponComponentMapping: Record<string, string> = {
   'Withershade-_Grip': 'Withershade',
 };
 
+// Upgrade material forging recipes
+const upgradeMaterialRecipes: Record<
+  string,
+  {
+    coinCost: number;
+    timeMinutes: number;
+    materials: { name: string; quantity: number; category: string }[];
+  }
+> = {
+  Repulsive_Crystal: {
+    coinCost: 10000,
+    timeMinutes: 10,
+    materials: [
+      { name: 'Luno_Memento', quantity: 15, category: 'Upgrade Materials' },
+      { name: 'Vehicle_Armour', quantity: 5, category: 'Upgrade Materials' },
+      { name: 'Insulation_Coating', quantity: 5, category: 'Upgrade Materials' },
+      { name: 'Statue_Debris', quantity: 2, category: 'Upgrade Materials' },
+    ],
+  },
+  Gold_Sand: {
+    coinCost: 10000,
+    timeMinutes: 10,
+    materials: [
+      { name: 'Luno_Memento', quantity: 15, category: 'Upgrade Materials' },
+      { name: 'Snowswift_Tail_Feather', quantity: 5, category: 'Upgrade Materials' },
+      { name: 'Fuel_Regent', quantity: 5, category: 'Upgrade Materials' },
+      { name: 'Statue_Debris', quantity: 2, category: 'Upgrade Materials' },
+    ],
+  },
+  Projectile: {
+    coinCost: 50000,
+    timeMinutes: 15,
+    materials: [
+      { name: 'Gold_Sand', quantity: 4, category: 'Upgrade Materials' },
+      { name: 'Repulsive_Crystal', quantity: 6, category: 'Upgrade Materials' },
+      { name: 'Weaponholder', quantity: 2, category: 'Upgrade Materials' },
+      { name: 'Coolant', quantity: 2, category: 'Upgrade Materials' },
+    ],
+  },
+  Sharpening_Potion: {
+    coinCost: 50000,
+    timeMinutes: 15,
+    materials: [
+      { name: 'Gold_Sand', quantity: 6, category: 'Upgrade Materials' },
+      { name: 'Repulsive_Crystal', quantity: 4, category: 'Upgrade Materials' },
+      { name: 'Weaponholder', quantity: 2, category: 'Upgrade Materials' },
+      { name: 'Coolant', quantity: 2, category: 'Upgrade Materials' },
+    ],
+  },
+};
+
+// Weapon crafting recipes (for Secret Letters)
+const weaponCraftingRecipes: Record<
+  string,
+  {
+    coinCost: number;
+    timeMinutes: number;
+    craftingItem: { name: string; quantity: number };
+    components: string[];
+  }
+> = {
+  // Melee Weapons
+  'Secret_Letter-_Blade_Amberglow': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Blade_Amberglow-_Blade', 'Blade_Amberglow-_Grip'],
+  },
+  'Secret_Letter-_Exiled_Fangs': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Exiled_Fangs-_Grip', 'Exiled_Fangs-_Left_Blade', 'Exiled_Fangs-_Right_Blade'],
+  },
+  'Secret_Letter-_Fathomless_Sharkgaze': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Fathomless_Sharkgaze-_Blade_(Left)', 'Fathomless_Sharkgaze-_Blade_(Right)', 'Fathomless_Sharkgaze-_Grip'],
+  },
+  'Secret_Letter-_Ingenious_Tactics': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Ingenious_Tactics-_Blade', 'Ingenious_Tactics-_Grip'],
+  },
+  'Secret_Letter-_Ironforger': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Ironforger-_Blade', 'Ironforger-_Grip'],
+  },
+  'Secret_Letter-_Momiji_Itteki': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Momiji_Itteki-_Blade', 'Momiji_Itteki-_Decoration', 'Momiji_Itteki-_Grip'],
+  },
+  'Secret_Letter-_Pyrothirst': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Pyrothirst-_Blade', 'Pyrothirst-_Grip'],
+  },
+  'Secret_Letter-_Remanent_Reminiscence': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Remanent_Reminiscence-_Blade', 'Remanent_Reminiscence-_Grip'],
+  },
+  "Secret_Letter-_Siren's_Kiss": {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ["Siren's_Kiss-_Blade", "Siren's_Kiss-_Grip"],
+  },
+  'Secret_Letter-_Tetherslash': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Tetherlash-_Blade', 'Tetherlash-_Grip'],
+  },
+  'Secret_Letter-_Undying_Oneiros': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Undying_Oneiros-_Blade', 'Undying_Oneiros-_Grip'],
+  },
+  'Secret_Letter-_Wanewraith': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Wanewraith-_Blade', 'Wanewraith-_Grip'],
+  },
+  'Secret_Letter-_Withershade': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Sharpening_Potion', quantity: 2 },
+    components: ['Withershade-_Blade', 'Withershade-_Decoration', 'Withershade-_Grip'],
+  },
+  // Ranged Weapons
+  'Secret_Letter-_Bluecurrent_Pulse': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Bluecurrent_Pulse-_Barrel', 'Bluecurrent_Pulse-_Frame'],
+  },
+  'Secret_Letter-_Destructo': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Destructo-_Barrel', 'Destructo-_Bolt', 'Destructo-_Frame'],
+  },
+  'Secret_Letter-_Entropic_Singularity': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Entropic_Singularity-_Barrel', 'Entropic_Singularity-_Bolt', 'Entropic_Singularity-_Frame'],
+  },
+  'Secret_Letter-_Flamme_De_Epuration': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Flamme_De_Epuration-_Barrel', 'Flamme_De_Epuration-_Bolt', 'Flamme_De_Epuration-_Frame'],
+  },
+  'Secret_Letter-_Rendhusk': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Rendhusk-_Barrel', 'Rendhusk-_Bolt', 'Rendhusk-_Frame'],
+  },
+  'Secret_Letter-_Screamshot': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Screamshot-_Barrel', 'Screamshot-_Bolt', 'Screamshot-_Frame'],
+  },
+  'Secret_Letter-_Searing_Sandwhisper': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Searing_Sandwhisper-_Bowstring', 'Searing_Sandwhisper-_Lower_Limb', 'Searing_Sandwhisper-_Riser', 'Searing_Sandwhisper-_Upper_Limb'],
+  },
+  'Secret_Letter-_Silent_Sower': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Silent_Sower-_Barrel', 'Silent_Sower-_Bolt', 'Silent_Sower-_Frame'],
+  },
+  'Secret_Letter-_Silverwhite_Edict': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Silverwhite_Edict-_Barrel', 'Silverwhite_Edict-_Bolt', 'Silverwhite_Edict-_Frame'],
+  },
+  'Secret_Letter-_Soulrend': {
+    coinCost: 280000,
+    timeMinutes: 180,
+    craftingItem: { name: 'Projectile', quantity: 2 },
+    components: ['Soulrend-_Bowstring', 'Soulrend-_Lower_Limb', 'Soulrend-_Upper_Limb'],
+  },
+};
+
 // Character secret letters (items that unlock characters)
 const characterSecretLetters = new Set([
   'Secret_Letter-_Berenica',
   'Secret_Letter-_Daphne',
-  'Secret_Letter-_Excresduo',
   'Secret_Letter-_Lady_Nifle',
   'Secret_Letter-_Lisbelle',
   'Secret_Letter-_Lynn',
@@ -88,110 +290,6 @@ const characterSecretLetters = new Set([
 
 // Material categories with their items (ordered by priority)
 const categories = {
-  'Secret Letters': [
-    'A_Box_of_Paper_Stars',
-    'A_Dangerous_Prescription',
-    "A_Girl's_Old_Clothes",
-    "Avar's_Photograph",
-    'Bloodstained_Photograph',
-    'D10_Die',
-    'Familiar_Wire_Portrait',
-    'Medical_Kit',
-    'Old_Key',
-    'Portrait_Gift_from_Faye',
-    'Treasure_on_the_Saddle',
-    'White_Flower',
-  ],
-  'Readables': [
-    'A_Brawl_at_the_Galea_Theatre',
-    "A_Healer's_Journal",
-    'A_Journal_Used_to_the_Last_Page',
-    'A_Lost_Diary',
-    'A_Piece_of_Scratch_Paper',
-    'A_Secret_From_a_Wall_Crack',
-    'A_Warning_from_a_Wall_Crack',
-    'Aged_Newspaper',
-    "Alice's_Diary",
-    'An_Addressless_Letter',
-    'Angry_Etchings',
-    "Annie's_Letter",
-    'Betwixt_Leaves_and_Branches-_The_Eve_of_Uprising',
-    'Betwixt_Leaves_and_Branches-_The_Filthoid_Waves',
-    'Bloodstained_Journal',
-    'Boycott_the_Silvercandle_Carnival!',
-    'Catastrophe_in_a_Bottle-_Volume_I',
-    'Crumpled_Leaflet_from_The_Forsakens',
-    'Dust-Laden_Family_Letter',
-    "Elisa_Taylor's_Profile",
-    'Emergency_Medical_Log',
-    "Emperor's_Signet_Ring",
-    'Field_Notes-_Volume_I',
-    'Field_Notes-_Volume_II',
-    'Field_Notes-_Volume_III',
-    'Foreign_Tome',
-    'Hive_Mind',
-    "Hunt_Clark's_Profile",
-    'Icelake_III',
-    'Icelake_IV',
-    'Icelake_IX',
-    'Icelake_V',
-    'Icelake_VI',
-    'Icelake_VII',
-    'Icelake_VIII',
-    'Icelake_X',
-    'Icelake-_Volume_I',
-    'Icelake-_Volume_II',
-    'Illness_and_Humanity_—_Excerpt_on_Deterioration',
-    'Letter_from_the_Buyer',
-    'Lonza_Fortress_(III)',
-    'Lonza_Fortress_Operation_Directive',
-    'Lonza_Fortress-_Volume_I',
-    'Lonza_Fortress-_Volume_II',
-    'Medicine_Labels',
-    'Momiji-_A_Chronicle_of_Rebellion_I',
-    'Momiji-_A_Chronicle_of_Rebellion_II',
-    'Momiji-_A_Chronicle_of_Rebellion_III',
-    'Momiji-_A_Chronicle_of_Rebellion_IV',
-    'My_Dearest_Comrade',
-    'Opened_Letter',
-    'Overdue_Notices',
-    'Prop_Log_-_Galea_Theatre',
-    "Psyche_Frey's_Profile",
-    'Purgatorio_Island-_Volume_I',
-    'Purgatorio_Island-_Volume_II',
-    'Purgatorio_Island-_Volume_III',
-    'Purgatorio_Island-_Volume_IV',
-    'Request_for_Additional_Maintenance_Manpower',
-    'Request_for_Drainage_System_Upgrade',
-    'Say_Goodbye_to_Poverty_and_Achieve_Financial_Freedom',
-    'Scattered_Diary-_Volume_I',
-    'Scattered_Diary-_Volume_II',
-    'Scattered_Diary-_Volume_III',
-    'Scrunched_Note',
-    'Secret_Histories_of_the_Forsakens_(I)',
-    'Silvercandle_Hymns_(I)',
-    'Silvercandle_Hymns_(II)',
-    'Silvercandle_Hymns_(III)',
-    'Silvercandle_Hymns_(IV)',
-    'Silvercandle_Hymns_(IX)',
-    'Silvercandle_Hymns_(V)',
-    'Silvercandle_Hymns_(VI)',
-    'Silvercandle_Hymns_(VII)',
-    'Silvercandle_Hymns_(VIII)',
-    'Silvercandle_Hymns_(X)',
-    'Simulated_Battle_Logs',
-    "Some_Forsaken_Member's_Journal",
-    'Statue_Inscription',
-    'Surgical_Log',
-    "The_Forsakens'_Pamphlet",
-    "The_Invincible_Legion's_Chief_I",
-    "The_Invincible_Legion's_Chief_II",
-    'Transcript_of_a_Conversation',
-    'Triumph_Day_Leave_Notice',
-    'Unsent_Letter_in_Reply',
-    "What'll_It_Be-_Just_Say_the_Word!",
-    'Yellowed_Diary',
-  ],
   'Secret Letters': [
     'Secret_Letter-_Berenica',
     'Secret_Letter-_Blade_Amberglow',
@@ -220,7 +318,7 @@ const categories = {
     'Secret_Letter-_Screamshot',
     'Secret_Letter-_Searing_Sandwhisper',
     'Secret_Letter-_Sibylle',
-    'Secret_Letter-_Silent_Shower',
+    'Secret_Letter-_Silent_Sower',
     'Secret_Letter-_Silverwhite_Edict',
     "Secret_Letter-_Siren's_Kiss",
     'Secret_Letter-_Soulrend',
@@ -229,6 +327,71 @@ const categories = {
     'Secret_Letter-_Undying_Oneiros',
     'Secret_Letter-_Wanewraith',
     'Secret_Letter-_Withershade',
+  ],
+  'Weapon Components': [
+    'Blade_Amberglow-_Blade',
+    'Blade_Amberglow-_Grip',
+    'Bluecurrent_Pulse-_Barrel',
+    'Bluecurrent_Pulse-_Frame',
+    'Destructo-_Barrel',
+    'Destructo-_Bolt',
+    'Destructo-_Frame',
+    'Entropic_Singularity-_Barrel',
+    'Entropic_Singularity-_Bolt',
+    'Entropic_Singularity-_Frame',
+    'Exiled_Fangs-_Grip',
+    'Exiled_Fangs-_Left_Blade',
+    'Exiled_Fangs-_Right_Blade',
+    'Fathomless_Sharkgaze-_Blade_(Left)',
+    'Fathomless_Sharkgaze-_Blade_(Right)',
+    'Fathomless_Sharkgaze-_Grip',
+    'Firearm_Feast-_Barrel',
+    'Firearm_Feast-_Bolt',
+    'Firearm_Feast-_Frame',
+    'Flamme_De_Epuration-_Barrel',
+    'Flamme_De_Epuration-_Bolt',
+    'Flamme_De_Epuration-_Frame',
+    'Ingenious_Tactics-_Blade',
+    'Ingenious_Tactics-_Grip',
+    'Ironforger-_Blade',
+    'Ironforger-_Grip',
+    'Momiji_Itteki-_Blade',
+    'Momiji_Itteki-_Decoration',
+    'Momiji_Itteki-_Grip',
+    'Pyrothirst-_Blade',
+    'Pyrothirst-_Grip',
+    'Remanent_Reminiscence-_Blade',
+    'Remanent_Reminiscence-_Grip',
+    'Rendhusk-_Barrel',
+    'Rendhusk-_Bolt',
+    'Rendhusk-_Frame',
+    'Screamshot-_Barrel',
+    'Screamshot-_Bolt',
+    'Screamshot-_Frame',
+    'Searing_Sandwhisper-_Bowstring',
+    'Searing_Sandwhisper-_Lower_Limb',
+    'Searing_Sandwhisper-_Riser',
+    'Searing_Sandwhisper-_Upper_Limb',
+    'Silent_Sower-_Barrel',
+    'Silent_Sower-_Bolt',
+    'Silent_Sower-_Frame',
+    'Silverwhite_Edict-_Barrel',
+    'Silverwhite_Edict-_Bolt',
+    'Silverwhite_Edict-_Frame',
+    "Siren's_Kiss-_Blade",
+    "Siren's_Kiss-_Grip",
+    'Soulrend-_Bowstring',
+    'Soulrend-_Lower_Limb',
+    'Soulrend-_Upper_Limb',
+    'Tetherlash-_Blade',
+    'Tetherlash-_Grip',
+    'Undying_Oneiros-_Blade',
+    'Undying_Oneiros-_Grip',
+    'Wanewraith-_Blade',
+    'Wanewraith-_Grip',
+    'Withershade-_Blade',
+    'Withershade-_Decoration',
+    'Withershade-_Grip',
   ],
   'Upgrade Materials': [
     'Advanced_Weapon_Component-_Barrel',
@@ -370,80 +533,119 @@ const categories = {
     'Yum-Yum_Treat',
     'Yum-Yum-Yum_Cream',
   ],
-  'Weapon Components': [
-    'Blade_Amberglow-_Blade',
-    'Blade_Amberglow-_Grip',
-    'Bluecurrent_Pulse-_Barrel',
-    'Bluecurrent_Pulse-_Frame',
-    'Destructo-_Barrel',
-    'Destructo-_Bolt',
-    'Destructo-_Frame',
-    'Entropic_Singularity-_Barrel',
-    'Entropic_Singularity-_Bolt',
-    'Entropic_Singularity-_Frame',
-    'Exiled_Fangs-_Grip',
-    'Exiled_Fangs-_Left_Blade',
-    'Exiled_Fangs-_Right_Blade',
-    'Fathomless_Sharkgaze-_Blade_(Left)',
-    'Fathomless_Sharkgaze-_Blade_(Right)',
-    'Fathomless_Sharkgaze-_Grip',
-    'Firearm_Feast-_Barrel',
-    'Firearm_Feast-_Bolt',
-    'Firearm_Feast-_Frame',
-    'Flamme_De_Epuration-_Barrel',
-    'Flamme_De_Epuration-_Bolt',
-    'Flamme_De_Epuration-_Frame',
-    'Ingenious_Tactics-_Blade',
-    'Ingenious_Tactics-_Grip',
-    'Ironforger-_Blade',
-    'Ironforger-_Grip',
-    'Momiji_Itteki-_Blade',
-    'Momiji_Itteki-_Decoration',
-    'Momiji_Itteki-_Grip',
-    'Pyrothirst-_Blade',
-    'Pyrothirst-_Grip',
-    'Remanent_Reminiscence-_Blade',
-    'Remanent_Reminiscence-_Grip',
-    'Rendhusk-_Barrel',
-    'Rendhusk-_Bolt',
-    'Rendhusk-_Frame',
-    'Screamshot-_Barrel',
-    'Screamshot-_Bolt',
-    'Screamshot-_Frame',
-    'Searing_Sandwhisper-_Bowstring',
-    'Searing_Sandwhisper-_Lower_Limb',
-    'Searing_Sandwhisper-_Riser',
-    'Searing_Sandwhisper-_Upper_Limb',
-    'Silent_Sower-_Barrel',
-    'Silent_Sower-_Bolt',
-    'Silent_Sower-_Frame',
-    'Silverwhite_Edict-_Barrel',
-    'Silverwhite_Edict-_Bolt',
-    'Silverwhite_Edict-_Frame',
-    "Siren's_Kiss-_Blade",
-    "Siren's_Kiss-_Grip",
-    'Soulrend-_Bowstring',
-    'Soulrend-_Lower_Limb',
-    'Soulrend-_Upper_Limb',
-    'Tetherlash-_Blade',
-    'Tetherlash-_Grip',
-    'Undying_Oneiros-_Blade',
-    'Undying_Oneiros-_Grip',
-    'Wanewraith-_Blade',
-    'Wanewraith-_Grip',
-    'Withershade-_Blade',
-    'Withershade-_Decoration',
-    'Withershade-_Grip',
+  'Readables': [
+    'A_Brawl_at_the_Galea_Theatre',
+    "A_Healer's_Journal",
+    'A_Journal_Used_to_the_Last_Page',
+    'A_Lost_Diary',
+    'A_Piece_of_Scratch_Paper',
+    'A_Secret_From_a_Wall_Crack',
+    'A_Warning_from_a_Wall_Crack',
+    'Aged_Newspaper',
+    "Alice's_Diary",
+    'An_Addressless_Letter',
+    'Angry_Etchings',
+    "Annie's_Letter",
+    'Betwixt_Leaves_and_Branches-_The_Eve_of_Uprising',
+    'Betwixt_Leaves_and_Branches-_The_Filthoid_Waves',
+    'Bloodstained_Journal',
+    'Boycott_the_Silvercandle_Carnival!',
+    'Catastrophe_in_a_Bottle-_Volume_I',
+    'Crumpled_Leaflet_from_The_Forsakens',
+    'Dust-Laden_Family_Letter',
+    "Elisa_Taylor's_Profile",
+    'Emergency_Medical_Log',
+    "Emperor's_Signet_Ring",
+    'Field_Notes-_Volume_I',
+    'Field_Notes-_Volume_II',
+    'Field_Notes-_Volume_III',
+    'Foreign_Tome',
+    'Hive_Mind',
+    "Hunt_Clark's_Profile",
+    'Icelake_III',
+    'Icelake_IV',
+    'Icelake_IX',
+    'Icelake_V',
+    'Icelake_VI',
+    'Icelake_VII',
+    'Icelake_VIII',
+    'Icelake_X',
+    'Icelake-_Volume_I',
+    'Icelake-_Volume_II',
+    'Illness_and_Humanity_—_Excerpt_on_Deterioration',
+    'Letter_from_the_Buyer',
+    'Lonza_Fortress_(III)',
+    'Lonza_Fortress_Operation_Directive',
+    'Lonza_Fortress-_Volume_I',
+    'Lonza_Fortress-_Volume_II',
+    'Medicine_Labels',
+    'Momiji-_A_Chronicle_of_Rebellion_I',
+    'Momiji-_A_Chronicle_of_Rebellion_II',
+    'Momiji-_A_Chronicle_of_Rebellion_III',
+    'Momiji-_A_Chronicle_of_Rebellion_IV',
+    'My_Dearest_Comrade',
+    'Opened_Letter',
+    'Overdue_Notices',
+    'Prop_Log_-_Galea_Theatre',
+    "Psyche_Frey's_Profile",
+    'Purgatorio_Island-_Volume_I',
+    'Purgatorio_Island-_Volume_II',
+    'Purgatorio_Island-_Volume_III',
+    'Purgatorio_Island-_Volume_IV',
+    'Request_for_Additional_Maintenance_Manpower',
+    'Request_for_Drainage_System_Upgrade',
+    'Say_Goodbye_to_Poverty_and_Achieve_Financial_Freedom',
+    'Scattered_Diary-_Volume_I',
+    'Scattered_Diary-_Volume_II',
+    'Scattered_Diary-_Volume_III',
+    'Scrunched_Note',
+    'Secret_Histories_of_the_Forsakens_(I)',
+    'Silvercandle_Hymns_(I)',
+    'Silvercandle_Hymns_(II)',
+    'Silvercandle_Hymns_(III)',
+    'Silvercandle_Hymns_(IV)',
+    'Silvercandle_Hymns_(IX)',
+    'Silvercandle_Hymns_(V)',
+    'Silvercandle_Hymns_(VI)',
+    'Silvercandle_Hymns_(VII)',
+    'Silvercandle_Hymns_(VIII)',
+    'Silvercandle_Hymns_(X)',
+    'Simulated_Battle_Logs',
+    "Some_Forsaken_Member's_Journal",
+    'Statue_Inscription',
+    'Surgical_Log',
+    "The_Forsakens'_Pamphlet",
+    "The_Invincible_Legion's_Chief_I",
+    "The_Invincible_Legion's_Chief_II",
+    'Transcript_of_a_Conversation',
+    'Triumph_Day_Leave_Notice',
+    'Unsent_Letter_in_Reply',
+    "What'll_It_Be-_Just_Say_the_Word!",
+    'Yellowed_Diary',
+  ],
+  'Quest Items': [
+    'A_Box_of_Paper_Stars',
+    'A_Dangerous_Prescription',
+    "A_Girl's_Old_Clothes",
+    "Avar's_Photograph",
+    'Bloodstained_Photograph',
+    'D10_Die',
+    'Familiar_Wire_Portrait',
+    'Medical_Kit',
+    'Old_Key',
+    'Portrait_Gift_from_Faye',
+    'Treasure_on_the_Saddle',
+    'White_Flower',
   ],
 };
 
 // Category icons
 const categoryIcons: Record<string, string> = {
-  'Quest Items': '📜',
-  'Readables': '📖',
   'Secret Letters': '✉️',
-  'Upgrade Materials': '⚙️',
   'Weapon Components': '⚔️',
+  'Upgrade Materials': '⚙️',
+  'Readables': '📖',
+  'Quest Items': '📜',
 };
 
 export default function MaterialsPage() {
@@ -452,6 +654,86 @@ export default function MaterialsPage() {
   const [selectedItem, setSelectedItem] = useState<{ name: string; category: string } | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [selectedWeapon, setSelectedWeapon] = useState<string | null>(null);
+  const [itemHistory, setItemHistory] = useState<{ name: string; category: string }[]>([]);
+  const [craftQuantity, setCraftQuantity] = useState<number>(1);
+
+  // Navigate to item with history tracking
+  const navigateToItem = (name: string, category: string) => {
+    if (selectedItem) {
+      setItemHistory([...itemHistory, selectedItem]);
+    }
+    setSelectedItem({ name, category });
+    setCraftQuantity(1); // Reset quantity when navigating
+  };
+
+  // Go back to previous item
+  const goBack = () => {
+    if (itemHistory.length > 0) {
+      const previous = itemHistory[itemHistory.length - 1];
+      setSelectedItem(previous);
+      setItemHistory(itemHistory.slice(0, -1));
+      setCraftQuantity(1); // Reset quantity when going back
+    }
+  };
+
+  // Close modal and clear history
+  const closeModal = () => {
+    setSelectedItem(null);
+    setItemHistory([]);
+    setCraftQuantity(1); // Reset quantity when closing
+  };
+
+  // Calculate total materials needed recursively
+  const calculateTotalMaterials = (itemName: string, quantity: number, category: string): Record<string, { quantity: number; category: string }> => {
+    const totals: Record<string, { quantity: number; category: string }> = {};
+
+    if (category === 'Upgrade Materials') {
+      const recipe = upgradeMaterialRecipes[itemName];
+      if (recipe) {
+        recipe.materials.forEach((material) => {
+          const subMaterials = calculateTotalMaterials(material.name, material.quantity * quantity, material.category);
+          Object.entries(subMaterials).forEach(([name, data]) => {
+            if (totals[name]) {
+              totals[name].quantity += data.quantity;
+            } else {
+              totals[name] = { ...data };
+            }
+          });
+        });
+      } else {
+        // Base material (no recipe)
+        if (totals[itemName]) {
+          totals[itemName].quantity += quantity;
+        } else {
+          totals[itemName] = { quantity, category };
+        }
+      }
+    } else if (category === 'Secret Letters') {
+      const recipe = weaponCraftingRecipes[itemName];
+      if (recipe) {
+        // Add crafting item
+        const craftingMaterials = calculateTotalMaterials(recipe.craftingItem.name, recipe.craftingItem.quantity * quantity, 'Upgrade Materials');
+        Object.entries(craftingMaterials).forEach(([name, data]) => {
+          if (totals[name]) {
+            totals[name].quantity += data.quantity;
+          } else {
+            totals[name] = { ...data };
+          }
+        });
+
+        // Add weapon components
+        recipe.components.forEach((component) => {
+          if (totals[component]) {
+            totals[component].quantity += quantity;
+          } else {
+            totals[component] = { quantity, category: 'Weapon Components' };
+          }
+        });
+      }
+    }
+
+    return totals;
+  };
 
   // Get weapon name from component
   const getWeaponFromComponent = (componentName: string): string | null => {
@@ -483,6 +765,14 @@ export default function MaterialsPage() {
     setExpandedCategories(new Set());
   };
 
+  const getUpgradeRecipe = (itemName: string) => {
+    return upgradeMaterialRecipes[itemName] || null;
+  };
+
+  const getWeaponCraftingRecipe = (secretLetterName: string) => {
+    return weaponCraftingRecipes[secretLetterName] || null;
+  };
+
   const formatItemName = (name: string) => {
     return name.replace(/_/g, ' ');
   };
@@ -499,7 +789,7 @@ export default function MaterialsPage() {
   // Filter categories that have matching items
   const getFilteredCategories = () => {
     if (!searchQuery.trim()) return categories;
-    
+
     const filtered: Record<string, string[]> = {};
     Object.entries(categories).forEach(([category, items]) => {
       const filteredItems = filterItems(items);
@@ -511,6 +801,14 @@ export default function MaterialsPage() {
   };
 
   const filteredCategories = getFilteredCategories();
+  const upgradeRecipe =
+    selectedItem && selectedItem.category === 'Upgrade Materials'
+      ? getUpgradeRecipe(selectedItem.name)
+      : null;
+  const weaponCraftingRecipe =
+    selectedItem && selectedItem.category === 'Secret Letters' && !characterSecretLetters.has(selectedItem.name)
+      ? getWeaponCraftingRecipe(selectedItem.name)
+      : null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -558,22 +856,20 @@ export default function MaterialsPage() {
               <div className="flex gap-2">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`px-4 py-2 rounded-lg border transition-colors ${
-                    viewMode === 'grid'
-                      ? 'bg-purple-600 border-purple-500 text-white'
-                      : 'bg-slate-900 border-slate-600 text-slate-400 hover:text-white'
-                  }`}
+                  className={`px-4 py-2 rounded-lg border transition-colors ${viewMode === 'grid'
+                    ? 'bg-purple-600 border-purple-500 text-white'
+                    : 'bg-slate-900 border-slate-600 text-slate-400 hover:text-white'
+                    }`}
                   title="Grid View"
                 >
                   ⊞
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`px-4 py-2 rounded-lg border transition-colors ${
-                    viewMode === 'list'
-                      ? 'bg-purple-600 border-purple-500 text-white'
-                      : 'bg-slate-900 border-slate-600 text-slate-400 hover:text-white'
-                  }`}
+                  className={`px-4 py-2 rounded-lg border transition-colors ${viewMode === 'list'
+                    ? 'bg-purple-600 border-purple-500 text-white'
+                    : 'bg-slate-900 border-slate-600 text-slate-400 hover:text-white'
+                    }`}
                   title="List View"
                 >
                   ☰
@@ -648,7 +944,7 @@ export default function MaterialsPage() {
                           {filteredItems.map((item) => (
                             <button
                               key={item}
-                              onClick={() => setSelectedItem({ name: item, category })}
+                              onClick={() => navigateToItem(item, category)}
                               className="bg-slate-900/50 border border-slate-600 rounded-lg p-3 hover:border-purple-500 hover:scale-105 transition-all group cursor-pointer"
                             >
                               <div className="aspect-square relative mb-2 bg-slate-800 rounded overflow-hidden">
@@ -670,7 +966,7 @@ export default function MaterialsPage() {
                           {filteredItems.map((item) => (
                             <button
                               key={item}
-                              onClick={() => setSelectedItem({ name: item, category })}
+                              onClick={() => navigateToItem(item, category)}
                               className="w-full bg-slate-900/50 border border-slate-600 rounded-lg p-3 hover:border-purple-500 transition-colors group flex items-center gap-4 cursor-pointer"
                             >
                               <div className="w-16 h-16 relative bg-slate-800 rounded overflow-hidden flex-shrink-0">
@@ -701,7 +997,7 @@ export default function MaterialsPage() {
       {selectedItem && !selectedWeapon && (
         <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedItem(null)}
+          onClick={closeModal}
         >
           <div
             className="bg-slate-900 border-2 border-purple-500 rounded-xl max-w-4xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto"
@@ -718,12 +1014,24 @@ export default function MaterialsPage() {
                   <p className="text-slate-400">{selectedItem.category}</p>
                 </div>
               </div>
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="text-slate-400 hover:text-white transition-colors text-2xl"
-              >
-                ✕
-              </button>
+              <div className="flex items-center gap-2">
+                {itemHistory.length > 0 && (
+                  <button
+                    onClick={goBack}
+                    className="text-slate-400 hover:text-white transition-colors px-3 py-1 bg-slate-800 rounded-lg border border-slate-600 hover:border-purple-500 flex items-center gap-2"
+                    title="Go back"
+                  >
+                    <span className="text-lg">←</span>
+                    <span className="text-sm">Back</span>
+                  </button>
+                )}
+                <button
+                  onClick={closeModal}
+                  className="text-slate-400 hover:text-white transition-colors text-2xl"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
 
             {/* Modal Content */}
@@ -784,118 +1092,462 @@ export default function MaterialsPage() {
                 </div>
               )}
 
-              {/* Item Info */}
-              <div className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <p className="text-slate-400 mb-1">Category</p>
-                    <p className="text-white font-semibold">{selectedItem.category}</p>
+              {/* Weapon Crafting Info - For Secret Letters (Weapons) */}
+              {selectedItem.category === 'Secret Letters' && weaponCraftingRecipe && (
+                <div className="w-full bg-gradient-to-br from-purple-900/30 to-blue-900/30 border-2 border-purple-500/50 rounded-lg p-6 space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="text-4xl">⚔️</div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-purple-300 mb-2">Weapon Crafting</h4>
+                      <p className="text-white text-sm">Forge this weapon using the materials below</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-slate-400 mb-1">Item Name</p>
-                    <p className="text-white font-semibold">{formatItemName(selectedItem.name)}</p>
+
+                  {/* Quantity Calculator */}
+                  <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm text-slate-400">Craft Quantity</p>
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => setCraftQuantity(Math.max(1, craftQuantity - 1))}
+                          className="w-8 h-8 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-purple-500 rounded-lg text-white font-bold transition-colors text-sm"
+                        >
+                          −
+                        </button>
+                        <input
+                          type="number"
+                          min="1"
+                          max="999"
+                          value={craftQuantity}
+                          onChange={(e) => setCraftQuantity(Math.max(1, Math.min(999, parseInt(e.target.value) || 1)))}
+                          className="w-20 bg-slate-800 border border-slate-600 rounded-lg px-3 py-1 text-white text-center text-xl font-bold focus:outline-none focus:border-purple-500"
+                        />
+                        <button
+                          onClick={() => setCraftQuantity(Math.min(999, craftQuantity + 1))}
+                          className="w-8 h-8 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-purple-500 rounded-lg text-white font-bold transition-colors text-sm"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Slider */}
+                    <div className="space-y-2">
+                      <input
+                        type="range"
+                        min="1"
+                        max="100"
+                        value={Math.min(craftQuantity, 100)}
+                        onChange={(e) => setCraftQuantity(parseInt(e.target.value))}
+                        className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                        style={{
+                          background: `linear-gradient(to right, rgb(168 85 247) 0%, rgb(168 85 247) ${((Math.min(craftQuantity, 100) - 1) / 99) * 100}%, rgb(51 65 85) ${((Math.min(craftQuantity, 100) - 1) / 99) * 100}%, rgb(51 65 85) 100%)`
+                        }}
+                      />
+                      <div className="flex justify-between text-xs text-slate-500">
+                        <span>1</span>
+                        <span>25</span>
+                        <span>50</span>
+                        <span>75</span>
+                        <span>100</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-3">
+                      <p className="text-sm text-slate-400">Total Coin Cost</p>
+                      <p className="text-xl font-bold text-yellow-300">
+                        {(weaponCraftingRecipe.coinCost * craftQuantity).toLocaleString('en-US')}
+                        <span className="text-base font-semibold text-slate-300 ml-2">Coin</span>
+                      </p>
+                    </div>
+                    <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-3">
+                      <p className="text-sm text-slate-400">Total Crafting Time</p>
+                      <p className="text-xl font-bold text-blue-300">{weaponCraftingRecipe.timeMinutes * craftQuantity} minutes</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
+                    <p className="text-sm text-slate-400 mb-3">Required Materials</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {/* Crafting Item */}
+                      <button
+                        onClick={() => navigateToItem(weaponCraftingRecipe.craftingItem.name, 'Upgrade Materials')}
+                        className="flex items-center gap-3 bg-slate-900/80 border border-slate-700 rounded-lg p-3 hover:border-purple-500 transition-colors text-left"
+                      >
+                        <div className="relative w-14 h-14 bg-slate-950 rounded-md overflow-hidden flex-shrink-0">
+                          <Image
+                            src={`/Forging/Upgrade Materials/${weaponCraftingRecipe.craftingItem.name}.png`}
+                            alt={formatItemName(weaponCraftingRecipe.craftingItem.name)}
+                            fill
+                            className="object-contain p-2"
+                          />
+                        </div>
+                        <div className="flex-1 text-left">
+                          <p className="text-white font-semibold text-sm">{formatItemName(weaponCraftingRecipe.craftingItem.name)}</p>
+                          <p className="text-slate-400 text-xs">Upgrade Material</p>
+                        </div>
+                        <span className="text-purple-300 text-base font-bold flex-shrink-0">
+                          x{weaponCraftingRecipe.craftingItem.quantity * craftQuantity}
+                        </span>
+                      </button>
+
+                      {/* Weapon Components */}
+                      {weaponCraftingRecipe.components.map((component) => (
+                        <button
+                          key={`${selectedItem.name}-${component}`}
+                          onClick={() => navigateToItem(component, 'Weapon Components')}
+                          className="flex items-center gap-3 bg-slate-900/80 border border-slate-700 rounded-lg p-3 hover:border-purple-500 transition-colors text-left"
+                        >
+                          <div className="relative w-14 h-14 bg-slate-950 rounded-md overflow-hidden flex-shrink-0">
+                            <Image
+                              src={`/Forging/Weapon Components/${component}.png`}
+                              alt={formatItemName(component)}
+                              fill
+                              className="object-contain p-2"
+                            />
+                          </div>
+                          <div className="flex-1 text-left">
+                            <p className="text-white font-semibold text-sm">{formatItemName(component)}</p>
+                            <p className="text-slate-400 text-xs">Weapon Component</p>
+                          </div>
+                          <span className="text-purple-300 text-base font-bold flex-shrink-0">
+                            x{craftQuantity}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Total Materials Breakdown */}
+                  {(() => {
+                    const totalMaterials = calculateTotalMaterials(selectedItem.name, craftQuantity, selectedItem.category);
+                    const materialEntries = Object.entries(totalMaterials).sort((a, b) => {
+                      // Sort by category first, then by name
+                      if (a[1].category !== b[1].category) {
+                        return a[1].category.localeCompare(b[1].category);
+                      }
+                      return a[0].localeCompare(b[0]);
+                    });
+
+                    if (materialEntries.length > 0) {
+                      return (
+                        <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 border-2 border-green-500/50 rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-2xl">📊</span>
+                            <h5 className="text-lg font-bold text-green-300">Total Materials Needed</h5>
+                          </div>
+                          <p className="text-sm text-slate-300 mb-4">All base materials required (including nested crafting)</p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-96 overflow-y-auto">
+                            {materialEntries.map(([name, data]) => (
+                              <button
+                                key={name}
+                                onClick={() => navigateToItem(name, data.category)}
+                                className="flex items-center gap-3 bg-slate-900/80 border border-slate-700 rounded-lg p-2 hover:border-green-500 transition-colors text-left"
+                              >
+                                <div className="relative w-12 h-12 bg-slate-950 rounded-md overflow-hidden flex-shrink-0">
+                                  <Image
+                                    src={`/Forging/${data.category}/${name}.png`}
+                                    alt={formatItemName(name)}
+                                    fill
+                                    className="object-contain p-1"
+                                  />
+                                </div>
+                                <div className="flex-1 text-left min-w-0">
+                                  <p className="text-white font-semibold text-xs truncate">{formatItemName(name)}</p>
+                                  <p className="text-slate-400 text-xs">{data.category}</p>
+                                </div>
+                                <span className="text-green-300 text-sm font-bold flex-shrink-0">
+                                  x{data.quantity}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })()}
+                </div>
+              )}
+
+              {selectedItem.category === 'Upgrade Materials' && upgradeRecipe && (
+                <div className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-4 space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div>
+                      <h4 className="text-lg font-bold text-white">Materials &amp; Forging</h4>
+                      <p className="text-slate-400 text-sm">{formatItemName(selectedItem.name)}</p>
+                    </div>
+                  </div>
+
+                  {/* Quantity Calculator */}
+                  <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm text-slate-400">Craft Quantity</p>
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => setCraftQuantity(Math.max(1, craftQuantity - 1))}
+                          className="w-8 h-8 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-purple-500 rounded-lg text-white font-bold transition-colors text-sm"
+                        >
+                          −
+                        </button>
+                        <input
+                          type="number"
+                          min="1"
+                          max="999"
+                          value={craftQuantity}
+                          onChange={(e) => setCraftQuantity(Math.max(1, Math.min(999, parseInt(e.target.value) || 1)))}
+                          className="w-20 bg-slate-800 border border-slate-600 rounded-lg px-3 py-1 text-white text-center text-xl font-bold focus:outline-none focus:border-purple-500"
+                        />
+                        <button
+                          onClick={() => setCraftQuantity(Math.min(999, craftQuantity + 1))}
+                          className="w-8 h-8 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-purple-500 rounded-lg text-white font-bold transition-colors text-sm"
+                        >
+                          +
+                        </button>
+                      </div>
+
+                      {/* Slider */}
+                      <div className="space-y-2">
+                        <input
+                          type="range"
+                          min="1"
+                          max="100"
+                          value={Math.min(craftQuantity, 100)}
+                          onChange={(e) => setCraftQuantity(parseInt(e.target.value))}
+                          className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                          style={{
+                            background: `linear-gradient(to right, rgb(168 85 247) 0%, rgb(168 85 247) ${((Math.min(craftQuantity, 100) - 1) / 99) * 100}%, rgb(51 65 85) ${((Math.min(craftQuantity, 100) - 1) / 99) * 100}%, rgb(51 65 85) 100%)`
+                          }}
+                        />
+                        <div className="flex justify-between text-xs text-slate-500">
+                          <span>1</span>
+                          <span>25</span>
+                          <span>50</span>
+                          <span>75</span>
+                          <span>100</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-3">
+                        <p className="text-sm text-slate-400">Total Coin Cost</p>
+                        <p className="text-xl font-bold text-yellow-300">
+                          {(upgradeRecipe.coinCost * craftQuantity).toLocaleString('en-US')}
+                          <span className="text-base font-semibold text-slate-300 ml-2">Coin</span>
+                        </p>
+                      </div>
+                      <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-3">
+                        <p className="text-sm text-slate-400">Total Crafting Time</p>
+                        <p className="text-xl font-bold text-blue-300">{upgradeRecipe.timeMinutes * craftQuantity} minutes</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {upgradeRecipe.materials.map((material) => (
+                          <button
+                            key={`${selectedItem.name}-${material.name}`}
+                            onClick={() => navigateToItem(material.name, 'Upgrade Materials')}
+                            className="flex items-center gap-3 bg-slate-900/80 border border-slate-700 rounded-lg p-3 hover:border-purple-500 transition-colors text-left"
+                          >
+                            <div className="relative w-14 h-14 bg-slate-950 rounded-md overflow-hidden flex-shrink-0">
+                              <Image
+                                src={`/Forging/Upgrade Materials/${material.name}.png`}
+                                alt={formatItemName(material.name)}
+                                fill
+                                className="object-contain p-2"
+                              />
+                            </div>
+                            <div className="flex-1 text-left">
+                              <p className="text-white font-semibold text-sm">{formatItemName(material.name)}</p>
+                              <p className="text-slate-400 text-xs">Upgrade Material</p>
+                            </div>
+                            <span className="text-purple-300 text-base font-bold flex-shrink-0">
+                              x{material.quantity * craftQuantity}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Total Materials Breakdown */}
+                    {(() => {
+                      const totalMaterials = calculateTotalMaterials(selectedItem.name, craftQuantity, selectedItem.category);
+                      const materialEntries = Object.entries(totalMaterials).sort((a, b) => {
+                        // Sort by category first, then by name
+                        if (a[1].category !== b[1].category) {
+                          return a[1].category.localeCompare(b[1].category);
+                        }
+                        return a[0].localeCompare(b[0]);
+                      });
+
+                      if (materialEntries.length > 0) {
+                        return (
+                          <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/30 border-2 border-green-500/50 rounded-lg p-4">
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="text-2xl">📊</span>
+                              <h5 className="text-lg font-bold text-green-300">Total Materials Needed</h5>
+                            </div>
+                            <p className="text-sm text-slate-300 mb-4">All base materials required (including nested crafting)</p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-96 overflow-y-auto">
+                              {materialEntries.map(([name, data]) => (
+                                <button
+                                  key={name}
+                                  onClick={() => navigateToItem(name, data.category)}
+                                  className="flex items-center gap-3 bg-slate-900/80 border border-slate-700 rounded-lg p-2 hover:border-green-500 transition-colors text-left"
+                                >
+                                  <div className="relative w-12 h-12 bg-slate-950 rounded-md overflow-hidden flex-shrink-0">
+                                    <Image
+                                      src={`/Forging/${data.category}/${name}.png`}
+                                      alt={formatItemName(name)}
+                                      fill
+                                      className="object-contain p-1"
+                                    />
+                                  </div>
+                                  <div className="flex-1 text-left min-w-0">
+                                    <p className="text-white font-semibold text-xs truncate">{formatItemName(name)}</p>
+                                    <p className="text-slate-400 text-xs">{data.category}</p>
+                                  </div>
+                                  <span className="text-green-300 text-sm font-bold flex-shrink-0">
+                                    x{data.quantity}
+                                  </span>
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })()}
+                  </div>
+              )}
+
+                  {/* Item Info */}
+                  <div className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <p className="text-slate-400 mb-1">Category</p>
+                        <p className="text-white font-semibold">{selectedItem.category}</p>
+                      </div>
+                      <div>
+                        <p className="text-slate-400 mb-1">Item Name</p>
+                        <p className="text-white font-semibold">{formatItemName(selectedItem.name)}</p>
+                      </div>
+                    </div>
+                    {selectedItem.category === 'Secret Letters' && characterSecretLetters.has(selectedItem.name) && (
+                      <div className="mt-4 pt-4 border-t border-slate-600">
+                        <p className="text-slate-400 mb-1">Type</p>
+                        <p className="text-yellow-300 font-semibold">Character Unlock Item</p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    {itemHistory.length > 0 && (
+                      <button
+                        onClick={goBack}
+                        className="flex-1 bg-slate-800 hover:bg-slate-700 text-white px-4 py-3 rounded-lg transition-colors font-semibold border border-slate-600 hover:border-purple-500 flex items-center justify-center gap-2"
+                      >
+                        <span>←</span>
+                        <span>Back</span>
+                      </button>
+                    )}
+                    <button
+                      onClick={closeModal}
+                      className={`${itemHistory.length > 0 ? 'flex-1' : 'w-full'} bg-slate-700 hover:bg-slate-600 text-white px-4 py-3 rounded-lg transition-colors font-semibold`}
+                    >
+                      Close
+                    </button>
                   </div>
                 </div>
-                {selectedItem.category === 'Secret Letters' && characterSecretLetters.has(selectedItem.name) && (
-                  <div className="mt-4 pt-4 border-t border-slate-600">
-                    <p className="text-slate-400 mb-1">Type</p>
-                    <p className="text-yellow-300 font-semibold">Character Unlock Item</p>
-                  </div>
-                )}
-              </div>
-
-              {/* Action Buttons */}
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="w-full bg-slate-700 hover:bg-slate-600 text-white px-4 py-3 rounded-lg transition-colors font-semibold"
-              >
-                Close
-              </button>
-            </div>
           </div>
-        </div>
+          </div>
       )}
 
-      {/* Weapon Detail Modal */}
-      {selectedWeapon && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedWeapon(null)}
-        >
-          <div
-            className="bg-slate-900 border-2 border-purple-500 rounded-xl max-w-5xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between mb-6">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  {formatItemName(selectedWeapon)}
-                </h3>
-                <p className="text-slate-400">Full Weapon & Components</p>
-              </div>
-              <button
-                onClick={() => setSelectedWeapon(null)}
-                className="text-slate-400 hover:text-white transition-colors text-2xl"
+          {/* Weapon Detail Modal */}
+          {selectedWeapon && (
+            <div
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedWeapon(null)}
+            >
+              <div
+                className="bg-slate-900 border-2 border-purple-500 rounded-xl max-w-5xl w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
               >
-                ✕
-              </button>
-            </div>
-
-            {/* Weapon Image */}
-            <div className="mb-8">
-              <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 border-2 border-purple-500/50 rounded-lg p-6">
-                <h4 className="text-lg font-bold text-white mb-4 text-center">Complete Weapon</h4>
-                <div className="w-full h-64 relative bg-slate-800 rounded-lg overflow-hidden">
-                  <Image
-                    src={`/Forging/Secret Letters/Secret_Letter-_${selectedWeapon}.png`}
-                    alt={formatItemName(selectedWeapon)}
-                    fill
-                    className="object-contain p-4"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Weapon Components */}
-            <div>
-              <h4 className="text-lg font-bold text-white mb-4">Weapon Components</h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {getWeaponComponents(selectedWeapon).map((component) => (
+                {/* Modal Header */}
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {formatItemName(selectedWeapon)}
+                    </h3>
+                    <p className="text-slate-400">Full Weapon & Components</p>
+                  </div>
                   <button
-                    key={component}
-                    onClick={() => {
-                      setSelectedWeapon(null);
-                      setSelectedItem({ name: component, category: 'Weapon Components' });
-                    }}
-                    className="bg-slate-800 hover:bg-slate-700 border-2 border-slate-600 hover:border-purple-500 rounded-lg p-3 transition-all group"
+                    onClick={() => setSelectedWeapon(null)}
+                    className="text-slate-400 hover:text-white transition-colors text-2xl"
                   >
-                    <div className="aspect-square relative bg-slate-900 rounded overflow-hidden mb-2">
+                    ✕
+                  </button>
+                </div>
+
+                {/* Weapon Image */}
+                <div className="mb-8">
+                  <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 border-2 border-purple-500/50 rounded-lg p-6">
+                    <h4 className="text-lg font-bold text-white mb-4 text-center">Complete Weapon</h4>
+                    <div className="w-full h-64 relative bg-slate-800 rounded-lg overflow-hidden">
                       <Image
-                        src={`/Forging/Weapon Components/${component}.png`}
-                        alt={formatItemName(component)}
+                        src={`/Forging/Secret Letters/Secret_Letter-_${selectedWeapon}.png`}
+                        alt={formatItemName(selectedWeapon)}
                         fill
-                        className="object-contain p-2"
+                        className="object-contain p-4"
                       />
                     </div>
-                    <p className="text-xs text-slate-300 text-center line-clamp-2 group-hover:text-purple-300 transition-colors">
-                      {formatItemName(component)}
-                    </p>
-                  </button>
-                ))}
+                  </div>
+                </div>
+
+                {/* Weapon Components */}
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-4">Weapon Components</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {getWeaponComponents(selectedWeapon).map((component) => (
+                      <button
+                        key={component}
+                        onClick={() => {
+                          setSelectedWeapon(null);
+                          navigateToItem(component, 'Weapon Components');
+                        }}
+                        className="bg-slate-800 hover:bg-slate-700 border-2 border-slate-600 hover:border-purple-500 rounded-lg p-3 transition-all group"
+                      >
+                        <div className="aspect-square relative bg-slate-900 rounded overflow-hidden mb-2">
+                          <Image
+                            src={`/Forging/Weapon Components/${component}.png`}
+                            alt={formatItemName(component)}
+                            fill
+                            className="object-contain p-2"
+                          />
+                        </div>
+                        <p className="text-xs text-slate-300 text-center line-clamp-2 group-hover:text-purple-300 transition-colors">
+                          {formatItemName(component)}
+                        </p>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <button
+                  onClick={() => setSelectedWeapon(null)}
+                  className="w-full mt-6 bg-slate-700 hover:bg-slate-600 text-white px-4 py-3 rounded-lg transition-colors font-semibold"
+                >
+                  Close
+                </button>
               </div>
             </div>
-
-            {/* Action Buttons */}
-            <button
-              onClick={() => setSelectedWeapon(null)}
-              className="w-full mt-6 bg-slate-700 hover:bg-slate-600 text-white px-4 py-3 rounded-lg transition-colors font-semibold"
-            >
-              Close
-            </button>
-          </div>
+          )}
         </div>
-      )}
-    </div>
-  );
+      );
 }
