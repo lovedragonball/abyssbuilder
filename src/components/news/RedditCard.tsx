@@ -49,29 +49,42 @@ export function RedditCard() {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          'https://www.reddit.com/user/DNAbyss_Official/submitted.json?limit=6',
-          { signal: controller.signal }
+          'https://www.reddit.com/user/DNAbyss_Official/submitted.json?limit=6&raw_json=1',
+          {
+            signal: controller.signal,
+            headers: {
+              'Accept': 'application/json',
+            },
+            mode: 'cors',
+            cache: 'no-cache'
+          }
         );
 
         if (!response.ok) {
-          throw new Error('Failed to fetch Reddit posts');
+          throw new Error(`Failed to fetch Reddit posts: ${response.status}`);
         }
 
         const payload = (await response.json()) as RedditApiResponse;
-        const mapped =
-          payload.data?.children?.map((child) => ({
-            id: child.data.id,
-            title: child.data.title,
-            permalink: `https://www.reddit.com${child.data.permalink}`,
-            subreddit: child.data.subreddit,
-            score: child.data.score,
-            created_utc: child.data.created_utc,
-          })) ?? [];
+
+        if (!payload.data?.children || payload.data.children.length === 0) {
+          setError('No recent Reddit activity.');
+          return;
+        }
+
+        const mapped = payload.data.children.map((child) => ({
+          id: child.data.id,
+          title: child.data.title,
+          permalink: `https://www.reddit.com${child.data.permalink}`,
+          subreddit: child.data.subreddit,
+          score: child.data.score,
+          created_utc: child.data.created_utc,
+        }));
 
         setPosts(mapped);
-        setError(mapped.length === 0 ? 'No recent Reddit activity.' : null);
-      } catch {
+        setError(null);
+      } catch (err) {
         if (controller.signal.aborted) return;
+        console.error('Reddit API Error:', err);
         setError('Unable to load Reddit posts right now.');
       } finally {
         if (!controller.signal.aborted) {
