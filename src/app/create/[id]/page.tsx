@@ -374,6 +374,29 @@ const SupportModModal = ({
         return mod.effect?.includes('can be equipped in multiples') || false;
     };
 
+    const canEquipWithExisting = (newMod: Mod, existingMods: (Mod | null)[]) => {
+        // If the mod can't be equipped in multiples at all, no duplicates allowed
+        if (!canEquipMultiple(newMod)) {
+            return !existingMods.some(slot => slot?.name === newMod.name);
+        }
+
+        // If it can be equipped in multiples, check if any existing mod with same name has different rarity
+        const sameNameMods = existingMods.filter(slot => slot?.name === newMod.name);
+        if (sameNameMods.length === 0) return true;
+
+        // All existing mods with same name must have same rarity
+        return sameNameMods.every(existing => existing?.rarity === newMod.rarity);
+    };
+
+    const isElementMatch = (mod: Mod) => {
+        // If mod has no element, it can be equipped on anything
+        if (!mod.element) return true;
+        // If item has no element, allow all mods
+        if (!item?.element) return true;
+        // Otherwise, elements must match
+        return mod.element === item.element;
+    };
+
     // Part B Features
     const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set());
     const [adjustSlotTrackMode, setAdjustSlotTrackMode] = useState(false);
@@ -415,15 +438,38 @@ const SupportModModal = ({
                 return;
             }
 
-            // Check if mod already exists in build (excluding the target slot)
-            const isDuplicate = mods.some((slot, i) => i !== index && slot?.name === mod.name);
-
-            if (isDuplicate && !canEquipMultiple(mod)) {
+            // Check element matching
+            if (!isElementMatch(mod)) {
                 toast({
-                    title: 'Cannot Equip Duplicate',
-                    description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                    title: 'Element Mismatch',
+                    description: `${mod.name} (${mod.element}) cannot be equipped on ${item?.name || 'this item'} (${item?.element || 'unknown'}).`,
                     variant: 'destructive',
                 });
+                return;
+            }
+
+            // Check if mod can be equipped with existing mods (excluding the target slot)
+            const modsExcludingTarget = mods.map((slot, i) => i === index ? null : slot);
+
+            if (!canEquipWithExisting(mod, modsExcludingTarget)) {
+                const hasSameName = modsExcludingTarget.some(slot => slot?.name === mod.name);
+                const hasDifferentRarity = modsExcludingTarget.some(
+                    slot => slot?.name === mod.name && slot?.rarity !== mod.rarity
+                );
+
+                if (hasDifferentRarity) {
+                    toast({
+                        title: 'Cannot Mix Rarities',
+                        description: `${mod.name} is already equipped with a different rarity. Only same rarity duplicates are allowed.`,
+                        variant: 'destructive',
+                    });
+                } else {
+                    toast({
+                        title: 'Cannot Equip Duplicate',
+                        description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                        variant: 'destructive',
+                    });
+                }
                 return;
             }
 
@@ -448,15 +494,36 @@ const SupportModModal = ({
             return;
         }
 
-        // Check if mod already exists in build
-        const isDuplicate = mods.some(slot => slot?.name === mod.name);
-
-        if (isDuplicate && !canEquipMultiple(mod)) {
+        // Check element matching
+        if (!isElementMatch(mod)) {
             toast({
-                title: 'Cannot Equip Duplicate',
-                description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                title: 'Element Mismatch',
+                description: `${mod.name} (${mod.element}) cannot be equipped on ${item?.name || 'this item'} (${item?.element || 'unknown'}).`,
                 variant: 'destructive',
             });
+            return;
+        }
+
+        // Check if mod can be equipped with existing mods
+        if (!canEquipWithExisting(mod, mods)) {
+            const hasSameName = mods.some(slot => slot?.name === mod.name);
+            const hasDifferentRarity = mods.some(
+                slot => slot?.name === mod.name && slot?.rarity !== mod.rarity
+            );
+
+            if (hasDifferentRarity) {
+                toast({
+                    title: 'Cannot Mix Rarities',
+                    description: `${mod.name} is already equipped with a different rarity. Only same rarity duplicates are allowed.`,
+                    variant: 'destructive',
+                });
+            } else {
+                toast({
+                    title: 'Cannot Equip Duplicate',
+                    description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                    variant: 'destructive',
+                });
+            }
             return;
         }
 
@@ -527,9 +594,12 @@ const SupportModModal = ({
             // Enforce allowed types
             const allowedTypeMatch = !allowedModTypes || allowedModTypes.includes(mod.modType);
 
-            return searchMatch && typeMatch && rarityMatch && elementMatch && allowedTypeMatch;
+            // Enforce element matching with item
+            const itemElementMatch = isElementMatch(mod);
+
+            return searchMatch && typeMatch && rarityMatch && elementMatch && allowedTypeMatch && itemElementMatch;
         });
-    }, [searchQuery, modTypeFilters, rarityFilters, elementFilter, allowedModTypes]);
+    }, [searchQuery, modTypeFilters, rarityFilters, elementFilter, allowedModTypes, item]);
 
     if (!item) return null;
 
@@ -1100,6 +1170,29 @@ export default function CreateBuildDetailPage() {
         return mod.effect?.includes('can be equipped in multiples') || false;
     };
 
+    const canEquipWithExisting = (newMod: Mod, existingMods: (Mod | null)[]) => {
+        // If the mod can't be equipped in multiples at all, no duplicates allowed
+        if (!canEquipMultiple(newMod)) {
+            return !existingMods.some(slot => slot?.name === newMod.name);
+        }
+
+        // If it can be equipped in multiples, check if any existing mod with same name has different rarity
+        const sameNameMods = existingMods.filter(slot => slot?.name === newMod.name);
+        if (sameNameMods.length === 0) return true;
+
+        // All existing mods with same name must have same rarity
+        return sameNameMods.every(existing => existing?.rarity === newMod.rarity);
+    };
+
+    const isElementMatchMain = (mod: Mod) => {
+        // If mod has no element, it can be equipped on anything
+        if (!mod.element) return true;
+        // If item has no element, allow all mods  
+        if (!item?.element) return true;
+        // Otherwise, elements must match
+        return mod.element === item.element;
+    };
+
     const handleDrop = (e: React.DragEvent<HTMLDivElement>, index: number) => {
         e.preventDefault();
         const modName = e.dataTransfer.getData("modName");
@@ -1110,15 +1203,37 @@ export default function CreateBuildDetailPage() {
                 return;
             }
 
-            // Check if mod already exists in build (excluding the target slot)
-            const isDuplicate = buildSlots.some((slot, i) => i !== index && slot?.name === mod.name);
-
-            if (isDuplicate && !canEquipMultiple(mod)) {
+            // Check element matching
+            if (!isElementMatchMain(mod)) {
                 toast({
-                    title: 'Cannot Equip Duplicate',
-                    description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                    title: 'Element Mismatch',
+                    description: `${mod.name} (${mod.element}) cannot be equipped on ${item.name} (${item.element}).`,
                     variant: 'destructive',
                 });
+                return;
+            }
+
+            // Check if mod can be equipped with existing mods (excluding the target slot)
+            const modsExcludingTarget = buildSlots.map((slot, i) => i === index ? null : slot);
+
+            if (!canEquipWithExisting(mod, modsExcludingTarget)) {
+                const hasDifferentRarity = modsExcludingTarget.some(
+                    slot => slot?.name === mod.name && slot?.rarity !== mod.rarity
+                );
+
+                if (hasDifferentRarity) {
+                    toast({
+                        title: 'Cannot Mix Rarities',
+                        description: `${mod.name} is already equipped with a different rarity. Only same rarity duplicates are allowed.`,
+                        variant: 'destructive',
+                    });
+                } else {
+                    toast({
+                        title: 'Cannot Equip Duplicate',
+                        description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                        variant: 'destructive',
+                    });
+                }
                 return;
             }
 
@@ -1157,15 +1272,35 @@ export default function CreateBuildDetailPage() {
             return;
         }
 
-        // Check if mod already exists in build
-        const isDuplicate = buildSlots.some(slot => slot?.name === mod.name);
-
-        if (isDuplicate && !canEquipMultiple(mod)) {
+        // Check element matching
+        if (!isElementMatchMain(mod)) {
             toast({
-                title: 'Cannot Equip Duplicate',
-                description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                title: 'Element Mismatch',
+                description: `${mod.name} (${mod.element}) cannot be equipped on ${item.name} (${item.element}).`,
                 variant: 'destructive',
             });
+            return;
+        }
+
+        // Check if mod can be equipped with existing mods
+        if (!canEquipWithExisting(mod, buildSlots)) {
+            const hasDifferentRarity = buildSlots.some(
+                slot => slot?.name === mod.name && slot?.rarity !== mod.rarity
+            );
+
+            if (hasDifferentRarity) {
+                toast({
+                    title: 'Cannot Mix Rarities',
+                    description: `${mod.name} is already equipped with a different rarity. Only same rarity duplicates are allowed.`,
+                    variant: 'destructive',
+                });
+            } else {
+                toast({
+                    title: 'Cannot Equip Duplicate',
+                    description: `${mod.name} is already equipped. This mod cannot be equipped multiple times.`,
+                    variant: 'destructive',
+                });
+            }
             return;
         }
 
@@ -1300,7 +1435,11 @@ export default function CreateBuildDetailPage() {
 
             const elementMatch = elementFilter === 'All' || !mod.element || mod.element === elementFilter;
             const centerMatch = !showCenterOnly || Boolean(mod.centerOnly);
-            return searchMatch && itemTypeMatch && typeMatch && rarityMatch && elementMatch && centerMatch;
+
+            // Enforce element matching with item
+            const itemElementMatch = isElementMatchMain(mod);
+
+            return searchMatch && itemTypeMatch && typeMatch && rarityMatch && elementMatch && centerMatch && itemElementMatch;
         });
     }, [searchQuery, modTypeFilters, rarityFilters, elementFilter, showCenterOnly, itemType, item]);
 
