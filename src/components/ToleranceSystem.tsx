@@ -21,18 +21,18 @@ export function ToleranceSystem({ mods, primeMod, className, adjustedSlots = new
     let current = 0;
     mods.forEach((mod, index) => {
       if (!mod) return;
-      
+
       let modCost = mod.tolerance;
-      
+
       // Matching prime mod symbol cuts tolerance cost in half
       if (primeMod && mod.symbol && mod.symbol === primeMod.symbol) {
-        modCost = Math.floor(modCost / 2);
+        modCost = Math.ceil(modCost / 2);
       }
       // Adjust Slot Track also halves the tolerance cost
       else if (adjustedSlots.has(index)) {
-        modCost = Math.floor(modCost / 2);
+        modCost = Math.ceil(modCost / 2);
       }
-      
+
       current += modCost;
     });
 
@@ -73,7 +73,7 @@ export function ToleranceSystem({ mods, primeMod, className, adjustedSlots = new
           {currentTolerance}/{maxTolerance}
         </span>
       </div>
-      
+
       <div className="relative h-3 bg-black/30 rounded-full overflow-hidden border border-border/50">
         <div
           className={cn('h-full transition-all duration-300 rounded-full', {

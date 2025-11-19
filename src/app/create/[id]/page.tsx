@@ -612,14 +612,14 @@ const SupportModModal = ({
         if (!mod) return sum;
         let cost = mod.tolerance;
         if (adjustedSlots.has(index)) {
-            cost = Math.floor(cost / 2);
+            cost = Math.ceil(cost / 2);
         }
         return sum + cost;
     }, 0);
 
     const ModalModSlot = ({ mod, index }: { mod: Mod | null, index: number }) => {
         const isAdjusted = adjustedSlots.has(index);
-        const adjustedTolerance = mod && isAdjusted ? Math.floor(mod.tolerance / 2) : mod?.tolerance;
+        const adjustedTolerance = mod && isAdjusted ? Math.ceil(mod.tolerance / 2) : mod?.tolerance;
 
         const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
             if (adjustSlotTrackMode) {
@@ -1453,9 +1453,9 @@ export default function CreateBuildDetailPage() {
             let effectiveTolerance = mod.tolerance;
 
             if (primeSymbol && mod.symbol && mod.symbol === primeSymbol) {
-                effectiveTolerance = Math.floor(effectiveTolerance / 2);
+                effectiveTolerance = Math.ceil(effectiveTolerance / 2);
             } else if (adjustedSlots.has(index)) {
-                effectiveTolerance = Math.floor(effectiveTolerance / 2);
+                effectiveTolerance = Math.ceil(effectiveTolerance / 2);
             }
 
             return sum + effectiveTolerance;
@@ -1511,9 +1511,9 @@ export default function CreateBuildDetailPage() {
 
         let adjustedTolerance = mod?.tolerance;
         if (isPrimeAdjusted) {
-            adjustedTolerance = Math.floor((mod?.tolerance || 0) / 2);
+            adjustedTolerance = Math.ceil((mod?.tolerance || 0) / 2);
         } else if (mod && isAdjusted) {
-            adjustedTolerance = Math.floor(mod.tolerance / 2);
+            adjustedTolerance = Math.ceil(mod.tolerance / 2);
         }
 
         const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
