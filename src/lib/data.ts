@@ -1,4 +1,4 @@
-import type { Build, Character, Weapon, Mod, MeleeWeaponType, RangedWeaponType } from './types';
+import type { Build, Character, Weapon, Mod, MeleeWeaponType, RangedWeaponType, ModRarity } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 import { getModImage } from './mod-images';
 import { weaponDetails } from './weapon-details';
@@ -113,11 +113,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Umbro",
     "symbol": "⊙",
-    "mainAttribute": "Skill DMG +30%",
-    "effect": "When an Umbro character consumes Sanity, they gain 1 stack that increases Weapon CRIT Chance by 5.4% for 15s, up to 15 stacks.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill DMG +55%",
+    "effect": "When an Umbro character consumes Sanity, they gain 1 stack that increases Weapon CRIT Chance by 9.9% for 15s, up to 15 stacks.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Bahamut's Frosty Torrent",
@@ -137,11 +137,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Hydro",
     "symbol": "⊙",
-    "mainAttribute": "Skill DMG +30%",
-    "effect": "When a Hydro character use a skill, the user and nearby allies gain an ATK increases equal to 11.4% of the user's ATK (up to 275) for 10s.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill DMG +55%",
+    "effect": "When a Hydro character use a skill, the user and nearby allies gain an ATK increases equal to 20.9% of the user's ATK (up to 503) for 10s.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Bahamut's Misty Veil",
@@ -161,11 +161,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Hydro",
     "symbol": "⊙",
-    "mainAttribute": "Skill DMG +30%",
-    "effect": "Hydro Charactes' Summon gains an ATK speed boost equal to 27% of the summoner's melee weapon ATK Speed and a Skill range boost equal to Summoner's Skill range.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill DMG +55%",
+    "effect": "Hydro Charactes' Summon gains an ATK speed boost equal to 49.5% of the summoner's melee weapon ATK Speed and a Skill range boost equal to 24.2% Summoner's Skill range.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Cerberus's Celerity",
@@ -181,19 +181,10 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "⊙",
-    "mainAttribute": "ATK Speed +42%",
-    "tolerance": 20,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Cerberus's Crusher Trammel",
-    "rarity": 2,
-    "modType": "Melee Weapon",
-    "mainAttribute": "Smash ATK +20%\nTrigger Probability +40%",
-    "tolerance": 9,
-    "track": 3,
-    "source": "Level 20"
+    "mainAttribute": "ATK Speed +75%",
+    "tolerance": 25,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
     "name": "Cerberus's Crusher",
@@ -209,16 +200,17 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
-    "mainAttribute": "Smash ATK +54%",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Smash ATK +99%",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Edge Trammel",
+    "name": "Cerberus's Crusher",
     "rarity": 2,
     "modType": "Melee Weapon",
-    "mainAttribute": "Slash ATK +20%\nTrigger Probability +40%",
+    "variant": "Trammel",
+    "mainAttribute": "Smash ATK +20% | Trigger Probability +40%",
     "tolerance": 9,
     "track": 3,
     "source": "Level 20"
@@ -237,10 +229,20 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
-    "mainAttribute": "Slash ATK +54%",
+    "mainAttribute": "Slash ATK +99%",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70, Level 80"
+  },
+  {
+    "name": "Cerberus's Edge",
+    "rarity": 2,
+    "modType": "Melee Weapon",
+    "variant": "Trammel",
+    "mainAttribute": "Slash ATK +20% | Trigger Probability +40%",
     "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "track": 3,
+    "source": "Level 20"
   },
   {
     "name": "Cerberus's Focus",
@@ -251,15 +253,6 @@ export const allMods: Mod[] = [
     "tolerance": 17,
     "track": 5,
     "source": "Level 40"
-  },
-  {
-    "name": "Cerberus's Impetus Focus",
-    "rarity": 2,
-    "modType": "Melee Weapon",
-    "mainAttribute": "ATK +30%\nCrit Chance +40%",
-    "tolerance": 11,
-    "track": 3,
-    "source": "Level 20"
   },
   {
     "name": "Cerberus's Impetus",
@@ -276,29 +269,31 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
-    "mainAttribute": "ATK +82%",
-    "tolerance": 10,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "ATK +150%",
+    "tolerance": 15,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Impetus Focus",
-    "rarity": 5,
-    "modType": "Melee Weapon",
-    "symbol": "◬",
-    "mainAttribute": "ATK +41%\nCRIT Chance +54%",
-    "tolerance": 12,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Cerberus's Penetration Trammel",
+    "name": "Cerberus's Impetus",
     "rarity": 2,
     "modType": "Melee Weapon",
-    "mainAttribute": "Spike ATK +20%\nTrigger Probability +40%",
-    "tolerance": 9,
+    "variant": "Focus",
+    "mainAttribute": "ATK +30% | Crit Chance +40%",
+    "tolerance": 11,
     "track": 3,
     "source": "Level 20"
+  },
+  {
+    "name": "Cerberus's Impetus",
+    "rarity": 5,
+    "modType": "Melee Weapon",
+    "variant": "Focus",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | CRIT Chance +99%",
+    "tolerance": 17,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
     "name": "Cerberus's Penetration",
@@ -314,17 +309,18 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
-    "mainAttribute": "Spike ATK +54%",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Spike ATK +99%",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Rage Trammel",
+    "name": "Cerberus's Penetration",
     "rarity": 2,
     "modType": "Melee Weapon",
-    "mainAttribute": "Crit Damage +40%\nTrigger Probability +40%",
-    "tolerance": 10,
+    "variant": "Trammel",
+    "mainAttribute": "Spike ATK +20% | Trigger Probability +40%",
+    "tolerance": 9,
     "track": 3,
     "source": "Level 20"
   },
@@ -339,24 +335,44 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Cerberus's Rage Trammel",
+    "name": "Cerberus's Rage",
+    "rarity": 2,
+    "modType": "Melee Weapon",
+    "variant": "Trammel",
+    "mainAttribute": "Crit Damage +40% | Trigger Probability +40%",
+    "tolerance": 10,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Cerberus's Rage",
     "rarity": 5,
     "modType": "Melee Weapon",
+    "variant": "Trammel",
     "symbol": "☽",
-    "mainAttribute": "CRIT Damage +54%\nTrigger Probability +54%",
-    "tolerance": 11,
+    "mainAttribute": "CRIT Damage +99% | Trigger Probability +99%",
+    "tolerance": 16,
+    "track": 10,
+    "source": "Level 70, Level 80"
+  },
+  {
+    "name": "Cerberus's Threshold",
+    "rarity": 3,
+    "modType": "Melee Weapon",
+    "mainAttribute": "ATK Range +1",
+    "tolerance": 9,
     "track": 5,
-    "source": "Forge"
+    "source": "Level 30"
   },
   {
     "name": "Cerberus's Threshold",
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "⊙",
-    "mainAttribute": "ATK Range +1.36",
-    "tolerance": 10,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "ATK Range +2.5",
+    "tolerance": 15,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
     "name": "Cerberus's Trammel",
@@ -369,589 +385,624 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Cerberus's Treshold",
-    "rarity": 3,
-    "modType": "Melee Weapon",
-    "mainAttribute": "ATK Range +1",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Level 30"
-  },
-  {
-    "name": "Covenanter's Blaze Resolve",
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Lumino",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nResolve +4%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Level 65"
-  },
-  {
-    "name": "Covenanter's Blaze Eternity",
-    "rarity": 4,
-    "modType": "Characters",
+    "variant": "Eternity",
     "element": "Lumino",
     "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Duration +18%",
+    "mainAttribute": "ATK +48% | Skill Duration +18%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 18,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Standfast",
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Eternity",
+    "element": "Lumino",
+    "symbol": "◊",
+    "mainAttribute": "ATK +88% | Skill Duration +33%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 20,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Anemo",
-    "symbol": "◬",
-    "mainAttribute": "ATK +48%\nDEF +48%",
+    "variant": "Eternity",
+    "element": "Pyro",
+    "symbol": "☽",
+    "mainAttribute": "ATK +48% | Skill Duration +18%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Eternity",
+    "element": "Pyro",
+    "symbol": "☽",
+    "mainAttribute": "ATK +88% | Skill Duration +33%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 20,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Inspo",
+    "element": "Hydro",
+    "symbol": "◊",
+    "mainAttribute": "ATK +48% | Skill Efficiency +12%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 16,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Resolve",
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Inspo",
+    "element": "Hydro",
+    "symbol": "◊",
+    "mainAttribute": "ATK +88% | Skill Efficiency +22%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Anemo",
+    "variant": "Inspo",
+    "element": "Pyro",
+    "symbol": "◊",
+    "mainAttribute": "ATK +48% | Skill Efficiency +12%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Inspo",
+    "element": "Pyro",
+    "symbol": "◊",
+    "mainAttribute": "ATK +88% | Skill Efficiency +22%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Electro",
     "symbol": "☽",
-    "mainAttribute": "ATK +48%\nResolve +4%",
+    "mainAttribute": "ATK +48% | Morale +12%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Volition",
-    "rarity": 4,
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
     "modType": "Characters",
-    "element": "Anemo",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill DMG +24%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 18,
-    "track": 5,
-    "source": "Level 65"
-  },
-  {
-    "name": "Covenanter's Blaze Nirvana",
-    "rarity": 4,
-    "modType": "Characters",
-    "element": "Electro",
-    "symbol": "◬",
-    "mainAttribute": "ATK +48%\nHP +48%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 16,
-    "track": 5,
-    "source": "Level 65"
-  },
-  {
-    "name": "Covenanter's Blaze Morale",
-    "rarity": 4,
-    "modType": "Characters",
+    "variant": "Morale",
     "element": "Electro",
     "symbol": "☽",
-    "mainAttribute": "ATK +48%\nMorale +12%",
+    "mainAttribute": "ATK +88% | Morale +22%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 17,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Umbro",
+    "symbol": "☽",
+    "mainAttribute": "ATK +48% | Morale +12%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Volition",
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Umbro",
+    "symbol": "☽",
+    "mainAttribute": "ATK +88% | Morale +22%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 17,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
+    "variant": "Nirvana",
     "element": "Electro",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill DMG +24%",
+    "symbol": "◬",
+    "mainAttribute": "ATK +48% | HP +48%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Nirvana",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +88% | HP +88%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 18,
-    "track": 5,
-    "source": "Level 65"
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze Standfast",
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Pyro",
+    "variant": "Nirvana",
+    "element": "Hydro",
     "symbol": "◬",
-    "mainAttribute": "ATK +48%\nDEF +48%",
+    "mainAttribute": "ATK +48% | HP +48%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 16,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Eternity",
-    "rarity": 4,
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
     "modType": "Characters",
-    "element": "Pyro",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nSkill Duration +18%",
+    "variant": "Nirvana",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +88% | HP +88%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 18,
-    "track": 5,
-    "source": "Level 65"
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze Inspo",
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Pyro",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Efficiency +12%",
+    "variant": "Resolve",
+    "element": "Anemo",
+    "symbol": "☽",
+    "mainAttribute": "ATK +48% | Resolve +4%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 16,
+    "tolerance": 15,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Nirvana",
-    "rarity": 4,
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
     "modType": "Characters",
-    "element": "Hydro",
-    "symbol": "◬",
-    "mainAttribute": "ATK +48%\nHP +48%",
+    "variant": "Resolve",
+    "element": "Anemo",
+    "symbol": "☽",
+    "mainAttribute": "ATK +88% | Resolve +7.3%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 16,
+    "tolerance": 17,
+    "track": 5,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Lumino",
+    "symbol": "☽",
+    "mainAttribute": "ATK +48% | Resolve +4%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 15,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Spectrum",
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Lumino",
+    "symbol": "☽",
+    "mainAttribute": "ATK +88% | Resolve +7.3%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 17,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
+    "variant": "Spectrum",
     "element": "Hydro",
     "symbol": "☽",
-    "mainAttribute": "ATK +48%\nSkill Range +30%",
+    "mainAttribute": "ATK +48% | Skill Range +30%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 17,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Inspo",
-    "rarity": 4,
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
     "modType": "Characters",
+    "variant": "Spectrum",
     "element": "Hydro",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Efficiency +12%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 16,
-    "track": 5,
-    "source": "Level 65"
-  },
-  {
-    "name": "Covenanter's Blaze Morale",
-    "rarity": 4,
-    "modType": "Characters",
-    "element": "Umbro",
     "symbol": "☽",
-    "mainAttribute": "ATK +48%\nMorale +12%",
+    "mainAttribute": "ATK +88% | Skill Range +55%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Level 65"
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze Spectrum",
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
+    "variant": "Spectrum",
     "element": "Umbro",
     "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Range +30%",
+    "mainAttribute": "ATK +48% | Skill Range +30%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 17,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze Resolve",
+    "name": "Covenanter's Blaze",
     "rarity": 5,
     "modType": "Characters",
-    "element": "Lumino",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nResolve +4%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 12,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Eternity",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Lumino",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Duration +18%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Standfast",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Anemo",
-    "symbol": "◬",
-    "mainAttribute": "ATK +48%\nDEF +48%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Resolve",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Anemo",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nResolve +4%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 12,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Volition",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Anemo",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill DMG +24%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Nirvana",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Electro",
-    "symbol": "◬",
-    "mainAttribute": "ATK +48%\nHP +48%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Morale",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Electro",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nMorale +12%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 12,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Volition",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Electro",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill DMG +24%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Standfast",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Pyro",
-    "symbol": "◬",
-    "mainAttribute": "ATK +48%\nDEF +48%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Eternity",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Pyro",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nSkill Duration +18%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Inspo",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Pyro",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Efficiency +12%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Nirvana",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Hydro",
-    "symbol": "◬",
-    "mainAttribute": "ATK +48%\nHP +48%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Spectrum",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Hydro",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nSkill Range +30%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Inspo",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Hydro",
-    "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Efficiency +12%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Morale",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Umbro",
-    "symbol": "☽",
-    "mainAttribute": "ATK +48%\nMorale +12%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 12,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Blaze Spectrum",
-    "rarity": 5,
-    "modType": "Characters",
+    "variant": "Spectrum",
     "element": "Umbro",
     "symbol": "◊",
-    "mainAttribute": "ATK +48%\nSkill Range +30%",
+    "mainAttribute": "ATK +88% | Skill Range +55%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Nirvana Volition",
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Lumino",
-    "symbol": "⊙",
-    "mainAttribute": "HP +48%\nSkill DMG +24%",
+    "variant": "Standfast",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +48% | DEF +48%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Standfast",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +88% | DEF +88%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Standfast",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +48% | DEF +48%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Standfast",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +88% | DEF +88%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Anemo",
+    "symbol": "◊",
+    "mainAttribute": "ATK +48% | Skill DMG +24%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 18,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Nirvana Spectrum",
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Anemo",
+    "symbol": "◊",
+    "mainAttribute": "ATK +88% | Skill DMG +44%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 20,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Blaze",
     "rarity": 4,
     "modType": "Characters",
+    "variant": "Volition",
+    "element": "Electro",
+    "symbol": "◊",
+    "mainAttribute": "ATK +48% | Skill DMG +24%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Blaze",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Electro",
+    "symbol": "◊",
+    "mainAttribute": "ATK +88% | Skill DMG +44%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 20,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Nirvana",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Spectrum",
     "element": "Pyro",
     "symbol": "⊙",
-    "mainAttribute": "HP +48%\nSkill Range +30%",
+    "mainAttribute": "HP +48% | Skill Range +30%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 17,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Nirvana Volition",
+    "name": "Covenanter's Nirvana",
     "rarity": 5,
     "modType": "Characters",
-    "element": "Lumino",
-    "symbol": "⊙",
-    "mainAttribute": "HP +48%\nSkill DMG +24%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Nirvana Spectrum",
-    "rarity": 5,
-    "modType": "Characters",
+    "variant": "Spectrum",
     "element": "Pyro",
     "symbol": "⊙",
-    "mainAttribute": "HP +48%\nSkill Range +30%",
+    "mainAttribute": "HP +88% | Skill Range +55%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Scorch",
+    "name": "Covenanter's Nirvana",
     "rarity": 4,
     "modType": "Characters",
+    "variant": "Volition",
     "element": "Lumino",
-    "symbol": "◬",
-    "mainAttribute": "ATK +96%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 16,
-    "track": 5,
-    "source": "Level 65"
-  },
-  {
-    "name": "Covenanter's Scorch",
-    "rarity": 4,
-    "modType": "Characters",
-    "element": "Umbro",
-    "symbol": "◬",
-    "mainAttribute": "ATK +96%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 16,
-    "track": 5,
-    "source": "Level 65"
-  },
-  {
-    "name": "Covenanter's Scorch",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Lumino",
-    "symbol": "◬",
-    "mainAttribute": "ATK +96%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Scorch",
-    "rarity": 5,
-    "modType": "Characters",
-    "element": "Umbro",
-    "symbol": "◬",
-    "mainAttribute": "ATK +96%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Standfast Eternity",
-    "rarity": 4,
-    "modType": "Characters",
-    "element": "Electro",
     "symbol": "⊙",
-    "mainAttribute": "DEF +48%\nSkill Duration +18%",
+    "mainAttribute": "HP +48% | Skill DMG +24%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 18,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Standfast Inspo",
+    "name": "Covenanter's Nirvana",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Lumino",
+    "symbol": "⊙",
+    "mainAttribute": "HP +88% | Skill DMG +44%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 20,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Scorch",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Umbro",
-    "symbol": "⊙",
-    "mainAttribute": "DEF +48%\nSkill Efficiency +12%",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +96%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 16,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Standfast Eternity",
+    "name": "Covenanter's Scorch",
     "rarity": 5,
     "modType": "Characters",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +176%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Scorch",
+    "rarity": 4,
+    "modType": "Characters",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +96%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Scorch",
+    "rarity": 5,
+    "modType": "Characters",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +176%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Standfast",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Eternity",
     "element": "Electro",
     "symbol": "⊙",
-    "mainAttribute": "DEF +48%\nSkill Duration +18%",
+    "mainAttribute": "DEF +48% | Skill Duration +18%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 15,
+    "tolerance": 18,
     "track": 5,
-    "source": "Forge"
+    "source": "Level 65"
   },
   {
-    "name": "Covenanter's Standfast Inspo",
+    "name": "Covenanter's Standfast",
     "rarity": 5,
     "modType": "Characters",
+    "variant": "Eternity",
+    "element": "Electro",
+    "symbol": "⊙",
+    "mainAttribute": "DEF +88% | Skill Duration +33%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 120,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Standfast",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Inspo",
     "element": "Umbro",
     "symbol": "⊙",
-    "mainAttribute": "DEF +48%\nSkill Efficiency +12%",
-    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Covenanter's Wings Eternity",
-    "rarity": 4,
-    "modType": "Characters",
-    "element": "Anemo",
-    "symbol": "⊙",
-    "mainAttribute": "Max Sanity +24%\nSkill Duration +18%",
+    "mainAttribute": "DEF +48% | Skill Efficiency +12%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 16,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Wings Volition",
+    "name": "Covenanter's Standfast",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Inspo",
+    "element": "Umbro",
+    "symbol": "⊙",
+    "mainAttribute": "DEF +88% | Skill Efficiency +22%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Covenanter's Wings",
     "rarity": 4,
     "modType": "Characters",
-    "element": "Hydro",
+    "variant": "Eternity",
+    "element": "Anemo",
     "symbol": "⊙",
-    "mainAttribute": "Max Sanity +24%\nSkill DMG +24%",
+    "mainAttribute": "Max Sanity +24% | Skill Duration +18%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
     "tolerance": 16,
     "track": 5,
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Wings Eternity",
+    "name": "Covenanter's Wings",
     "rarity": 5,
     "modType": "Characters",
+    "variant": "Eternity",
     "element": "Anemo",
     "symbol": "⊙",
-    "mainAttribute": "Max Sanity +24%\nSkill Duration +18%",
+    "mainAttribute": "Max Sanity +44% | Skill Duration +33%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Wings Volition",
-    "rarity": 5,
+    "name": "Covenanter's Wings",
+    "rarity": 4,
     "modType": "Characters",
+    "variant": "Volition",
     "element": "Hydro",
     "symbol": "⊙",
-    "mainAttribute": "Max Sanity +24%\nSkill DMG +24%",
+    "mainAttribute": "Max Sanity +24% | Skill DMG +24%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 13,
+    "tolerance": 16,
     "track": 5,
-    "source": "Forge"
+    "source": "Level 65"
+  },
+  {
+    "name": "Covenanter's Wings",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Hydro",
+    "symbol": "⊙",
+    "mainAttribute": "Max Sanity +44% | Skill DMG +44%",
+    "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Eldritch Cerberus's Celerity",
@@ -986,9 +1037,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "⊙",
-    "mainAttribute": "ATK Speed +27%",
-    "tolerance": 26,
-    "track": 5,
+    "mainAttribute": "ATK Speed +49%",
+    "tolerance": 31,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1024,9 +1075,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "Smash ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "Smash ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1062,9 +1113,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "Slash ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "Slash ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1100,9 +1151,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "CRIT Chance +54%",
-    "tolerance": 22,
-    "track": 5,
+    "mainAttribute": "CRIT Chance +99%",
+    "tolerance": 27,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1138,9 +1189,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1176,9 +1227,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "Spike ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "Spike ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1214,9 +1265,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "CRIT Damage +54%",
-    "tolerance": 22,
-    "track": 5,
+    "mainAttribute": "CRIT Damage +99%",
+    "tolerance": 27,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1252,9 +1303,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "⊙",
-    "mainAttribute": "ATK Range +0.66",
-    "tolerance": 26,
-    "track": 5,
+    "mainAttribute": "ATK Range +1.1",
+    "tolerance": 31,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1281,9 +1332,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "☽",
-    "mainAttribute": "Trigger Probability +54%",
-    "tolerance": 26,
-    "track": 5,
+    "mainAttribute": "Trigger Probability +99%",
+    "tolerance": 31,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1319,9 +1370,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "⊙",
-    "mainAttribute": "ATK Speed +27%",
-    "tolerance": 26,
-    "track": 5,
+    "mainAttribute": "ATK Speed +49%",
+    "tolerance": 31,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1357,9 +1408,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "Smash ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "Smash ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1395,9 +1446,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "Slash ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "Slash ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1433,9 +1484,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "CRIT Chance +54%",
-    "tolerance": 22,
-    "track": 5,
+    "mainAttribute": "CRIT Chance +99%",
+    "tolerance": 27,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1471,9 +1522,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "⊙",
-    "mainAttribute": "Multishot +27%",
-    "tolerance": 26,
-    "track": 5,
+    "mainAttribute": "Multishot +49%",
+    "tolerance": 31,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1509,9 +1560,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1547,9 +1598,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "Spike ATK +81.6%",
-    "tolerance": 21,
-    "track": 5,
+    "mainAttribute": "Spike ATK +149.3%",
+    "tolerance": 26,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1585,9 +1636,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
-    "mainAttribute": "CRIT Damage +54%",
-    "tolerance": 22,
-    "track": 5,
+    "mainAttribute": "CRIT Damage +99%",
+    "tolerance": 27,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1623,9 +1674,9 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "☽",
-    "mainAttribute": "Trigger Probability +54%",
-    "tolerance": 26,
-    "track": 5,
+    "mainAttribute": "Trigger Probability +99%",
+    "tolerance": 31,
+    "track": 10,
     "source": "Shop Exchange"
   },
   {
@@ -1861,8 +1912,7 @@ export const allMods: Mod[] = [
     "tolerance": 10,
     "track": 5,
     "source": "Level 40"
-  }
-,
+  },
   {
     "name": "Feathered Serpent's Blastwave",
     "rarity": 3,
@@ -1872,7 +1922,8 @@ export const allMods: Mod[] = [
     "effect": "Upon landing from a height, deals Smash Damage equal to 128% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Cutoff",
@@ -1883,7 +1934,8 @@ export const allMods: Mod[] = [
     "effect": "While taking damage mid-air, the damage taken is reduced by 10%. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Helido",
@@ -1894,7 +1946,8 @@ export const allMods: Mod[] = [
     "effect": "When performing a Helix Leap, deals Anemo Damage equal to 256% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Ignite",
@@ -1905,7 +1958,8 @@ export const allMods: Mod[] = [
     "effect": "When performing a Helix Leap, deals Pyro Damage equal to 256% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Prance",
@@ -1916,18 +1970,20 @@ export const allMods: Mod[] = [
     "effect": "After defeating an enemy in mid-air, reset the character's air jump count, up to a maximum of 6 times. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Recovery",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "⊙",
-    "mainAttribute": "Damage Taken Rate +50%",
+    "mainAttribute": "Hitstun / Knockdown Recovery +50%",
     "effect": "Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Rescue",
@@ -1938,7 +1994,8 @@ export const allMods: Mod[] = [
     "effect": "When using Ultimate Skill, restores HP equal to 3% of max HP to teammates within a 10-metre range. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Sidestep",
@@ -1949,7 +2006,8 @@ export const allMods: Mod[] = [
     "effect": "Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Steadfast",
@@ -1960,7 +2018,8 @@ export const allMods: Mod[] = [
     "effect": "Gains immunity to Hitsun, but Damage Dealt is reduced by 15% (unaffected by other modifiers). Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Unyielding",
@@ -1971,7 +2030,8 @@ export const allMods: Mod[] = [
     "effect": "Survives Fatal damage, reducing the character's HP to 1. This effect can only be triggered once every 300s max. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Feathered Serpent's Vigilant",
@@ -1982,7 +2042,8 @@ export const allMods: Mod[] = [
     "effect": "When taking damage, there is a 50% chance to reduce damage taken by 20%. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.",
     "tolerance": 7,
     "track": 5,
-    "source": "Shop Exchange"
+    "source": "Shop Exchange",
+    "centerOnly": true
   },
   {
     "name": "Fenrir's Afterimage",
@@ -1990,6 +2051,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "100% Chance to get 1 additional Combo when dealing damage with Sliding Attack",
     "tolerance": 15,
     "track": 5,
     "source": "Level 60"
@@ -2021,6 +2083,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◊",
     "mainAttribute": "–",
+    "effect": "When defeating an enemy, gains 1 stack that increases ATK Speed by 30% for 10s, up to 2 stacks.",
     "tolerance": 20,
     "track": 5,
     "source": "Level 50"
@@ -2046,6 +2109,17 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
+    "name": "Fenrir's Continuity",
+    "rarity": 4,
+    "modType": "Melee Weapon",
+    "variant": "Trammel",
+    "symbol": "⊙",
+    "mainAttribute": "Combo Duration +6 | Trigger Probability +78%",
+    "tolerance": 19,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
     "name": "Fenrir's Crescent Flurry",
     "rarity": 4,
     "modType": "Melee Weapon",
@@ -2062,6 +2136,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◬",
     "mainAttribute": "–",
+    "effect": "Increase Damage Dealt to The Elysian Church by 40%",
     "tolerance": 14,
     "track": 5,
     "source": "Level 65"
@@ -2093,6 +2168,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◊",
     "mainAttribute": "–",
+    "effect": "Increases Movement Speed by 20% for 10s after defeating an enemy.",
     "tolerance": 15,
     "track": 5,
     "source": "Level 50"
@@ -2103,6 +2179,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◬",
     "mainAttribute": "–",
+    "effect": "Increase Damage Dealt to Filthoid by 40%",
     "tolerance": 14,
     "track": 5,
     "source": "Level 65"
@@ -2123,6 +2200,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◬",
     "mainAttribute": "–",
+    "effect": "Increase Damage Dealt to The Forsakens by 40%",
     "tolerance": 14,
     "track": 5,
     "source": "Level 60"
@@ -2132,6 +2210,7 @@ export const allMods: Mod[] = [
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "–",
+    "effect": "When gaining Combo Point through attacking, there is 100% chance to gain 1 additional Combo Point",
     "tolerance": 12,
     "track": 5,
     "source": "Level 30"
@@ -2152,6 +2231,7 @@ export const allMods: Mod[] = [
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "–",
+    "effect": "Each Combo Level increase Trigger Probability by 16%",
     "tolerance": 10,
     "track": 5,
     "source": "Level 30"
@@ -2162,6 +2242,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◬",
     "mainAttribute": "–",
+    "effect": "Increase Damage Dealt to Hyperborean Soldier by 40%",
     "tolerance": 14,
     "track": 5,
     "source": "Level 65"
@@ -2172,6 +2253,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◊",
     "mainAttribute": "–",
+    "effect": "When triggering Bonus Effect, gains 1 stack that increases ATK Range by 0.6 for 10s, up to 2 stacks.",
     "tolerance": 11,
     "track": 5,
     "source": "Level 50"
@@ -2276,6 +2358,7 @@ export const allMods: Mod[] = [
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "–",
+    "effect": "Each Combo Level increase CRIT Chance by 20%",
     "tolerance": 13,
     "track": 5,
     "source": "Level 30"
@@ -2286,6 +2369,7 @@ export const allMods: Mod[] = [
     "modType": "Melee Weapon",
     "symbol": "◊",
     "mainAttribute": "–",
+    "effect": "When triggering Bonus Effect: Smash, gains 1 stack that increases CRIT Damage by 10% for 10s, up to 10 stacks.",
     "tolerance": 14,
     "track": 5,
     "source": "Level 50"
@@ -2302,6 +2386,336 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
+    "name": "Griffin's Inferno",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Pyro",
+    "symbol": "◊",
+    "mainAttribute": "Pyro ATK +18% | Skill DMG +18% | Skill Duration +12%",
+    "tolerance": 23,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Inferno",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Pyro",
+    "symbol": "◊",
+    "mainAttribute": "Pyro ATK +33% | Skill DMG +33% | Skill Duration +22%",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Inferno",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Pyro",
+    "mainAttribute": "Pyro ATK +18% | Skill DMG +18%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Griffin's Inferno",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Pyro",
+    "symbol": "◊",
+    "mainAttribute": "Pyro ATK +18% | Skill DMG +18% | Skill Range +18%",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Inferno",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Pyro",
+    "symbol": "◊",
+    "mainAttribute": "Pyro ATK +33% | Skill DMG +33% | Skill Range +33%",
+    "tolerance": 25,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Nihility",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Umbro",
+    "symbol": "◊",
+    "mainAttribute": "Umbro ATK +18% | Skill DMG +18% | Skill Duration +12%",
+    "tolerance": 23,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Nihility",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Umbro",
+    "symbol": "◊",
+    "mainAttribute": "Umbro ATK +33% | Skill DMG +33% | Skill Duration +22%",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Nihility",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Umbro",
+    "mainAttribute": "Umbro ATK +18% | Skill DMG +18%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Griffin's Nihility",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Umbro",
+    "symbol": "◊",
+    "mainAttribute": "Umbro ATK +18% | Skill DMG +18% | Skill Range +18%",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Nihility",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Umbro",
+    "symbol": "◊",
+    "mainAttribute": "Umbro ATK +33% | Skill DMG +33% | Skill Range +33%",
+    "tolerance": 25,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Seawave",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Hydro",
+    "symbol": "◊",
+    "mainAttribute": "Hydro ATK +18% | Skill DMG +18% | Skill Duration +12%",
+    "tolerance": 23,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Seawave",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Hydro",
+    "symbol": "◊",
+    "mainAttribute": "Hydro ATK +33% | Skill DMG +33% | Skill Duration +22%",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Seawave",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Hydro",
+    "mainAttribute": "Hydro ATK +18% | Skill DMG +18%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Griffin's Seawave",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Hydro",
+    "symbol": "◊",
+    "mainAttribute": "Hydro ATK +18% | Skill DMG +18% | Skill Range +18%",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Seawave",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Hydro",
+    "symbol": "◊",
+    "mainAttribute": "Hydro ATK +33% | Skill DMG +33% | Skill Range +33%",
+    "tolerance": 25,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Skylume",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Lumino",
+    "symbol": "◊",
+    "mainAttribute": "Lumino ATK +18% | Skill DMG +18% | Skill Duration +12%",
+    "tolerance": 23,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Skylume",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Lumino",
+    "symbol": "◊",
+    "mainAttribute": "Lumino ATK +33% | Skill DMG +33% | Skill Duration +22%",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Skylume",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Lumino",
+    "mainAttribute": "Lumino ATK +18% | Skill DMG +18%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Griffin's Skylume",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Lumino",
+    "symbol": "◊",
+    "mainAttribute": "Lumino ATK +18% | Skill DMG +18% | Skill Range +18%",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Skylume",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Lumino",
+    "symbol": "◊",
+    "mainAttribute": "Lumino ATK +33% | Skill DMG +33 | Skill Range +33%",
+    "tolerance": 25,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Squall",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Anemo",
+    "symbol": "◊",
+    "mainAttribute": "Anemo ATK +33% | Skill DMG +33% | Skill Duration +22%",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Squall",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Anemo",
+    "mainAttribute": "Anemo ATK +18% | Skill DMG +18%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Griffin's Squall",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Anemo",
+    "symbol": "◊",
+    "mainAttribute": "Anemo ATK +18% | Skill DMG +18% | Skill Range +18%",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Squall",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Anemo",
+    "symbol": "◊",
+    "mainAttribute": "Anemo ATK +33% | Skill DMG +33% | Skill Range +33%",
+    "tolerance": 25,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Thunder",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Midnight Sun",
+    "element": "Electro",
+    "symbol": "◊",
+    "mainAttribute": "Electro ATK +33% | Skill DMG +33% | Skill Duration +22%",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
+    "name": "Griffin's Thunder",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Volition",
+    "element": "Electro",
+    "mainAttribute": "Electro ATK +18% | Skill DMG +18%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Griffin's Thunder",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Electro",
+    "symbol": "◊",
+    "mainAttribute": "Electro ATK +18% | Skill DMG +18% | Skill Range +18%",
+    "tolerance": 22,
+    "track": 5,
+    "source": "Level 60"
+  },
+  {
+    "name": "Griffin's Thunder",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Wildfire",
+    "element": "Electro",
+    "symbol": "◊",
+    "mainAttribute": "Electro ATK +33% | Skill DMG +33% | Skill Range +33%",
+    "tolerance": 25,
+    "track": 10,
+    "source": "Covert Comission"
+  },
+  {
     "name": "Hastur's Turbulent Cyclone",
     "rarity": 4,
     "modType": "Characters",
@@ -2319,11 +2733,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Anemo",
     "symbol": "⊙",
-    "mainAttribute": "Skill Duration +24%",
-    "effect": "When an Anemo character character's ranged weapon triggers a bonus effect, grants +5.4% resolve to the user and nearby allies for 10s.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill Duration +44%",
+    "effect": "When an Anemo character character's ranged weapon triggers a bonus effect, grants +9.9% resolve to the user and nearby allies for 10s.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Hastur's Whispering Zephyr",
@@ -2343,11 +2757,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Anemo",
     "symbol": "⊙",
-    "mainAttribute": "Skill DMG +30%",
-    "effect": "When an Anemo character uses Combat Skills, it gains 84% Skill Damage increase for 6s.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill DMG +55%",
+    "effect": "When an Anemo character uses Combat Skills, it gains 154% Skill Damage increase for 6s.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Helios's Glimm & Glimmer",
@@ -2367,11 +2781,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Lumino",
     "symbol": "⊙",
-    "mainAttribute": "Skill Duration +24%",
-    "effect": "Increases the Lumino character's ATK by [their current Skill Duration x 48.6%], up to 117%.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill Duration +44%",
+    "effect": "Increases the Lumino character's ATK by [their current Skill Duration x 88.9%], up to 214%.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Helios's Prismatic Neon",
@@ -2391,11 +2805,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Lumino",
     "symbol": "⊙",
-    "mainAttribute": "Skill Duration +24%",
-    "effect": "When enemies near a Lumino character take Weapon DMG CRIT Chance increases by 32.7%. Gains an additional +8.2% against targets with debuffs.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill Duration +44%",
+    "effect": "When enemies near a Lumino character take Weapon DMG CRIT Chance increases by 59.8%. Gains an additional +15% against targets with debuffs.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Ifrit's Devouring Wildfire",
@@ -2415,11 +2829,11 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Pyro",
     "symbol": "⊙",
-    "mainAttribute": "Skill DMG +30%",
-    "effect": "When an Pyro character deals damage, gains 1 stack that increases ATK by 1% for 15s, up to 120 stacks",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Skill DMG +55%",
+    "effect": "When an Pyro character deals damage, gains 1 stack that increases ATK by 1.8% for 15s, up to 120 stacks",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Jormugand's Gleaming Assault Rifle",
@@ -2427,6 +2841,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Assault Rifle equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2437,9 +2852,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Assault Rifle equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Bow",
@@ -2447,6 +2863,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Bow equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2457,9 +2874,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Bow equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Dual Blades",
@@ -2467,6 +2885,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Dual Blades equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2477,9 +2896,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Dual Blades equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Dual Pistols",
@@ -2487,6 +2907,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Dual Pistols equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2497,9 +2918,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Dual Pistols equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Greatsword",
@@ -2507,6 +2929,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Greatsword equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2517,9 +2940,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Greatsword equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Grenade Launcher",
@@ -2527,6 +2951,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Grenade Launcher equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2537,9 +2962,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Grenade Launcher equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Katana",
@@ -2547,6 +2973,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Katana equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2557,9 +2984,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Katana equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Pistol",
@@ -2567,6 +2995,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Pistol equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2577,9 +3006,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Pistol equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Polearm",
@@ -2587,6 +3017,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Polearm equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2597,9 +3028,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Polearm equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Shotgun",
@@ -2607,6 +3039,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Shotgun equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2617,9 +3050,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Shotgun equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Sword",
@@ -2627,6 +3061,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Sword equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2637,9 +3072,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Sword equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Jormugand's Gleaming Whipsword",
@@ -2647,6 +3083,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase your Damage Dealt by 6% per Whipsword equipped by you or your Combat Partner (up to 18%; does not apply when acting as Combat Partner).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 65"
@@ -2657,9 +3094,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase your Damage Dealt by 11% per Whipsword equipped by you or your Combat Partner (up to 33%; does not apply when acting as Combat Partner).",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Lilith's Celerity",
@@ -2675,10 +3113,21 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
-    "mainAttribute": "ATK Speed +54%",
+    "mainAttribute": "ATK Speed +100%",
+    "tolerance": 20,
+    "track": 10,
+    "source": "Level 70, Level 80"
+  },
+  {
+    "name": "Lilith's Celerity",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "variant": "Cunning",
+    "symbol": "⊙",
+    "mainAttribute": "ATK Speed +60% | ATK -60%",
     "tolerance": 15,
     "track": 5,
-    "source": "Forge"
+    "source": "Level 55"
   },
   {
     "name": "Lilith's Crusher",
@@ -2694,10 +3143,31 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
-    "mainAttribute": "Smash ATK +54%",
-    "tolerance": 9,
+    "mainAttribute": "Smash ATK +99%",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70, Level 80"
+  },
+  {
+    "name": "Lilith's Crusher",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "variant": "Quiver",
+    "symbol": "☽",
+    "mainAttribute": "Smash ATK +36% | Mag Capacity +60%",
+    "tolerance": 14,
     "track": 5,
-    "source": "Forge"
+    "source": "Level 50"
+  },
+  {
+    "name": "Lilith's Crusher",
+    "rarity": 2,
+    "modType": "Ranged Weapon",
+    "variant": "Trammel",
+    "mainAttribute": "Smash ATK +20% | Trigger Probability +40%",
+    "tolerance": 9,
+    "track": 3,
+    "source": "Level 20"
   },
   {
     "name": "Lilith's Edge",
@@ -2713,10 +3183,20 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
-    "mainAttribute": "Slash ATK +54%",
+    "mainAttribute": "Slash ATK +99%",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70, Level 80"
+  },
+  {
+    "name": "Lilith's Edge",
+    "rarity": 2,
+    "modType": "Ranged Weapon",
+    "variant": "Trammel",
+    "mainAttribute": "Slash ATK +20% | Trigger Probability +40%",
     "tolerance": 9,
-    "track": 5,
-    "source": "Forge"
+    "track": 3,
+    "source": "Level 20"
   },
   {
     "name": "Lilith's Focus",
@@ -2729,9 +3209,20 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
+    "name": "Lilith's Focus",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "variant": "Mass",
+    "symbol": "◬",
+    "mainAttribute": "CRIT Chance +100% | ATK Speed -60%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 55"
+  },
+  {
     "name": "Lilith's Foldover",
     "rarity": 3,
-    "modType": "Rangd Weapon",
+    "modType": "Ranged Weapon",
     "mainAttribute": "Multishot +60%",
     "tolerance": 14,
     "track": 5,
@@ -2742,10 +3233,10 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
-    "mainAttribute": "Multishot +82%",
-    "tolerance": 15,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Multishot +150%",
+    "tolerance": 20,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
     "name": "Lilith's Impetus",
@@ -2762,10 +3253,31 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
-    "mainAttribute": "ATK +82%",
-    "tolerance": 10,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "ATK +150%",
+    "tolerance": 15,
+    "track": 10,
+    "source": "Level 70, Level 80"
+  },
+  {
+    "name": "Lilith's Impetus",
+    "rarity": 2,
+    "modType": "Ranged Weapon",
+    "variant": "Focus",
+    "mainAttribute": "ATK +30% | Crit Chance +40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Lilith's Impetus",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "variant": "Focus",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | CRIT Chance +99%",
+    "tolerance": 17,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
     "name": "Lilith's Penetration",
@@ -2781,10 +3293,31 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
-    "mainAttribute": "Spike ATK +54%",
+    "mainAttribute": "Spike ATK +99%",
+    "tolerance": 14,
+    "track": 10,
+    "source": "Level 70, Level 80"
+  },
+  {
+    "name": "Lilith's Penetration",
+    "rarity": 2,
+    "modType": "Ranged Weapon",
+    "variant": "Trammel",
+    "mainAttribute": "Spike ATK +20% | Trigger Probability +40%",
     "tolerance": 9,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Lilith's Quiver",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "variant": "Loadout",
+    "symbol": "☽",
+    "mainAttribute": "Max Ammo +200% | Reload Speed -60%",
+    "tolerance": 15,
     "track": 5,
-    "source": "Forge"
+    "source": "Level 55"
   },
   {
     "name": "Lilith's Rage",
@@ -2795,6 +3328,38 @@ export const allMods: Mod[] = [
     "tolerance": 14,
     "track": 5,
     "source": "Level 40"
+  },
+  {
+    "name": "Lilith's Rage",
+    "rarity": 2,
+    "modType": "Ranged Weapon",
+    "variant": "Trammel",
+    "mainAttribute": "Crit Damage +40% | Trigger Probability +40%",
+    "tolerance": 10,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Lilith's Rage",
+    "rarity": 4,
+    "modType": "Ranged Weapon",
+    "variant": "Trammel",
+    "symbol": "☽",
+    "mainAttribute": "CRIT Damage +80% | Trigger Probability +80%",
+    "tolerance": 19,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Lilith's Rage",
+    "rarity": 5,
+    "modType": "Ranged Weapon",
+    "variant": "Trammel",
+    "symbol": "☽",
+    "mainAttribute": "CRIT Damage +99% | Trigger Probability +99%",
+    "tolerance": 16,
+    "track": 10,
+    "source": "Level 70, Level 80"
   },
   {
     "name": "Lilith's Rain of Quivers",
@@ -2827,6 +3392,17 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
+    "name": "Pan's Eternity",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Abnegation",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Duration +40% | Skill Range -60%",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 55"
+  },
+  {
     "name": "Pan's Inspo",
     "rarity": 3,
     "modType": "Characters",
@@ -2834,6 +3410,26 @@ export const allMods: Mod[] = [
     "tolerance": 10,
     "track": 5,
     "source": "Level 40"
+  },
+  {
+    "name": "Pan's Inspo",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Elapse",
+    "mainAttribute": "Skill Efficiency +18% | HP -24%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Pan's Inspo",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Shards",
+    "mainAttribute": "Skill Efficiency +18% | Shield -24%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
   },
   {
     "name": "Pan's Spectrum",
@@ -2845,6 +3441,17 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
+    "name": "Pan's Spectrum",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Omen",
+    "symbol": "⊙",
+    "mainAttribute": "Skill Range +50% | Skill DMG -30%",
+    "tolerance": 12,
+    "track": 5,
+    "source": "Level 55"
+  },
+  {
     "name": "Pan's Volition",
     "rarity": 3,
     "modType": "Characters",
@@ -2852,6 +3459,26 @@ export const allMods: Mod[] = [
     "tolerance": 9,
     "track": 5,
     "source": "Level 40"
+  },
+  {
+    "name": "Pan's Wings",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Elapse",
+    "mainAttribute": "Max Sanity +48% | HP -30%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
+  },
+  {
+    "name": "Pan's Wings",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Shards",
+    "mainAttribute": "Max Sanity +48% | Shield -30%",
+    "tolerance": 15,
+    "track": 5,
+    "source": "Level 30"
   },
   {
     "name": "Phoenix's Blaze",
@@ -2871,6 +3498,56 @@ export const allMods: Mod[] = [
     "tolerance": 13,
     "track": 5,
     "source": "Level 50"
+  },
+  {
+    "name": "Phoenix's Blaze",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Blessing",
+    "mainAttribute": "ATK +30% | Shield +30%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Phoenix's Blaze",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Nirvana",
+    "mainAttribute": "ATK +30% | HP +30%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Phoenix's Blaze",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Standfast",
+    "mainAttribute": "ATK +30% | DEF +30%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Phoenix's Blaze",
+    "rarity": 2,
+    "modType": "Characters",
+    "variant": "Wings",
+    "mainAttribute": "ATK +24% | Max Sanity +24%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Phoenix's Blaze",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Wings",
+    "mainAttribute": "ATK +30% | Max Sanity +30%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 40"
   },
   {
     "name": "Phoenix's Blessing",
@@ -2915,20 +3592,60 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Characters",
     "symbol": "☽",
-    "mainAttribute": "HP +82%",
-    "tolerance": 10,
+    "mainAttribute": "HP +150%",
+    "tolerance": 15,
+    "track": 10,
+    "source": "Level 80"
+  },
+  {
+    "name": "Phoenix's Nirvana",
+    "rarity": 2,
+    "modType": "Characters",
+    "variant": "Blessing",
+    "mainAttribute": "HP +24% | Shield +24%",
+    "tolerance": 9,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Phoenix's Nirvana",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Blessing",
+    "mainAttribute": "HP +30% | Shield +30%",
+    "tolerance": 13,
     "track": 5,
-    "source": "Forge"
+    "source": "Level 40"
+  },
+  {
+    "name": "Phoenix's Nirvana",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Standfast",
+    "mainAttribute": "HP +30% | DEF +30%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Phoenix's Nirvana",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Wings",
+    "mainAttribute": "HP +30% | Max Sanity +30%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 40"
   },
   {
     "name": "Phoenix's Shield",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "☽",
-    "mainAttribute": "Shield +82%",
-    "tolerance": 10,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "Shield +150%",
+    "tolerance": 15,
+    "track": 10,
+    "source": "Level 80"
   },
   {
     "name": "Phoenix's Standfast",
@@ -2954,10 +3671,10 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Characters",
     "symbol": "☽",
-    "mainAttribute": "DEF +82%",
-    "tolerance": 10,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "DEF +150%",
+    "tolerance": 15,
+    "track": 10,
+    "source": "Level 80"
   },
   {
     "name": "Phoenix's Wings",
@@ -2979,11 +3696,43 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
+    "name": "Phoenix's Wings",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Standfast",
+    "mainAttribute": "Max Sanity +30% | DEF +30%",
+    "tolerance": 13,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Siren's Wings",
+    "rarity": 3,
+    "modType": "Characters",
+    "variant": "Inspo",
+    "mainAttribute": "Max Sanity +30% | Skill Efficiency +12%",
+    "tolerance": 16,
+    "track": 5,
+    "source": "Level 40"
+  },
+  {
+    "name": "Siren's Wings",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Inspo",
+    "symbol": "☽",
+    "mainAttribute": "Max Sanity +100% | Skill Efficiency+32%",
+    "tolerance": 24,
+    "track": 10,
+    "source": "Level 80"
+  },
+  {
     "name": "Sphinx's Duel",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase Damage Dealt by 24% when facing less than 2 enemies within a 20 metre range.",
     "tolerance": 16,
     "track": 5,
     "source": "Level 60"
@@ -2994,16 +3743,18 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase Damage Dealt by 44% when facing less than 2 enemies within a 20 metre range.",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Sphinx's Intrepidity",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
-    "mainAttribute": "HP -27%",
+    "mainAttribute": "HP -27% | Shield -27%",
+    "effect": "Increase Skill Damage by 54% for 30s when battle starts during commissions or Nocturnal Echoes.",
     "tolerance": 14,
     "track": 5,
     "source": "Level 60"
@@ -3013,10 +3764,11 @@ export const allMods: Mod[] = [
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
-    "mainAttribute": "HP -27%",
-    "tolerance": 12,
-    "track": 5,
-    "source": "Forge"
+    "mainAttribute": "HP -27% | Shield -27%",
+    "effect": "Increase Skill Damage by 99% for 30s when battle starts during commissions or Nocturnal Echoes.",
+    "tolerance": 17,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Sphinx's Onslaught",
@@ -3024,6 +3776,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Decrease Damage Taken by 12%. Defeating an enemy grants 1 stack that increases ATK by 6% for 30s, up to 15 stacks. This effect duration refreshes with each new stack gained.",
     "tolerance": 17,
     "track": 5,
     "source": "Level 60"
@@ -3034,9 +3787,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 14,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Decrease Damage Taken by 12%. Defeating an enemy grants 1 stack that increases ATK by 11% for 30s, up to 15 stacks. This effect duration refreshes with each new stack gained.",
+    "tolerance": 19,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Sphinx's Relentless",
@@ -3044,6 +3798,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase ATK by 42% with each revival during commissions or Nocturnal Echoes (up to 126%).",
     "tolerance": 15,
     "track": 5,
     "source": "Level 60"
@@ -3054,9 +3809,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 11,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase ATK by 77% with each revival during commissions or Nocturnal Echoes (up to 231%).",
+    "tolerance": 16,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Sphinx's Surge",
@@ -3064,6 +3820,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase Damage Dealt by 24% when attacking off-balance enemies (with Stance compeltely weakened).",
     "tolerance": 16,
     "track": 5,
     "source": "Level 60"
@@ -3074,9 +3831,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase Damage Dealt by 44% when attacking off-balance enemies (with Stance compeltely weakened).",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Sphinx's Trapped",
@@ -3084,6 +3842,7 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
+    "effect": "Increase Damage Dealt by 1.2% per enemy within 20 metre range (up to 24%).",
     "tolerance": 16,
     "track": 5,
     "source": "Level 60"
@@ -3094,9 +3853,10 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "symbol": "⊙",
     "mainAttribute": "–",
-    "tolerance": 13,
-    "track": 5,
-    "source": "Forge"
+    "effect": "Increase Damage Dealt by 2.2% per enemy within 20 metre range (up to 44%).",
+    "tolerance": 18,
+    "track": 10,
+    "source": "Level 70"
   },
   {
     "name": "Summanus's Ravaging Thunder",
@@ -3116,48 +3876,18 @@ export const allMods: Mod[] = [
     "modType": "Characters",
     "element": "Electro",
     "symbol": "⊙",
-    "mainAttribute": "Skill DMG +30%",
-    "effect": "When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 5.4% for 16s, up to 8 stacks.",
-    "tolerance": 22,
-    "track": 5,
-    "source": "Forge"
-  },
-  {
-    "name": "Typhon's Prime",
-    "rarity": 2,
-    "modType": "Characters",
-    "element": "Lumino",
-    "mainAttribute": "ATK +40%",
-    "tolerance": 11,
-    "track": 3,
-    "source": "Level 20"
-  },
-  {
-    "name": "Typhon's Prime",
-    "rarity": 2,
-    "modType": "Characters",
-    "element": "Umbro",
-    "mainAttribute": "ATK +40%",
-    "tolerance": 11,
-    "track": 3,
-    "source": "Level 20"
-  },
-  {
-    "name": "Typhon's Prime",
-    "rarity": 2,
-    "modType": "Characters",
-    "element": "Pyro",
-    "mainAttribute": "ATK +40%",
-    "tolerance": 11,
-    "track": 3,
-    "source": "Level 20"
+    "mainAttribute": "Skill DMG +55%",
+    "effect": "When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 9.9% for 16s, up to 8 stacks.",
+    "tolerance": 27,
+    "track": 10,
+    "source": "Covert Comission"
   },
   {
     "name": "Typhon's Prime",
     "rarity": 2,
     "modType": "Characters",
     "element": "Anemo",
-    "mainAttribute": "ATK +40%",
+    "mainAttribute": "ATK +40% | HP +40% | DEF+40%",
     "tolerance": 11,
     "track": 3,
     "source": "Level 20"
@@ -3167,7 +3897,7 @@ export const allMods: Mod[] = [
     "rarity": 2,
     "modType": "Characters",
     "element": "Electro",
-    "mainAttribute": "ATK +40%",
+    "mainAttribute": "ATK +40% | HP +40% | DEF+40%",
     "tolerance": 11,
     "track": 3,
     "source": "Level 20"
@@ -3177,75 +3907,817 @@ export const allMods: Mod[] = [
     "rarity": 2,
     "modType": "Characters",
     "element": "Hydro",
-    "mainAttribute": "ATK +40%",
+    "mainAttribute": "ATK +40% | HP +40% | DEF+40%",
     "tolerance": 11,
     "track": 3,
     "source": "Level 20"
-  }
-].map(mod => ({ ...mod, image: getModImage(mod.name, mod.element) } as Mod));
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Lumino",
+    "mainAttribute": "ATK +40% | HP +40% | DEF+40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Pyro",
+    "mainAttribute": "ATK +40% | HP +40% | DEF+40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 2,
+    "modType": "Characters",
+    "element": "Umbro",
+    "mainAttribute": "ATK +40% | HP +40% | DEF+40%",
+    "tolerance": 11,
+    "track": 3,
+    "source": "Level 20"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 18% additional damage of same element type.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 33% additional damage of same element type.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 18% additional damage of same element type.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 33% additional damage of same element type.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 18% additional damage of same element type.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 33% additional damage of same element type.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 18% additional damage of same element type.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 33% additional damage of same element type.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 18% additional damage of same element type.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 33% additional damage of same element type.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 18% additional damage of same element type.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Huntdown",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Skill Damage -50%. When attacking with a weapon, deals 33% additional damage of same element type.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Morale +18%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Morale +33%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Morale +18%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Morale +33%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Morale +18%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Morale +33%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Morale +18%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Morale +33%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Morale +18%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Morale +33%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Morale +18%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Morale",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Morale +33%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Resolve +6%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Resolve +11%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Resolve +6%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Resolve +11%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Resolve +6%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Resolve +11%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Resolve +6%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Resolve +11%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Resolve +6%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Resolve +11%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75% | Resolve +6%",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Resolve",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154% | Resolve +11%",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Restores additional Sanity by 7 for you and your teammates every 3s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Restores additional Sanity by 13 for you and your teammates every 3s.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Restores additional Sanity by 7 for you and your teammates every 3s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Restores additional Sanity by 13 for you and your teammates every 3s.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Restores additional Sanity by 7 for you and your teammates every 3s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Restores additional Sanity by 13 for you and your teammates every 3s.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Restores additional Sanity by 7 for you and your teammates every 3s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Restores additional Sanity by 13 for you and your teammates every 3s.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Restores additional Sanity by 7 for you and your teammates every 3s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Restores additional Sanity by 13 for you and your teammates every 3s.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Restores additional Sanity by 7 for you and your teammates every 3s.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Serenity",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Restores additional Sanity by 13 for you and your teammates every 3s.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Increases Damage Dealt by you and your teammate by 11%.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Anemo",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Increases Damage Dealt by you and your teammate by 20%.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Increases Damage Dealt by you and your teammate by 11%.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Electro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Increases Damage Dealt by you and your teammate by 20%.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Increases Damage Dealt by you and your teammate by 11%.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Hydro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Increases Damage Dealt by you and your teammate by 20%.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Increases Damage Dealt by you and your teammate by 11%.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Lumino",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Increases Damage Dealt by you and your teammate by 20%.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Increases Damage Dealt by you and your teammate by 11%.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Pyro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Increases Damage Dealt by you and your teammate by 20%.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 4,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +75% | HP +75% | DEF +75%",
+    "effect": "Increases Damage Dealt by you and your teammate by 11%.",
+    "tolerance": 24,
+    "track": 5,
+    "source": "Level 50"
+  },
+  {
+    "name": "Typhon's Prime",
+    "rarity": 5,
+    "modType": "Characters",
+    "variant": "Uplift",
+    "element": "Umbro",
+    "symbol": "◬",
+    "mainAttribute": "ATK +154% | HP +154% | DEF +154%",
+    "effect": "Increases Damage Dealt by you and your teammate by 20%.",
+    "tolerance": 28,
+    "track": 10,
+    "source": "Bounty"
+  },
+].map(m => {
+  const mod: any = {
+    ...m,
+    rarity: m.rarity as ModRarity,
+    id: generateId(m.name + (m.variant || '') + (m.element || '') + m.rarity),
+    image: getModImage(m.name, m.element)
+  };
 
-// Mock Builds - updated to use new characters and weapons
-export const builds: Build[] = [
-  {
-    id: '1',
-    userId: 'mock-user-1',
-    buildName: 'Volcanic Onslaught',
-    description: 'Focuses on rapid, high-damage strikes infused with Pyro, overwhelming enemies before they can react.',
-    guide: 'Use Pyro infusion to maximize damage output. Focus on building CRIT Rate and CRIT DMG. Rotate through team members to maintain buffs.',
-    visibility: 'public',
-    itemType: 'character',
-    itemId: allCharacters.find(c => c.name === 'Lynn')!.id,
-    itemName: 'Lynn',
-    itemImage: allCharacters.find(c => c.name === 'Lynn')!.image,
-    creator: 'AshenOne',
-    mods: [],
-    team: [
-      allCharacters.find(c => c.name === 'Rebecca')!,
-      allCharacters.find(c => c.name === 'Psyche')!,
-      allCharacters.find(c => c.name === 'Randy')!
-    ].filter(Boolean).map(c => c.id),
-    supportWeapons: [],
-    supportMods: {},
-    voteCount: 1254,
-    votedBy: [],
-    views: 25300,
-    createdAt: new Date(Date.now() - 86400000 * 3).toISOString(),
-    updatedAt: new Date(Date.now() - 86400000 * 2).toISOString(),
-    // Legacy fields for compatibility
-    character: allCharacters.find(c => c.name === 'Lynn')!,
-    weapon: allMeleeWeapons.find(w => w.name === 'Punitive Inferno')!,
-    upvotes: 1254,
-    contentFocus: ['DPS (Weapon DMG)'],
-  },
-  {
-    id: '2',
-    userId: 'mock-user-2',
-    buildName: 'Abyssal Summoner',
-    description: 'Provides consistent off-field Hydro application and bursts of damage, enabling powerful elemental reactions.',
-    guide: 'Focus on Summon damage and Hydro application. Build HP% for stronger summons. Use skill rotation to maintain constant pressure.',
-    visibility: 'public',
-    itemType: 'character',
-    itemId: allCharacters.find(c => c.name === 'Rebecca')!.id,
-    itemName: 'Rebecca',
-    itemImage: allCharacters.find(c => c.name === 'Rebecca')!.image,
-    creator: 'TideCaller',
-    mods: [],
-    team: [
-      allCharacters.find(c => c.name === 'Lynn')!,
-      allCharacters.find(c => c.name === 'Sibylle')!,
-      allCharacters.find(c => c.name === 'Psyche')!
-    ].filter(Boolean).map(c => c.id),
-    supportWeapons: [],
-    supportMods: {},
-    voteCount: 980,
-    votedBy: [],
-    views: 18900,
-    createdAt: new Date(Date.now() - 86400000 * 6).toISOString(),
-    updatedAt: new Date(Date.now() - 86400000 * 5).toISOString(),
-    // Legacy fields for compatibility
-    character: allCharacters.find(c => c.name === 'Rebecca')!,
-    weapon: allMeleeWeapons.find(w => w.name === "Siren's Kiss")!,
-    upvotes: 980,
-    contentFocus: ['DPS (Skill DMG, Summon)', 'Support (Summon, CC)'],
-  },
-];
+  // Add Prime mod properties for Typhon's Prime mods
+  if (m.name === "Typhon's Prime") {
+    mod.isPrimeMod = true;
+    // Tolerance boost based on rarity
+    if (m.rarity === 2) {
+      mod.toleranceBoost = 10;
+    } else if (m.rarity === 4) {
+      mod.toleranceBoost = 18;
+    } else if (m.rarity === 5) {
+      mod.toleranceBoost = 19;
+    }
+  }
+
+  return mod as Mod;
+});

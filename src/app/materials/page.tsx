@@ -1,7 +1,26 @@
 ﻿'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Search, 
+  ChevronDown, 
+  ChevronRight, 
+  Package, 
+  Sword, 
+  Wrench, 
+  BookOpen, 
+  Scroll,
+  Pin,
+  PinOff,
+  Sparkles,
+  TrendingUp,
+  Filter,
+  X
+} from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 // Weapon component to weapon name mapping
 const weaponComponentMapping: Record<string, string> = {
@@ -1481,11 +1500,11 @@ export default function MaterialsPage() {
               </h2>
 
               {pinnedItems.size === 0 ? (
-                <div className="text-center py-8 text-slate-400 text-sm">
-                  <p className="mb-2">ยังไม่มี items ที่ปักหมุด</p>
-                  <p>คลิกที่ปุ่ม 📌 ใน items ที่สามารถ craft ได้</p>
-                </div>
-              ) : (
+                  <div className="text-center py-8 text-slate-400 text-sm">
+                    <p className="mb-2">No pinned items yet</p>
+                    <p>Click the 📌 button on any craftable item to pin it</p>
+                  </div>
+                ) : (
                 <div className="space-y-2">
                   {[...pinnedItems].map((itemKey) => {
                     const [category, itemName] = itemKey.split(':');
@@ -1522,8 +1541,8 @@ export default function MaterialsPage() {
                                   {categoryIcons[category]} {category}
                                 </p>
                                 {quantity > 0 && (
-                                  <p className="text-xs text-purple-400 font-semibold">
-                                    ต้องการ: {quantity}
+                                    <p className="text-xs text-purple-400 font-semibold">
+                                      Required: {quantity}
                                   </p>
                                 )}
                               </div>

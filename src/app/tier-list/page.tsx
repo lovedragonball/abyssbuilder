@@ -13,7 +13,7 @@ interface TierData {
   support: string[];
 }
 
-// ข้อมูล Tier List สำหรับแต่ละโหมด
+// Tier List data for each mode
 const tierListData: Record<TierMode, Record<TierRank, TierData>> = {
   ramming: {
     T0: {
@@ -110,6 +110,18 @@ export default function TierListPage() {
     });
   };
 
+  const getElementIcon = (element: string) => {
+    const elementMap: Record<string, string> = {
+      'Umbro': 'https://files.boarhat.gg/assets/duetnightabyss/common/element/umbro.PNG',
+      'Anemo': 'https://files.boarhat.gg/assets/duetnightabyss/common/element/anemo.PNG',
+      'Lumino': 'https://files.boarhat.gg/assets/duetnightabyss/common/element/lumino.PNG',
+      'Hydro': 'https://files.boarhat.gg/assets/duetnightabyss/common/element/hydro.PNG',
+      'Pyro': 'https://files.boarhat.gg/assets/duetnightabyss/common/element/pyro.PNG',
+      'Electro': 'https://files.boarhat.gg/assets/duetnightabyss/common/element/electro.PNG',
+    };
+    return elementMap[element] || '';
+  };
+
   const renderCharacterCard = (characterName: string) => {
     const character = getCharacter(characterName);
     if (!character || !matchesFilters(character)) return null;
@@ -141,6 +153,15 @@ export default function TierListPage() {
             fill
             className="object-cover"
           />
+          {/* Element Icon */}
+          <div className="absolute top-0.5 right-0.5 w-5 h-5 rounded-sm overflow-hidden bg-black/50 backdrop-blur-sm">
+            <Image
+              src={getElementIcon(character.element)}
+              alt={character.element}
+              fill
+              className="object-contain p-0.5"
+            />
+          </div>
           {isSelected && (
             <motion.div
               className="absolute inset-0 bg-primary/20"

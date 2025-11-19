@@ -1,4 +1,4 @@
-// Auto-generated from purgatorio-markers.json
+﻿// Auto-generated from purgatorio-markers.json
 export interface RawMarker {
   id: number;
   type: string;
@@ -12,7 +12,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 1,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: 71,
     y: 15,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -20,7 +20,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 2,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: 171,
     y: -53,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -28,7 +28,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 3,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: -355,
     y: 15,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -36,7 +36,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 4,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: -325,
     y: 110,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -44,7 +44,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 5,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: -316,
     y: -233,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -52,7 +52,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 6,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: -40,
     y: 32,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -60,7 +60,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 7,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: 30,
     y: -101,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -68,7 +68,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 8,
     type: 'teleport',
-    name: 'จุดวาร์ป (Teleport Waypoint)',
+    name: 'Teleport Waypoint',
     x: 59,
     y: -161,
     icon: 'https://herobox-img.yingxiong.com/map/1749555724812935497.png'
@@ -108,7 +108,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 13,
     type: 'fishing',
-    name: 'จุดตกปลา (Fishing Spot)',
+    name: 'Fishing Spot',
     x: -259,
     y: 424,
     icon: 'https://herobox-img.yingxiong.com/map/1749566900097348674.png'
@@ -116,7 +116,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 14,
     type: 'chest',
-    name: 'หีบสมบัติ (Storage Chest)',
+    name: 'Storage Chest',
     x: -196,
     y: 776,
     icon: 'https://herobox-img.yingxiong.com/map/1749557822886359503.png'
@@ -124,7 +124,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 15,
     type: 'chest',
-    name: 'หีบสมบัติ (Storage Chest)',
+    name: 'Storage Chest',
     x: 491,
     y: 40,
     icon: 'https://herobox-img.yingxiong.com/map/1749557822886359503.png'
@@ -132,7 +132,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 16,
     type: 'chest',
-    name: 'หีบสมบัติ (Storage Chest)',
+    name: 'Storage Chest',
     x: -165,
     y: -4,
     icon: 'https://herobox-img.yingxiong.com/map/1749557822886359503.png'
@@ -140,7 +140,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 17,
     type: 'readable',
-    name: 'เอกสาร/จุดอ่าน (Readable)',
+    name: 'Readable',
     x: 925,
     y: -90,
     icon: 'https://herobox-img.yingxiong.com/map/1749560145785106563.png'
@@ -148,7 +148,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 18,
     type: 'readable',
-    name: 'เอกสาร/จุดอ่าน (Readable)',
+    name: 'Readable',
     x: -251,
     y: 375,
     icon: 'https://herobox-img.yingxiong.com/map/1749560145785106563.png'
@@ -156,7 +156,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 19,
     type: 'readable',
-    name: 'เอกสาร/จุดอ่าน (Readable)',
+    name: 'Readable',
     x: 61,
     y: -187,
     icon: 'https://herobox-img.yingxiong.com/map/1749560145785106563.png'
@@ -164,7 +164,7 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   {
     id: 20,
     type: 'readable',
-    name: 'เอกสาร/จุดอ่าน (Readable)',
+    name: 'Readable',
     x: 530,
     y: -218,
     icon: 'https://herobox-img.yingxiong.com/map/1749560145785106563.png'
@@ -1323,15 +1323,15 @@ export const purgatorioIslandMarkers: RawMarker[] = [
   },
 ];
 
-// สรุปข้อมูล
+// Summary
 export const purgatorioislandSummary = {
   totalMarkers: 164,
   markerTypes: {
-    'teleport': { name: 'จุดวาร์ป (Teleport Waypoint)', count: 8 },
+    'teleport': { name: 'Teleport Waypoint', count: 8 },
     'geniemons': { name: 'Geniemons', count: 4 },
-    'fishing': { name: 'จุดตกปลา (Fishing Spot)', count: 1 },
-    'chest': { name: 'หีบสมบัติ (Storage Chest)', count: 3 },
-    'readable': { name: 'เอกสาร/จุดอ่าน (Readable)', count: 4 },
+    'fishing': { name: 'Fishing Spot', count: 1 },
+    'chest': { name: 'Storage Chest', count: 3 },
+    'readable': { name: 'Readable', count: 4 },
     'springWater': { name: 'Spring Water', count: 19 },
     'seashell': { name: 'Seashell', count: 25 },
     'resource_1749555732233735760': { name: 'Resource Type 1', count: 3 },
@@ -1364,4 +1364,6 @@ export const purgatorioislandSummary = {
     'resource_1749672672913484663': { name: 'Resource Type 28', count: 1 },
   }
 };
+
+
 

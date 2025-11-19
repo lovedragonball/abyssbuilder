@@ -36,7 +36,7 @@ export function MultiSelectFilter<T extends string | number>({
                         selected.length > 0 && 'border-primary'
                     )}
                 >
-                    <span className="truncate">
+                    <span>
                         {selected.length === 0
                             ? label
                             : `${label} (${selected.length})`}

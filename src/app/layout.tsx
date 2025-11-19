@@ -5,6 +5,7 @@ import MainLayout from '@/components/layout/main-layout';
 import { cn } from '@/lib/utils';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { AuthProvider } from '@/contexts/auth-context';
+import MouseGradient from '@/components/MouseGradient';
 
 export const metadata: Metadata = {
   title: 'AbyssBuilds',
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={cn('font-body antialiased')}>
         <ErrorBoundary>
           <AuthProvider>
+            <MouseGradient />
             <MainLayout>{children}</MainLayout>
             <Toaster />
           </AuthProvider>
@@ -38,4 +40,3 @@ export default function RootLayout({
   );
 }
 
-    

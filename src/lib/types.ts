@@ -60,9 +60,11 @@ export type ModType = 'Characters' | 'Melee Weapon' | 'Ranged Weapon' | 'Melee C
 export type ModElement = 'Lumino' | 'Anemo' | 'Hydro' | 'Pyro' | 'Electro' | 'Umbro';
 
 export type Mod = {
+  id: string;
   name: string;
   rarity: ModRarity;
   modType: ModType;
+  variant?: string;
   element?: ModElement;
   symbol?: string;
   mainAttribute: string;
@@ -71,6 +73,9 @@ export type Mod = {
   track: number;
   source: string;
   image: string;
+  isPrimeMod?: boolean;
+  toleranceBoost?: number;
+  centerOnly?: boolean; // Can only be equipped in center/prime slot
 };
 
 export type Build = {
@@ -86,9 +91,11 @@ export type Build = {
     itemImage: string;
     creator: string | null;
     mods: string[]; // names of mods
+    primeMod?: string; // name of prime mod for tolerance system
     team: string[]; // character ids
     supportWeapons: string[]; // weapon ids
     supportMods: Record<string, string[]>;
+    consonanceWeapon?: string; // weapon id
     voteCount: number;
     votedBy?: string[]; // user IDs who voted
     views?: number;
