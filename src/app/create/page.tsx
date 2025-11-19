@@ -8,6 +8,8 @@ import { allCharacters, allWeapons, allWeaponTypes } from '@/lib/data';
 import { allGeniemon } from '@/lib/geniemon-data';
 import type { Character, Weapon, WeaponType, Element, RangedWeaponType } from '@/lib/types';
 import type { Geniemon, GeniemonElement } from '@/lib/geniemon-data';
+import { geniemonTraits } from '@/lib/geniemon-traits';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -758,6 +760,56 @@ const GeniemonGrid = () => {
 }
 
 
+
+const GeniemonTraitsTable = () => {
+    return (
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="rounded-xl border bg-card text-card-foreground shadow overflow-hidden"
+        >
+            <Table>
+                <TableHeader>
+                    <TableRow className="bg-muted/50 hover:bg-muted/50">
+                        <TableHead className="w-[100px]">Trait</TableHead>
+                        <TableHead className="w-[120px]">Image</TableHead>
+                        <TableHead className="text-blue-400 font-semibold">Blue Effect</TableHead>
+                        <TableHead className="text-purple-400 font-semibold">Purple Effect</TableHead>
+                        <TableHead className="text-yellow-500 font-semibold">Gold Effect</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {geniemonTraits.map((trait, index) => (
+                        <motion.tr
+                            key={trait.name}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            className="group hover:bg-muted/50 transition-colors"
+                        >
+                            <TableCell className="font-medium">{trait.name}</TableCell>
+                            <TableCell>
+                                <div className="relative w-20 h-20 rounded-md overflow-hidden bg-muted">
+                                    <Image
+                                        src={trait.image}
+                                        alt={trait.name}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </TableCell>
+                            <TableCell className="text-blue-400 font-semibold group-hover:text-blue-300 transition-colors">{trait.blueEffect}</TableCell>
+                            <TableCell className="text-purple-400 font-semibold group-hover:text-purple-300 transition-colors">{trait.purpleEffect}</TableCell>
+                            <TableCell className="text-yellow-500 font-semibold group-hover:text-yellow-400 transition-colors">{trait.goldEffect}</TableCell>
+                        </motion.tr>
+                    ))}
+                </TableBody>
+            </Table>
+        </motion.div>
+    );
+};
+
 export default function CreateBuildPage() {
 
     return (
@@ -867,6 +919,13 @@ export default function CreateBuildPage() {
                             <Zap className="w-4 h-4" />
                             Geniemon
                         </TabsTrigger>
+                        <TabsTrigger
+                            value="geniemon-traits"
+                            className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300 flex items-center gap-2"
+                        >
+                            <Sparkles className="w-4 h-4" />
+                            Geniemon Traits
+                        </TabsTrigger>
                     </TabsList>
                 </motion.div>
 
@@ -881,6 +940,10 @@ export default function CreateBuildPage() {
 
                     <TabsContent value="geniemon" key="geniemon">
                         <GeniemonGrid />
+                    </TabsContent>
+
+                    <TabsContent value="geniemon-traits" key="geniemon-traits">
+                        <GeniemonTraitsTable />
                     </TabsContent>
                 </AnimatePresence>
             </Tabs>

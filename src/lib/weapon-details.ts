@@ -9,7 +9,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     passiveEffect: 'CRIT Damage (+62.5% / 74.4% / 86.8% / 99.2% / 112.5% / 125%). Sliding attacks with this weapon gain (+75% / 90% / 105% / 120% / 135% / 150%) CRIT Chance.',
     stats: {
       critChance: '24%',
-      critDamage: '349.38%',
+      critDamage: '215%',
       atkSpeed: 1,
       triggerProbability: '15%',
     },
@@ -72,7 +72,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     stats: {
       critChance: '16%',
       critDamage: '210%',
-      atkSpeed: 1.25,
+      atkSpeed: 1,
       triggerProbability: '33%',
     },
     attributes: {
@@ -154,7 +154,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     passiveEffect: 'CRIT Damage (+62.5% / 74.4% / 86.8% / 99.2% / 112.5% / 125%). When dealing damage with this weapon, increase Damage Dealt by (9.0% / 10.8% / 12.6% / 14.4% / 16.2% / 18%), with an additional 9.0% increase per Combo Level.',
     stats: {
       critChance: '22%',
-      critDamage: '365.63%',
+      critDamage: '225%',
       atkSpeed: 1,
       triggerProbability: '15%',
     },
@@ -259,7 +259,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critChance: '22%',
       critDamage: '215%',
       atkSpeed: 1,
-      triggerProbability: '52.5%',
+      triggerProbability: '30%',
     },
     attributes: {
       '1-Hit DMG': '45%',
@@ -339,7 +339,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     stats: {
       critChance: '24%',
       critDamage: '215%',
-      atkSpeed: 1.25,
+      atkSpeed: 1,
       triggerProbability: '30%',
     },
     attributes: {
@@ -361,7 +361,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critChance: '26%',
       critDamage: '235%',
       atkSpeed: 1,
-      triggerProbability: '21%',
+      triggerProbability: '12%',
     },
     attributes: {
       '1-Hit DMG': '40%',
@@ -380,7 +380,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     stats: {
       critChance: '23%',
       critDamage: '210%',
-      atkSpeed: 1.25,
+      atkSpeed: 1,
       triggerProbability: '28%',
     },
     attributes: {
@@ -498,7 +498,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     passiveEffect: 'CRIT Damage (+62.5% / 75% / 87.5% / 100% / 112.5% / 125%). Fired projectiles track the crosshair. When dealing damage with this weapon, the farther the target, the higher the damage, up to a maximum increase of (45.0% / 54% / 63% / 72% / 81% / 90%).',
     stats: {
       critChance: '20%',
-      critDamage: '325%',
+      critDamage: '200%',
       atkSpeed: 1,
       triggerProbability: '15%',
       multishot: 1,
@@ -520,7 +520,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critDamage: '245%',
       atkSpeed: 1,
       triggerProbability: '24%',
-      multishot: 1.38,
+      multishot: 1,
       magCapacity: 30,
       maxAmmo: 100,
       ammoConversionRate: '110%',
@@ -598,7 +598,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critChance: '20%',
       critDamage: '210%',
       atkSpeed: 1,
-      triggerProbability: '57.75%',
+      triggerProbability: '33%',
       multishot: 1,
       magCapacity: 20,
       maxAmmo: 150,
@@ -636,7 +636,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critChance: '25%',
       critDamage: '220%',
       atkSpeed: 1,
-      triggerProbability: '26.25%',
+      triggerProbability: '15%',
       multishot: 1,
       magCapacity: 30,
       maxAmmo: 160,
@@ -656,7 +656,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critChance: '15%',
       critDamage: '200%',
       atkSpeed: 1,
-      triggerProbability: '57.75%',
+      triggerProbability: '33%',
       multishot: 1,
       magCapacity: 50,
       maxAmmo: 120,
@@ -673,7 +673,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     passiveEffect: 'CRIT Damage (+62.5% / 75% / 87.5% / 100% / 112.5% / 125%). When its projectiles hit enemies or the environment, they split into 2 additional projectiles that continue to travel. After switching to this weapon, increases Multishot by (38.0% / 45.6% / 53.2% / 60.8% / 68.4% / 73%), which decreases over time. This effect can only be triggered once every 10s and is removed when switching to another weapon.',
     stats: {
       critChance: '22%',
-      critDamage: '349.38%',
+      critDamage: '215%',
       atkSpeed: 1,
       triggerProbability: '20%',
       multishot: 1,
@@ -731,7 +731,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     skillType: 'Skill',
     passiveEffect: 'CRIT Chance (+50% / 60% / 70% / 80% / 90% / 100%). Dealing CRIT Damage with this weapon grants (+6.2% / 7.44% / 8.68% / 9.92% / 11.16% / 12.5%) Multishot for 12s (up to 10 stacks). Effect is removed when switching weapons.',
     stats: {
-      critChance: '37.5%',
+      critChance: '25%',
       critDamage: '200%',
       atkSpeed: 1,
       triggerProbability: '15%',
@@ -744,7 +744,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       'Projectile DMG': '47%',
     },
   },
-  'sacrosant-decrcee': {
+  'sacrosanct-decree': {
     element: 'Neutral',
     skillType: 'Skill',
     passiveEffect: 'Multishot (+37.5% / 45% / 52.5% / 60% / 67.5% / 75%). When this weapon triggers a bonus effect on hit, increases Melee Weapon DMG by (35.0% / 42% / 49% / 56% / 63% / 70%) for 12.0s.',
@@ -753,7 +753,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critDamage: '205%',
       atkSpeed: 1,
       triggerProbability: '30%',
-      multishot: 1.38,
+      multishot: 1,
       magCapacity: 15,
       maxAmmo: 150,
       ammoConversionRate: '40%',
@@ -788,7 +788,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     stats: {
       critChance: '19%',
       critDamage: '200%',
-      atkSpeed: 1.25,
+      atkSpeed: 1,
       triggerProbability: '20%',
       multishot: 1,
       maxAmmo: 50,
@@ -808,7 +808,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     skillType: 'Skill',
     passiveEffect: 'CRIT Chance (+50.0% / 60% / 70% / 80% / 90% / 100%). The projectiles it shoots attaches to the target and explodes after 3s. Projectiles attached to one another in the same position will stack up, increasing the damage and the range of the incoming explosion. When 1 / 2 / 3 projectiles are stacked, it deals (217.0% / 227.75% / 238.5% / 249.25% / 260%) / (383.0% / 398.4% / 413.8% / 429.2% / 444.6% / 460%) / (592.0% / 615.6% / 639.2% / 662.8% / 686.4% / 710%) of the original damage.',
     stats: {
-      critChance: '24%',
+      critChance: '16%',
       critDamage: '180%',
       atkSpeed: 1,
       triggerProbability: '15%',
@@ -831,11 +831,11 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
   'silverwhite-edict': {
     element: 'Neutral',
     skillType: 'Skill',
-    passiveEffect: 'ATK Speed +25.0%. When this weapon triggers a bonus effect on hit, grants +5.0% ATK Speed for 12.0s (up to 10.0 stacks). Effect is removed when switching weapons.',
+    passiveEffect: 'ATK Speed (+25.0 / 30% / 35% / 40% / 45% / 50%)%. When this weapon triggers a bonus effect on hit, grants (+5.0% / 6% / 7% / 8% / 9% / 10%) ATK Speed for 12.0s (up to 10.0 stacks). Effect is removed when switching weapons.',
     stats: {
       critChance: '25%',
       critDamage: '235%',
-      atkSpeed: 1.25,
+      atkSpeed: 1,
       triggerProbability: '30%',
       multishot: 1,
       magCapacity: 200,
@@ -844,10 +844,10 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     },
     attributes: {
       'Projectile DMG': '7.2%',
-      'Firing Interval': '0.35 shots/s',
-      'Firing Interval - Phase 2': '0.25 shots/s',
-      'Firing Interval - Phase 3': '0.15 shots/s',
-      'Firing Interval - Phase 4': '0.05 shots/s',
+      'Firing Interval': '0.35shots/s',
+      'Firing Interval - Phase 2': '0.25shots/s',
+      'Firing Interval - Phase 3': '0.15shots/s',
+      'Firing Interval - Phase 4': '0.05shots/s',
     },
   },
   'soulrend': {
@@ -877,7 +877,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
       critDamage: '240%',
       atkSpeed: 1,
       triggerProbability: '18%',
-      projectileExplosionRange: 0.25,
+      projectileExplosionRange: 0.5,
       multishot: 1,
       magCapacity: 8,
       maxAmmo: 40,
@@ -896,7 +896,7 @@ export const weaponDetails: Record<string, Partial<Weapon>> = {
     passiveEffect: 'CRIT Damage (+62.5% / 75% / 87.5% / 100% / 112.5% / 125%). Projectiles that hit the environment or travel a certain distance return to the user\'s position and increase the Ammo Count by 1. for each additional Ammo Count gained, the damage dealt by this weapon is increased by (4.5% / 5.4% / 6.3% / 7.2% / 8.1% / 9%), up to a maximum increase of (45% / 54% / 63% / 72% / 81% / 90%).',
     stats: {
       critChance: '22%',
-      critDamage: '357.5%',
+      critDamage: '220%',
       atkSpeed: 1,
       triggerProbability: '25%',
       multishot: 1,

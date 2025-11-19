@@ -47,7 +47,7 @@ export const allMeleeWeapons: Weapon[] = [
   { name: 'Fathomless Sharkgaze', type: 'Dual Blades', attackType: 'Spike', maxAttack: 251.04 },
   { name: 'Ingenious Tactics', type: 'Sword', attackType: 'Slash', maxAttack: 225.94 },
   { name: 'Ironforger', type: 'Greatsword', attackType: 'Slash', maxAttack: 225.94 },
-  { name: 'Momiji Itteki', type: 'Katana', attackType: 'Slash', maxAttack: 239.49 },
+  { name: 'Momiji Itteki', type: 'Katana', attackType: 'Slash', maxAttack: 238.49 },
   { name: 'Punitive Inferno', type: 'Greatsword', attackType: 'Smash', maxAttack: 238.49 },
   { name: 'Pyrothirst', type: 'Greatsword', attackType: 'Smash', maxAttack: 213.39 },
   { name: 'Remanent Reminiscence', type: 'Sword', attackType: 'Spike', maxAttack: 213.39 },
@@ -67,7 +67,7 @@ export const allRangedWeapons: Weapon[] = [
   { name: 'Arclight Apocalypses', type: 'Bow', attackType: 'Smash', maxAttack: 225.94 },
   { name: 'Blast Artistry', type: 'Shotgun', attackType: 'Smash', maxAttack: 188.28 },
   { name: 'Bluecurrent Pulse', type: 'Dual Pistols', attackType: 'Spike', maxAttack: 238.49 },
-  { name: 'Day of Sacred Verdict', type: 'Shotgun', attackType: 'Slash', maxAttack: 213.99 },
+  { name: 'Day of Sacred Verdict', type: 'Shotgun', attackType: 'Slash', maxAttack: 213.39 },
   { name: 'Daybreak Hymn', type: 'Assault Rifle', attackType: 'Spike', maxAttack: 225.94 },
   { name: 'Destructo', type: 'Grenade Launcher', attackType: 'Smash', maxAttack: 225.94 },
   { name: "Dreamweaver's Feather", type: 'Assault Rifle', attackType: 'Slash', maxAttack: 188.28 },
@@ -80,13 +80,13 @@ export const allRangedWeapons: Weapon[] = [
   { name: 'Osteobreaker', type: 'Assault Rifle', attackType: 'Spike', maxAttack: 213.39 },
   { name: 'Rendhusk', type: 'Pistol', attackType: 'Smash', maxAttack: 188.28 },
   { name: 'Sacrosanct Chorus', type: 'Dual Pistols', attackType: 'Slash', maxAttack: 225.94 },
-  { name: 'Sacrosant Decrcee', type: 'Pistol', attackType: 'Spike', maxAttack: 225.94 },
+  { name: 'Sacrosanct Decree', type: 'Pistol', attackType: 'Spike', maxAttack: 225.94 },
   { name: 'Screamshot', type: 'Shotgun', attackType: 'Spike', maxAttack: 225.94 },
   { name: 'Searing Sandwhisper', type: 'Bow', attackType: 'Spike', maxAttack: 213.39 },
   { name: 'Silent Sower', type: 'Shotgun', attackType: 'Smash', maxAttack: 200.84 },
   { name: 'Silverwhite Edict', type: 'Grenade Launcher', attackType: 'Spike', maxAttack: 238.49 },
   { name: 'Soulrend', type: 'Bow', attackType: 'Smash', maxAttack: 238.49 },
-  { name: 'Stellar Finality', type: 'Grenade Launcher', attackType: 'Smash', maxAttack: 175.73 },
+  { name: 'Stellar Finality', type: 'Grenade Launcher', attackType: 'Smash', maxAttack: 175.75 },
   { name: 'Submerged Serenade', type: 'Assault Rifle', attackType: 'Slash', maxAttack: 200.84 }
 ].map(w => mergeWeaponDetails({ ...w, id: generateId(w.name), image: getImage(`weapon-${generateId(w.name)}`) } as Weapon)).sort((a, b) => a.name.localeCompare(b.name));
 
@@ -922,7 +922,7 @@ export const allMods: Mod[] = [
     "symbol": "⊙",
     "mainAttribute": "DEF +88% | Skill Duration +33%",
     "effect": "Once upgraded to +5, this Demon Wedge can be equipped in multiples",
-    "tolerance": 120,
+    "tolerance": 20,
     "track": 10,
     "source": "Covert Comission"
   },

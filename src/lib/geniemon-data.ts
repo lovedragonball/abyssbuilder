@@ -41,7 +41,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Anemo ATK for the main character and the Combat Partners by 2.4% and the stats provided by Anemo Demon Wedges prefixed with [Griffin], [Typhon], and [Covenanter] by 0.9%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Battle Pass',
         lore: 'A Geniemon of legendary rarity, its body gleams with the lustre of emerald. Long believed to exist only in bardic ballads and the dreams of minstrels.',
     },
     {
@@ -61,7 +61,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Lumino ATK for the main character and the Combat Partners by 1.2% and the stats provided by Demon Wedges prefixed with [Phoenix] by 0.5%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Radiant as a burning star, this Geniemon is known to light the way for weary travellers. Just don\'t stare at it too long - its periodic flashes can be blinding.',
     },
     {
@@ -81,7 +81,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'EXP gained by defeating enemies +7.5%, with a 7.5% chance for bonus loot.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Lonza Fortress, Icelake Sewer',
         lore: 'An introverted, carrion-feeding Geniemon that indiscriminately hoards anything it can encompass, using some for sustenance while stashing others away as materials for its nest.',
     },
     {
@@ -101,7 +101,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Hydro ATK for the main character and the Combat Partners by 1.2% and the stats provided by Demon Wedges prefixed with [Phoenix] by 0.5%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Squishy as pudding and cute as a button, the Frosted Bunny Geniemon was once a continental sensation - until a scholar from Aethyrie revealed that its adorable little \'eyes\'... weren\'t eyes at all, but part of its internal anatomy. Let\'s just say it\'s been less popular.',
     },
     {
@@ -121,7 +121,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Electro ATK for the main character and the Combat Partners by 1.2% and the stats provided by Demon Wedges prefixed with [Phoenix] by 0.5%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Always crackling with static, this poor Geniemon is often shunned by others. No one truly knows what it looks like - all you ever see are a pair of lonely eyes, peeking out from behind a tiny toy car.',
     },
     {
@@ -141,7 +141,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'The main character and Combat Partners gain: Electro ATK +0.8%, Max HP +3%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Commonly found in highlands, Cubolts were once hunted for their highly conductive fur. So when encountering humans, they curl into a ball and roll away at incredible speed.',
     },
     {
@@ -161,7 +161,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Anemo ATK for the main character and the Combat Partners by 1.2% and the stats provided by Demon Wedges prefixed with [Phoenix] by 0.5%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Light as thistledown and never still, this tiny, lively Geniemon floats endlessly from place to place, carried by a single seed - forever chasing the end of a journey that doesn\'t exist.',
     },
     {
@@ -181,7 +181,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'The main character and Combat Partners gain: Hydro ATK +0.8%, Max HP +3%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Floating through the air, Dripplet, with an affinity to water, normally curls its translucent body, making it nearly invisible in sunlight. Only when it rains does it unfurl gracefully, blossoming like an ethereal flower in mid-air.',
     },
     {
@@ -201,7 +201,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Electro ATK for the main character and the Combat Partners by 2.4% and the stats provided by Electro Demon Wedges prefixed with [Griffin], [Typhon], and [Covenanter] by 0.9%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Battle Pass',
         lore: 'A Geniemon of legendary rarity, its body gleams with the lustre of amethyst. Long believed to exist only in bardic ballads and the dreams of minstrels.',
     },
     {
@@ -221,7 +221,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'The main character and Combat Partners gain: Umbro ATK +0.8%, Max HP +3%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Often found near battlefields, ruins, or graveyards, this Geniemon feeds on the remains of the fallen. Its twin horns and grim habits have earned it a reputation as an ill omen across many regions.',
     },
     {
@@ -230,7 +230,7 @@ export const allGeniemon: Geniemon[] = [
         element: 'Neutral',
         status: 'Inactive',
         rarity: 2,
-        image: 'https://files.boarhat.gg/assets/duetnightabyss/geniemon/healing_drone.PNG',
+        image: 'https://files.boarhat.gg/assets/duetnightabyss/geniemon/healing_drone_v1.PNG',
         activeSkill: {
             level: 1,
             description: '-',
@@ -241,7 +241,7 @@ export const allGeniemon: Geniemon[] = [
             description: '-',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'A Geniemon that has mimicked the form of a Healing Drone. Though the mechanism behind geniemon mimicry remain an enigma, this variant has fully adopted to life in the Aeolipile, evolving traits optimised for survival.',
     },
     {
@@ -261,7 +261,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Hydro ATK for the main character and the Combat Partners by 2.4% and the stats provided by Hydro Demon Wedges prefixed with [Griffin], [Typhon], and [Covenanter] by 0.9%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Battle Pass',
         lore: 'A Geniemon of legendary rarity, its body gleams with the lustre of iolite. Long believed to exist only in bardic ballads and the dreams of minstrels.',
     },
     {
@@ -270,7 +270,7 @@ export const allGeniemon: Geniemon[] = [
         element: 'Neutral',
         status: 'Inactive',
         rarity: 2,
-        image: 'https://files.boarhat.gg/assets/duetnightabyss/geniemon/jellomon.PNG',
+        image: 'https://files.boarhat.gg/assets/duetnightabyss/geniemon/jellomon_v1.PNG',
         activeSkill: {
             level: 1,
             description: '-',
@@ -281,7 +281,7 @@ export const allGeniemon: Geniemon[] = [
             description: '-',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'A burrowing Geniemon that thrives in the cracks between layers of soil. It feeds on rot and decay, enriching the land by returning nutrients to the earth.',
     },
     {
@@ -301,7 +301,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'The main character and Combat Partners gain: Lumino ATK +0.8%, Max HP +3%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Agile, mischievous, and greedy, Lumi are lovers of shiny things. If you spot one, check your valuables!',
     },
     {
@@ -321,7 +321,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Lumino ATK for the main character and the Combat Partners by 2.4% and the stats provided by Lumino Demon Wedges prefixed with [Griffin], [Typhon], and [Covenanter] by 0.9%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Battle Pass',
         lore: 'A Geniemon of legendary rarity, its body gleams with the lustre of opal. Long believed to exist only in bardic ballads and the dreams of minstrels.',
     },
     {
@@ -330,7 +330,7 @@ export const allGeniemon: Geniemon[] = [
         element: 'Neutral',
         status: 'Inactive',
         rarity: 2,
-        image: 'https://files.boarhat.gg/assets/duetnightabyss/geniemon/magnetix_drone.PNG',
+        image: 'https://files.boarhat.gg/assets/duetnightabyss/geniemon/magnetix_drone_v1.PNG',
         activeSkill: {
             level: 1,
             description: '-',
@@ -341,7 +341,7 @@ export const allGeniemon: Geniemon[] = [
             description: '-',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'A Geniemon that has mimicked the form of a Magnetix Drone. Though the mechanism behind geniemon mimicry remain an enigma, this variant has fully adapted to life in the aeolipile, evolving traits optimised for survival.',
     },
     {
@@ -361,7 +361,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'ATK 1.8%, Max HP +1.8%, DEF 1.8%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Purgatorio Island',
         lore: 'A lazy but incredibly long-lived Geniemon that spends over 98% its time in slumber. Perhaps that\'s the secret to its longevity.',
     },
     {
@@ -381,7 +381,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Umbro ATK for the main character and the Combat Partners by 1.2% and the stats provided by Demon Wedges prefixed with [Phoenix] by 0.5%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Often spotted drifting through abandoned castles and forgotten ruins, this Geniemon resembles a lone wisp of ghostly flame from afar.',
     },
     {
@@ -401,7 +401,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Jump Speed +10%, Helix Leap Speed +10%, Sliding Friction -10%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Icelake',
         lore: 'A remarkably agile Geniemon. Its comically large ears not only fail to hinder its coordination but actually create a sleek, aerodynamic form that helps it move with incredible speed.',
     },
     {
@@ -421,7 +421,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Pyro ATK for the main character and the Combat Partners by 2.4% and the stats provided by Pyro Demon Wedges prefixed with [Griffin], [Typhon], and [Covenanter] by 0.9%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Battle Pass',
         lore: 'A Geniemon of legendary rarity, its body gleams with the lustre of carnelian. Long believed to exist only in bardic ballads and the dreams of minstrels.',
     },
     {
@@ -441,7 +441,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Pyro ATK for the main character and the Combat Partners by 1.2% and the stats provided by Demon Wedges prefixed with [Phoenix] by 0.5%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Wreathed in flames and native to scorching regions, this fiery Geniemon leaves a faint whiff of grilled meat wherever it goes.',
     },
     {
@@ -461,7 +461,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'The main character and Combat Partners gain: Anemo ATK +0.8%, Max HP +3%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'A parasitic Geniemon that grows inside fungi, gradually taking control of its host. The puffing sound it makes is caused by wind passing through the hollow space between its body and the husk of its host.',
     },
     {
@@ -481,7 +481,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'Increases Umbro ATK for the main character and the Combat Partners by 2.4% and the stats provided by Umbro Demon Wedges prefixed with [Griffin], [Typhon], and [Covenanter] by 0.9%.',
         },
         smelt: 'Ascension 1: To be updated\nAscension 2: To be updated\nAscension 3: To be updated',
-        location: '[To be Updated]',
+        location: 'Battle Pass',
         lore: 'A Geniemon of legendary rarity, its body gleams with the lustre of obsidian. Long believed to exist only in bardic ballads and the dreams of minstrels.',
     },
     {
@@ -501,7 +501,7 @@ export const allGeniemon: Geniemon[] = [
             description: 'The main character and Combat Partners gain: Pyro ATK +0.8%, Max HP +3%.',
         },
         smelt: 'Not Available',
-        location: '[To be Updated]',
+        location: 'Anywhere',
         lore: 'Mostly comprised of heat-producing glands, Zippyro releases waves of intense heat whenever it opens its mouth.',
     },
 ];

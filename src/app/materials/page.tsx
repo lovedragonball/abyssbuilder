@@ -3,14 +3,14 @@
 import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Search, 
-  ChevronDown, 
-  ChevronRight, 
-  Package, 
-  Sword, 
-  Wrench, 
-  BookOpen, 
+import {
+  Search,
+  ChevronDown,
+  ChevronRight,
+  Package,
+  Sword,
+  Wrench,
+  BookOpen,
   Scroll,
   Pin,
   PinOff,
@@ -88,6 +88,16 @@ const weaponComponentMapping: Record<string, string> = {
   'Withershade-_Decoration': 'Withershade',
   'Withershade-_Grip': 'Withershade',
 };
+
+// Crafting Timer Interface
+interface CraftingTimer {
+  id: string;
+  itemName: string;
+  category: string;
+  endTime: number;
+  quantity: number;
+  durationMinutes: number;
+}
 
 // Upgrade material forging recipes
 const upgradeMaterialRecipes: Record<
@@ -690,6 +700,145 @@ export default function MaterialsPage() {
   const [pinnedItems, setPinnedItems] = useState<Set<string>>(new Set());
   const [showPinnedSidebar, setShowPinnedSidebar] = useState(true);
   const [itemQuantities, setItemQuantities] = useState<Record<string, number>>({});
+  const [activeTimers, setActiveTimers] = useState<CraftingTimer[]>([]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const savedTimers = localStorage.getItem('activeCraftingTimers');
+    if (savedTimers) {
+      try {
+        // Filter out old completed timers that are more than 24 hours old to keep it clean
+        const parsed = JSON.parse(savedTimers);
+        const now = Date.now();
+        const validTimers = parsed.filter((t: CraftingTimer) => t.endTime > now - 86400000);
+        setActiveTimers(validTimers);
+      } catch (e) {
+        console.error('Failed to load active timers:', e);
+      }
+    }
+  }, []);
+
+  // Save timers to localStorage whenever they change
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('activeCraftingTimers', JSON.stringify(activeTimers));
+    }
+  }, [activeTimers]);
+
+  // Check for completed timers and send notifications
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      activeTimers.forEach((timer) => {
+        if (timer.endTime <= now && timer.endTime > now - 5000) { // Check if just finished (within last 5s) to avoid spam
+          // This check is a bit naive for reloads, but good enough for active page.
+          // Better approach: check if we already notified. For now, let's just rely on the user removing the timer.
+          // Actually, let's just trigger notification if it's time.
+          // To prevent spam, we can add a 'notified' flag, but let's keep it simple first.
+          // We will rely on the fact that we only trigger if we are exactly at the time (or close).
+          // But setInterval might miss the exact ms.
+          // Let's just use a separate effect for scheduling timeouts for future events.
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [activeTimers]);
+
+  // Schedule notifications for active timers
+  useEffect(() => {
+    activeTimers.forEach(timer => {
+      const now = Date.now();
+      const timeRemaining = timer.endTime - now;
+
+      if (timeRemaining > 0) {
+        const timeoutId = setTimeout(() => {
+          if (Notification.permission === 'granted') {
+            new Notification('Crafting Complete!', {
+              body: `${formatItemName(timer.itemName)} (x${timer.quantity}) is ready!`,
+              icon: `/Forging/${timer.category}/${timer.itemName}.png` // Try to use item image
+            });
+          } else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+              if (permission === 'granted') {
+                new Notification('Crafting Complete!', {
+                  body: `${formatItemName(timer.itemName)} (x${timer.quantity}) is ready!`,
+                });
+              }
+            });
+          }
+        }, timeRemaining);
+
+        return () => clearTimeout(timeoutId);
+      }
+    });
+  }, [activeTimers]);
+
+  const requestNotificationPermission = async () => {
+    if (!('Notification' in window)) {
+      alert('This browser does not support desktop notification');
+      return false;
+    }
+
+    if (Notification.permission === 'granted') {
+      return true;
+    }
+
+    if (Notification.permission !== 'denied') {
+      const permission = await Notification.requestPermission();
+      return permission === 'granted';
+    }
+
+    return false;
+  };
+
+  const startTimer = async (itemName: string, category: string, quantity: number, durationMinutes: number) => {
+    const granted = await requestNotificationPermission();
+    if (!granted) {
+      alert('Please enable notifications to use the timer feature.');
+      return;
+    }
+
+    const endTime = Date.now() + durationMinutes * 60 * 1000;
+    const newTimer: CraftingTimer = {
+      id: Date.now().toString(),
+      itemName,
+      category,
+      endTime,
+      quantity,
+      durationMinutes
+    };
+
+    setActiveTimers(prev => [...prev, newTimer]);
+    alert(`Timer started for ${formatItemName(itemName)}! You will be notified in ${durationMinutes} minutes.`);
+  };
+
+  const removeTimer = (id: string) => {
+    setActiveTimers(prev => prev.filter(t => t.id !== id));
+  };
+
+  const formatTimeRemaining = (endTime: number) => {
+    const now = Date.now();
+    const diff = endTime - now;
+
+    if (diff <= 0) return 'Ready!';
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`;
+    }
+    return `${minutes}m ${seconds}s`;
+  };
+
+  // Force update for timer countdowns
+  const [, setTick] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => setTick(t => t + 1), 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -939,9 +1088,8 @@ export default function MaterialsPage() {
 
     const isSecretLetter = selectedItem.category === 'Secret Letters';
     const isUpgradeMaterial = selectedItem.category === 'Upgrade Materials';
-    const isWeaponComponent = selectedItem.category === 'Weapon Components';
     const isCharacterLetter = isSecretLetter && characterSecretLetters.has(selectedItem.name);
-    const weaponNameFromComponent = isWeaponComponent ? getWeaponFromComponent(selectedItem.name) : null;
+
 
     return (
       <div
@@ -994,29 +1142,7 @@ export default function MaterialsPage() {
               />
             </div>
 
-            {/* Weapon Component - Show Full Weapon */}
-            {isWeaponComponent && weaponNameFromComponent && (
-              <div className="w-full bg-gradient-to-br from-purple-900/30 to-blue-900/30 border-2 border-purple-500/50 rounded-lg p-6">
-                <h4 className="text-lg font-bold text-white mb-4 text-center">Full Weapon</h4>
-                <button
-                  onClick={() => setSelectedWeapon(weaponNameFromComponent)}
-                  className="w-full bg-slate-800 hover:bg-slate-700 border-2 border-slate-600 hover:border-purple-500 rounded-lg p-4 transition-all group"
-                >
-                  <div className="w-full h-48 relative bg-slate-900 rounded-lg overflow-hidden mb-3">
-                    <Image
-                      src={`/Forging/Secret Letters/Secret_Letter-_${weaponNameFromComponent}.png`}
-                      alt={formatItemName(weaponNameFromComponent)}
-                      fill
-                      className="object-contain p-4"
-                    />
-                  </div>
-                  <p className="text-white font-semibold group-hover:text-purple-300 transition-colors">
-                    {formatItemName(weaponNameFromComponent)}
-                  </p>
-                  <p className="text-sm text-slate-400 mt-1">Click to view all components</p>
-                </button>
-              </div>
-            )}
+
 
             {/* Character Unlock Info - For Secret Letters */}
             {isCharacterLetter && (
@@ -1111,7 +1237,6 @@ export default function MaterialsPage() {
                   </div>
                 </div>
 
-                {/* Crafting Meta */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
                     <p className="text-slate-400 text-sm mb-1">Total Coin Cost</p>
@@ -1121,7 +1246,15 @@ export default function MaterialsPage() {
                   </div>
                   <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
                     <p className="text-slate-400 text-sm mb-1">Total Time Required</p>
-                    <p className="text-xl font-bold text-blue-300">{weaponCraftingRecipe.timeMinutes * craftQuantity} minutes</p>
+                    <div className="flex items-center justify-between">
+                      <p className="text-xl font-bold text-blue-300">{weaponCraftingRecipe.timeMinutes * craftQuantity} minutes</p>
+                      <button
+                        onClick={() => startTimer(selectedItem.name, selectedItem.category, craftQuantity, weaponCraftingRecipe.timeMinutes * craftQuantity)}
+                        className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1"
+                      >
+                        <span>⏱️</span> Start Timer
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -1308,7 +1441,6 @@ export default function MaterialsPage() {
                   </div>
                 </div>
 
-                {/* Crafting Meta */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
                     <p className="text-slate-400 text-sm mb-1">Total Coin Cost</p>
@@ -1318,7 +1450,15 @@ export default function MaterialsPage() {
                   </div>
                   <div className="bg-slate-900/70 border border-slate-700 rounded-lg p-4">
                     <p className="text-slate-400 text-sm mb-1">Total Time Required</p>
-                    <p className="text-xl font-bold text-blue-300">{upgradeRecipe.timeMinutes * craftQuantity} minutes</p>
+                    <div className="flex items-center justify-between">
+                      <p className="text-xl font-bold text-blue-300">{upgradeRecipe.timeMinutes * craftQuantity} minutes</p>
+                      <button
+                        onClick={() => startTimer(selectedItem.name, selectedItem.category, craftQuantity, upgradeRecipe.timeMinutes * craftQuantity)}
+                        className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1"
+                      >
+                        <span>⏱️</span> Start Timer
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -1499,12 +1639,64 @@ export default function MaterialsPage() {
                 <span>Pinned Craftable Items</span>
               </h2>
 
-              {pinnedItems.size === 0 ? (
-                  <div className="text-center py-8 text-slate-400 text-sm">
-                    <p className="mb-2">No pinned items yet</p>
-                    <p>Click the 📌 button on any craftable item to pin it</p>
+              {/* Active Timers Section */}
+              {activeTimers.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="text-sm font-bold text-blue-300 mb-3 flex items-center gap-2 uppercase tracking-wider">
+                    <span>⏱️</span> Active Forging
+                  </h3>
+                  <div className="space-y-2">
+                    {activeTimers.map((timer) => (
+                      <div key={timer.id} className="bg-slate-800/80 border border-blue-500/50 rounded-lg p-3 relative overflow-hidden">
+                        {/* Progress Bar Background */}
+                        <div
+                          className="absolute bottom-0 left-0 h-1 bg-blue-500 transition-all duration-1000"
+                          style={{
+                            width: `${Math.max(0, Math.min(100, 100 - ((timer.endTime - Date.now()) / (timer.durationMinutes * 60 * 1000)) * 100))}%`
+                          }}
+                        />
+
+                        <div className="flex items-center gap-3 relative z-10">
+                          <div className="w-10 h-10 relative bg-slate-900 rounded overflow-hidden flex-shrink-0">
+                            <Image
+                              src={`/Forging/${timer.category}/${timer.itemName}.png`}
+                              alt={formatItemName(timer.itemName)}
+                              fill
+                              className="object-contain p-1"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs text-white font-semibold truncate">
+                              {formatItemName(timer.itemName)}
+                            </p>
+                            <div className="flex items-center justify-between mt-1">
+                              <span className="text-xs text-blue-300 font-mono">
+                                {formatTimeRemaining(timer.endTime)}
+                              </span>
+                              <span className="text-[10px] text-slate-400">x{timer.quantity}</span>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => removeTimer(timer.id)}
+                            className="text-slate-500 hover:text-red-400 transition-colors"
+                            title="Cancel Timer"
+                          >
+                            ✕
+                          </button>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ) : (
+                  <div className="h-px bg-slate-700 my-4" />
+                </div>
+              )}
+
+              {pinnedItems.size === 0 ? (
+                <div className="text-center py-8 text-slate-400 text-sm">
+                  <p className="mb-2">No pinned items yet</p>
+                  <p>Click the 📌 button on any craftable item to pin it</p>
+                </div>
+              ) : (
                 <div className="space-y-2">
                   {[...pinnedItems].map((itemKey) => {
                     const [category, itemName] = itemKey.split(':');
@@ -1541,8 +1733,8 @@ export default function MaterialsPage() {
                                   {categoryIcons[category]} {category}
                                 </p>
                                 {quantity > 0 && (
-                                    <p className="text-xs text-purple-400 font-semibold">
-                                      Required: {quantity}
+                                  <p className="text-xs text-purple-400 font-semibold">
+                                    Required: {quantity}
                                   </p>
                                 )}
                               </div>

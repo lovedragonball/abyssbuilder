@@ -243,7 +243,7 @@
     {
       "id": "weapon-dreamweavers-feather",
       "description": "A weapon named Dreamweaver's Feather.",
-      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/dreamweaver_feather.PNG",
+      "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/dreamweaver_feather_v1.PNG",
       "imageHint": "fantasy weapon"
     },
     {
@@ -361,8 +361,8 @@
       "imageHint": "fantasy weapon"
     },
     {
-      "id": "weapon-sacrosant-decrcee",
-      "description": "A weapon named Sacrosant Decrcee.",
+      "id": "weapon-sacrosanct-decree",
+      "description": "A weapon named Sacrosanct Decree.",
       "imageUrl": "https://files.boarhat.gg/assets/duetnightabyss/weapon/sacrosanct_decree_v1.PNG",
       "imageHint": "fantasy weapon"
     },
