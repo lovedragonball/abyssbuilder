@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ChevronRight, Plus, Search, X, Users, Crosshair, Star, Settings, Download, Upload, Copy, Check } from 'lucide-react';
+import { ChevronRight, Plus, Search, X, Users, Crosshair, Star, Settings } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Label } from '@/components/ui/label';
 import {
@@ -448,6 +448,16 @@ const SupportModModal = ({
                 return;
             }
 
+            // Check if mod is centerOnly and not being placed in center slot (index 8)
+            if (mod.centerOnly && index !== 8) {
+                toast({
+                    title: 'Invalid Slot',
+                    description: `${mod.name} can only be equipped in the center slot.`,
+                    variant: 'destructive',
+                });
+                return;
+            }
+
             // Check if mod can be equipped with existing mods (excluding the target slot)
             const modsExcludingTarget = mods.map((slot, i) => i === index ? null : slot);
 
@@ -501,6 +511,23 @@ const SupportModModal = ({
                 description: `${mod.name} (${mod.element}) cannot be equipped on ${item?.name || 'this item'} (${item?.element || 'unknown'}).`,
                 variant: 'destructive',
             });
+            return;
+        }
+
+        // If mod is centerOnly, try to place it in center slot (index 8) only
+        if (mod.centerOnly) {
+            const newMods = [...mods];
+            if (newMods[8] === null) {
+                newMods[8] = mod;
+                setMods(newMods);
+            } else {
+                toast({
+                    title: 'Center Slot Full',
+                    description: 'The center slot is already occupied. Remove the existing mod first.',
+                    variant: 'destructive',
+                });
+            }
+            // Don't place it anywhere else
             return;
         }
 
@@ -579,6 +606,8 @@ const SupportModModal = ({
         }
     };
 
+    const [showCenterOnly, setShowCenterOnly] = useState(false);
+
     const filteredMods = useMemo(() => {
         return allMods.filter(mod => {
             const searchLower = searchQuery.toLowerCase();
@@ -597,9 +626,12 @@ const SupportModModal = ({
             // Enforce element matching with item
             const itemElementMatch = isElementMatch(mod);
 
-            return searchMatch && typeMatch && rarityMatch && elementMatch && allowedTypeMatch && itemElementMatch;
+            // Center Only Filter
+            const centerOnlyMatch = !showCenterOnly || mod.centerOnly;
+
+            return searchMatch && typeMatch && rarityMatch && elementMatch && allowedTypeMatch && itemElementMatch && centerOnlyMatch;
         });
-    }, [searchQuery, modTypeFilters, rarityFilters, elementFilter, allowedModTypes, item]);
+    }, [searchQuery, modTypeFilters, rarityFilters, elementFilter, allowedModTypes, item, showCenterOnly]);
 
     if (!item) return null;
 
@@ -630,81 +662,162 @@ const SupportModModal = ({
 
         return (
             <div className="space-y-3">
-                <div
-                    className={cn(
-                        'relative aspect-square w-full overflow-hidden rounded-2xl border border-dashed border-white/20 bg-white/5/20 transition-all duration-300 group hover:border-blue-400/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/10',
-                        mod && 'border-white/30 bg-black/40 shadow-inner',
-                        adjustSlotTrackMode && 'cursor-pointer ring-1 ring-blue-400/60',
-                        isAdjusted && 'border-emerald-400/70 shadow-[0_0_25px_rgba(16,185,129,0.35)]'
-                    )}
-                    onDrop={(e) => handleDrop(e, index)}
-                    onDragOver={handleDragOver}
-                    onClick={handleClick}
-                >
-                    {/* Adjust Mode Indicator */}
-                    {adjustSlotTrackMode && (
-                        <div className="absolute inset-0 bg-blue-500/10 border-2 border-blue-400/30 pointer-events-none animate-pulse z-10" />
-                    )}
-
-                    {mod ? (
-                        <>
-                            <Image
-                                src={mod.image}
-                                alt={mod.name}
-                                fill
-                                className="object-cover animate-in fade-in zoom-in duration-500"
-                                data-ai-hint="abstract pattern"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80" />
-
-                            <div className={cn(
-                                'absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border z-20',
-                                isAdjusted
-                                    ? 'border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
-                                    : 'border-white/20 bg-black/40 text-white'
-                            )}>
-                                {isAdjusted && (
-                                    <span className="line-through opacity-60 text-white/70">
-                                        {mod.tolerance}
-                                    </span>
+                <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div
+                                className={cn(
+                                    'relative aspect-square w-full overflow-hidden rounded-2xl border border-dashed border-white/20 bg-white/5/20 transition-all duration-300 group hover:border-blue-400/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/10',
+                                    mod && 'border-white/30 bg-black/40 shadow-inner cursor-help',
+                                    adjustSlotTrackMode && 'cursor-pointer ring-1 ring-blue-400/60',
+                                    isAdjusted && 'border-emerald-400/70 shadow-[0_0_25px_rgba(16,185,129,0.35)]'
                                 )}
-                                <span className={cn(isAdjusted && 'text-emerald-100')}>
-                                    {adjustedTolerance}
-                                </span>
-                            </div>
-                            {mod.symbol && (
-                                <div className="absolute top-2 right-2 z-20">
-                                    <span className="rounded-full bg-black/80 px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wide shadow-lg">
-                                        {mod.symbol}
-                                    </span>
-                                </div>
-                            )}
-
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleRemoveMod(index);
-                                }}
-                                className="absolute top-1 right-1 rounded-full bg-destructive text-destructive-foreground p-1 shadow-lg transition hover:bg-destructive/80 opacity-0 group-hover:opacity-100 z-20"
-                                aria-label="Remove mod"
-                                type="button"
+                                onDrop={(e) => handleDrop(e, index)}
+                                onDragOver={handleDragOver}
+                                onClick={handleClick}
+                                tabIndex={0}
                             >
-                                <X className="h-3.5 w-3.5" />
-                            </button>
-                        </>
-                    ) : (
-                        <div className="flex h-full flex-col items-center justify-center gap-2 text-white/50">
-                            <div className="grid h-14 w-14 place-items-center rounded-full border border-dashed border-white/30">
-                                <Plus className="h-6 w-6" />
+                                {/* Adjust Mode Indicator */}
+                                {adjustSlotTrackMode && (
+                                    <div className="absolute inset-0 bg-blue-500/10 border-2 border-blue-400/30 pointer-events-none animate-pulse z-10" />
+                                )}
+
+                                {mod ? (
+                                    <>
+                                        <Image
+                                            src={mod.image}
+                                            alt={mod.name}
+                                            fill
+                                            className="object-cover animate-in fade-in zoom-in duration-500"
+                                            data-ai-hint="abstract pattern"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80" />
+
+                                        <div className={cn(
+                                            'absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border z-20',
+                                            isAdjusted
+                                                ? 'border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
+                                                : 'border-white/20 bg-black/40 text-white'
+                                        )}>
+                                            {isAdjusted && (
+                                                <span className="line-through opacity-60 text-white/70">
+                                                    {mod.tolerance}
+                                                </span>
+                                            )}
+                                            <span className={cn(isAdjusted && 'text-emerald-100')}>
+                                                {adjustedTolerance}
+                                            </span>
+                                        </div>
+                                        {mod.symbol && (
+                                            <div className="absolute top-2 right-2 z-20">
+                                                <span className="rounded-full bg-black/80 px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wide shadow-lg">
+                                                    {mod.symbol}
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleRemoveMod(index);
+                                            }}
+                                            className="absolute top-1 right-1 rounded-full bg-destructive text-destructive-foreground p-1 shadow-lg transition hover:bg-destructive/80 opacity-0 group-hover:opacity-100 z-20"
+                                            aria-label="Remove mod"
+                                            type="button"
+                                        >
+                                            <X className="h-3.5 w-3.5" />
+                                        </button>
+                                    </>
+                                ) : (
+                                    <div className="flex h-full flex-col items-center justify-center gap-2 text-white/50">
+                                        <div className="grid h-14 w-14 place-items-center rounded-full border border-dashed border-white/30">
+                                            <Plus className="h-6 w-6" />
+                                        </div>
+                                        {isAdjusted && (
+                                            <div className="absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)] z-20">
+                                                <span>Adjusted</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
-                            {isAdjusted && (
-                                <div className="absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)] z-20">
-                                    <span>Adjusted</span>
+                        </TooltipTrigger>
+                        {mod && (
+                            <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
+                                <div className="p-3 space-y-3">
+                                    {/* Header */}
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-start gap-2">
+                                            <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
+                                            <div className="flex items-center gap-1 flex-shrink-0">
+                                                {mod.symbol && (
+                                                    <div className="bg-black/50 text-white text-xs px-1.5 py-0.5 rounded-sm font-bold">
+                                                        {mod.symbol}
+                                                    </div>
+                                                )}
+                                                <RarityStars rarity={mod.rarity} />
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-2 text-xs text-muted-foreground">
+                                            <span>{mod.modType}</span>
+                                            {mod.element && (
+                                                <>
+                                                    <span>&bull;</span> <span>{mod.element}</span>
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Main Attribute */}
+                                    <div className="space-y-1 text-sm">
+                                        <p className="font-semibold text-primary">Main Attribute</p>
+                                        <p className="text-foreground">{mod.mainAttribute}</p>
+                                    </div>
+
+                                    {/* Effect */}
+                                    {mod.effect && (
+                                        <div className="space-y-1 text-sm">
+                                            <p className="font-semibold text-primary">Effect</p>
+                                            <p className="text-muted-foreground leading-relaxed">{mod.effect}</p>
+                                        </div>
+                                    )}
+
+                                    {/* Stats Grid */}
+                                    <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pt-2 text-xs border-t border-border/50">
+                                        <div className="flex justify-between">
+                                            <span className="text-muted-foreground">Tolerance</span>
+                                            <span className="font-medium text-foreground">{mod.tolerance}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-muted-foreground">Track</span>
+                                            <span className="font-medium text-foreground">{mod.track}</span>
+                                        </div>
+                                        <div className="flex justify-between col-span-2">
+                                            <span className="text-muted-foreground">Source</span>
+                                            <span className="font-medium text-foreground">{mod.source}</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Special Indicators */}
+                                    {(mod.isPrimeMod || mod.centerOnly) && (
+                                        <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+                                            {mod.isPrimeMod && mod.toleranceBoost && (
+                                                <div className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-md font-semibold">
+                                                    Prime Mod (+{mod.toleranceBoost} Tolerance)
+                                                </div>
+                                            )}
+                                            {mod.centerOnly && (
+                                                <div className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-md font-semibold">
+                                                    Center Only
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                        </div>
-                    )}
-                </div>
+                            </TooltipContent>
+                        )}
+                    </Tooltip>
+                </TooltipProvider>
                 <div className="min-h-[2.5rem] flex items-center justify-center transition-all duration-200">
                     {mod && (
                         <p className="text-center text-sm text-white/95 font-semibold leading-snug px-2">
@@ -851,6 +964,8 @@ const SupportModModal = ({
                             />
                         </div>
 
+
+
                         <div className="flex flex-wrap gap-3">
                             <div className="flex-1 min-w-[140px]">
                                 <MultiSelectFilter
@@ -899,6 +1014,23 @@ const SupportModModal = ({
                                     </Select>
                                 </div>
                             )}
+                        </div>
+
+                        <div className="flex items-center gap-3 pt-2">
+                            <button
+                                onClick={() => setShowCenterOnly(!showCenterOnly)}
+                                className={cn(
+                                    "rounded-full border px-4 py-1.5 text-xs font-semibold transition-all",
+                                    showCenterOnly
+                                        ? "border-cyan-400 text-cyan-400 bg-cyan-400/10 shadow-[0_0_10px_rgba(34,211,238,0.2)]"
+                                        : "border-white/20 text-muted-foreground hover:border-white/40 hover:text-white"
+                                )}
+                            >
+                                Center Mods Only
+                            </button>
+                            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground/70">
+                                FEATHERED SERPENT SERIES
+                            </span>
                         </div>
 
                         <ScrollArea className="h-[600px] rounded-2xl border border-white/10 bg-black/20 p-4">
@@ -968,9 +1100,6 @@ export default function CreateBuildDetailPage() {
     const [rarityFilters, setRarityFilters] = useState<ModRarity[]>([]);
     const [elementFilter, setElementFilter] = useState<ModElement | 'All'>('All');
     const [showCenterOnly, setShowCenterOnly] = useState(false);
-    const [importDialogOpen, setImportDialogOpen] = useState(false);
-    const [importJsonText, setImportJsonText] = useState('');
-    const [exportCopied, setExportCopied] = useState(false);
     const [adjustSlotTrackMode, setAdjustSlotTrackMode] = useState(false);
     const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set());
 
@@ -1122,133 +1251,6 @@ export default function CreateBuildDetailPage() {
         });
 
         router.push('/my-builds');
-    };
-
-    const handleExportBuild = async () => {
-        const exportData = {
-            buildName,
-            description: buildDescription,
-            guide: buildGuide,
-            itemType,
-            itemId: item.id,
-            itemName: item.name,
-            mods: buildSlots.filter(Boolean).map(m => m?.name),
-            adjustedSlots: Array.from(adjustedSlots),
-            exportedAt: new Date().toISOString(),
-        };
-
-        const jsonString = JSON.stringify(exportData, null, 2);
-
-        try {
-            await navigator.clipboard.writeText(jsonString);
-            setExportCopied(true);
-            toast({
-                title: 'Build Exported!',
-                description: 'Build data has been copied to your clipboard in JSON format.',
-            });
-            setTimeout(() => setExportCopied(false), 2000);
-        } catch (err) {
-            toast({
-                title: 'Export Failed',
-                description: 'Could not copy to clipboard. Please try again.',
-                variant: 'destructive',
-            });
-        }
-    };
-
-    const handleImportBuild = () => {
-        try {
-            const importData = JSON.parse(importJsonText);
-
-            // Validate import data
-            if (!importData.itemId || !importData.itemType) {
-                throw new Error('Invalid build data: missing required fields');
-            }
-
-            // Check if importing to correct item
-            if (importData.itemId !== item.id) {
-                toast({
-                    title: 'Item Mismatch',
-                    description: `This build is for "${importData.itemName}" but you're currently viewing "${item.name}". Please navigate to the correct item first.`,
-                    variant: 'destructive',
-                });
-                return;
-            }
-
-            // Load basic info
-            setBuildName(importData.buildName || '');
-            setBuildDescription(importData.description || '');
-            setBuildGuide(importData.guide || '');
-
-            // Load main mods
-            const loadedMods = (importData.mods || [])
-                .map((modName: string) => allMods.find((m) => m.name === modName))
-                .filter(Boolean);
-            setBuildSlots([...loadedMods, ...Array(8 - loadedMods.length).fill(null)]);
-
-            // Load prime mod
-            if (importData.primeMod) {
-                const loadedCenter = allMods.find((m) => m.name === importData.primeMod) || null;
-                setCenterPreviewMod(loadedCenter);
-            } else {
-                setCenterPreviewMod(null);
-            }
-
-            // Load team
-            const loadedTeam = (importData.team || [])
-                .map((charId: string) => allCharacters.find((c) => c.id === charId))
-                .filter(Boolean);
-            setTeam([...loadedTeam, ...Array(2 - loadedTeam.length).fill(null)]);
-
-            // Load support weapons
-            const loadedWeapons = (importData.supportWeapons || [])
-                .map((wpnId: string) => allWeapons.find((w) => w.id === wpnId))
-                .filter(Boolean);
-            setSupportWeapons([...loadedWeapons, ...Array(2 - loadedWeapons.length).fill(null)]);
-
-            // Load consonance weapon
-            if (importData.consonanceWeapon) {
-                const loadedConsonance = allWeapons.find((w) => w.id === importData.consonanceWeapon);
-                setConsonanceWeapon(loadedConsonance || null);
-            } else {
-                setConsonanceWeapon(null);
-            }
-
-            // Load support mods
-            if (importData.supportMods) {
-                const loadedSupportMods: Record<string, (Mod | null)[]> = {};
-                Object.entries(importData.supportMods).forEach(([key, modNames]) => {
-                    const mods = (modNames as string[])
-                        .map((modName) => allMods.find((m) => m.name === modName))
-                        .filter(Boolean);
-                    const maxSlots = key === 'consonance-wpn' ? CONSONANCE_SLOT_CAPACITY : SUPPORT_SLOT_CAPACITY;
-                    loadedSupportMods[key] = [
-                        ...mods,
-                        ...Array(Math.max(0, maxSlots - mods.length)).fill(null),
-                    ].slice(0, maxSlots);
-                });
-                setSupportMods((prev) => ({ ...prev, ...loadedSupportMods }));
-            }
-
-            // Load adjusted slots if available
-            if (importData.adjustedSlots && Array.isArray(importData.adjustedSlots)) {
-                setAdjustedSlots(new Set(importData.adjustedSlots));
-            }
-
-            toast({
-                title: 'Build Imported!',
-                description: 'All build data has been loaded successfully.',
-            });
-
-            setImportDialogOpen(false);
-            setImportJsonText('');
-        } catch (err) {
-            toast({
-                title: 'Import Failed',
-                description: err instanceof Error ? err.message : 'Invalid JSON format. Please check your input.',
-                variant: 'destructive',
-            });
-        }
     };
 
     const handleSelectSupport = (character: Character) => {
@@ -1655,81 +1657,162 @@ export default function CreateBuildDetailPage() {
 
         return (
             <div className="space-y-3">
-                <div
-                    className={cn(
-                        'relative aspect-square w-full overflow-hidden rounded-2xl border border-dashed border-white/20 bg-white/5/20 transition-all duration-300 group hover:border-blue-400/60',
-                        mod && 'border-white/30 bg-black/40 shadow-inner',
-                        adjustSlotTrackMode && 'cursor-pointer ring-1 ring-blue-400/60',
-                        isAdjusted && 'border-emerald-400/70 shadow-[0_0_25px_rgba(16,185,129,0.35)]'
-                    )}
-                    onDrop={(e) => handleDrop(e, index)}
-                    onDragOver={handleDragOver}
-                    onClick={handleClick}
-                >
-                    {/* Adjust Mode Indicator */}
-                    {adjustSlotTrackMode && (
-                        <div className="absolute inset-0 bg-blue-500/10 border-2 border-blue-400/30 pointer-events-none animate-pulse z-10" />
-                    )}
-
-                    {mod ? (
-                        <>
-                            <Image
-                                src={mod.image}
-                                alt={mod.name}
-                                fill
-                                className="object-cover"
-                                data-ai-hint="abstract pattern"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80" />
-
-                            <div className={cn(
-                                'absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border z-20',
-                                isAdjusted || isPrimeAdjusted
-                                    ? 'border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
-                                    : 'border-white/20 bg-black/40 text-white'
-                            )}>
-                                {(isAdjusted || isPrimeAdjusted) && (
-                                    <span className="line-through opacity-60 text-white/70">
-                                        {mod.tolerance}
-                                    </span>
+                <TooltipProvider delayDuration={100}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div
+                                className={cn(
+                                    'relative aspect-square w-full overflow-hidden rounded-2xl border border-dashed border-white/20 bg-white/5/20 transition-all duration-300 group hover:border-blue-400/60',
+                                    mod && 'border-white/30 bg-black/40 shadow-inner cursor-help',
+                                    adjustSlotTrackMode && 'cursor-pointer ring-1 ring-blue-400/60',
+                                    isAdjusted && 'border-emerald-400/70 shadow-[0_0_25px_rgba(16,185,129,0.35)]'
                                 )}
-                                <span className={cn((isAdjusted || isPrimeAdjusted) && 'text-emerald-100')}>
-                                    {adjustedTolerance}
-                                </span>
-                            </div>
-                            {mod.symbol && (
-                                <div className="absolute top-2 right-2 z-20">
-                                    <span className="rounded-full bg-black/80 px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wide shadow-lg">
-                                        {mod.symbol}
-                                    </span>
-                                </div>
-                            )}
-
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleRemoveMod(index);
-                                }}
-                                className="absolute top-1 right-1 rounded-full bg-destructive text-destructive-foreground p-1 shadow-lg transition hover:bg-destructive/80 opacity-0 group-hover:opacity-100 z-20"
-                                aria-label="Remove mod"
-                                type="button"
+                                onDrop={(e) => handleDrop(e, index)}
+                                onDragOver={handleDragOver}
+                                onClick={handleClick}
+                                tabIndex={0}
                             >
-                                <X className="h-3.5 w-3.5" />
-                            </button>
-                        </>
-                    ) : (
-                        <div className="flex h-full flex-col items-center justify-center gap-2 text-white/50">
-                            <div className="grid h-14 w-14 place-items-center rounded-full border border-dashed border-white/30">
-                                <Plus className="h-6 w-6" />
+                                {/* Adjust Mode Indicator */}
+                                {adjustSlotTrackMode && (
+                                    <div className="absolute inset-0 bg-blue-500/10 border-2 border-blue-400/30 pointer-events-none animate-pulse z-10" />
+                                )}
+
+                                {mod ? (
+                                    <>
+                                        <Image
+                                            src={mod.image}
+                                            alt={mod.name}
+                                            fill
+                                            className="object-cover"
+                                            data-ai-hint="abstract pattern"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/80" />
+
+                                        <div className={cn(
+                                            'absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border z-20',
+                                            isAdjusted || isPrimeAdjusted
+                                                ? 'border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
+                                                : 'border-white/20 bg-black/40 text-white'
+                                        )}>
+                                            {(isAdjusted || isPrimeAdjusted) && (
+                                                <span className="line-through opacity-60 text-white/70">
+                                                    {mod.tolerance}
+                                                </span>
+                                            )}
+                                            <span className={cn((isAdjusted || isPrimeAdjusted) && 'text-emerald-100')}>
+                                                {adjustedTolerance}
+                                            </span>
+                                        </div>
+                                        {mod.symbol && (
+                                            <div className="absolute top-2 right-2 z-20">
+                                                <span className="rounded-full bg-black/80 px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wide shadow-lg">
+                                                    {mod.symbol}
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleRemoveMod(index);
+                                            }}
+                                            className="absolute top-1 right-1 rounded-full bg-destructive text-destructive-foreground p-1 shadow-lg transition hover:bg-destructive/80 opacity-0 group-hover:opacity-100 z-20"
+                                            aria-label="Remove mod"
+                                            type="button"
+                                        >
+                                            <X className="h-3.5 w-3.5" />
+                                        </button>
+                                    </>
+                                ) : (
+                                    <div className="flex h-full flex-col items-center justify-center gap-2 text-white/50">
+                                        <div className="grid h-14 w-14 place-items-center rounded-full border border-dashed border-white/30">
+                                            <Plus className="h-6 w-6" />
+                                        </div>
+                                        {isAdjusted && (
+                                            <div className="absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)] z-20">
+                                                <span>Adjusted</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
-                            {isAdjusted && (
-                                <div className="absolute top-2 left-2 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-lg flex items-center gap-1 border border-emerald-400/80 bg-emerald-500/10 text-emerald-100 shadow-[0_0_15px_rgba(16,185,129,0.4)] z-20">
-                                    <span>Adjusted</span>
+                        </TooltipTrigger>
+                        {mod && (
+                            <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
+                                <div className="p-3 space-y-3">
+                                    {/* Header */}
+                                    <div className="space-y-1">
+                                        <div className="flex justify-between items-start gap-2">
+                                            <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
+                                            <div className="flex items-center gap-1 flex-shrink-0">
+                                                {mod.symbol && (
+                                                    <div className="bg-black/50 text-white text-xs px-1.5 py-0.5 rounded-sm font-bold">
+                                                        {mod.symbol}
+                                                    </div>
+                                                )}
+                                                <RarityStars rarity={mod.rarity} />
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-2 text-xs text-muted-foreground">
+                                            <span>{mod.modType}</span>
+                                            {mod.element && (
+                                                <>
+                                                    <span>&bull;</span> <span>{mod.element}</span>
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Main Attribute */}
+                                    <div className="space-y-1 text-sm">
+                                        <p className="font-semibold text-primary">Main Attribute</p>
+                                        <p className="text-foreground">{mod.mainAttribute}</p>
+                                    </div>
+
+                                    {/* Effect */}
+                                    {mod.effect && (
+                                        <div className="space-y-1 text-sm">
+                                            <p className="font-semibold text-primary">Effect</p>
+                                            <p className="text-muted-foreground leading-relaxed">{mod.effect}</p>
+                                        </div>
+                                    )}
+
+                                    {/* Stats Grid */}
+                                    <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pt-2 text-xs border-t border-border/50">
+                                        <div className="flex justify-between">
+                                            <span className="text-muted-foreground">Tolerance</span>
+                                            <span className="font-medium text-foreground">{mod.tolerance}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-muted-foreground">Track</span>
+                                            <span className="font-medium text-foreground">{mod.track}</span>
+                                        </div>
+                                        <div className="flex justify-between col-span-2">
+                                            <span className="text-muted-foreground">Source</span>
+                                            <span className="font-medium text-foreground">{mod.source}</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Special Indicators */}
+                                    {(mod.isPrimeMod || mod.centerOnly) && (
+                                        <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+                                            {mod.isPrimeMod && mod.toleranceBoost && (
+                                                <div className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-md font-semibold">
+                                                    Prime Mod (+{mod.toleranceBoost} Tolerance)
+                                                </div>
+                                            )}
+                                            {mod.centerOnly && (
+                                                <div className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-md font-semibold">
+                                                    Center Only
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                        </div>
-                    )}
-                </div>
+                            </TooltipContent>
+                        )}
+                    </Tooltip>
+                </TooltipProvider>
                 <div className="min-h-[2.5rem] flex items-center justify-center transition-all duration-200">
                     {mod && (
                         <p className="text-center text-sm text-white/95 font-semibold leading-snug px-2">
@@ -1820,36 +1903,6 @@ export default function CreateBuildDetailPage() {
                 }, [editingSupportSlot, supportWeapons])}
                 onSave={handleSaveSupportMods}
             />
-
-            {/* Import Build Dialog */}
-            <Dialog open={importDialogOpen} onOpenChange={setImportDialogOpen}>
-                <DialogContent className="max-w-2xl">
-                    <DialogHeader>
-                        <DialogTitle>Import Build</DialogTitle>
-                        <DialogDescription>
-                            Paste your build JSON data below to load the build configuration.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <div className="space-y-4">
-                        <Textarea
-                            placeholder='Paste JSON here...'
-                            value={importJsonText}
-                            onChange={(e) => setImportJsonText(e.target.value)}
-                            className="min-h-[300px] font-mono text-sm"
-                        />
-                    </div>
-                    <DialogFooter>
-                        <Button variant="outline" onClick={() => { setImportDialogOpen(false); setImportJsonText(''); }}>
-                            Cancel
-                        </Button>
-                        <Button onClick={handleImportBuild}>
-                            <Upload className="mr-2 h-4 w-4" />
-                            Import
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
-
 
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
@@ -1942,112 +1995,123 @@ export default function CreateBuildDetailPage() {
                                     </div>
                                 </div>
                             </CardContent>
-                            <div className="pointer-events-none absolute inset-0 opacity-70">
-                                <div className="absolute -top-32 left-0 h-72 w-72 rounded-full bg-blue-500/20 blur-[180px]" />
-                                <div className="absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-purple-500/15 blur-[190px]" />
-                            </div>
-                            <div className="relative z-10 space-y-10">
-                                <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.5em] text-white/50">
-                                    <span>{itemType === 'character' ? 'Character Set' : 'Weapon Set'}</span>
-                                    <span className="flex items-center gap-2 text-white/70 tracking-[0.3em]">
-                                        Slots
-                                        <span className="text-xl font-semibold tracking-normal text-white">{filledSlots}</span>
-                                        <span className="tracking-normal text-white/50 text-base">/ 9</span>
-                                    </span>
-                                </div>
-
-                                <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center">
-                                    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-end">
-                                        {leftSlots.map((mod, index) => (
-                                            <MainModSlot key={`left-${index}`} mod={mod} index={index} />
-                                        ))}
-                                    </div>
-
-                                    <div className="flex flex-col items-center gap-5 text-center w-full max-w-[260px] justify-self-center">
-                                        <span className="text-[11px] uppercase tracking-[0.6em] text-white/60">
-                                            Tolerance
-                                        </span>
-                                        <div className="relative">
-                                            <div
-                                                className="relative grid h-48 w-48 place-items-center rounded-full border border-white/15 bg-black/60 shadow-[0_0_80px_rgba(59,130,246,0.3)]"
-                                                onDrop={handleCenterPreviewDrop}
-                                                onDragOver={handleCenterPreviewDragOver}
-                                            >
-                                                {previewMod ? (
-                                                    <>
-                                                        <Image
-                                                            src={previewMod.image}
-                                                            alt={previewMod.name}
-                                                            fill
-                                                            className="absolute inset-0 rounded-full object-cover opacity-70"
-                                                        />
-                                                        <div className="absolute inset-0 rounded-full bg-gradient-to-b from-black/20 via-black/60 to-black/80" />
-                                                    </>
-                                                ) : null}
-                                                <div className="relative z-10 flex flex-col items-center gap-1 text-white">
-                                                    <span className="text-5xl font-bold">{totalTolerance}</span>
-                                                    <span className="text-[9px] uppercase tracking-[0.6em] text-white/70">
-                                                        total
-                                                    </span>
-                                                </div>
-                                                {centerPreviewMod && (
-                                                    <button
-                                                        onClick={() => setCenterPreviewMod(null)}
-                                                        className="absolute top-2 right-2 z-20 rounded-full bg-black/50 p-1 text-white hover:bg-black/70"
-                                                        title="Remove center mod"
-                                                    >
-                                                        <X className="h-3 w-3" />
-                                                    </button>
-                                                )}
-                                            </div>
-                                            <div className="absolute inset-0 -z-10 animate-pulse rounded-full border border-white/10" />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-start">
-                                        {rightSlots.map((mod, index) => (
-                                            <MainModSlot key={`right-${index}`} mod={mod} index={index + 4} />
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-col items-center gap-3 pt-6">
-                                    <Button
-                                        variant="outline"
-                                        onClick={toggleAdjustSlotTrack}
-                                        className={cn(
-                                            'flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:bg-white/10',
-                                            adjustSlotTrackMode && 'border-blue-500 bg-blue-500/20 text-blue-100 shadow-lg shadow-blue-500/20'
-                                        )}
-                                    >
-                                        <Settings className={cn('h-4 w-4', adjustSlotTrackMode && 'animate-spin')} />
-                                        Adjust Slot Track
-                                        <span
-                                            className={cn(
-                                                'rounded-full px-3 py-0.5 text-[10px] font-bold uppercase',
-                                                adjustSlotTrackMode ? 'bg-blue-600 text-white' : 'bg-gray-600 text-gray-200'
-                                            )}
-                                        >
-                                            {adjustSlotTrackMode ? 'On' : 'Off'}
-                                        </span>
-                                    </Button>
-                                    {adjustSlotTrackMode && (
-                                        <p className="text-xs text-blue-200 text-center">
-                                            🎯 Click a mod slot to halve its tolerance cost.
-                                        </p>
-                                    )}
-                                    <Button
-                                        variant="destructive"
-                                        onClick={handleRemoveAllMods}
-                                        className="flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
-                                    >
-                                        <X className="h-4 w-4" />
-                                        Remove All Mods
-                                    </Button>
-                                </div>
-                            </div>
                         </Card>
                     )}
+
+                    <div className="space-y-2">
+                        <Button className="w-full" onClick={handleSaveBuild}>Save Build</Button>
+                        <Button variant="destructive" className="w-full" onClick={handleRemoveAllMods}>Remove All Mods</Button>
+                    </div>
+                </div>
+
+                {/* Part B: Center Column - Build Config */}
+                <div className="lg:col-span-6">
+                    <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-br from-[#060a17] via-[#05060f] to-[#02030a] p-6 md:p-10 shadow-[0_25px_80px_rgba(7,11,24,0.65)]">
+                        <div className="pointer-events-none absolute inset-0 opacity-70">
+                            <div className="absolute -top-32 left-0 h-72 w-72 rounded-full bg-blue-500/20 blur-[180px]" />
+                            <div className="absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-purple-500/15 blur-[190px]" />
+                        </div>
+                        <div className="relative z-10 space-y-10">
+                            <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.5em] text-white/50">
+                                <span>{itemType === 'character' ? 'Character Set' : 'Weapon Set'}</span>
+                                <span className="flex items-center gap-2 text-white/70 tracking-[0.3em]">
+                                    Slots
+                                    <span className="text-xl font-semibold tracking-normal text-white">{filledSlots}</span>
+                                    <span className="tracking-normal text-white/50 text-base">/ 9</span>
+                                </span>
+                            </div>
+
+                            <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center">
+                                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-end">
+                                    {leftSlots.map((mod, index) => (
+                                        <MainModSlot key={`left-${index}`} mod={mod} index={index} />
+                                    ))}
+                                </div>
+
+                                <div className="flex flex-col items-center gap-5 text-center w-full max-w-[260px] justify-self-center">
+                                    <span className="text-[11px] uppercase tracking-[0.6em] text-white/60">
+                                        Tolerance
+                                    </span>
+                                    <div className="relative">
+                                        <div
+                                            className="relative grid h-48 w-48 place-items-center rounded-full border border-white/15 bg-black/60 shadow-[0_0_80px_rgba(59,130,246,0.3)]"
+                                            onDrop={handleCenterPreviewDrop}
+                                            onDragOver={handleCenterPreviewDragOver}
+                                        >
+                                            {previewMod ? (
+                                                <>
+                                                    <Image
+                                                        src={previewMod.image}
+                                                        alt={previewMod.name}
+                                                        fill
+                                                        className="absolute inset-0 rounded-full object-cover opacity-70"
+                                                    />
+                                                    <div className="absolute inset-0 rounded-full bg-gradient-to-b from-black/20 via-black/60 to-black/80" />
+                                                </>
+                                            ) : null}
+                                            <div className="relative z-10 flex flex-col items-center gap-1 text-white">
+                                                <span className="text-5xl font-bold">{totalTolerance}</span>
+                                                <span className="text-[9px] uppercase tracking-[0.6em] text-white/70">
+                                                    total
+                                                </span>
+                                            </div>
+                                            {centerPreviewMod && (
+                                                <button
+                                                    onClick={() => setCenterPreviewMod(null)}
+                                                    className="absolute top-2 right-2 z-20 rounded-full bg-black/50 p-1 text-white hover:bg-black/70"
+                                                    title="Remove center mod"
+                                                >
+                                                    <X className="h-3 w-3" />
+                                                </button>
+                                            )}
+                                        </div>
+                                        <div className="absolute inset-0 -z-10 animate-pulse rounded-full border border-white/10" />
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-start">
+                                    {rightSlots.map((mod, index) => (
+                                        <MainModSlot key={`right-${index}`} mod={mod} index={index + 4} />
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col items-center gap-3 pt-6">
+                                <Button
+                                    variant="outline"
+                                    onClick={toggleAdjustSlotTrack}
+                                    className={cn(
+                                        'flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:bg-white/10',
+                                        adjustSlotTrackMode && 'border-blue-500 bg-blue-500/20 text-blue-100 shadow-lg shadow-blue-500/20'
+                                    )}
+                                >
+                                    <Settings className={cn('h-4 w-4', adjustSlotTrackMode && 'animate-spin')} />
+                                    Adjust Slot Track
+                                    <span
+                                        className={cn(
+                                            'rounded-full px-3 py-0.5 text-[10px] font-bold uppercase',
+                                            adjustSlotTrackMode ? 'bg-blue-600 text-white' : 'bg-gray-600 text-gray-200'
+                                        )}
+                                    >
+                                        {adjustSlotTrackMode ? 'On' : 'Off'}
+                                    </span>
+                                </Button>
+                                {adjustSlotTrackMode && (
+                                    <p className="text-xs text-blue-200 text-center">
+                                        🎯 Click a mod slot to halve its tolerance cost.
+                                    </p>
+                                )}
+                                <Button
+                                    variant="destructive"
+                                    onClick={handleRemoveAllMods}
+                                    className="flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+                                >
+                                    <X className="h-4 w-4" />
+                                    Remove All Mods
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
 
                     {itemType === 'character' && (item as Character).hasConsonanceWeapon && (
                         <Card className="bg-card/50 mt-8">
@@ -2115,6 +2179,8 @@ export default function CreateBuildDetailPage() {
                             />
                         </div>
 
+
+
                         <div className="grid grid-cols-1 gap-2">
                             <MultiSelectFilter
                                 label="All Types"
@@ -2166,26 +2232,24 @@ export default function CreateBuildDetailPage() {
                             )}
                         </div>
 
-                        <div className="flex flex-wrap items-center gap-3">
-                            <Button
-                                type="button"
-                                size="sm"
-                                variant={showCenterOnly ? 'default' : 'outline'}
-                                onClick={() => setShowCenterOnly(prev => !prev)}
-                                disabled={itemType !== 'character'}
+                        <div className="flex items-center gap-3 pt-2">
+                            <button
+                                onClick={() => setShowCenterOnly(!showCenterOnly)}
                                 className={cn(
-                                    'rounded-full',
+                                    "rounded-full border px-4 py-1.5 text-xs font-semibold transition-all",
                                     showCenterOnly
-                                        ? 'bg-cyan-600 text-white hover:bg-cyan-500'
-                                        : 'border-cyan-500/40 text-cyan-200 hover:bg-cyan-500/10'
+                                        ? "border-cyan-400 text-cyan-400 bg-cyan-400/10 shadow-[0_0_10px_rgba(34,211,238,0.2)]"
+                                        : "border-white/20 text-muted-foreground hover:border-white/40 hover:text-white"
                                 )}
                             >
                                 Center Mods Only
-                            </Button>
-                            <span className="text-[11px] uppercase tracking-wide text-muted-foreground">
-                                Feathered Serpent series
+                            </button>
+                            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground/70">
+                                FEATHERED SERPENT SERIES
                             </span>
                         </div>
+
+
 
                         <ScrollArea className="h-[600px] rounded-md border p-2 bg-background/50">
                             <div className="grid grid-cols-2 gap-2">

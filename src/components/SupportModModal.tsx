@@ -52,46 +52,138 @@ const ModSlot = ({
     onDragOver?: (e: React.DragEvent<HTMLDivElement>) => void;
     onRemove?: () => void;
 }) => {
-    return (
-        <div
-            className="relative aspect-square rounded-2xl border border-dashed border-white/30 bg-black/40 flex items-center justify-center overflow-hidden group transition-colors hover:border-blue-400/60"
-            onDrop={onDrop}
-            onDragOver={onDragOver}
-        >
-            {mod ? (
-                <div className="relative w-full h-full">
-                    <Image
-                        src={mod.image}
-                        alt={mod.name}
-                        fill
-                        className="object-cover"
-                        data-ai-hint="abstract pattern"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-1">
-                        <p className="text-white text-center font-bold text-[10px] leading-tight line-clamp-2">{mod.name}</p>
-                    </div>
-                    {mod.symbol && (
-                        <div className="absolute top-1 right-1 bg-black/70 text-white text-xs px-1 rounded-sm font-bold">
-                            {mod.symbol}
-                        </div>
-                    )}
-                    <div className="absolute top-1 left-1">
-                        <RarityStars rarity={mod.rarity} />
-                    </div>
-                    {onRemove && (
-                        <button
-                            onClick={onRemove}
-                            className="absolute top-1 right-1 bg-destructive text-destructive-foreground rounded-full p-0.5 z-20 hover:bg-destructive/80 transition-colors"
-                        >
-                            <X className="w-3 h-3" />
-                        </button>
-                    )}
-                </div>
-            ) : (
+    // Empty slot - no tooltip
+    if (!mod) {
+        return (
+            <div
+                className="relative aspect-square rounded-2xl border border-dashed border-white/30 bg-black/40 flex items-center justify-center overflow-hidden group transition-colors hover:border-blue-400/60"
+                onDrop={onDrop}
+                onDragOver={onDragOver}
+            >
                 <span className="text-muted-foreground text-3xl">+</span>
-            )}
-        </div>
+            </div>
+        );
+    }
+
+    // Filled slot - with tooltip
+    return (
+        <TooltipProvider delayDuration={100}>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <div
+                        className="relative aspect-square rounded-2xl border border-dashed border-white/30 bg-black/40 flex items-center justify-center overflow-hidden group transition-colors hover:border-blue-400/60 cursor-help"
+                        onDrop={onDrop}
+                        onDragOver={onDragOver}
+                        tabIndex={0}
+                    >
+                        <div className="relative w-full h-full">
+                            <Image
+                                src={mod.image}
+                                alt={mod.name}
+                                fill
+                                className="object-cover"
+                                data-ai-hint="abstract pattern"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-1">
+                                <p className="text-white text-center font-bold text-[10px] leading-tight line-clamp-2">{mod.name}</p>
+                            </div>
+                            {mod.symbol && (
+                                <div className="absolute top-1 right-1 bg-black/70 text-white text-xs px-1 rounded-sm font-bold z-10">
+                                    {mod.symbol}
+                                </div>
+                            )}
+                            <div className="absolute top-1 left-1 z-10">
+                                <RarityStars rarity={mod.rarity} />
+                            </div>
+                            {onRemove && (
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onRemove();
+                                    }}
+                                    className="absolute top-1 right-1 bg-destructive text-destructive-foreground rounded-full p-0.5 z-20 hover:bg-destructive/80 transition-colors opacity-0 group-hover:opacity-100"
+                                >
+                                    <X className="w-3 h-3" />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                </TooltipTrigger>
+                <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
+                    <div className="p-3 space-y-3">
+                        {/* Header */}
+                        <div className="space-y-1">
+                            <div className="flex justify-between items-start gap-2">
+                                <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
+                                <div className="flex items-center gap-1 flex-shrink-0">
+                                    {mod.symbol && (
+                                        <div className="bg-black/50 text-white text-xs px-1.5 py-0.5 rounded-sm font-bold">
+                                            {mod.symbol}
+                                        </div>
+                                    )}
+                                    <RarityStars rarity={mod.rarity} />
+                                </div>
+                            </div>
+                            <div className="flex gap-2 text-xs text-muted-foreground">
+                                <span>{mod.modType}</span>
+                                {mod.element && (
+                                    <>
+                                        <span>&bull;</span> <span>{mod.element}</span>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Main Attribute */}
+                        <div className="space-y-1 text-sm">
+                            <p className="font-semibold text-primary">Main Attribute</p>
+                            <p className="text-foreground">{mod.mainAttribute}</p>
+                        </div>
+
+                        {/* Effect */}
+                        {mod.effect && (
+                            <div className="space-y-1 text-sm">
+                                <p className="font-semibold text-primary">Effect</p>
+                                <p className="text-muted-foreground leading-relaxed">{mod.effect}</p>
+                            </div>
+                        )}
+
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pt-2 text-xs border-t border-border/50">
+                            <div className="flex justify-between">
+                                <span className="text-muted-foreground">Tolerance</span>
+                                <span className="font-medium text-foreground">{mod.tolerance}</span>
+                            </div>
+                            <div className="flex justify-between">
+                                <span className="text-muted-foreground">Track</span>
+                                <span className="font-medium text-foreground">{mod.track}</span>
+                            </div>
+                            <div className="flex justify-between col-span-2">
+                                <span className="text-muted-foreground">Source</span>
+                                <span className="font-medium text-foreground">{mod.source}</span>
+                            </div>
+                        </div>
+
+                        {/* Special Indicators */}
+                        {(mod.isPrimeMod || mod.centerOnly) && (
+                            <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+                                {mod.isPrimeMod && mod.toleranceBoost && (
+                                    <div className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-md font-semibold">
+                                        Prime Mod (+{mod.toleranceBoost} Tolerance)
+                                    </div>
+                                )}
+                                {mod.centerOnly && (
+                                    <div className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-md font-semibold">
+                                        Center Only
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
     );
 };
 
@@ -234,6 +326,11 @@ function SupportModModal({
         const modName = e.dataTransfer.getData("modName");
         const mod = allMods.find(m => m.name === modName);
         if (mod) {
+            // Check if mod is centerOnly and not being placed in center slot (index 8)
+            if (mod.centerOnly && index !== 8) {
+                // Don't allow placement - could add a toast notification here
+                return;
+            }
             const newMods = [...mods];
             newMods[index] = mod;
             setMods(newMods);
@@ -246,6 +343,18 @@ function SupportModModal({
 
     const handleModClick = (mod: Mod) => {
         const newMods = [...mods];
+
+        // If mod is centerOnly, try to place it in center slot (index 8) only
+        if (mod.centerOnly) {
+            if (mods.length > 8 && newMods[8] === null) {
+                newMods[8] = mod;
+                setMods(newMods);
+            }
+            // Don't place it anywhere if center slot is not available
+            return;
+        }
+
+        // For non-centerOnly mods, find any empty slot
         const emptySlotIndex = newMods.findIndex(slot => slot === null);
         if (emptySlotIndex !== -1) {
             newMods[emptySlotIndex] = mod;
