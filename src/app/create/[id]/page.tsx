@@ -103,10 +103,11 @@ const ModSlot = ({ mod, onDrop, onDragOver, onRemove }: { mod: Mod | null, onDro
     );
 }
 
-const ModCard = ({ mod, onDragStart, onClick }: {
+const ModCard = ({ mod, onDragStart, onClick, onSearch }: {
     mod: Mod,
     onDragStart: (e: React.DragEvent<HTMLDivElement>) => void,
-    onClick: () => void
+    onClick: () => void,
+    onSearch?: (term: string) => void
 }) => {
     return (
         <TooltipProvider delayDuration={200}>
@@ -145,48 +146,52 @@ const ModCard = ({ mod, onDragStart, onClick }: {
                     </div>
                 </TooltipTrigger>
                 <TooltipContent side="left" align="start" className="w-80 z-[9999] overflow-visible">
-                    <div className="p-2 space-y-3">
-                        <div className='space-y-1'>
-                            <div className="flex justify-between items-start">
-                                <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
-                                <div className='flex items-center gap-1'>
-                                    {mod.symbol && <div className="bg-black/50 text-white text-xs p-1 rounded-sm font-bold">{mod.symbol}</div>}
-                                    <RarityStars rarity={mod.rarity} />
+                    {onSearch ? (
+                        <ModTooltipContent mod={mod} onSearch={onSearch} />
+                    ) : (
+                        <div className="p-2 space-y-3">
+                            <div className='space-y-1'>
+                                <div className="flex justify-between items-start">
+                                    <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
+                                    <div className='flex items-center gap-1'>
+                                        {mod.symbol && <div className="bg-black/50 text-white text-xs p-1 rounded-sm font-bold">{mod.symbol}</div>}
+                                        <RarityStars rarity={mod.rarity} />
+                                    </div>
+                                </div>
+                                <div className="flex gap-2 text-xs text-muted-foreground">
+                                    <span>{mod.modType}</span>
+                                    {mod.element && <><span>&bull;</span> <span>{mod.element}</span></>}
                                 </div>
                             </div>
-                            <div className="flex gap-2 text-xs text-muted-foreground">
-                                <span>{mod.modType}</span>
-                                {mod.element && <><span>&bull;</span> <span>{mod.element}</span></>}
-                            </div>
-                        </div>
 
-                        <div className="space-y-1 text-sm">
-                            <p className="font-semibold text-primary">Main Attribute</p>
-                            <p className="text-foreground">{mod.mainAttribute}</p>
-                        </div>
-
-                        {mod.effect && (
                             <div className="space-y-1 text-sm">
-                                <p className="font-semibold text-primary">Effect</p>
-                                <p className="text-muted-foreground">{mod.effect}</p>
+                                <p className="font-semibold text-primary">Main Attribute</p>
+                                <p className="text-foreground">{mod.mainAttribute}</p>
                             </div>
-                        )}
 
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-1 pt-2 text-xs">
-                            <div className="flex justify-between">
-                                <span className="text-muted-foreground">Tolerance</span>
-                                <span className="font-medium text-foreground">{mod.tolerance}</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span className="text-muted-foreground">Track</span>
-                                <span className="font-medium text-foreground">{mod.track}</span>
-                            </div>
-                            <div className="flex justify-between col-span-2">
-                                <span className="text-muted-foreground">Source</span>
-                                <span className="font-medium text-foreground">{mod.source}</span>
+                            {mod.effect && (
+                                <div className="space-y-1 text-sm">
+                                    <p className="font-semibold text-primary">Effect</p>
+                                    <p className="text-muted-foreground">{mod.effect}</p>
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-2 gap-x-4 gap-y-1 pt-2 text-xs">
+                                <div className="flex justify-between">
+                                    <span className="text-muted-foreground">Tolerance</span>
+                                    <span className="font-medium text-foreground">{mod.tolerance}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                    <span className="text-muted-foreground">Track</span>
+                                    <span className="font-medium text-foreground">{mod.track}</span>
+                                </div>
+                                <div className="flex justify-between col-span-2">
+                                    <span className="text-muted-foreground">Source</span>
+                                    <span className="font-medium text-foreground">{mod.source}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
@@ -344,6 +349,129 @@ const WeaponSelectionModal = ({ onSelect, open, onOpenChange }: { onSelect: (wea
                 </ScrollArea>
             </DialogContent>
         </Dialog>
+    );
+};
+
+const ModTooltipContent = ({ mod, onSearch }: { mod: Mod, onSearch: (term: string) => void }) => {
+    const [showSearch, setShowSearch] = useState(false);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [selectedText, setSelectedText] = useState('');
+
+    const handleMouseUp = (e: React.MouseEvent) => {
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed) {
+            const text = selection.toString().trim();
+            if (text) {
+                if (e.currentTarget.contains(selection.anchorNode) && e.currentTarget.contains(selection.focusNode)) {
+                    setMousePos({ x: e.clientX, y: e.clientY });
+                    setSelectedText(text);
+                    setShowSearch(true);
+                    return;
+                }
+            }
+        }
+        setShowSearch(false);
+    };
+
+    return (
+        <div onMouseUp={handleMouseUp} className="p-3 space-y-3 relative select-text cursor-text">
+            {/* Header */}
+            <div className="space-y-1">
+                <div className="flex justify-between items-start gap-2">
+                    <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
+                    <div className="flex items-center gap-1 flex-shrink-0">
+                        {mod.symbol && (
+                            <div className="bg-black/50 text-white text-xs px-1.5 py-0.5 rounded-sm font-bold">
+                                {mod.symbol}
+                            </div>
+                        )}
+                        <RarityStars rarity={mod.rarity} />
+                    </div>
+                </div>
+                <div className="flex gap-2 text-xs text-muted-foreground">
+                    <span>{mod.modType}</span>
+                    {mod.element && (
+                        <>
+                            <span>&bull;</span> <span>{mod.element}</span>
+                        </>
+                    )}
+                </div>
+            </div>
+
+            {/* Main Attribute */}
+            <div className="space-y-1 text-sm">
+                <p className="font-semibold text-primary">Main Attribute</p>
+                <p className="text-foreground">{mod.mainAttribute}</p>
+            </div>
+
+            {/* Effect */}
+            {mod.effect && (
+                <div className="space-y-1 text-sm">
+                    <p className="font-semibold text-primary">Effect</p>
+                    <p className="text-muted-foreground leading-relaxed">{mod.effect}</p>
+                </div>
+            )}
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pt-2 text-xs border-t border-border/50">
+                <div className="flex justify-between">
+                    <span className="text-muted-foreground">Tolerance</span>
+                    <span className="font-medium text-foreground">{mod.tolerance}</span>
+                </div>
+                <div className="flex justify-between">
+                    <span className="text-muted-foreground">Track</span>
+                    <span className="font-medium text-foreground">{mod.track}</span>
+                </div>
+                <div className="flex justify-between col-span-2">
+                    <span className="text-muted-foreground">Source</span>
+                    <span className="font-medium text-foreground">{mod.source}</span>
+                </div>
+            </div>
+
+            {/* Special Indicators */}
+            {(mod.isPrimeMod || mod.centerOnly) && (
+                <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+                    {mod.isPrimeMod && mod.toleranceBoost && (
+                        <div className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-md font-semibold">
+                            Prime Mod (+{mod.toleranceBoost} Tolerance)
+                        </div>
+                    )}
+                    {mod.centerOnly && (
+                        <div className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-md font-semibold">
+                            Center Only
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {/* Search Button Popup */}
+            {showSearch && (
+                <div
+                    className="fixed z-[10000] animate-in fade-in zoom-in duration-200"
+                    style={{
+                        top: mousePos.y - 40,
+                        left: mousePos.x
+                    }}
+                >
+                    <Button
+                        size="sm"
+                        variant="secondary"
+                        className="h-8 text-xs shadow-lg -translate-x-1/2 bg-blue-600 hover:bg-blue-700 text-white border-blue-500"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            onSearch(selectedText);
+                            setShowSearch(false);
+                            if (window.getSelection()) {
+                                window.getSelection()?.removeAllRanges();
+                            }
+                        }}
+                    >
+                        <Search className="w-3 h-3 mr-1" />
+                        Search "{selectedText.length > 15 ? selectedText.slice(0, 15) + '...' : selectedText}"
+                    </Button>
+                </div>
+            )}
+        </div>
     );
 };
 
@@ -744,76 +872,7 @@ const SupportModModal = ({
                         </TooltipTrigger>
                         {mod && (
                             <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
-                                <div className="p-3 space-y-3">
-                                    {/* Header */}
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between items-start gap-2">
-                                            <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
-                                            <div className="flex items-center gap-1 flex-shrink-0">
-                                                {mod.symbol && (
-                                                    <div className="bg-black/50 text-white text-xs px-1.5 py-0.5 rounded-sm font-bold">
-                                                        {mod.symbol}
-                                                    </div>
-                                                )}
-                                                <RarityStars rarity={mod.rarity} />
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-2 text-xs text-muted-foreground">
-                                            <span>{mod.modType}</span>
-                                            {mod.element && (
-                                                <>
-                                                    <span>&bull;</span> <span>{mod.element}</span>
-                                                </>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    {/* Main Attribute */}
-                                    <div className="space-y-1 text-sm">
-                                        <p className="font-semibold text-primary">Main Attribute</p>
-                                        <p className="text-foreground">{mod.mainAttribute}</p>
-                                    </div>
-
-                                    {/* Effect */}
-                                    {mod.effect && (
-                                        <div className="space-y-1 text-sm">
-                                            <p className="font-semibold text-primary">Effect</p>
-                                            <p className="text-muted-foreground leading-relaxed">{mod.effect}</p>
-                                        </div>
-                                    )}
-
-                                    {/* Stats Grid */}
-                                    <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pt-2 text-xs border-t border-border/50">
-                                        <div className="flex justify-between">
-                                            <span className="text-muted-foreground">Tolerance</span>
-                                            <span className="font-medium text-foreground">{mod.tolerance}</span>
-                                        </div>
-                                        <div className="flex justify-between">
-                                            <span className="text-muted-foreground">Track</span>
-                                            <span className="font-medium text-foreground">{mod.track}</span>
-                                        </div>
-                                        <div className="flex justify-between col-span-2">
-                                            <span className="text-muted-foreground">Source</span>
-                                            <span className="font-medium text-foreground">{mod.source}</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Special Indicators */}
-                                    {(mod.isPrimeMod || mod.centerOnly) && (
-                                        <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
-                                            {mod.isPrimeMod && mod.toleranceBoost && (
-                                                <div className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-md font-semibold">
-                                                    Prime Mod (+{mod.toleranceBoost} Tolerance)
-                                                </div>
-                                            )}
-                                            {mod.centerOnly && (
-                                                <div className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-md font-semibold">
-                                                    Center Only
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                </div>
+                                <ModTooltipContent mod={mod} onSearch={setSearchQuery} />
                             </TooltipContent>
                         )}
                     </Tooltip>
@@ -1041,6 +1100,7 @@ const SupportModModal = ({
                                         mod={mod}
                                         onDragStart={(e) => handleDragStart(e, mod)}
                                         onClick={() => handleModClick(mod)}
+                                        onSearch={setSearchQuery}
                                     />
                                 ))}
                             </div>
@@ -1739,76 +1799,7 @@ export default function CreateBuildDetailPage() {
                         </TooltipTrigger>
                         {mod && (
                             <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
-                                <div className="p-3 space-y-3">
-                                    {/* Header */}
-                                    <div className="space-y-1">
-                                        <div className="flex justify-between items-start gap-2">
-                                            <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
-                                            <div className="flex items-center gap-1 flex-shrink-0">
-                                                {mod.symbol && (
-                                                    <div className="bg-black/50 text-white text-xs px-1.5 py-0.5 rounded-sm font-bold">
-                                                        {mod.symbol}
-                                                    </div>
-                                                )}
-                                                <RarityStars rarity={mod.rarity} />
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-2 text-xs text-muted-foreground">
-                                            <span>{mod.modType}</span>
-                                            {mod.element && (
-                                                <>
-                                                    <span>&bull;</span> <span>{mod.element}</span>
-                                                </>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    {/* Main Attribute */}
-                                    <div className="space-y-1 text-sm">
-                                        <p className="font-semibold text-primary">Main Attribute</p>
-                                        <p className="text-foreground">{mod.mainAttribute}</p>
-                                    </div>
-
-                                    {/* Effect */}
-                                    {mod.effect && (
-                                        <div className="space-y-1 text-sm">
-                                            <p className="font-semibold text-primary">Effect</p>
-                                            <p className="text-muted-foreground leading-relaxed">{mod.effect}</p>
-                                        </div>
-                                    )}
-
-                                    {/* Stats Grid */}
-                                    <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pt-2 text-xs border-t border-border/50">
-                                        <div className="flex justify-between">
-                                            <span className="text-muted-foreground">Tolerance</span>
-                                            <span className="font-medium text-foreground">{mod.tolerance}</span>
-                                        </div>
-                                        <div className="flex justify-between">
-                                            <span className="text-muted-foreground">Track</span>
-                                            <span className="font-medium text-foreground">{mod.track}</span>
-                                        </div>
-                                        <div className="flex justify-between col-span-2">
-                                            <span className="text-muted-foreground">Source</span>
-                                            <span className="font-medium text-foreground">{mod.source}</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Special Indicators */}
-                                    {(mod.isPrimeMod || mod.centerOnly) && (
-                                        <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
-                                            {mod.isPrimeMod && mod.toleranceBoost && (
-                                                <div className="px-2 py-1 bg-yellow-500/20 text-yellow-300 text-xs rounded-md font-semibold">
-                                                    Prime Mod (+{mod.toleranceBoost} Tolerance)
-                                                </div>
-                                            )}
-                                            {mod.centerOnly && (
-                                                <div className="px-2 py-1 bg-cyan-500/20 text-cyan-300 text-xs rounded-md font-semibold">
-                                                    Center Only
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                </div>
+                                <ModTooltipContent mod={mod} onSearch={setSearchQuery} />
                             </TooltipContent>
                         )}
                     </Tooltip>
@@ -2259,6 +2250,7 @@ export default function CreateBuildDetailPage() {
                                         mod={mod}
                                         onDragStart={(e) => handleDragStart(e, mod)}
                                         onClick={() => handleModClick(mod)}
+                                        onSearch={setSearchQuery}
                                     />
                                 ))}
                             </div>
