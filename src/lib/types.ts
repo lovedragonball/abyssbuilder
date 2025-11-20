@@ -87,18 +87,20 @@ export type Build = {
     visibility: 'public' | 'private';
     itemType: 'character' | 'weapon';
     itemId: string;
-    itemName: string;
-    itemImage: string;
-    creator: string | null;
-    mods: string[]; // names of mods
-    primeMod?: string; // name of prime mod for tolerance system
-    team: string[]; // character ids
-    supportWeapons: string[]; // weapon ids
-    supportMods: Record<string, string[]>;
-    consonanceWeapon?: string; // weapon id
-    voteCount: number;
-    votedBy?: string[]; // user IDs who voted
-    views?: number;
+  itemName: string;
+  itemImage: string;
+  creator: string | null;
+  mods: string[]; // names of mods
+  primeMod?: string; // name of prime mod for tolerance system
+  adjustedSlots?: number[]; // Adjust Slot Track selections for main build
+  team: string[]; // character ids
+  supportWeapons: string[]; // weapon ids
+  supportMods: Record<string, string[]>;
+  supportAdjustedSlots?: Record<string, number[]>; // Adjust Slot Track selections for support mods
+  consonanceWeapon?: string; // weapon id
+  voteCount: number;
+  votedBy?: string[]; // user IDs who voted
+  views?: number;
     createdAt: any; // serverTimestamp
     updatedAt: any; // serverTimestamp
     // Legacy fields for compatibility with existing mock data

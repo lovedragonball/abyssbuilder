@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { AuthProvider } from '@/contexts/auth-context';
 import MouseGradient from '@/components/MouseGradient';
+import { TextSelectionSearch } from '@/components/TextSelectionSearch';
 
 export const metadata: Metadata = {
   title: 'AbyssBuilds',
@@ -31,6 +32,7 @@ export default function RootLayout({
         <ErrorBoundary>
           <AuthProvider>
             <MouseGradient />
+            <TextSelectionSearch />
             <MainLayout>{children}</MainLayout>
             <Toaster />
           </AuthProvider>
@@ -39,4 +41,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -98,6 +98,7 @@ export function ModSlot({
             onDragOver={onDragOver}
             onMouseDown={handleClick}
             tabIndex={0}
+            data-tooltip-follow-cursor="true"
           >
             <div className="relative w-full h-full pointer-events-none">
               <Image
@@ -194,7 +195,12 @@ export function ModSlot({
             </div>
           </div>
         </TooltipTrigger>
-        <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
+        <TooltipContent 
+          side="right" 
+          align="start" 
+          className="w-80 max-w-[90vw] z-[9999] pointer-events-auto"
+          sideOffset={5}
+        >
           <div className="p-3 space-y-3">
             {/* Header */}
             <div className="space-y-1">

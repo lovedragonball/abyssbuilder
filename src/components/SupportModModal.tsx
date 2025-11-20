@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { allMods } from '@/lib/data';
 import type { Character, Weapon, Mod, ModType, ModRarity, Element as ModElement } from '@/lib/types';
@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent } from '@/components/ui/card';
-import { Search, Star, X } from 'lucide-react';
+import { Search, Star, X, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { MultiSelectFilter } from '@/components/multi-select-filter';
 import {
@@ -75,6 +75,7 @@ const ModSlot = ({
                         onDrop={onDrop}
                         onDragOver={onDragOver}
                         tabIndex={0}
+                        data-tooltip-follow-cursor="true"
                     >
                         <div className="relative w-full h-full">
                             <Image
@@ -110,7 +111,12 @@ const ModSlot = ({
                         </div>
                     </div>
                 </TooltipTrigger>
-                <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
+                <TooltipContent 
+                    side="right" 
+                    align="start" 
+                    className="w-80 max-w-[90vw] z-[9999]"
+                    sideOffset={5}
+                >
                     <div className="p-3 space-y-3">
                         {/* Header */}
                         <div className="space-y-1">
@@ -184,6 +190,167 @@ const ModSlot = ({
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
+    );
+};
+
+const ModCardWithTooltip = ({
+    mod,
+    onDragStart,
+    onClick
+}: {
+    mod: Mod;
+    onDragStart: (e: React.DragEvent<HTMLDivElement>) => void;
+    onClick: () => void;
+}) => {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [isHovering, setIsHovering] = useState(false);
+    const [isHoveringTooltip, setIsHoveringTooltip] = useState(false);
+    const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleTooltipMouseMove = (e: React.MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleMouseEnter = () => {
+        if (hideTimeoutRef.current) {
+            clearTimeout(hideTimeoutRef.current);
+        }
+        setIsHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+        // Delay hiding to allow moving to tooltip
+        hideTimeoutRef.current = setTimeout(() => {
+            if (!isHoveringTooltip) {
+                setIsHovering(false);
+            }
+        }, 300);
+    };
+
+    const handleTooltipMouseEnter = () => {
+        if (hideTimeoutRef.current) {
+            clearTimeout(hideTimeoutRef.current);
+        }
+        setIsHoveringTooltip(true);
+        setIsHovering(true);
+    };
+
+    const handleTooltipMouseLeave = () => {
+        setIsHoveringTooltip(false);
+        setIsHovering(false);
+    };
+
+    useEffect(() => {
+        return () => {
+            if (hideTimeoutRef.current) {
+                clearTimeout(hideTimeoutRef.current);
+            }
+        };
+    }, []);
+
+    return (
+        <>
+            <div
+                draggable="true"
+                onDragStart={onDragStart}
+                onClick={onClick}
+                onMouseMove={handleMouseMove}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="cursor-grab active:cursor-grabbing group"
+            >
+                <Card className={cn("overflow-hidden border-2 bg-card/50 transition-colors group-hover:border-primary", {
+                    'border-yellow-400/50': mod.rarity === 5,
+                    'border-purple-400/50': mod.rarity === 4,
+                    'border-blue-400/50': mod.rarity === 3,
+                    'border-green-400/50': mod.rarity === 2,
+                })}>
+                    <div className="relative h-20 bg-black/20">
+                        <Image
+                            src={mod.image}
+                            alt={mod.name}
+                            fill
+                            className="object-cover"
+                            data-ai-hint="abstract pattern"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                        <div className="absolute bottom-1 left-1">
+                            <RarityStars rarity={mod.rarity} />
+                        </div>
+                        {mod.symbol && (
+                            <div className="absolute top-1 right-1 bg-black/50 text-white text-xs p-1 rounded-sm font-bold">
+                                {mod.symbol}
+                            </div>
+                        )}
+                    </div>
+                    <CardContent className="p-2">
+                        <p className="font-bold text-sm truncate">{mod.name}</p>
+                        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{mod.mainAttribute}</p>
+                    </CardContent>
+                </Card>
+            </div>
+            {(isHovering || isHoveringTooltip) && (
+                <div
+                    className="fixed z-[10000] pointer-events-auto"
+                    style={{
+                        left: `${mousePosition.x + 15}px`,
+                        top: `${mousePosition.y + 15}px`,
+                    }}
+                    onMouseEnter={handleTooltipMouseEnter}
+                    onMouseLeave={handleTooltipMouseLeave}
+                    onMouseMove={handleTooltipMouseMove}
+                >
+                    <div className="w-80 rounded-lg border bg-popover p-3 text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95">
+                        <div className="space-y-3">
+                            <div className='space-y-1'>
+                                <div className="flex justify-between items-start">
+                                    <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
+                                    <div className='flex items-center gap-1'>
+                                        {mod.symbol && <div className="bg-black/50 text-white text-xs p-1 rounded-sm font-bold">{mod.symbol}</div>}
+                                        <RarityStars rarity={mod.rarity} />
+                                    </div>
+                                </div>
+                                <div className="flex gap-2 text-xs text-muted-foreground">
+                                    <span>{mod.modType}</span>
+                                    {mod.element && <><span>&bull;</span> <span>{mod.element}</span></>}
+                                </div>
+                            </div>
+
+                            <div className="space-y-1 text-sm">
+                                <p className="font-semibold text-primary">Main Attribute</p>
+                                <p className="text-foreground">{mod.mainAttribute}</p>
+                            </div>
+
+                            {mod.effect && (
+                                <div className="space-y-1 text-sm">
+                                    <p className="font-semibold text-primary">Effect</p>
+                                    <p className="text-muted-foreground">{mod.effect}</p>
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-2 gap-x-4 gap-y-1 pt-2 text-xs">
+                                <div className="flex justify-between">
+                                    <span className="text-muted-foreground">Tolerance</span>
+                                    <span className="font-medium text-foreground">{mod.tolerance}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                    <span className="text-muted-foreground">Track</span>
+                                    <span className="font-medium text-foreground">{mod.track}</span>
+                                </div>
+                                <div className="flex justify-between col-span-2">
+                                    <span className="text-muted-foreground">Source</span>
+                                    <span className="font-medium text-foreground">{mod.source}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 
@@ -291,7 +458,8 @@ export interface SupportModModalProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
     initialMods: (Mod | null)[];
-    onSave: (mods: (Mod | null)[]) => void;
+    initialAdjustedSlots?: number[];
+    onSave: (mods: (Mod | null)[], adjustedSlots?: number[]) => void;
 }
 
 function SupportModModal({
@@ -299,6 +467,7 @@ function SupportModModal({
     open,
     onOpenChange,
     initialMods,
+    initialAdjustedSlots,
     onSave
 }: SupportModModalProps) {
     const [mods, setMods] = useState<(Mod | null)[]>(() => normalizeSupportModSlots(initialMods));
@@ -306,25 +475,79 @@ function SupportModModal({
     const [modTypeFilters, setModTypeFilters] = useState<ModType[]>([]);
     const [rarityFilters, setRarityFilters] = useState<ModRarity[]>([]);
     const [elementFilter, setElementFilter] = useState<ModElement | 'All'>('All');
+    const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set());
+    const [adjustSlotTrackMode, setAdjustSlotTrackMode] = useState(false);
 
     useEffect(() => {
-        setMods(normalizeSupportModSlots(initialMods));
-    }, [initialMods, open]);
+        if (open) {
+            setMods(normalizeSupportModSlots(initialMods));
+            setAdjustedSlots(initialAdjustedSlots ? new Set(initialAdjustedSlots) : new Set());
+            setAdjustSlotTrackMode(false);
+            // Reset search and filters when modal opens
+            setSearchQuery('');
+            setModTypeFilters([]);
+            setRarityFilters([]);
+            setElementFilter('All');
+        }
+    }, [initialMods, initialAdjustedSlots, open]);
 
     const handleRemoveMod = (index: number) => {
         const newMods = [...mods];
         newMods[index] = null;
         setMods(newMods);
+
+        // Remove from adjusted slots if it was adjusted
+        if (adjustedSlots.has(index)) {
+            const newAdjusted = new Set(adjustedSlots);
+            newAdjusted.delete(index);
+            setAdjustedSlots(newAdjusted);
+        }
+    };
+
+    const toggleAdjustSlotTrack = () => {
+        setAdjustSlotTrackMode(!adjustSlotTrackMode);
+    };
+
+    const handleSlotClickForAdjust = (index: number) => {
+        if (adjustSlotTrackMode) {
+            const newAdjustedSlots = new Set(adjustedSlots);
+            if (newAdjustedSlots.has(index)) {
+                newAdjustedSlots.delete(index);
+            } else {
+                newAdjustedSlots.add(index);
+            }
+            setAdjustedSlots(newAdjustedSlots);
+        }
+    };
+
+    const handleRemoveAllMods = () => {
+        setMods(Array(mods.length).fill(null));
+        setAdjustedSlots(new Set());
     };
 
     const handleDragStart = (e: React.DragEvent<HTMLDivElement>, mod: Mod) => {
-        e.dataTransfer.setData("modName", mod.name);
+        // Send unique identifier including name, element, rarity, and variant to handle mods with same name
+        e.dataTransfer.setData("modData", JSON.stringify({
+            name: mod.name,
+            element: mod.element,
+            rarity: mod.rarity,
+            variant: mod.variant
+        }));
     };
 
     const handleDrop = (e: React.DragEvent<HTMLDivElement>, index: number) => {
         e.preventDefault();
-        const modName = e.dataTransfer.getData("modName");
-        const mod = allMods.find(m => m.name === modName);
+        const modDataStr = e.dataTransfer.getData("modData");
+        if (!modDataStr) return;
+        
+        const modData = JSON.parse(modDataStr);
+        // Find exact mod match by name, element, rarity, and variant
+        const mod = allMods.find(m => 
+            m.name === modData.name && 
+            m.element === modData.element && 
+            m.rarity === modData.rarity &&
+            m.variant === modData.variant
+        );
         if (mod) {
             // Check if mod is centerOnly and not being placed in center slot (index 8)
             if (mod.centerOnly && index !== 8) {
@@ -363,7 +586,7 @@ function SupportModModal({
     };
 
     const handleSave = () => {
-        onSave(mods);
+        onSave(mods, Array.from(adjustedSlots));
         onOpenChange(false);
     };
 
@@ -401,10 +624,14 @@ function SupportModModal({
     const rightMods = mods.slice(4, 8);
     const filledSlots = mods.filter(m => m !== null).length;
 
-    // Calculate total tolerance
-    const totalTolerance = mods.reduce((sum, mod) => {
+    // Calculate total tolerance with adjusted slots
+    const totalTolerance = mods.reduce((sum, mod, index) => {
         if (!mod) return sum;
-        return sum + mod.tolerance;
+        let cost = mod.tolerance;
+        if (adjustedSlots.has(index)) {
+            cost = Math.ceil(cost / 2);
+        }
+        return sum + cost;
     }, 0);
 
     return (
@@ -434,16 +661,33 @@ function SupportModModal({
                             <div className="flex items-center justify-center gap-4 lg:gap-8">
                                 {/* Left 4 slots (2x2 grid) */}
                                 <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                                    {leftMods.map((mod, i) => (
-                                        <div key={`left-${i}`} className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24">
-                                            <ModSlot
-                                                mod={mod}
-                                                onDrop={(e) => handleDrop(e, i)}
-                                                onDragOver={handleDragOver}
-                                                onRemove={mod ? () => handleRemoveMod(i) : undefined}
-                                            />
-                                        </div>
-                                    ))}
+                                    {leftMods.map((mod, i) => {
+                                        const isAdjusted = adjustedSlots.has(i);
+                                        const adjustedTolerance = mod && isAdjusted ? Math.ceil(mod.tolerance / 2) : mod?.tolerance;
+                                        return (
+                                            <div 
+                                                key={`left-${i}`} 
+                                                className={cn(
+                                                    "w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 relative",
+                                                    adjustSlotTrackMode && "cursor-pointer",
+                                                    isAdjusted && "ring-2 ring-green-500 rounded-2xl"
+                                                )}
+                                                onClick={() => handleSlotClickForAdjust(i)}
+                                            >
+                                                <ModSlot
+                                                    mod={mod}
+                                                    onDrop={(e) => handleDrop(e, i)}
+                                                    onDragOver={handleDragOver}
+                                                    onRemove={mod ? () => handleRemoveMod(i) : undefined}
+                                                />
+                                                {isAdjusted && mod && (
+                                                    <div className="absolute -bottom-1 -right-1 bg-green-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold z-20">
+                                                        {adjustedTolerance}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
 
                                 {/* Center - Tolerance Display */}
@@ -460,32 +704,100 @@ function SupportModModal({
 
                                 {/* Right 4 slots (2x2 grid) */}
                                 <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                                    {rightMods.map((mod, i) => (
-                                        <div key={`right-${i}`} className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24">
-                                            <ModSlot
-                                                mod={mod}
-                                                onDrop={(e) => handleDrop(e, i + 4)}
-                                                onDragOver={handleDragOver}
-                                                onRemove={mod ? () => handleRemoveMod(i + 4) : undefined}
-                                            />
-                                        </div>
-                                    ))}
+                                    {rightMods.map((mod, i) => {
+                                        const slotIndex = i + 4;
+                                        const isAdjusted = adjustedSlots.has(slotIndex);
+                                        const adjustedTolerance = mod && isAdjusted ? Math.ceil(mod.tolerance / 2) : mod?.tolerance;
+                                        return (
+                                            <div 
+                                                key={`right-${i}`} 
+                                                className={cn(
+                                                    "w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 relative",
+                                                    adjustSlotTrackMode && "cursor-pointer",
+                                                    isAdjusted && "ring-2 ring-green-500 rounded-2xl"
+                                                )}
+                                                onClick={() => handleSlotClickForAdjust(slotIndex)}
+                                            >
+                                                <ModSlot
+                                                    mod={mod}
+                                                    onDrop={(e) => handleDrop(e, slotIndex)}
+                                                    onDragOver={handleDragOver}
+                                                    onRemove={mod ? () => handleRemoveMod(slotIndex) : undefined}
+                                                />
+                                                {isAdjusted && mod && (
+                                                    <div className="absolute -bottom-1 -right-1 bg-green-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold z-20">
+                                                        {adjustedTolerance}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
 
                             {/* 9th slot below if needed */}
                             {mods.length > 8 && (
                                 <div className="flex justify-center mt-6">
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24">
+                                    <div 
+                                        className={cn(
+                                            "w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 relative",
+                                            adjustSlotTrackMode && "cursor-pointer",
+                                            adjustedSlots.has(8) && "ring-2 ring-green-500 rounded-2xl"
+                                        )}
+                                        onClick={() => handleSlotClickForAdjust(8)}
+                                    >
                                         <ModSlot
                                             mod={mods[8]}
                                             onDrop={(e) => handleDrop(e, 8)}
                                             onDragOver={handleDragOver}
                                             onRemove={mods[8] ? () => handleRemoveMod(8) : undefined}
                                         />
+                                        {adjustedSlots.has(8) && mods[8] && (
+                                            <div className="absolute -bottom-1 -right-1 bg-green-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold z-20">
+                                                {Math.ceil(mods[8].tolerance / 2)}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             )}
+
+                            {/* Adjust Slot Track Controls */}
+                            <div className="flex flex-col items-center gap-3 pt-6 border-t border-white/10 mt-6">
+                                <Button
+                                    variant="outline"
+                                    onClick={toggleAdjustSlotTrack}
+                                    className={cn(
+                                        'flex min-w-[240px] items-center justify-center gap-3 rounded-full border px-6 py-3 text-sm font-semibold transition-all',
+                                        adjustSlotTrackMode 
+                                            ? 'border-blue-500 bg-blue-500/20 text-blue-100 shadow-lg shadow-blue-500/20' 
+                                            : 'border-white/20 bg-white/5 text-white/80 hover:bg-white/10'
+                                    )}
+                                >
+                                    <Star className={cn('h-4 w-4', adjustSlotTrackMode && 'animate-spin')} />
+                                    Adjust Slot Track
+                                    <span
+                                        className={cn(
+                                            'rounded-full px-3 py-0.5 text-[10px] font-bold uppercase',
+                                            adjustSlotTrackMode ? 'bg-blue-600 text-white' : 'bg-gray-600 text-gray-200'
+                                        )}
+                                    >
+                                        {adjustSlotTrackMode ? 'On' : 'Off'}
+                                    </span>
+                                </Button>
+                                {adjustSlotTrackMode && (
+                                    <p className="text-xs text-blue-200 text-center">
+                                        🎯 คลิกที่ช่อง mod เพื่อลด tolerance ลงครึ่งหนึ่ง
+                                    </p>
+                                )}
+                                <Button
+                                    variant="destructive"
+                                    onClick={handleRemoveAllMods}
+                                    className="flex min-w-[240px] items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+                                >
+                                    <X className="h-4 w-4" />
+                                    Remove All Mods
+                                </Button>
+                            </div>
                         </div>
 
                         {/* Mod Browser Section */}
@@ -547,7 +859,7 @@ function SupportModModal({
                             <div className="rounded-2xl border border-white/10 bg-black/20 p-4 min-h-[300px]">
                                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                                     {filteredMods.map((mod, index) => (
-                                        <ModCard
+                                        <ModCardWithTooltip
                                             key={`${mod.name}-${index}`}
                                             mod={mod}
                                             onDragStart={(e) => handleDragStart(e, mod)}

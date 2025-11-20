@@ -18,6 +18,8 @@ interface BuildModsSectionProps {
   onModsChange: (mods: (Mod | null)[]) => void;
   onPrimeModChange: (mod: Mod | null) => void;
   onOpenModSelector: () => void;
+  initialAdjustedSlots?: number[];
+  onAdjustedSlotsChange?: (adjustedSlots: number[]) => void;
 }
 
 export function BuildModsSection({
@@ -25,11 +27,13 @@ export function BuildModsSection({
   primeMod,
   onModsChange,
   onPrimeModChange,
-  onOpenModSelector
+  onOpenModSelector,
+  initialAdjustedSlots = [],
+  onAdjustedSlotsChange
 }: BuildModsSectionProps) {
   const { toast } = useToast();
   const [adjustSlotTrackMode, setAdjustSlotTrackMode] = useState(false);
-  const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set());
+  const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set(initialAdjustedSlots));
   const leftMods = mods.slice(0, 4);
   const rightMods = mods.slice(4);
   const leftFilled = leftMods.filter(Boolean).length;
@@ -86,6 +90,11 @@ export function BuildModsSection({
       const updated = new Set(adjustedSlots);
       updated.delete(index);
       setAdjustedSlots(updated);
+      
+      // Notify parent component of changes
+      if (onAdjustedSlotsChange) {
+        onAdjustedSlotsChange(Array.from(updated));
+      }
     }
   };
 
@@ -97,6 +106,11 @@ export function BuildModsSection({
     onModsChange(Array(8).fill(null));
     onPrimeModChange(null);
     setAdjustedSlots(new Set());
+    
+    // Notify parent component of changes
+    if (onAdjustedSlotsChange) {
+      onAdjustedSlotsChange([]);
+    }
   };
 
   const toggleAdjustSlotTrack = () => {
@@ -118,6 +132,11 @@ export function BuildModsSection({
       }
       setAdjustedSlots(newAdjustedSlots);
       console.log('Adjusted slots:', Array.from(newAdjustedSlots));
+      
+      // Notify parent component of changes
+      if (onAdjustedSlotsChange) {
+        onAdjustedSlotsChange(Array.from(newAdjustedSlots));
+      }
     }
   };
 

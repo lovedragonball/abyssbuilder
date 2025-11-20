@@ -38,6 +38,13 @@ import { MultiSelectFilter } from '@/components/multi-select-filter';
 
 const SUPPORT_SLOT_CAPACITY = 9;
 const CONSONANCE_SLOT_CAPACITY = 4;
+const DEFAULT_SUPPORT_ADJUSTED_SLOTS: Record<string, number[]> = {
+    'support-char-0': [],
+    'support-char-1': [],
+    'support-wpn-0': [],
+    'support-wpn-1': [],
+    'consonance-wpn': [],
+};
 
 const normalizeSupportModSlots = (mods: (Mod | null)[]) => {
     const capacity = mods.length > 0 ? mods.length : SUPPORT_SLOT_CAPACITY;
@@ -48,6 +55,19 @@ const normalizeSupportModSlots = (mods: (Mod | null)[]) => {
         normalized.length = capacity;
     }
     return normalized;
+};
+
+const normalizeSupportAdjustedSlots = (slots?: Record<string, number[]>) => {
+    const base = { ...DEFAULT_SUPPORT_ADJUSTED_SLOTS };
+    if (!slots || typeof slots !== 'object') {
+        return base;
+    }
+
+    Object.entries(slots).forEach(([key, value]) => {
+        base[key] = Array.isArray(value) ? value : [];
+    });
+
+    return base;
 };
 
 
@@ -103,11 +123,10 @@ const ModSlot = ({ mod, onDrop, onDragOver, onRemove }: { mod: Mod | null, onDro
     );
 }
 
-const ModCard = ({ mod, onDragStart, onClick, onSearch }: {
+const ModCard = ({ mod, onDragStart, onClick }: {
     mod: Mod,
     onDragStart: (e: React.DragEvent<HTMLDivElement>) => void,
     onClick: () => void,
-    onSearch?: (term: string) => void
 }) => {
     return (
         <TooltipProvider delayDuration={200}>
@@ -146,52 +165,7 @@ const ModCard = ({ mod, onDragStart, onClick, onSearch }: {
                     </div>
                 </TooltipTrigger>
                 <TooltipContent side="left" align="start" className="w-80 z-[9999] overflow-visible">
-                    {onSearch ? (
-                        <ModTooltipContent mod={mod} onSearch={onSearch} />
-                    ) : (
-                        <div className="p-2 space-y-3">
-                            <div className='space-y-1'>
-                                <div className="flex justify-between items-start">
-                                    <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
-                                    <div className='flex items-center gap-1'>
-                                        {mod.symbol && <div className="bg-black/50 text-white text-xs p-1 rounded-sm font-bold">{mod.symbol}</div>}
-                                        <RarityStars rarity={mod.rarity} />
-                                    </div>
-                                </div>
-                                <div className="flex gap-2 text-xs text-muted-foreground">
-                                    <span>{mod.modType}</span>
-                                    {mod.element && <><span>&bull;</span> <span>{mod.element}</span></>}
-                                </div>
-                            </div>
-
-                            <div className="space-y-1 text-sm">
-                                <p className="font-semibold text-primary">Main Attribute</p>
-                                <p className="text-foreground">{mod.mainAttribute}</p>
-                            </div>
-
-                            {mod.effect && (
-                                <div className="space-y-1 text-sm">
-                                    <p className="font-semibold text-primary">Effect</p>
-                                    <p className="text-muted-foreground">{mod.effect}</p>
-                                </div>
-                            )}
-
-                            <div className="grid grid-cols-2 gap-x-4 gap-y-1 pt-2 text-xs">
-                                <div className="flex justify-between">
-                                    <span className="text-muted-foreground">Tolerance</span>
-                                    <span className="font-medium text-foreground">{mod.tolerance}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-muted-foreground">Track</span>
-                                    <span className="font-medium text-foreground">{mod.track}</span>
-                                </div>
-                                <div className="flex justify-between col-span-2">
-                                    <span className="text-muted-foreground">Source</span>
-                                    <span className="font-medium text-foreground">{mod.source}</span>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+                    <ModTooltipContent mod={mod} />
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
@@ -352,30 +326,9 @@ const WeaponSelectionModal = ({ onSelect, open, onOpenChange }: { onSelect: (wea
     );
 };
 
-const ModTooltipContent = ({ mod, onSearch }: { mod: Mod, onSearch: (term: string) => void }) => {
-    const [showSearch, setShowSearch] = useState(false);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const [selectedText, setSelectedText] = useState('');
-
-    const handleMouseUp = (e: React.MouseEvent) => {
-        const selection = window.getSelection();
-        if (selection && !selection.isCollapsed) {
-            const text = selection.toString().trim();
-            if (text) {
-                if (e.currentTarget.contains(selection.anchorNode) && e.currentTarget.contains(selection.focusNode)) {
-                    setMousePos({ x: e.clientX, y: e.clientY });
-                    setSelectedText(text);
-                    setShowSearch(true);
-                    return;
-                }
-            }
-        }
-        setShowSearch(false);
-    };
-
+const ModTooltipContent = ({ mod }: { mod: Mod }) => {
     return (
-        <div onMouseUp={handleMouseUp} className="p-3 space-y-3 relative select-text cursor-text">
-            {/* Header */}
+        <div className="p-3 space-y-3 select-text cursor-text">
             <div className="space-y-1">
                 <div className="flex justify-between items-start gap-2">
                     <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
@@ -392,19 +345,18 @@ const ModTooltipContent = ({ mod, onSearch }: { mod: Mod, onSearch: (term: strin
                     <span>{mod.modType}</span>
                     {mod.element && (
                         <>
-                            <span>&bull;</span> <span>{mod.element}</span>
+                            <span>&bull;</span>
+                            <span>{mod.element}</span>
                         </>
                     )}
                 </div>
             </div>
 
-            {/* Main Attribute */}
             <div className="space-y-1 text-sm">
                 <p className="font-semibold text-primary">Main Attribute</p>
                 <p className="text-foreground">{mod.mainAttribute}</p>
             </div>
 
-            {/* Effect */}
             {mod.effect && (
                 <div className="space-y-1 text-sm">
                     <p className="font-semibold text-primary">Effect</p>
@@ -412,7 +364,6 @@ const ModTooltipContent = ({ mod, onSearch }: { mod: Mod, onSearch: (term: strin
                 </div>
             )}
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 pt-2 text-xs border-t border-border/50">
                 <div className="flex justify-between">
                     <span className="text-muted-foreground">Tolerance</span>
@@ -428,7 +379,6 @@ const ModTooltipContent = ({ mod, onSearch }: { mod: Mod, onSearch: (term: strin
                 </div>
             </div>
 
-            {/* Special Indicators */}
             {(mod.isPrimeMod || mod.centerOnly) && (
                 <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
                     {mod.isPrimeMod && mod.toleranceBoost && (
@@ -443,34 +393,6 @@ const ModTooltipContent = ({ mod, onSearch }: { mod: Mod, onSearch: (term: strin
                     )}
                 </div>
             )}
-
-            {/* Search Button Popup */}
-            {showSearch && (
-                <div
-                    className="fixed z-[10000] animate-in fade-in zoom-in duration-200"
-                    style={{
-                        top: mousePos.y - 40,
-                        left: mousePos.x
-                    }}
-                >
-                    <Button
-                        size="sm"
-                        variant="secondary"
-                        className="h-8 text-xs shadow-lg -translate-x-1/2 bg-blue-600 hover:bg-blue-700 text-white border-blue-500"
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            onSearch(selectedText);
-                            setShowSearch(false);
-                            if (window.getSelection()) {
-                                window.getSelection()?.removeAllRanges();
-                            }
-                        }}
-                    >
-                        <Search className="w-3 h-3 mr-1" />
-                        Search "{selectedText.length > 15 ? selectedText.slice(0, 15) + '...' : selectedText}"
-                    </Button>
-                </div>
-            )}
         </div>
     );
 };
@@ -481,6 +403,7 @@ const SupportModModal = ({
     open,
     onOpenChange,
     initialMods,
+    initialAdjustedSlots,
     allowedModTypes,
     onSave
 }: {
@@ -488,8 +411,9 @@ const SupportModModal = ({
     open: boolean,
     onOpenChange: (open: boolean) => void,
     initialMods: (Mod | null)[],
+    initialAdjustedSlots?: number[],
     allowedModTypes?: ModType[],
-    onSave: (mods: (Mod | null)[]) => void
+    onSave: (mods: (Mod | null)[], adjustedSlots?: number[]) => void
 }) => {
     const [mods, setMods] = useState<(Mod | null)[]>(() => normalizeSupportModSlots(initialMods));
     const [searchQuery, setSearchQuery] = useState('');
@@ -526,14 +450,16 @@ const SupportModModal = ({
     };
 
     // Part B Features
-    const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set());
+    const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set(initialAdjustedSlots || []));
     const [adjustSlotTrackMode, setAdjustSlotTrackMode] = useState(false);
 
     useEffect(() => {
-        setMods(normalizeSupportModSlots(initialMods));
-        setAdjustedSlots(new Set());
-        setAdjustSlotTrackMode(false);
-    }, [initialMods, open]);
+        if (open) {
+            setMods(normalizeSupportModSlots(initialMods));
+            setAdjustedSlots(new Set(initialAdjustedSlots || []));
+            setAdjustSlotTrackMode(false);
+        }
+    }, [initialMods, initialAdjustedSlots, open]);
 
     const handleRemoveMod = (index: number) => {
         const newMods = [...mods];
@@ -548,13 +474,27 @@ const SupportModModal = ({
     };
 
     const handleDragStart = (e: React.DragEvent<HTMLDivElement>, mod: Mod) => {
-        e.dataTransfer.setData("modName", mod.name);
+        // Send unique identifier including name, element, rarity, and variant to handle mods with same name
+        e.dataTransfer.setData("modData", JSON.stringify({
+            name: mod.name,
+            element: mod.element,
+            rarity: mod.rarity,
+            variant: mod.variant
+        }));
     };
 
     const handleDrop = (e: React.DragEvent<HTMLDivElement>, index: number) => {
         e.preventDefault();
-        const modName = e.dataTransfer.getData("modName");
-        const mod = allMods.find(m => m.name === modName);
+        const modDataStr = e.dataTransfer.getData("modData");
+        if (!modDataStr) return;
+
+        const modData = JSON.parse(modDataStr);
+        const mod = allMods.find(m =>
+            m.name === modData.name &&
+            m.element === modData.element &&
+            m.rarity === modData.rarity &&
+            m.variant === modData.variant
+        );
         if (mod) {
             // Check allowed types
             if (allowedModTypes && !allowedModTypes.includes(mod.modType)) {
@@ -697,7 +637,7 @@ const SupportModModal = ({
     };
 
     const handleSave = () => {
-        onSave(mods);
+        onSave(mods, Array.from(adjustedSlots));
         onOpenChange(false);
     };
 
@@ -872,7 +812,7 @@ const SupportModModal = ({
                         </TooltipTrigger>
                         {mod && (
                             <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
-                                <ModTooltipContent mod={mod} onSearch={setSearchQuery} />
+                                <ModTooltipContent mod={mod} />
                             </TooltipContent>
                         )}
                     </Tooltip>
@@ -1100,7 +1040,6 @@ const SupportModModal = ({
                                         mod={mod}
                                         onDragStart={(e) => handleDragStart(e, mod)}
                                         onClick={() => handleModClick(mod)}
-                                        onSearch={setSearchQuery}
                                     />
                                 ))}
                             </div>
@@ -1141,6 +1080,11 @@ export default function CreateBuildDetailPage() {
         'support-wpn-0': createEmptySlots(SUPPORT_SLOT_CAPACITY),
         'support-wpn-1': createEmptySlots(SUPPORT_SLOT_CAPACITY),
         'consonance-wpn': createEmptySlots(CONSONANCE_SLOT_CAPACITY),
+    });
+
+    // Add state to track adjusted slots for each support slot
+    const [supportAdjustedSlots, setSupportAdjustedSlots] = useState<Record<string, number[]>>({
+        ...DEFAULT_SUPPORT_ADJUSTED_SLOTS,
     });
 
     const [isCharModalOpen, setCharModalOpen] = useState(false);
@@ -1191,27 +1135,29 @@ export default function CreateBuildDetailPage() {
                     setBuildGuide(existingBuild.guide || '');
 
 
-                    // Load mods
-                    const loadedMods = (existingBuild.mods || [])
-                        .map((modName: string) => allMods.find((m) => m.name === modName))
-                        .filter(Boolean);
-                    setBuildSlots([...loadedMods, ...Array(8 - loadedMods.length).fill(null)]);
+                    // Load mods - preserve null positions
+                    const loadedMods = (existingBuild.mods || Array(8).fill(null))
+                        .map((modName: string | null) => modName ? allMods.find((m) => m.name === modName) || null : null);
+                    setBuildSlots([...loadedMods, ...Array(Math.max(0, 8 - loadedMods.length)).fill(null)].slice(0, 8));
                     if (existingBuild.primeMod) {
                         const loadedCenter = allMods.find((m) => m.name === existingBuild.primeMod) || null;
                         setCenterPreviewMod(loadedCenter);
                     }
 
-                    // Load team
-                    const loadedTeam = (existingBuild.team || [])
-                        .map((charId: string) => allCharacters.find((c) => c.id === charId))
-                        .filter(Boolean);
-                    setTeam([...loadedTeam, ...Array(2 - loadedTeam.length).fill(null)]);
+                    // Load adjusted slots
+                    if (existingBuild.adjustedSlots && Array.isArray(existingBuild.adjustedSlots)) {
+                        setAdjustedSlots(new Set(existingBuild.adjustedSlots));
+                    }
 
-                    // Load support weapons
-                    const loadedWeapons = (existingBuild.supportWeapons || [])
-                        .map((wpnId: string) => allWeapons.find((w) => w.id === wpnId))
-                        .filter(Boolean);
-                    setSupportWeapons([...loadedWeapons, ...Array(2 - loadedWeapons.length).fill(null)]);
+                    // Load team - preserve null positions
+                    const loadedTeam = (existingBuild.team || [null, null])
+                        .map((charId: string | null) => charId ? allCharacters.find((c) => c.id === charId) || null : null);
+                    setTeam([...loadedTeam, ...Array(Math.max(0, 2 - loadedTeam.length)).fill(null)].slice(0, 2));
+
+                    // Load support weapons - preserve null positions
+                    const loadedWeapons = (existingBuild.supportWeapons || [null, null])
+                        .map((wpnId: string | null) => wpnId ? allWeapons.find((w) => w.id === wpnId) || null : null);
+                    setSupportWeapons([...loadedWeapons, ...Array(Math.max(0, 2 - loadedWeapons.length)).fill(null)].slice(0, 2));
 
                     // Load consonance weapon
                     if (existingBuild.consonanceWeapon) {
@@ -1219,20 +1165,25 @@ export default function CreateBuildDetailPage() {
                         if (loadedConsonance) setConsonanceWeapon(loadedConsonance);
                     }
 
-                    // Load support mods
+                    // Load support mods - preserve null positions
                     if (existingBuild.supportMods) {
                         const loadedSupportMods: Record<string, (Mod | null)[]> = {};
                         Object.entries(existingBuild.supportMods).forEach(([key, modNames]) => {
-                            const mods = (modNames as string[])
-                                .map((modName) => allMods.find((m) => m.name === modName))
-                                .filter(Boolean);
                             const maxSlots = key === 'consonance-wpn' ? CONSONANCE_SLOT_CAPACITY : SUPPORT_SLOT_CAPACITY;
+                            const defaultArray = Array(maxSlots).fill(null);
+                            const mods = (modNames as (string | null)[])
+                                .map((modName: string | null) => modName ? allMods.find((m) => m.name === modName) || null : null);
                             loadedSupportMods[key] = [
                                 ...mods,
                                 ...Array(Math.max(0, maxSlots - mods.length)).fill(null),
                             ].slice(0, maxSlots);
                         });
                         setSupportMods((prev) => ({ ...prev, ...loadedSupportMods }));
+                    }
+
+                    // Load support adjusted slots
+                    if (existingBuild.supportAdjustedSlots) {
+                        setSupportAdjustedSlots(normalizeSupportAdjustedSlots(existingBuild.supportAdjustedSlots));
                     }
                 }
             } else {
@@ -1259,6 +1210,8 @@ export default function CreateBuildDetailPage() {
         const urlParams = new URLSearchParams(window.location.search);
         const existingBuildId = urlParams.get('buildId');
 
+        const normalizedSupportAdjustedSlots = normalizeSupportAdjustedSlots(supportAdjustedSlots);
+
         const buildData: any = {
             id: existingBuildId || uuidv4(),
             userId: user.uid,
@@ -1271,18 +1224,18 @@ export default function CreateBuildDetailPage() {
             itemName: item.name,
             itemImage: item.image,
             creator: user.displayName,
-            mods: buildSlots.filter(Boolean).map(m => m?.name),
+            mods: buildSlots.map(m => m?.name || null),
             primeMod: centerPreviewMod?.name || null,
-            team: team.filter(Boolean).map(c => c?.id),
-            supportWeapons: supportWeapons.filter(Boolean).map(w => w?.id),
+            adjustedSlots: Array.from(adjustedSlots),
+            team: team.map(c => c?.id || null),
+            supportWeapons: supportWeapons.map(w => w?.id || null),
             consonanceWeapon: consonanceWeapon?.id || null,
             supportMods: Object.entries(supportMods).reduce((acc, [key, mods]) => {
-                const filteredMods = mods.filter(Boolean).map(m => m?.name);
-                if (filteredMods.length > 0) {
-                    acc[key] = filteredMods;
-                }
+                // Preserve null positions - don't filter them out
+                acc[key] = mods.map(m => m?.name || null);
                 return acc;
             }, {} as Record<string, any>),
+            supportAdjustedSlots: normalizedSupportAdjustedSlots,
             voteCount: 0,
             updatedAt: new Date().toISOString(),
         };
@@ -1355,7 +1308,13 @@ export default function CreateBuildDetailPage() {
 
 
     const handleDragStart = (e: React.DragEvent<HTMLDivElement>, mod: Mod) => {
-        e.dataTransfer.setData("modName", mod.name);
+        // Send unique identifier including name, element, rarity, and variant to handle mods with same name
+        e.dataTransfer.setData("modData", JSON.stringify({
+            name: mod.name,
+            element: mod.element,
+            rarity: mod.rarity,
+            variant: mod.variant
+        }));
     };
 
     const canEquipMultiple = (mod: Mod) => {
@@ -1387,8 +1346,17 @@ export default function CreateBuildDetailPage() {
 
     const handleDrop = (e: React.DragEvent<HTMLDivElement>, index: number) => {
         e.preventDefault();
-        const modName = e.dataTransfer.getData("modName");
-        const mod = allMods.find(m => m.name === modName);
+        const modDataStr = e.dataTransfer.getData("modData");
+        if (!modDataStr) return;
+
+        const modData = JSON.parse(modDataStr);
+        // Find exact mod match by name, element, rarity, and variant
+        const mod = allMods.find(m =>
+            m.name === modData.name &&
+            m.element === modData.element &&
+            m.rarity === modData.rarity &&
+            m.variant === modData.variant
+        );
         if (mod) {
             if (mod.centerOnly) {
                 setCenterPreviewMod(mod);
@@ -1441,8 +1409,17 @@ export default function CreateBuildDetailPage() {
 
     const handleCenterPreviewDrop = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
-        const modName = e.dataTransfer.getData("modName");
-        const mod = allMods.find(m => m.name === modName);
+        const modDataStr = e.dataTransfer.getData("modData");
+        if (!modDataStr) return;
+
+        const modData = JSON.parse(modDataStr);
+        // Find exact mod match by name, element, rarity, and variant
+        const mod = allMods.find(m =>
+            m.name === modData.name &&
+            m.element === modData.element &&
+            m.rarity === modData.rarity &&
+            m.variant === modData.variant
+        );
         if (mod && mod.centerOnly) {
             setCenterPreviewMod(mod);
         } else if (mod) {
@@ -1553,12 +1530,20 @@ export default function CreateBuildDetailPage() {
     // Removed useEffect that auto-clears adjusted slots when mods are removed
     // to allow empty slots to remain adjusted.
 
-    const handleSaveSupportMods = (mods: (Mod | null)[]) => {
+    const handleSaveSupportMods = (mods: (Mod | null)[], adjustedSlots?: number[]) => {
         if (editingSupportSlot) {
             setSupportMods(prev => ({
                 ...prev,
                 [editingSupportSlot]: mods,
             }));
+
+            // Save adjusted slots
+            if (adjustedSlots !== undefined) {
+                setSupportAdjustedSlots(prev => ({
+                    ...prev,
+                    [editingSupportSlot]: adjustedSlots,
+                }));
+            }
         }
     };
 
@@ -1799,7 +1784,7 @@ export default function CreateBuildDetailPage() {
                         </TooltipTrigger>
                         {mod && (
                             <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
-                                <ModTooltipContent mod={mod} onSearch={setSearchQuery} />
+                                <ModTooltipContent mod={mod} />
                             </TooltipContent>
                         )}
                     </Tooltip>
@@ -1876,6 +1861,7 @@ export default function CreateBuildDetailPage() {
                 open={isSupportModModalOpen}
                 onOpenChange={setSupportModModalOpen}
                 initialMods={editingSupportSlot ? supportMods[editingSupportSlot] : []}
+                initialAdjustedSlots={editingSupportSlot ? supportAdjustedSlots[editingSupportSlot] : []}
                 allowedModTypes={useMemo(() => {
                     if (!editingSupportSlot) return undefined;
                     if (editingSupportSlot.startsWith('support-char-')) return ['Characters'];
@@ -2250,7 +2236,6 @@ export default function CreateBuildDetailPage() {
                                         mod={mod}
                                         onDragStart={(e) => handleDragStart(e, mod)}
                                         onClick={() => handleModClick(mod)}
-                                        onSearch={setSearchQuery}
                                     />
                                 ))}
                             </div>
