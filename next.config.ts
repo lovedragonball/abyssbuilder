@@ -1,4 +1,4 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: false, // Disable Strict Mode to avoid double Leaflet initialization
@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  
+
   // Performance optimizations
   compiler: {
     // Remove console logs in production
@@ -51,12 +51,12 @@ const nextConfig: NextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
-  
+
   // Optimize CSS
-  experimental: {
-    optimizeCss: true,
-  },
-  
+  // experimental: {
+  //   optimizeCss: true, // Disabled: requires 'critters' package
+  // },
+
   // Webpack optimizations
   webpack: (config, { isServer, dev }) => {
     // Production optimizations
@@ -67,7 +67,7 @@ const nextConfig: NextConfig = {
         usedExports: true,
         sideEffects: false,
       };
-      
+
       // Performance budgets
       config.performance = {
         maxAssetSize: 244000, // 244kb
@@ -75,7 +75,7 @@ const nextConfig: NextConfig = {
         hints: 'warning',
       };
     }
-    
+
     return config;
   },
 };
