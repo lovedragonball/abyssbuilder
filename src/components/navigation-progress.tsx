@@ -1,12 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { usePathname, useSearchParams } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 
 export function NavigationProgress() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const MotionContainer = (motion as any)?.div || 'div'
   const isMotionElement = typeof MotionContainer !== 'string'
   const [isNavigating, setIsNavigating] = React.useState(false)
@@ -53,7 +52,7 @@ export function NavigationProgress() {
         cancelAnimationFrame(rafRef.current)
       }
     }
-  }, [pathname, searchParams])
+  }, [pathname])
 
   // Drive a lightweight animation loop while navigating so requestAnimationFrame consumers stay active in tests
   React.useEffect(() => {
