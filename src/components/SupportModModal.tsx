@@ -19,6 +19,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { isGleamingMod, hasAnyGleamingInBuild } from '@/lib/gleaming-utils';
 
 const SUPPORT_SLOT_CAPACITY = 9;
 
@@ -34,7 +35,7 @@ const normalizeSupportModSlots = (mods: (Mod | null)[]) => {
 };
 
 const RarityStars = ({ rarity }: { rarity: ModRarity }) => (
-    <div className="flex items-center">
+    <div className="flex items-center" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8))' }}>
         {[...Array(rarity)].map((_, i) => (
             <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
         ))}
@@ -111,9 +112,9 @@ const ModSlot = ({
                         </div>
                     </div>
                 </TooltipTrigger>
-                <TooltipContent 
-                    side="right" 
-                    align="start" 
+                <TooltipContent
+                    side="right"
+                    align="start"
                     className="w-80 max-w-[90vw] z-[9999]"
                     sideOffset={5}
                 >
@@ -278,7 +279,7 @@ const ModCardWithTooltip = ({
                             data-ai-hint="abstract pattern"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                        <div className="absolute bottom-1 left-1">
+                        <div className="absolute bottom-1 left-1 z-10">
                             <RarityStars rarity={mod.rarity} />
                         </div>
                         {mod.symbol && (
@@ -388,7 +389,7 @@ const ModCard = ({
                                     data-ai-hint="abstract pattern"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                                <div className="absolute bottom-1 left-1">
+                                <div className="absolute bottom-1 left-1 z-10">
                                     <RarityStars rarity={mod.rarity} />
                                 </div>
                                 {mod.symbol && (
@@ -539,12 +540,12 @@ function SupportModModal({
         e.preventDefault();
         const modDataStr = e.dataTransfer.getData("modData");
         if (!modDataStr) return;
-        
+
         const modData = JSON.parse(modDataStr);
         // Find exact mod match by name, element, rarity, and variant
-        const mod = allMods.find(m => 
-            m.name === modData.name && 
-            m.element === modData.element && 
+        const mod = allMods.find(m =>
+            m.name === modData.name &&
+            m.element === modData.element &&
             m.rarity === modData.rarity &&
             m.variant === modData.variant
         );
@@ -554,6 +555,16 @@ function SupportModModal({
                 // Don't allow placement - could add a toast notification here
                 return;
             }
+
+            // Check for Gleaming mod restriction - only ONE Gleaming mod allowed in entire build
+            if (isGleamingMod(mod)) {
+                const hasGleaming = hasAnyGleamingInBuild(mods, index);
+                if (hasGleaming) {
+                    // Don't allow placement - already has a Gleaming mod
+                    return;
+                }
+            }
+
             const newMods = [...mods];
             newMods[index] = mod;
             setMods(newMods);
@@ -575,6 +586,15 @@ function SupportModModal({
             }
             // Don't place it anywhere if center slot is not available
             return;
+        }
+
+        // Check for Gleaming mod restriction - only ONE Gleaming mod allowed in entire build
+        if (isGleamingMod(mod)) {
+            const hasGleaming = hasAnyGleamingInBuild(mods);
+            if (hasGleaming) {
+                // Don't allow placement - already has a Gleaming mod
+                return;
+            }
         }
 
         // For non-centerOnly mods, find any empty slot
@@ -665,8 +685,8 @@ function SupportModModal({
                                         const isAdjusted = adjustedSlots.has(i);
                                         const adjustedTolerance = mod && isAdjusted ? Math.ceil(mod.tolerance / 2) : mod?.tolerance;
                                         return (
-                                            <div 
-                                                key={`left-${i}`} 
+                                            <div
+                                                key={`left-${i}`}
                                                 className={cn(
                                                     "w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 relative",
                                                     adjustSlotTrackMode && "cursor-pointer",
@@ -709,8 +729,8 @@ function SupportModModal({
                                         const isAdjusted = adjustedSlots.has(slotIndex);
                                         const adjustedTolerance = mod && isAdjusted ? Math.ceil(mod.tolerance / 2) : mod?.tolerance;
                                         return (
-                                            <div 
-                                                key={`right-${i}`} 
+                                            <div
+                                                key={`right-${i}`}
                                                 className={cn(
                                                     "w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 relative",
                                                     adjustSlotTrackMode && "cursor-pointer",
@@ -738,7 +758,7 @@ function SupportModModal({
                             {/* 9th slot below if needed */}
                             {mods.length > 8 && (
                                 <div className="flex justify-center mt-6">
-                                    <div 
+                                    <div
                                         className={cn(
                                             "w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 relative",
                                             adjustSlotTrackMode && "cursor-pointer",
@@ -768,8 +788,8 @@ function SupportModModal({
                                     onClick={toggleAdjustSlotTrack}
                                     className={cn(
                                         'flex min-w-[240px] items-center justify-center gap-3 rounded-full border px-6 py-3 text-sm font-semibold transition-all',
-                                        adjustSlotTrackMode 
-                                            ? 'border-blue-500 bg-blue-500/20 text-blue-100 shadow-lg shadow-blue-500/20' 
+                                        adjustSlotTrackMode
+                                            ? 'border-blue-500 bg-blue-500/20 text-blue-100 shadow-lg shadow-blue-500/20'
                                             : 'border-white/20 bg-white/5 text-white/80 hover:bg-white/10'
                                     )}
                                 >

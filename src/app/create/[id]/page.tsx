@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { allCharacters, allWeapons, allMods, allMeleeWeapons, allRangedWeapons } from '@/lib/data';
 import type { Character, Weapon } from '@/lib/types';
 import type { Mod, ModRarity, ModType, Element as ModElement } from '@/lib/types';
+import type { OcrMatchResponse } from '@/lib/ocr-matcher';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -35,6 +36,8 @@ import { useToast } from '@/hooks/use-toast';
 import { v4 as uuidv4 } from 'uuid';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { MultiSelectFilter } from '@/components/multi-select-filter';
+import { CharacterOverviewEmbed } from '@/components/CharacterOverviewEmbed';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const SUPPORT_SLOT_CAPACITY = 9;
 const CONSONANCE_SLOT_CAPACITY = 4;
@@ -45,6 +48,12 @@ const DEFAULT_SUPPORT_ADJUSTED_SLOTS: Record<string, number[]> = {
     'support-wpn-1': [],
     'consonance-wpn': [],
 };
+
+const createEmptySupportAdjustedSlots = (): Record<string, number[]> => (
+    Object.fromEntries(
+        Object.keys(DEFAULT_SUPPORT_ADJUSTED_SLOTS).map((key) => [key, [] as number[]])
+    ) as Record<string, number[]>
+);
 
 const normalizeSupportModSlots = (mods: (Mod | null)[]) => {
     const capacity = mods.length > 0 ? mods.length : SUPPORT_SLOT_CAPACITY;
@@ -58,13 +67,15 @@ const normalizeSupportModSlots = (mods: (Mod | null)[]) => {
 };
 
 const normalizeSupportAdjustedSlots = (slots?: Record<string, number[]>) => {
-    const base = { ...DEFAULT_SUPPORT_ADJUSTED_SLOTS };
+    const base = createEmptySupportAdjustedSlots();
     if (!slots || typeof slots !== 'object') {
         return base;
     }
 
     Object.entries(slots).forEach(([key, value]) => {
-        base[key] = Array.isArray(value) ? value : [];
+        if (key in base) {
+            base[key] = Array.isArray(value) ? [...value] : [];
+        }
     });
 
     return base;
@@ -1083,9 +1094,9 @@ export default function CreateBuildDetailPage() {
     });
 
     // Add state to track adjusted slots for each support slot
-    const [supportAdjustedSlots, setSupportAdjustedSlots] = useState<Record<string, number[]>>({
-        ...DEFAULT_SUPPORT_ADJUSTED_SLOTS,
-    });
+    const [supportAdjustedSlots, setSupportAdjustedSlots] = useState<Record<string, number[]>>(
+        () => createEmptySupportAdjustedSlots()
+    );
 
     const [isCharModalOpen, setCharModalOpen] = useState(false);
     const [isWeaponModalOpen, setWeaponModalOpen] = useState(false);
@@ -1106,6 +1117,7 @@ export default function CreateBuildDetailPage() {
     const [showCenterOnly, setShowCenterOnly] = useState(false);
     const [adjustSlotTrackMode, setAdjustSlotTrackMode] = useState(false);
     const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set());
+    const [ocrApplied, setOcrApplied] = useState(false);
 
 
     const { item, itemType } = useMemo(() => {
@@ -1117,6 +1129,7 @@ export default function CreateBuildDetailPage() {
 
         return { item: null, itemType: null };
     }, [id]);
+    const characterElement = itemType === 'character' && item ? (item as Character).element : undefined;
 
     useEffect(() => {
         if (item) {
@@ -1200,6 +1213,138 @@ export default function CreateBuildDetailPage() {
         }
     }, [itemType, showCenterOnly]);
 
+    const resolveModForCharacter = (modName: string | null, rarity?: number, element?: string) => {
+        if (!modName) return null;
+        let matches = allMods.filter((m) => m.name === modName);
+        if (matches.length === 0) return null;
+
+        // If rarity is specified, filter by it
+        if (rarity !== undefined) {
+            const rarityMatches = matches.filter((m) => m.rarity === rarity);
+            if (rarityMatches.length > 0) {
+                matches = rarityMatches;
+            }
+        }
+
+        // If element is specified, prefer exact match
+        if (element) {
+            const exactElement = matches.find((m) => m.element === element);
+            if (exactElement) return exactElement;
+        }
+
+        // Otherwise use character element
+        if (characterElement) {
+            const exactElement = matches.find((m) => m.element === characterElement);
+            if (exactElement) return exactElement;
+        }
+
+        const neutral = matches.find((m) => !m.element);
+        return neutral || matches[0];
+    };
+
+    useEffect(() => {
+        if (!item || ocrApplied) return;
+        if (typeof window === 'undefined') return;
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('source') !== 'ocr') return;
+        if (params.get('buildId')) return; // Don't override existing builds
+
+        const raw = localStorage.getItem('dna_ocr_import');
+        if (!raw) return;
+
+        try {
+            const parsed = JSON.parse(raw) as { result?: OcrMatchResponse };
+            if (!parsed?.result?.slots) return;
+
+            console.log('📥 [OCR Import] Processing', parsed.result.slots.length, 'slots');
+            console.log('📥 [OCR Import] Matched slots:', parsed.result.slots.filter(s => s.matched).length);
+
+            const matchedMods = parsed.result.slots
+                .filter((slot) => {
+                    const isMatched = slot.matched && slot.mod_id;
+                    if (isMatched) {
+                        console.log(`  ✓ Slot #${slot.slot_index}: ${slot.mod_name} (ID: ${slot.mod_id})`);
+                    } else {
+                        console.log(`  ✗ Slot #${slot.slot_index}: Not matched. Reason: ${slot.reason || 'Unknown'}`);
+                    }
+                    return isMatched;
+                })
+                .map((slot) => {
+                    // If slot has selectedModData (from variant selection), use it to find exact mod
+                    if ((slot as any).selectedModData) {
+                        const modData = (slot as any).selectedModData;
+                        console.log(`    → Using selected mod data: ${modData.name} (${modData.rarity}★${modData.element ? ' ' + modData.element : ''})`);
+                        // Find exact mod by matching all properties
+                        const exactMod = allMods.find(m =>
+                            m.name === modData.name &&
+                            m.rarity === modData.rarity &&
+                            m.element === modData.element &&
+                            m.variant === modData.variant
+                        );
+                        if (exactMod) {
+                            console.log(`    → Found exact match: ${exactMod.name}${exactMod.variant ? ' • ' + exactMod.variant : ''}`);
+                            return exactMod;
+                        }
+                    }
+
+                    // Try to find by mod_id first (more accurate for variants)
+                    const modById = allMods.find(m => m.id === slot.mod_id);
+                    if (modById) {
+                        console.log(`    → Found by ID: ${modById.name} (${modById.rarity}★${modById.element ? ' ' + modById.element : ''})`);
+                        return resolveModForCharacter(modById.name, modById.rarity, modById.element);
+                    }
+
+                    // Fallback to name-based lookup
+                    console.log(`    → Fallback to name lookup: ${slot.mod_name}`);
+                    return resolveModForCharacter(slot.mod_name);
+                })
+                .filter((mod): mod is Mod => Boolean(mod));
+
+            console.log('📥 [OCR Import] Resolved', matchedMods.length, 'mods');
+            matchedMods.forEach((mod, idx) => {
+                console.log(`  ${idx + 1}. ${mod.name}${mod.variant ? ' • ' + mod.variant : ''} (${mod.rarity}★${mod.element ? ' ' + mod.element : ''})`);
+            });
+
+            const centerCandidate = matchedMods.find((mod) => mod.centerOnly) || null;
+            const nonCenterMods = matchedMods.filter((mod) => !mod.centerOnly);
+
+            const nextSlots = Array(8).fill(null) as (Mod | null)[];
+            nonCenterMods.slice(0, 8).forEach((mod, idx) => {
+                nextSlots[idx] = mod;
+            });
+
+            console.log('📥 [OCR Import] Setting', nonCenterMods.length, 'mods to build slots');
+
+            // Clear all adjusted slots BEFORE setting mods
+            setAdjustedSlots(new Set());
+            setAdjustSlotTrackMode(false);
+            setSupportAdjustedSlots(createEmptySupportAdjustedSlots());
+            console.log('📥 [OCR Import] Cleared all adjusted slots and reset adjust mode');
+
+            setBuildSlots(nextSlots);
+            if (centerCandidate) {
+                console.log('📥 [OCR Import] Setting center mod:', centerCandidate.name);
+                setCenterPreviewMod(centerCandidate);
+            }
+
+            setOcrApplied(true);
+            localStorage.removeItem('dna_ocr_import');
+
+            toast({
+                title: 'OCR Import Applied',
+                description: `นำเข้า Mods จาก OCR (${matchedMods.length} รายการ)`,
+            });
+        } catch (error) {
+            console.error('Failed to apply OCR import:', error);
+            toast({
+                title: 'OCR Import Failed',
+                description: 'ไม่สามารถเติมข้อมูลจาก OCR ได้',
+                variant: 'destructive',
+            });
+        }
+    }, [item, ocrApplied, toast, characterElement]);
+
     if (!item) {
         notFound();
     }
@@ -1232,13 +1377,17 @@ export default function CreateBuildDetailPage() {
             consonanceWeapon: consonanceWeapon?.id || null,
             supportMods: Object.entries(supportMods).reduce((acc, [key, mods]) => {
                 // Preserve null positions - don't filter them out
-                acc[key] = mods.map(m => m?.name || null);
+                // Save ID instead of name to ensure uniqueness and correct variant/rarity retrieval
+                acc[key] = mods.map(m => m?.id || null);
                 return acc;
             }, {} as Record<string, any>),
             supportAdjustedSlots: normalizedSupportAdjustedSlots,
             voteCount: 0,
             updatedAt: new Date().toISOString(),
         };
+
+        console.log('Saving Build Data:', buildData);
+        console.log('Support Mods to Save:', buildData.supportMods);
 
         // Save to localStorage
         const savedBuilds = JSON.parse(localStorage.getItem('builds') || '[]');
@@ -1621,7 +1770,7 @@ export default function CreateBuildDetailPage() {
     }, [searchQuery, modTypeFilters, rarityFilters, elementFilter, showCenterOnly, itemType, item]);
 
     const { leftSlots, rightSlots, totalTolerance, filledSlots, featuredMod } = useMemo(() => {
-        const primeSymbol = centerPreviewMod?.symbol;
+        const primeSymbol = centerPreviewMod?.isPrimeMod ? centerPreviewMod.symbol : undefined;
         const totalToleranceValue = buildSlots.reduce((sum, mod, index) => {
             if (!mod) {
                 return sum;
@@ -1683,8 +1832,9 @@ export default function CreateBuildDetailPage() {
 
     const MainModSlot = ({ mod, index }: { mod: Mod | null, index: number }) => {
         const isAdjusted = adjustedSlots.has(index);
-        const primeSymbol = centerPreviewMod?.symbol;
-        const isPrimeAdjusted = primeSymbol && mod?.symbol && mod.symbol === primeSymbol;
+        const primeSymbol = centerPreviewMod?.isPrimeMod ? centerPreviewMod.symbol : undefined;
+        // Only apply Prime adjustment if center mod is actually a Prime Mod
+        const isPrimeAdjusted = centerPreviewMod?.isPrimeMod && primeSymbol && mod?.symbol && mod.symbol === primeSymbol;
 
         let adjustedTolerance = mod?.tolerance;
         if (isPrimeAdjusted) {
@@ -1703,12 +1853,18 @@ export default function CreateBuildDetailPage() {
         return (
             <div className="space-y-3">
                 <TooltipProvider delayDuration={100}>
-                    <Tooltip>
+                    <Tooltip open={adjustSlotTrackMode ? false : undefined}>
                         <TooltipTrigger asChild>
                             <div
                                 className={cn(
-                                    'relative aspect-square w-full overflow-hidden rounded-2xl border border-dashed border-white/20 bg-white/5/20 transition-all duration-300 group hover:border-blue-400/60',
-                                    mod && 'border-white/30 bg-black/40 shadow-inner cursor-help',
+                                    'relative aspect-square w-full overflow-hidden rounded-2xl border-[3px] transition-all duration-300 group hover:border-blue-400/60',
+                                    !mod && 'border-dashed border-white/20 bg-white/5/20',
+                                    mod && !adjustSlotTrackMode && 'cursor-help',
+                                    mod && 'bg-black/40 shadow-inner',
+                                    mod && mod.rarity === 5 && 'border-yellow-400/70',
+                                    mod && mod.rarity === 4 && 'border-purple-400/70',
+                                    mod && mod.rarity === 3 && 'border-blue-400/70',
+                                    mod && mod.rarity === 2 && 'border-green-400/70',
                                     adjustSlotTrackMode && 'cursor-pointer ring-1 ring-blue-400/60',
                                     isAdjusted && 'border-emerald-400/70 shadow-[0_0_25px_rgba(16,185,129,0.35)]'
                                 )}
@@ -1878,7 +2034,11 @@ export default function CreateBuildDetailPage() {
                     if (editingSupportSlot === 'consonance-wpn') return ['Melee Consonance Weapon', 'Ranged Consonance Weapon'];
                     return undefined;
                 }, [editingSupportSlot, supportWeapons])}
-                onSave={handleSaveSupportMods}
+                onSave={(mods, adjustedSlots) => {
+                    console.log('Saving support mods for slot:', editingSupportSlot);
+                    console.log('Mods:', mods);
+                    handleSaveSupportMods(mods, adjustedSlots);
+                }}
             />
 
 
@@ -1890,359 +2050,398 @@ export default function CreateBuildDetailPage() {
                 <span className="text-foreground uppercase">{item.name}</span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                {/* Left Column */}
-                <div className="lg:col-span-3 space-y-6">
-                    <Card className="bg-card/50">
-                        <CardContent className="p-4">
-                            <div className="flex flex-col gap-4">
-                                <div className="flex gap-4">
-                                    <div className="relative w-24 h-24 flex-shrink-0">
-                                        <Image
-                                            src={item.image}
-                                            alt={item.name}
-                                            fill
-                                            className="rounded-md object-cover"
-                                            data-ai-hint={itemType === 'character' ? 'fantasy character' : 'fantasy weapon'}
-                                        />
-                                    </div>
-                                    <div className="flex-grow">
-                                        <Input
-                                            value={buildName}
-                                            onChange={(e) => setBuildName(e.target.value)}
-                                            className="text-lg font-bold bg-transparent border-0 border-b rounded-none px-0 focus:ring-0"
-                                        />
-                                        <Textarea
-                                            placeholder="A short description for your build..."
-                                            value={buildDescription}
-                                            onChange={(e) => setBuildDescription(e.target.value)}
-                                            className="mt-2 text-sm bg-transparent border-0 rounded-none px-0 focus:ring-0 h-10 resize-none"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {itemType === 'weapon' && (
-                        <WeaponInfoCard weapon={item as Weapon} />
-                    )}
-
-                    {itemType === 'character' && (
-                        <Card className="bg-card/50">
-                            <CardHeader>
-                                <CardTitle className="flex items-center justify-center gap-2 text-lg"><Users className="w-5 h-5" /> Team Setup</CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 space-y-4">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <CharacterSlot
-                                        title="Support 1"
-                                        character={team[0]}
-                                        onSelect={() => { setSelectingSupportIndex(0); setCharModalOpen(true); }}
-                                        onRemove={() => setTeam(prev => [null, prev[1]])}
-                                        onConfigure={() => openSupportModModal('support-char-0')}
-                                    />
-                                    <CharacterSlot
-                                        title="Support 2"
-                                        character={team[1]}
-                                        onSelect={() => { setSelectingSupportIndex(1); setCharModalOpen(true); }}
-                                        onRemove={() => setTeam(prev => [prev[0], null])}
-                                        onConfigure={() => openSupportModModal('support-char-1')}
-                                    />
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-center mb-2">Support Weapons</p>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <WeaponSlot
-                                            title="Support 1 WPN"
-                                            icon={<Crosshair className="w-4 h-4" />}
-                                            weapon={supportWeapons[0]}
-                                            onSelect={() => openWeaponModal('support-0')}
-                                            onRemove={() => setSupportWeapons(p => [null, p[1]])}
-                                            onConfigure={() => openSupportModModal('support-wpn-0')}
-                                        />
-                                        <WeaponSlot
-                                            title="Support 2 WPN"
-                                            icon={<Crosshair className="w-4 h-4" />}
-                                            weapon={supportWeapons[1]}
-                                            onSelect={() => openWeaponModal('support-1')}
-                                            onRemove={() => setSupportWeapons(p => [p[0], null])}
-                                            onConfigure={() => openSupportModModal('support-wpn-1')}
-                                        />
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    )}
-
-                    <div className="space-y-2">
-                        <Button className="w-full" onClick={handleSaveBuild}>Save Build</Button>
-                        <Button variant="destructive" className="w-full" onClick={handleRemoveAllMods}>Remove All Mods</Button>
+            <Tabs defaultValue="build" className="w-full space-y-8">
+                {/* Only show tabs for characters, weapons get build view only */}
+                {itemType === 'character' && (
+                    <div className="flex justify-center">
+                        <TabsList className="grid w-full max-w-[400px] grid-cols-2 h-12">
+                            <TabsTrigger value="character" className="text-base">Character</TabsTrigger>
+                            <TabsTrigger value="build" className="text-base">Build</TabsTrigger>
+                        </TabsList>
                     </div>
-                </div>
+                )}
 
-                {/* Part B: Center Column - Build Config */}
-                <div className="lg:col-span-6">
-                    <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-br from-[#060a17] via-[#05060f] to-[#02030a] p-6 md:p-10 shadow-[0_25px_80px_rgba(7,11,24,0.65)]">
-                        <div className="pointer-events-none absolute inset-0 opacity-70">
-                            <div className="absolute -top-32 left-0 h-72 w-72 rounded-full bg-blue-500/20 blur-[180px]" />
-                            <div className="absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-purple-500/15 blur-[190px]" />
-                        </div>
-                        <div className="relative z-10 space-y-10">
-                            <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.5em] text-white/50">
-                                <span>{itemType === 'character' ? 'Character Set' : 'Weapon Set'}</span>
-                                <span className="flex items-center gap-2 text-white/70 tracking-[0.3em]">
-                                    Slots
-                                    <span className="text-xl font-semibold tracking-normal text-white">{filledSlots}</span>
-                                    <span className="tracking-normal text-white/50 text-base">/ 9</span>
-                                </span>
-                            </div>
+                {itemType === 'character' && (
+                    <TabsContent value="character" className="mt-0 focus-visible:ring-0 focus-visible:outline-none">
+                        <CharacterOverviewEmbed characterName={item.name} />
+                    </TabsContent>
+                )}
 
-                            <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center">
-                                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-end">
-                                    {leftSlots.map((mod, index) => (
-                                        <MainModSlot key={`left-${index}`} mod={mod} index={index} />
-                                    ))}
-                                </div>
-
-                                <div className="flex flex-col items-center gap-5 text-center w-full max-w-[260px] justify-self-center">
-                                    <span className="text-[11px] uppercase tracking-[0.6em] text-white/60">
-                                        Tolerance
-                                    </span>
-                                    <div className="relative">
-                                        <div
-                                            className="relative grid h-48 w-48 place-items-center rounded-full border border-white/15 bg-black/60 shadow-[0_0_80px_rgba(59,130,246,0.3)]"
-                                            onDrop={handleCenterPreviewDrop}
-                                            onDragOver={handleCenterPreviewDragOver}
-                                        >
-                                            {previewMod ? (
-                                                <>
-                                                    <Image
-                                                        src={previewMod.image}
-                                                        alt={previewMod.name}
-                                                        fill
-                                                        className="absolute inset-0 rounded-full object-cover opacity-70"
-                                                    />
-                                                    <div className="absolute inset-0 rounded-full bg-gradient-to-b from-black/20 via-black/60 to-black/80" />
-                                                </>
-                                            ) : null}
-                                            <div className="relative z-10 flex flex-col items-center gap-1 text-white">
-                                                <span className="text-5xl font-bold">{totalTolerance}</span>
-                                                <span className="text-[9px] uppercase tracking-[0.6em] text-white/70">
-                                                    total
-                                                </span>
+                <TabsContent value="build" className="mt-0 focus-visible:ring-0 focus-visible:outline-none">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        {/* Left Column */}
+                        <div className="lg:col-span-3 space-y-6">
+                            <Card className="bg-card/50">
+                                <CardContent className="p-4">
+                                    <div className="flex flex-col gap-4">
+                                        <div className="flex gap-4">
+                                            <div className="relative w-24 h-24 flex-shrink-0">
+                                                <Image
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    fill
+                                                    className="rounded-md object-cover"
+                                                    data-ai-hint={itemType === 'character' ? 'fantasy character' : 'fantasy weapon'}
+                                                />
                                             </div>
-                                            {centerPreviewMod && (
-                                                <button
-                                                    onClick={() => setCenterPreviewMod(null)}
-                                                    className="absolute top-2 right-2 z-20 rounded-full bg-black/50 p-1 text-white hover:bg-black/70"
-                                                    title="Remove center mod"
-                                                >
-                                                    <X className="h-3 w-3" />
-                                                </button>
-                                            )}
+                                            <div className="flex-grow">
+                                                <Input
+                                                    value={buildName}
+                                                    onChange={(e) => setBuildName(e.target.value)}
+                                                    className="text-lg font-bold bg-transparent border-0 border-b rounded-none px-0 focus:ring-0"
+                                                />
+                                                <Textarea
+                                                    placeholder="A short description for your build..."
+                                                    value={buildDescription}
+                                                    onChange={(e) => setBuildDescription(e.target.value)}
+                                                    className="mt-2 text-sm bg-transparent border-0 rounded-none px-0 focus:ring-0 h-10 resize-none"
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="absolute inset-0 -z-10 animate-pulse rounded-full border border-white/10" />
+                                    </div>
+                                </CardContent>
+                            </Card>
+
+                            {itemType === 'weapon' && (
+                                <WeaponInfoCard weapon={item as Weapon} />
+                            )}
+
+                            {itemType === 'character' && (
+                                <Card className="bg-card/50">
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center justify-center gap-2 text-lg"><Users className="w-5 h-5" /> Team Setup</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="p-4 space-y-4">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <CharacterSlot
+                                                title="Support 1"
+                                                character={team[0]}
+                                                onSelect={() => { setSelectingSupportIndex(0); setCharModalOpen(true); }}
+                                                onRemove={() => setTeam(prev => [null, prev[1]])}
+                                                onConfigure={() => openSupportModModal('support-char-0')}
+                                            />
+                                            <CharacterSlot
+                                                title="Support 2"
+                                                character={team[1]}
+                                                onSelect={() => { setSelectingSupportIndex(1); setCharModalOpen(true); }}
+                                                onRemove={() => setTeam(prev => [prev[0], null])}
+                                                onConfigure={() => openSupportModModal('support-char-1')}
+                                            />
+                                        </div>
+                                        <div>
+                                            <p className="font-semibold text-center mb-2">Support Weapons</p>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <WeaponSlot
+                                                    title="Support 1 WPN"
+                                                    icon={<Crosshair className="w-4 h-4" />}
+                                                    weapon={supportWeapons[0]}
+                                                    onSelect={() => openWeaponModal('support-0')}
+                                                    onRemove={() => setSupportWeapons(p => [null, p[1]])}
+                                                    onConfigure={() => openSupportModModal('support-wpn-0')}
+                                                />
+                                                <WeaponSlot
+                                                    title="Support 2 WPN"
+                                                    icon={<Crosshair className="w-4 h-4" />}
+                                                    weapon={supportWeapons[1]}
+                                                    onSelect={() => openWeaponModal('support-1')}
+                                                    onRemove={() => setSupportWeapons(p => [p[0], null])}
+                                                    onConfigure={() => openSupportModModal('support-wpn-1')}
+                                                />
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            )}
+
+                            <div className="space-y-2">
+                                <Button className="w-full" onClick={handleSaveBuild}>Save Build</Button>
+                                <Button variant="destructive" className="w-full" onClick={handleRemoveAllMods}>Remove All Mods</Button>
+                            </div>
+                        </div>
+
+                        {/* Part B: Center Column - Build Config */}
+                        <div className="lg:col-span-6">
+                            <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-gradient-to-br from-[#060a17] via-[#05060f] to-[#02030a] p-6 md:p-10 shadow-[0_25px_80px_rgba(7,11,24,0.65)]">
+                                <div className="pointer-events-none absolute inset-0 opacity-70">
+                                    <div className="absolute -top-32 left-0 h-72 w-72 rounded-full bg-blue-500/20 blur-[180px]" />
+                                    <div className="absolute -bottom-24 right-10 h-72 w-72 rounded-full bg-purple-500/15 blur-[190px]" />
+                                </div>
+                                <div className="relative z-10 space-y-10">
+                                    <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] uppercase tracking-[0.5em] text-white/50">
+                                        <span>{itemType === 'character' ? 'Character Set' : 'Weapon Set'}</span>
+                                        <span className="flex items-center gap-2 text-white/70 tracking-[0.3em]">
+                                            Slots
+                                            <span className="text-xl font-semibold tracking-normal text-white">{filledSlots}</span>
+                                            <span className="tracking-normal text-white/50 text-base">/ 9</span>
+                                        </span>
+                                    </div>
+
+                                    <div className="grid gap-6 sm:gap-8 lg:gap-12 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center">
+                                        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-end">
+                                            {leftSlots.map((mod, index) => (
+                                                <MainModSlot key={`left-${index}`} mod={mod} index={index} />
+                                            ))}
+                                        </div>
+
+                                        <div className="flex flex-col items-center gap-5 text-center w-full max-w-[260px] justify-self-center">
+                                            <span className="text-[11px] uppercase tracking-[0.6em] text-white/60">
+                                                Tolerance
+                                            </span>
+                                            <div className="relative">
+                                                <TooltipProvider delayDuration={100}>
+                                                    <Tooltip>
+                                                        <TooltipTrigger asChild>
+                                                            <div
+                                                                className={cn(
+                                                                    "relative grid h-48 w-48 place-items-center rounded-full border-[3px] bg-black/60 shadow-[0_0_80px_rgba(59,130,246,0.3)]",
+                                                                    !centerPreviewMod && "border-white/15",
+                                                                    centerPreviewMod && centerPreviewMod.rarity === 5 && "border-yellow-400/70",
+                                                                    centerPreviewMod && centerPreviewMod.rarity === 4 && "border-purple-400/70",
+                                                                    centerPreviewMod && centerPreviewMod.rarity === 3 && "border-blue-400/70",
+                                                                    centerPreviewMod && centerPreviewMod.rarity === 2 && "border-green-400/70",
+                                                                    centerPreviewMod && "cursor-help"
+                                                                )}
+                                                                onDrop={handleCenterPreviewDrop}
+                                                                onDragOver={handleCenterPreviewDragOver}
+                                                            >
+                                                                {previewMod ? (
+                                                                    <>
+                                                                        <Image
+                                                                            src={previewMod.image}
+                                                                            alt={previewMod.name}
+                                                                            fill
+                                                                            className="absolute inset-0 rounded-full object-cover opacity-70"
+                                                                        />
+                                                                        <div className="absolute inset-0 rounded-full bg-gradient-to-b from-black/20 via-black/60 to-black/80" />
+                                                                    </>
+                                                                ) : null}
+                                                                <div className="relative z-10 flex flex-col items-center gap-1 text-white">
+                                                                    <span className="text-5xl font-bold">{totalTolerance}</span>
+                                                                    <span className="text-[9px] uppercase tracking-[0.6em] text-white/70">
+                                                                        total
+                                                                    </span>
+                                                                </div>
+                                                                {centerPreviewMod && (
+                                                                    <button
+                                                                        onClick={() => setCenterPreviewMod(null)}
+                                                                        className="absolute top-2 right-2 z-20 rounded-full bg-black/50 p-1 text-white hover:bg-black/70"
+                                                                        title="Remove center mod"
+                                                                    >
+                                                                        <X className="h-3 w-3" />
+                                                                    </button>
+                                                                )}
+                                                            </div>
+                                                        </TooltipTrigger>
+                                                        {centerPreviewMod && (
+                                                            <TooltipContent side="top" align="center" className="w-80 max-w-[90vw] z-[9999]">
+                                                                <ModTooltipContent mod={centerPreviewMod} />
+                                                            </TooltipContent>
+                                                        )}
+                                                    </Tooltip>
+                                                </TooltipProvider>
+                                                <div className="absolute inset-0 -z-10 animate-pulse rounded-full border border-white/10" />
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-start">
+                                            {rightSlots.map((mod, index) => (
+                                                <MainModSlot key={`right-${index}`} mod={mod} index={index + 4} />
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex flex-col items-center gap-3 pt-6">
+                                        <Button
+                                            variant="outline"
+                                            onClick={toggleAdjustSlotTrack}
+                                            className={cn(
+                                                'flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:bg-white/10',
+                                                adjustSlotTrackMode && 'border-blue-500 bg-blue-500/20 text-blue-100 shadow-lg shadow-blue-500/20'
+                                            )}
+                                        >
+                                            <Settings className={cn('h-4 w-4', adjustSlotTrackMode && 'animate-spin')} />
+                                            Adjust Slot Track
+                                            <span
+                                                className={cn(
+                                                    'rounded-full px-3 py-0.5 text-[10px] font-bold uppercase',
+                                                    adjustSlotTrackMode ? 'bg-blue-600 text-white' : 'bg-gray-600 text-gray-200'
+                                                )}
+                                            >
+                                                {adjustSlotTrackMode ? 'On' : 'Off'}
+                                            </span>
+                                        </Button>
+                                        {adjustSlotTrackMode && (
+                                            <p className="text-xs text-blue-200 text-center">
+                                                🎯 Click a mod slot to halve its tolerance cost.
+                                            </p>
+                                        )}
+                                        <Button
+                                            variant="destructive"
+                                            onClick={handleRemoveAllMods}
+                                            className="flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+                                        >
+                                            <X className="h-4 w-4" />
+                                            Remove All Mods
+                                        </Button>
                                     </div>
                                 </div>
-
-                                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] justify-self-center lg:justify-self-start">
-                                    {rightSlots.map((mod, index) => (
-                                        <MainModSlot key={`right-${index}`} mod={mod} index={index + 4} />
-                                    ))}
-                                </div>
                             </div>
 
-                            <div className="flex flex-col items-center gap-3 pt-6">
-                                <Button
-                                    variant="outline"
-                                    onClick={toggleAdjustSlotTrack}
-                                    className={cn(
-                                        'flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-3 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white/80 transition-all hover:bg-white/10',
-                                        adjustSlotTrackMode && 'border-blue-500 bg-blue-500/20 text-blue-100 shadow-lg shadow-blue-500/20'
+                            {itemType === 'character' && (item as Character).hasConsonanceWeapon && (
+                                <Card className="bg-card/50 mt-8">
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center justify-center gap-2 text-lg">
+                                            <Crosshair className="w-5 h-5" /> Consonance Weapon
+                                        </CardTitle>
+                                        <p className="text-xs text-muted-foreground text-center">Optional</p>
+                                    </CardHeader>
+                                    <CardContent className="p-4">
+                                        <div className="grid grid-cols-4 gap-2">
+                                            {supportMods['consonance-wpn'].map((mod, i) => (
+                                                <ModSlot
+                                                    key={i}
+                                                    mod={mod}
+                                                    onDrop={(e) => {
+                                                        e.preventDefault();
+                                                        const modName = e.dataTransfer.getData("modName");
+                                                        const foundMod = allMods.find(m => m.name === modName);
+                                                        if (foundMod) {
+                                                            const newMods = [...supportMods['consonance-wpn']];
+                                                            newMods[i] = foundMod;
+                                                            setSupportMods(prev => ({ ...prev, 'consonance-wpn': newMods }));
+                                                        }
+                                                    }}
+                                                    onDragOver={handleDragOver}
+                                                    onRemove={() => {
+                                                        const newMods = [...supportMods['consonance-wpn']];
+                                                        newMods[i] = null;
+                                                        setSupportMods(prev => ({ ...prev, 'consonance-wpn': newMods }));
+                                                    }}
+                                                />
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            )}
+
+                            <Card className="bg-card/50 mt-8">
+                                <CardHeader>
+                                    <CardTitle className="text-lg">Write a Guide</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <Textarea
+                                        placeholder="Share your strategy, tips, and playstyle for this build..."
+                                        className="bg-background"
+                                        rows={6}
+                                        value={buildGuide}
+                                        onChange={(e) => setBuildGuide(e.target.value)}
+                                    />
+                                </CardContent>
+                            </Card>
+                        </div>
+
+                        {/* Right Column - Mods */}
+                        <div className="lg:col-span-3">
+                            <div className="space-y-4">
+                                <div className="relative">
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                                    <Input
+                                        placeholder="Search by name, attribute, or effect..."
+                                        className="pl-10 bg-input"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                    />
+                                </div>
+
+
+
+                                <div className="grid grid-cols-1 gap-2">
+                                    <MultiSelectFilter
+                                        label="All Types"
+                                        options={
+                                            itemType === 'character' && (item as Character).hasConsonanceWeapon
+                                                ? [
+                                                    { value: 'Characters' as ModType, label: 'Characters' },
+                                                    { value: 'Melee Consonance Weapon' as ModType, label: 'Melee Consonance' },
+                                                    { value: 'Ranged Consonance Weapon' as ModType, label: 'Ranged Consonance' },
+                                                ]
+                                                : itemType === 'character'
+                                                    ? [
+                                                        { value: 'Characters' as ModType, label: 'Characters' },
+                                                    ]
+                                                    : [
+                                                        { value: 'Melee Weapon' as ModType, label: 'Melee Weapon' },
+                                                        { value: 'Ranged Weapon' as ModType, label: 'Ranged Weapon' },
+                                                    ]
+                                        }
+                                        selected={modTypeFilters}
+                                        onToggle={toggleModTypeMain}
+                                        onClear={() => setModTypeFilters([])}
+                                    />
+                                    <MultiSelectFilter
+                                        label="All Rarity"
+                                        options={[
+                                            { value: 5 as ModRarity, label: '5 ★' },
+                                            { value: 4 as ModRarity, label: '4 ★' },
+                                            { value: 3 as ModRarity, label: '3 ★' },
+                                            { value: 2 as ModRarity, label: '2 ★' },
+                                        ]}
+                                        selected={rarityFilters}
+                                        onToggle={toggleRarityMain}
+                                        onClear={() => setRarityFilters([])}
+                                    />
+                                    {(modTypeFilters.length === 0 || modTypeFilters.includes('Characters')) && (
+                                        <Select value={elementFilter} onValueChange={(v) => setElementFilter(v as ModElement | 'All')}>
+                                            <SelectTrigger><SelectValue placeholder="Filter by Element" /></SelectTrigger>
+                                            <SelectContent>
+                                                <SelectItem value="All">All Elements</SelectItem>
+                                                <SelectItem value="Lumino">Lumino</SelectItem>
+                                                <SelectItem value="Anemo">Anemo</SelectItem>
+                                                <SelectItem value="Hydro">Hydro</SelectItem>
+                                                <SelectItem value="Pyro">Pyro</SelectItem>
+                                                <SelectItem value="Electro">Electro</SelectItem>
+                                                <SelectItem value="Umbro">Umbro</SelectItem>
+                                            </SelectContent>
+                                        </Select>
                                     )}
-                                >
-                                    <Settings className={cn('h-4 w-4', adjustSlotTrackMode && 'animate-spin')} />
-                                    Adjust Slot Track
-                                    <span
+                                </div>
+
+                                <div className="flex items-center gap-3 pt-2">
+                                    <button
+                                        onClick={() => setShowCenterOnly(!showCenterOnly)}
                                         className={cn(
-                                            'rounded-full px-3 py-0.5 text-[10px] font-bold uppercase',
-                                            adjustSlotTrackMode ? 'bg-blue-600 text-white' : 'bg-gray-600 text-gray-200'
+                                            "rounded-full border px-4 py-1.5 text-xs font-semibold transition-all",
+                                            showCenterOnly
+                                                ? "border-cyan-400 text-cyan-400 bg-cyan-400/10 shadow-[0_0_10px_rgba(34,211,238,0.2)]"
+                                                : "border-white/20 text-muted-foreground hover:border-white/40 hover:text-white"
                                         )}
                                     >
-                                        {adjustSlotTrackMode ? 'On' : 'Off'}
+                                        Center Mods Only
+                                    </button>
+                                    <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground/70">
+                                        FEATHERED SERPENT SERIES
                                     </span>
-                                </Button>
-                                {adjustSlotTrackMode && (
-                                    <p className="text-xs text-blue-200 text-center">
-                                        🎯 Click a mod slot to halve its tolerance cost.
-                                    </p>
-                                )}
-                                <Button
-                                    variant="destructive"
-                                    onClick={handleRemoveAllMods}
-                                    className="flex min-w-[240px] sm:min-w-[260px] items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
-                                >
-                                    <X className="h-4 w-4" />
-                                    Remove All Mods
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {itemType === 'character' && (item as Character).hasConsonanceWeapon && (
-                        <Card className="bg-card/50 mt-8">
-                            <CardHeader>
-                                <CardTitle className="flex items-center justify-center gap-2 text-lg">
-                                    <Crosshair className="w-5 h-5" /> Consonance Weapon
-                                </CardTitle>
-                                <p className="text-xs text-muted-foreground text-center">Optional</p>
-                            </CardHeader>
-                            <CardContent className="p-4">
-                                <div className="grid grid-cols-4 gap-2">
-                                    {supportMods['consonance-wpn'].map((mod, i) => (
-                                        <ModSlot
-                                            key={i}
-                                            mod={mod}
-                                            onDrop={(e) => {
-                                                e.preventDefault();
-                                                const modName = e.dataTransfer.getData("modName");
-                                                const foundMod = allMods.find(m => m.name === modName);
-                                                if (foundMod) {
-                                                    const newMods = [...supportMods['consonance-wpn']];
-                                                    newMods[i] = foundMod;
-                                                    setSupportMods(prev => ({ ...prev, 'consonance-wpn': newMods }));
-                                                }
-                                            }}
-                                            onDragOver={handleDragOver}
-                                            onRemove={() => {
-                                                const newMods = [...supportMods['consonance-wpn']];
-                                                newMods[i] = null;
-                                                setSupportMods(prev => ({ ...prev, 'consonance-wpn': newMods }));
-                                            }}
-                                        />
-                                    ))}
                                 </div>
-                            </CardContent>
-                        </Card>
-                    )}
-
-                    <Card className="bg-card/50 mt-8">
-                        <CardHeader>
-                            <CardTitle className="text-lg">Write a Guide</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <Textarea
-                                placeholder="Share your strategy, tips, and playstyle for this build..."
-                                className="bg-background"
-                                rows={6}
-                                value={buildGuide}
-                                onChange={(e) => setBuildGuide(e.target.value)}
-                            />
-                        </CardContent>
-                    </Card>
-                </div>
-
-                {/* Right Column - Mods */}
-                <div className="lg:col-span-3">
-                    <div className="space-y-4">
-                        <div className="relative">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input
-                                placeholder="Search by name, attribute, or effect..."
-                                className="pl-10 bg-input"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                            />
-                        </div>
 
 
 
-                        <div className="grid grid-cols-1 gap-2">
-                            <MultiSelectFilter
-                                label="All Types"
-                                options={
-                                    itemType === 'character' && (item as Character).hasConsonanceWeapon
-                                        ? [
-                                            { value: 'Characters' as ModType, label: 'Characters' },
-                                            { value: 'Melee Consonance Weapon' as ModType, label: 'Melee Consonance' },
-                                            { value: 'Ranged Consonance Weapon' as ModType, label: 'Ranged Consonance' },
-                                        ]
-                                        : itemType === 'character'
-                                            ? [
-                                                { value: 'Characters' as ModType, label: 'Characters' },
-                                            ]
-                                            : [
-                                                { value: 'Melee Weapon' as ModType, label: 'Melee Weapon' },
-                                                { value: 'Ranged Weapon' as ModType, label: 'Ranged Weapon' },
-                                            ]
-                                }
-                                selected={modTypeFilters}
-                                onToggle={toggleModTypeMain}
-                                onClear={() => setModTypeFilters([])}
-                            />
-                            <MultiSelectFilter
-                                label="All Rarity"
-                                options={[
-                                    { value: 5 as ModRarity, label: '5 ★' },
-                                    { value: 4 as ModRarity, label: '4 ★' },
-                                    { value: 3 as ModRarity, label: '3 ★' },
-                                    { value: 2 as ModRarity, label: '2 ★' },
-                                ]}
-                                selected={rarityFilters}
-                                onToggle={toggleRarityMain}
-                                onClear={() => setRarityFilters([])}
-                            />
-                            {(modTypeFilters.length === 0 || modTypeFilters.includes('Characters')) && (
-                                <Select value={elementFilter} onValueChange={(v) => setElementFilter(v as ModElement | 'All')}>
-                                    <SelectTrigger><SelectValue placeholder="Filter by Element" /></SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="All">All Elements</SelectItem>
-                                        <SelectItem value="Lumino">Lumino</SelectItem>
-                                        <SelectItem value="Anemo">Anemo</SelectItem>
-                                        <SelectItem value="Hydro">Hydro</SelectItem>
-                                        <SelectItem value="Pyro">Pyro</SelectItem>
-                                        <SelectItem value="Electro">Electro</SelectItem>
-                                        <SelectItem value="Umbro">Umbro</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            )}
-                        </div>
-
-                        <div className="flex items-center gap-3 pt-2">
-                            <button
-                                onClick={() => setShowCenterOnly(!showCenterOnly)}
-                                className={cn(
-                                    "rounded-full border px-4 py-1.5 text-xs font-semibold transition-all",
-                                    showCenterOnly
-                                        ? "border-cyan-400 text-cyan-400 bg-cyan-400/10 shadow-[0_0_10px_rgba(34,211,238,0.2)]"
-                                        : "border-white/20 text-muted-foreground hover:border-white/40 hover:text-white"
-                                )}
-                            >
-                                Center Mods Only
-                            </button>
-                            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground/70">
-                                FEATHERED SERPENT SERIES
-                            </span>
-                        </div>
-
-
-
-                        <ScrollArea className="h-[600px] rounded-md border p-2 bg-background/50">
-                            <div className="grid grid-cols-2 gap-2">
-                                {filteredMods.map((mod, index) => (
-                                    <ModCard
-                                        key={`${mod.name}-${index}`}
-                                        mod={mod}
-                                        onDragStart={(e) => handleDragStart(e, mod)}
-                                        onClick={() => handleModClick(mod)}
-                                    />
-                                ))}
+                                <ScrollArea className="h-[600px] rounded-md border p-2 bg-background/50">
+                                    <div className="grid grid-cols-2 gap-2">
+                                        {filteredMods.map((mod, index) => (
+                                            <ModCard
+                                                key={`${mod.name}-${index}`}
+                                                mod={mod}
+                                                onDragStart={(e) => handleDragStart(e, mod)}
+                                                onClick={() => handleModClick(mod)}
+                                            />
+                                        ))}
+                                    </div>
+                                </ScrollArea>
                             </div>
-                        </ScrollArea>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </TabsContent>
+            </Tabs>
         </div>
     );
 }

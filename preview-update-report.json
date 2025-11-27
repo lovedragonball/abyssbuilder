@@ -1,0 +1,3699 @@
+{
+  "missingInCurrent": [],
+  "missingInDataset": [],
+  "previewUpdates": [
+    {
+      "fullName": "Cerberus's Crusher - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Crusher",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Edge - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Edge",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Penetration - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Penetration",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Rage - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Rage",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Impetus - Focus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Impetus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Crusher",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Edge",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Penetration",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Impetus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Focus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Celerity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Rage",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Threshold",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Crusher - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Crusher",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Edge - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Edge",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Penetration - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Penetration",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Rage - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Rage",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Impetus - Focus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Impetus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Crusher",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Edge",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Penetration",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Impetus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Focus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Celerity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Rage",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Foldover",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blaze - Wings",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blaze - Blessing",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blaze",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blaze - Nirvana",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blaze - Standfast",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Typhon's Prime",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Typhon's Prime - Morale",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Typhon's Prime - Resolve",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Typhon's Prime - Huntdown",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Typhon's Prime - Serenity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Typhon's Prime - Uplift",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Blastwave",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Cutoff",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Helido",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Ignite",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Prance",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Recovery",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Rescue",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Sidestep",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Steadfast",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Unyielding",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Feathered Serpent's Vigilant",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Inferno - Volition",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Inferno - Wildfire",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Inferno - Midnight Sun",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Nihility - Volition",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Nihility - Wildfire",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Nihility - Midnight Sun",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Seawave - Volition",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Seawave - Wildfire",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Seawave - Midnight Sun",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Skylume - Volition",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Skylume - Wildfire",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Skylume - Midnight Sun",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Squall - Volition",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Squall - Wildfire",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Squall - Midnight Sun",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Thunder - Volition",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Thunder - Wildfire",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Griffin's Thunder - Midnight Sun",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Pan's Eternity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Pan's Eternity - Abnegation",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Pan's Spectrum",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Pan's Spectrum - Omen",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blessing",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blessing - Wings",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Blessing - Standfast",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Nirvana",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Nirvana - Blessing",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Nirvana - Wings",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Nirvana - Standfast",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Standfast",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Wings",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Phoenix's Wings - Standfast",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Siren's Wings - Inspo",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Siren01.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Celerity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Threshold",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Continuity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Continuity - Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Fortune",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Kismet",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Utmost",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Abundance",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Arrow",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Carefree",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Coercion",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Decline",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Dexterity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Lingering Might",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Quiver",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Tyranny",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Celerity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Cerberus's Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Eldritch Lilith's Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp"
+      ]
+    },
+    {
+      "fullName": "Arbiter's Illusionary Sacrifice",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Anubis01_Purple.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Bahamut's Frosty Torrent",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Bahamut01.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Bahamut's Misty Veil",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Bahamut01.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Ifrit's Devouring Wildfire",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Ifrit01_Red.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Summanus's Ravaging Thunder",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Summanus01.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Helios's Glimm & Glimmer",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Yatagarasu01.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Helios's Prismatic Neon",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Yatagarasu01.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Hastur's Turbulent Cyclone",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Hastur01.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Hastur's Whispering Zephyr",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Hastur01.webp",
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Sphinx's Duel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Sphinx's Intrepidity",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Sphinx's Onslaught",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Sphinx's Relentless",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Sphinx's Surge",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Sphinx's Trapped",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Scorch",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Standfast - Eternity",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Standfast - Inspo",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Wings - Eternity",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Wings - Volition",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Nirvana - Volition",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Nirvana - Spectrum",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Resolve",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Eternity",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Morale",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Spectrum",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Inspo",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Nirvana",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Standfast",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Covenanter's Blaze - Volition",
+      "current": [
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+        "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+      ],
+      "recommended": [
+        "https://dna.interknot-network.com/images/elements/anemo.webp",
+        "https://dna.interknot-network.com/images/elements/electro.webp",
+        "https://dna.interknot-network.com/images/elements/hydro.webp",
+        "https://dna.interknot-network.com/images/elements/lumino.webp",
+        "https://dna.interknot-network.com/images/elements/pyro.webp",
+        "https://dna.interknot-network.com/images/elements/umbro.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp",
+        "https://dna.interknot-network.com/images/polarities/2.webp",
+        "https://dna.interknot-network.com/images/polarities/4.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Assault Rifle",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Bow",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Dual Blades",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Dual Pistols",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Greatsword",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Grenade Launcher",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Katana",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Pistol",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Polearm",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Shotgun",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Sword",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Jormungand's Gleaming Whipsword",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Focus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Cerberus's Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Afterimage",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Blade Feint",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Blitz",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Brutality",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Commanding Thrust",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Crescent Flurry",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Divine Herald Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Dropshot",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Edgeless Blade",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Fervor",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Filthoid Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Flash Strike",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Forsaken Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's In Full Bloom",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Legion Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Patrol",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Pierce",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Piercing Ascent",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Puncture Cascade",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Savage Charge",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Severance",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Shockwave Echo",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Sundering Edgefield",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Swift Dropshot",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Swift Momentum",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Vigilance",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fenrir's Whirl of Illusion",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Divine Herald Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Filthoid Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Forsaken Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Legion Hunt",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Focus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Frugality",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Furious Beam",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Furious Blast",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Loadout",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Pierce",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Severance",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Speed Boost",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Fafnir's Stall",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Focus",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Quiver - Loadout",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Rain of Quivers",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Trammel",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/1.webp"
+      ]
+    },
+    {
+      "fullName": "Lilith's Foldover",
+      "current": [],
+      "recommended": [
+        "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+        "https://dna.interknot-network.com/images/polarities/3.webp"
+      ]
+    }
+  ],
+  "imageMismatches": [
+    {
+      "fullName": "Lilith's Crusher - Trammel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Crusher",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Edge - Trammel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Edge",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Penetration - Trammel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Penetration",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Rage - Trammel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Rage",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Impetus - Focus",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Impetus",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Crusher",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Edge",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Penetration",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Impetus",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Focus",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Celerity",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Rage",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Foldover",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Phoenix's Blaze - Wings",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Blaze - Blessing",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Blaze",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Blaze - Nirvana",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Blaze - Standfast",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Typhon's Prime",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp"
+    },
+    {
+      "fullName": "Typhon's Prime - Morale",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp"
+    },
+    {
+      "fullName": "Typhon's Prime - Resolve",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp"
+    },
+    {
+      "fullName": "Typhon's Prime - Huntdown",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp"
+    },
+    {
+      "fullName": "Typhon's Prime - Serenity",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp"
+    },
+    {
+      "fullName": "Typhon's Prime - Uplift",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Blastwave",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Cutoff",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Helido",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Ignite",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Prance",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Recovery",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Rescue",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Sidestep",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Steadfast",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Unyielding",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Feathered Serpent's Vigilant",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp"
+    },
+    {
+      "fullName": "Griffin's Inferno - Volition",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp"
+    },
+    {
+      "fullName": "Griffin's Inferno - Wildfire",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp"
+    },
+    {
+      "fullName": "Griffin's Inferno - Midnight Sun",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp"
+    },
+    {
+      "fullName": "Griffin's Nihility - Volition",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp"
+    },
+    {
+      "fullName": "Griffin's Nihility - Wildfire",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp"
+    },
+    {
+      "fullName": "Griffin's Nihility - Midnight Sun",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp"
+    },
+    {
+      "fullName": "Griffin's Seawave - Volition",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp"
+    },
+    {
+      "fullName": "Griffin's Seawave - Wildfire",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp"
+    },
+    {
+      "fullName": "Griffin's Seawave - Midnight Sun",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp"
+    },
+    {
+      "fullName": "Griffin's Skylume - Volition",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp"
+    },
+    {
+      "fullName": "Griffin's Skylume - Wildfire",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp"
+    },
+    {
+      "fullName": "Griffin's Skylume - Midnight Sun",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp"
+    },
+    {
+      "fullName": "Griffin's Squall - Volition",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp"
+    },
+    {
+      "fullName": "Griffin's Squall - Wildfire",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp"
+    },
+    {
+      "fullName": "Griffin's Squall - Midnight Sun",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp"
+    },
+    {
+      "fullName": "Griffin's Thunder - Volition",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp"
+    },
+    {
+      "fullName": "Griffin's Thunder - Wildfire",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp"
+    },
+    {
+      "fullName": "Griffin's Thunder - Midnight Sun",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp"
+    },
+    {
+      "fullName": "Pan's Eternity",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Eternity - Abnegation",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Inspo - Elapse",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Inspo - Shards",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Inspo",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Spectrum",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Spectrum - Omen",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Volition",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Wings - Elapse",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Pan's Wings - Shards",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp"
+    },
+    {
+      "fullName": "Phoenix's Blessing",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Blessing - Wings",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Blessing - Standfast",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Nirvana",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Nirvana - Blessing",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Nirvana - Wings",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Nirvana - Standfast",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Standfast",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Wings",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Phoenix's Wings - Standfast",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp"
+    },
+    {
+      "fullName": "Siren's Wings - Inspo",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Siren01.webp"
+    },
+    {
+      "fullName": "Fenrir's Continuity",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Continuity - Trammel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Fortune",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Kismet",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Utmost",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Abundance",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Arrow",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Carefree",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Coercion",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Decline",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Dexterity",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Lingering Might",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Quiver",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Tyranny",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Lilith's Celerity",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Eldritch Lilith's Trammel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp"
+    },
+    {
+      "fullName": "Sphinx's Duel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp"
+    },
+    {
+      "fullName": "Sphinx's Intrepidity",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp"
+    },
+    {
+      "fullName": "Sphinx's Onslaught",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp"
+    },
+    {
+      "fullName": "Sphinx's Relentless",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp"
+    },
+    {
+      "fullName": "Sphinx's Surge",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp"
+    },
+    {
+      "fullName": "Sphinx's Trapped",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp"
+    },
+    {
+      "fullName": "Covenanter's Scorch",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp"
+    },
+    {
+      "fullName": "Covenanter's Standfast - Eternity",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp"
+    },
+    {
+      "fullName": "Covenanter's Standfast - Inspo",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp"
+    },
+    {
+      "fullName": "Covenanter's Wings - Eternity",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp"
+    },
+    {
+      "fullName": "Covenanter's Wings - Volition",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp"
+    },
+    {
+      "fullName": "Covenanter's Nirvana - Volition",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp"
+    },
+    {
+      "fullName": "Covenanter's Nirvana - Spectrum",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Resolve",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Eternity",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Morale",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Spectrum",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Inspo",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Nirvana",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Standfast",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Volition",
+      "current": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Assault Rifle",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Bow",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Dual Blades",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Dual Pistols",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Greatsword",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Grenade Launcher",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Katana",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Pistol",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Polearm",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Shotgun",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Sword",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Whipsword",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp"
+    },
+    {
+      "fullName": "Fenrir's Afterimage",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Blade Feint",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Blitz",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Brutality",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Commanding Thrust",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Crescent Flurry",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Divine Herald Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Dropshot",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Edgeless Blade",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Fervor",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Filthoid Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Flash Strike",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Forsaken Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's In Full Bloom",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Legion Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Patrol",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Pierce",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Piercing Ascent",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Puncture Cascade",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Savage Charge",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Severance",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Shockwave Echo",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Sundering Edgefield",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Swift Dropshot",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Swift Momentum",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Vigilance",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fenrir's Whirl of Illusion",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Divine Herald Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Filthoid Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Forsaken Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Legion Hunt",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Focus",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Frugality",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Furious Beam",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Furious Blast",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Loadout",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Pierce",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Severance",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Speed Boost",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Fafnir's Stall",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp"
+    },
+    {
+      "fullName": "Lilith's Focus",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Quiver - Loadout",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Rain of Quivers",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Trammel",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    },
+    {
+      "fullName": "Lilith's Foldover",
+      "current": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp",
+      "dataset": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp"
+    }
+  ],
+  "typeMismatches": [
+    {
+      "fullName": "Cerberus's Rage - Trammel",
+      "current": "Moon",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Cerberus's Rage",
+      "current": "Diamond",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Crusher",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Edge",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Penetration",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Impetus",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Focus",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Celerity",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Rage",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Threshold",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Lilith's Crusher",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Lilith's Edge",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Lilith's Penetration",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Lilith's Rage - Trammel",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Lilith's Rage",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Lilith's Impetus - Focus",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Lilith's Impetus",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Lilith's Crusher",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Lilith's Edge",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Lilith's Penetration",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Lilith's Impetus",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Lilith's Focus",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Lilith's Celerity",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Eldritch Lilith's Rage",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Eldritch Lilith's Foldover",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Phoenix's Blaze",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Typhon's Prime - Morale",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Typhon's Prime - Resolve",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Typhon's Prime - Huntdown",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Typhon's Prime - Serenity",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Typhon's Prime - Uplift",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Feathered Serpent's Blastwave",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Feathered Serpent's Cutoff",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Feathered Serpent's Helido",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Feathered Serpent's Ignite",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Feathered Serpent's Prance",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Feathered Serpent's Recovery",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Feathered Serpent's Rescue",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Feathered Serpent's Sidestep",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Feathered Serpent's Steadfast",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Feathered Serpent's Unyielding",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Feathered Serpent's Vigilant",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Griffin's Inferno - Wildfire",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Inferno - Midnight Sun",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Nihility - Wildfire",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Nihility - Midnight Sun",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Seawave - Wildfire",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Seawave - Midnight Sun",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Skylume - Wildfire",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Skylume - Midnight Sun",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Squall - Wildfire",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Squall - Midnight Sun",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Thunder - Wildfire",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Griffin's Thunder - Midnight Sun",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Pan's Eternity - Abnegation",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Pan's Spectrum - Omen",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Phoenix's Blessing",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Phoenix's Nirvana",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Phoenix's Standfast",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Phoenix's Wings",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Siren's Wings - Inspo",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Cerberus's Celerity",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Cerberus's Threshold",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Fenrir's Continuity",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Continuity - Trammel",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Fortune",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Kismet",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Utmost",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Abundance",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Arrow",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Carefree",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Coercion",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Decline",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Dexterity",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Lingering Might",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Quiver",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Tyranny",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Lilith's Celerity",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Eldritch Cerberus's Trammel",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Eldritch Lilith's Trammel",
+      "current": "Normal",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Arbiter's Illusionary Sacrifice",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Bahamut's Frosty Torrent",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Bahamut's Misty Veil",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Ifrit's Devouring Wildfire",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Summanus's Ravaging Thunder",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Helios's Glimm & Glimmer",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Helios's Prismatic Neon",
+      "current": "Circle",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Sphinx's Duel",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Sphinx's Intrepidity",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Sphinx's Onslaught",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Sphinx's Relentless",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Sphinx's Surge",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Sphinx's Trapped",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Covenanter's Scorch",
+      "current": "Normal",
+      "dataset": "Diamond"
+    },
+    {
+      "fullName": "Covenanter's Standfast - Eternity",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Covenanter's Standfast - Inspo",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Covenanter's Wings - Eternity",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Covenanter's Wings - Volition",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Covenanter's Nirvana - Volition",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Covenanter's Nirvana - Spectrum",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Resolve",
+      "current": "Moon",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Eternity",
+      "current": "Moon",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Morale",
+      "current": "Moon",
+      "dataset": "Rhombus"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Inspo",
+      "current": "Rhombus",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Covenanter's Blaze - Volition",
+      "current": "Rhombus",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Assault Rifle",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Bow",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Dual Blades",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Dual Pistols",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Greatsword",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Grenade Launcher",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Katana",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Pistol",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Polearm",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Shotgun",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Sword",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Jormungand's Gleaming Whipsword",
+      "current": "Normal",
+      "dataset": "Moon"
+    },
+    {
+      "fullName": "Cerberus's Focus",
+      "current": "Diamond",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Cerberus's Trammel",
+      "current": "Moon",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Afterimage",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Blade Feint",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Blitz",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Brutality",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Commanding Thrust",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Crescent Flurry",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Divine Herald Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Dropshot",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Edgeless Blade",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Fervor",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Filthoid Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Flash Strike",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Forsaken Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's In Full Bloom",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Legion Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Patrol",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Pierce",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Piercing Ascent",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Puncture Cascade",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Savage Charge",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Severance",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Shockwave Echo",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Sundering Edgefield",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Swift Dropshot",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Swift Momentum",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Vigilance",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fenrir's Whirl of Illusion",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Divine Herald Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Filthoid Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Forsaken Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Legion Hunt",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Focus",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Frugality",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Furious Beam",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Furious Blast",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Loadout",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Pierce",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Severance",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Speed Boost",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Fafnir's Stall",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Lilith's Focus",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Lilith's Quiver - Loadout",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Lilith's Rain of Quivers",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Lilith's Trammel",
+      "current": "Normal",
+      "dataset": "Circle"
+    },
+    {
+      "fullName": "Lilith's Foldover",
+      "current": "Normal",
+      "dataset": "Moon"
+    }
+  ],
+  "elementMismatches": [],
+  "toleranceMismatches": []
+}

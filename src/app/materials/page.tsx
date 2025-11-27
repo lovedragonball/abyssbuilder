@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { EnhancedCard } from '@/components/ui/enhanced-card';
 
 // Weapon component to weapon name mapping
 const weaponComponentMapping: Record<string, string> = {
@@ -1371,7 +1372,7 @@ export default function MaterialsPage() {
 
             {/* Upgrade Material Forging */}
             {isUpgradeMaterial && upgradeRecipe && (
-              <div className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-4 space-y-4">
+              <EnhancedCard variant="elevated" hoverEffect="none" className="w-full p-4 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div>
                     <h4 className="text-lg font-bold text-white">Materials &amp; Forging</h4>
@@ -1537,11 +1538,11 @@ export default function MaterialsPage() {
                   }
                   return null;
                 })()}
-              </div>
+              </EnhancedCard>
             )}
 
             {/* Item Info */}
-            <div className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+            <EnhancedCard variant="elevated" hoverEffect="none" className="w-full p-4">
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <p className="text-slate-400 mb-1">Category</p>
@@ -1558,7 +1559,7 @@ export default function MaterialsPage() {
                   <p className="text-yellow-300 font-semibold">Character Unlock Item</p>
                 </div>
               )}
-            </div>
+            </EnhancedCard>
 
             {/* Action Buttons */}
             <div className="space-y-3">
@@ -1761,7 +1762,7 @@ export default function MaterialsPage() {
         <div className={`flex-1 px-6 py-8 ${showPinnedSidebar ? 'max-w-[calc(100%-20rem)]' : 'container mx-auto'}`}>
           <div className="max-w-7xl mx-auto space-y-6">
             {/* Search Bar & Controls */}
-            <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+            <EnhancedCard variant="elevated" hoverEffect="none" className="p-4">
               <div className="flex flex-col md:flex-row gap-4">
                 {/* Search Input */}
                 <div className="flex-1 relative">
@@ -1837,20 +1838,22 @@ export default function MaterialsPage() {
                   </p>
                 </div>
               )}
-            </div>
+            </EnhancedCard>
 
             {/* Categories */}
             {Object.keys(filteredCategories).length === 0 ? (
-              <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-12 text-center">
+              <EnhancedCard variant="elevated" hoverEffect="none" className="p-12 text-center">
                 <p className="text-xl text-slate-400">No items found matching "{searchQuery}"</p>
-              </div>
+              </EnhancedCard>
             ) : (
               Object.entries(filteredCategories).map(([category, items]) => {
                 const filteredItems = filterItems(items);
                 return (
-                  <div
+                  <EnhancedCard
                     key={category}
-                    className="bg-slate-800/50 border border-slate-700 rounded-lg overflow-hidden"
+                    variant="elevated"
+                    hoverEffect="lift"
+                    className="overflow-hidden"
                   >
                     {/* Category Header */}
                     <button
@@ -1879,9 +1882,12 @@ export default function MaterialsPage() {
                               const pinned = isPinned(item, category);
                               return (
                                 <div key={item} className="relative">
-                                  <button
+                                  <EnhancedCard
+                                    variant="default"
+                                    hoverEffect="scale"
+                                    clickable
+                                    className="p-3 group"
                                     onClick={() => navigateToItem(item, category)}
-                                    className="w-full bg-slate-900/50 border border-slate-600 rounded-lg p-3 hover:border-purple-500 hover:scale-105 transition-all group cursor-pointer"
                                   >
                                     <div className="aspect-square relative mb-2 bg-slate-800 rounded overflow-hidden">
                                       <Image
@@ -1894,7 +1900,7 @@ export default function MaterialsPage() {
                                     <p className="text-xs text-slate-300 text-center line-clamp-2 group-hover:text-purple-300 transition-colors">
                                       {formatItemName(item)}
                                     </p>
-                                  </button>
+                                  </EnhancedCard>
                                   {craftable && (
                                     <button
                                       onClick={(e) => {
@@ -1921,9 +1927,12 @@ export default function MaterialsPage() {
                               const pinned = isPinned(item, category);
                               return (
                                 <div key={item} className="relative">
-                                  <button
+                                  <EnhancedCard
+                                    variant="default"
+                                    hoverEffect="glow"
+                                    clickable
+                                    className="p-3 group flex items-center gap-4"
                                     onClick={() => navigateToItem(item, category)}
-                                    className="w-full bg-slate-900/50 border border-slate-600 rounded-lg p-3 hover:border-purple-500 transition-colors group flex items-center gap-4 cursor-pointer"
                                   >
                                     <div className="w-16 h-16 relative bg-slate-800 rounded overflow-hidden flex-shrink-0">
                                       <Image
@@ -1951,7 +1960,7 @@ export default function MaterialsPage() {
                                         <span className="text-sm">📌</span>
                                       </button>
                                     )}
-                                  </button>
+                                  </EnhancedCard>
                                 </div>
                               );
                             })}
@@ -1959,7 +1968,7 @@ export default function MaterialsPage() {
                         )}
                       </div>
                     )}
-                  </div>
+                  </EnhancedCard>
                 );
               })
             )}
@@ -2015,13 +2024,16 @@ export default function MaterialsPage() {
                 <h4 className="text-lg font-bold text-white mb-4">Weapon Components</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                   {getWeaponComponents(selectedWeapon).map((component) => (
-                    <button
+                    <EnhancedCard
                       key={component}
+                      variant="elevated"
+                      hoverEffect="scale"
+                      clickable
+                      className="p-3 group"
                       onClick={() => {
                         setSelectedWeapon(null);
                         navigateToItem(component, 'Weapon Components');
                       }}
-                      className="bg-slate-800 hover:bg-slate-700 border-2 border-slate-600 hover:border-purple-500 rounded-lg p-3 transition-all group"
                     >
                       <div className="aspect-square relative bg-slate-900 rounded overflow-hidden mb-2">
                         <Image
@@ -2034,7 +2046,7 @@ export default function MaterialsPage() {
                       <p className="text-xs text-slate-300 text-center line-clamp-2 group-hover:text-purple-300 transition-colors">
                         {formatItemName(component)}
                       </p>
-                    </button>
+                    </EnhancedCard>
                   ))}
                 </div>
               </div>

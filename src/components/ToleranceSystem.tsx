@@ -17,6 +17,7 @@ export function ToleranceSystem({ mods, primeMod, className, adjustedSlots = new
     const baseMax = 100;
     const boost = primeMod?.toleranceBoost || 0;
     const max = baseMax + boost;
+    const primeSymbol = primeMod?.isPrimeMod ? primeMod.symbol : undefined;
 
     let current = 0;
     mods.forEach((mod, index) => {
@@ -25,7 +26,7 @@ export function ToleranceSystem({ mods, primeMod, className, adjustedSlots = new
       let modCost = mod.tolerance;
 
       // Matching prime mod symbol cuts tolerance cost in half
-      if (primeMod && mod.symbol && mod.symbol === primeMod.symbol) {
+      if (primeSymbol && mod.symbol && mod.symbol === primeSymbol) {
         modCost = Math.ceil(modCost / 2);
       }
       // Adjust Slot Track also halves the tolerance cost

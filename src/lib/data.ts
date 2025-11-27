@@ -7,6 +7,14 @@ const getImage = (id: string) => PlaceHolderImages.find(img => img.id === id)?.i
 
 const generateId = (name: string) => name.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
 
+// Helper function to get full display name (name + variant if exists)
+const getModDisplayName = (mod: { name: string; variant?: string }) => {
+  if (mod.variant) {
+    return `${mod.name} ${mod.variant}`;
+  }
+  return mod.name;
+};
+
 const mergeWeaponDetails = (weapon: Weapon): Weapon => {
   const details = weaponDetails[weapon.id];
   return details ? { ...weapon, ...details } : weapon;
@@ -96,7 +104,7 @@ export const allWeaponTypes = [...new Set(allWeapons.map(w => w.type))].sort();
 
 export const allMods: Mod[] = [
   {
-    "name": "Arbiter's Illusionary Sacrifice",
+    "name": "Illusionary Sacrifice",
     "rarity": 4,
     "modType": "Characters",
     "element": "Umbro",
@@ -108,7 +116,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Arbiter's Illusionary Sacrifice",
+    "name": "Illusionary Sacrifice",
     "rarity": 5,
     "modType": "Characters",
     "element": "Umbro",
@@ -120,7 +128,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Bahamut's Frosty Torrent",
+    "name": "Frosty Torrent",
     "rarity": 4,
     "modType": "Characters",
     "element": "Hydro",
@@ -132,7 +140,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Bahamut's Frosty Torrent",
+    "name": "Frosty Torrent",
     "rarity": 5,
     "modType": "Characters",
     "element": "Hydro",
@@ -144,7 +152,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Bahamut's Misty Veil",
+    "name": "Misty Veil",
     "rarity": 4,
     "modType": "Characters",
     "element": "Hydro",
@@ -156,7 +164,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Bahamut's Misty Veil",
+    "name": "Misty Veil",
     "rarity": 5,
     "modType": "Characters",
     "element": "Hydro",
@@ -168,7 +176,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Cerberus's Celerity",
+    "name": "Celerity",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "ATK Speed +20%",
@@ -177,7 +185,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Cerberus's Celerity",
+    "name": "Celerity",
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -187,7 +195,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Crusher",
+    "name": "Crusher",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "Smash ATK +50%",
@@ -196,7 +204,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Cerberus's Crusher",
+    "name": "Crusher",
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -206,7 +214,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Crusher",
+    "name": "Crusher",
     "rarity": 2,
     "modType": "Melee Weapon",
     "variant": "Trammel",
@@ -216,7 +224,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Cerberus's Edge",
+    "name": "Edge",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "Slash ATK +50%",
@@ -225,7 +233,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Cerberus's Edge",
+    "name": "Edge",
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -235,7 +243,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Edge",
+    "name": "Edge",
     "rarity": 2,
     "modType": "Melee Weapon",
     "variant": "Trammel",
@@ -245,7 +253,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Cerberus's Focus",
+    "name": "Focus",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -255,7 +263,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Cerberus's Impetus",
+    "name": "Impetus",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -265,7 +273,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Cerberus's Impetus",
+    "name": "Impetus",
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -275,7 +283,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Impetus",
+    "name": "Impetus",
     "rarity": 2,
     "modType": "Melee Weapon",
     "variant": "Focus",
@@ -285,7 +293,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Cerberus's Impetus",
+    "name": "Impetus",
     "rarity": 5,
     "modType": "Melee Weapon",
     "variant": "Focus",
@@ -296,7 +304,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Penetration",
+    "name": "Penetration",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "Spike ATK +50%",
@@ -305,7 +313,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Cerberus's Penetration",
+    "name": "Penetration",
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -315,7 +323,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Penetration",
+    "name": "Penetration",
     "rarity": 2,
     "modType": "Melee Weapon",
     "variant": "Trammel",
@@ -325,7 +333,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Cerberus's Rage",
+    "name": "Rage",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -335,7 +343,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Cerberus's Rage",
+    "name": "Rage",
     "rarity": 2,
     "modType": "Melee Weapon",
     "variant": "Trammel",
@@ -345,7 +353,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Cerberus's Rage",
+    "name": "Rage",
     "rarity": 5,
     "modType": "Melee Weapon",
     "variant": "Trammel",
@@ -356,7 +364,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Threshold",
+    "name": "Threshold",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "ATK Range +1",
@@ -365,7 +373,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Cerberus's Threshold",
+    "name": "Threshold",
     "rarity": 5,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -375,7 +383,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Cerberus's Trammel",
+    "name": "Trammel",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "☽",
@@ -385,7 +393,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Eternity",
@@ -398,7 +406,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Eternity",
@@ -411,7 +419,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Eternity",
@@ -424,7 +432,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Eternity",
@@ -437,7 +445,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Inspo",
@@ -450,7 +458,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Inspo",
@@ -463,7 +471,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Inspo",
@@ -476,7 +484,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Inspo",
@@ -489,7 +497,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -502,7 +510,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -515,7 +523,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -528,7 +536,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -541,7 +549,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Nirvana",
@@ -554,7 +562,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Nirvana",
@@ -567,7 +575,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Nirvana",
@@ -580,7 +588,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Nirvana",
@@ -593,7 +601,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -606,7 +614,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -619,7 +627,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -632,7 +640,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -645,7 +653,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Spectrum",
@@ -658,7 +666,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Spectrum",
@@ -671,7 +679,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Spectrum",
@@ -684,7 +692,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Spectrum",
@@ -697,7 +705,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Standfast",
@@ -710,7 +718,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Standfast",
@@ -723,7 +731,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Standfast",
@@ -736,7 +744,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Standfast",
@@ -749,7 +757,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Volition",
@@ -762,7 +770,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Volition",
@@ -775,7 +783,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Volition",
@@ -788,7 +796,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Blaze",
+    "name": "Blaze",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Volition",
@@ -801,7 +809,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Nirvana",
+    "name": "Nirvana",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Spectrum",
@@ -814,7 +822,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Nirvana",
+    "name": "Nirvana",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Spectrum",
@@ -827,7 +835,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Nirvana",
+    "name": "Nirvana",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Volition",
@@ -840,7 +848,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Nirvana",
+    "name": "Nirvana",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Volition",
@@ -853,7 +861,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Scorch",
+    "name": "Scorch",
     "rarity": 4,
     "modType": "Characters",
     "element": "Lumino",
@@ -865,7 +873,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Scorch",
+    "name": "Scorch",
     "rarity": 5,
     "modType": "Characters",
     "element": "Lumino",
@@ -877,7 +885,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Scorch",
+    "name": "Scorch",
     "rarity": 4,
     "modType": "Characters",
     "element": "Umbro",
@@ -889,7 +897,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Scorch",
+    "name": "Scorch",
     "rarity": 5,
     "modType": "Characters",
     "element": "Umbro",
@@ -901,7 +909,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Standfast",
+    "name": "Standfast",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Eternity",
@@ -914,7 +922,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Standfast",
+    "name": "Standfast",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Eternity",
@@ -927,7 +935,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Standfast",
+    "name": "Standfast",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Inspo",
@@ -940,7 +948,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Standfast",
+    "name": "Standfast",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Inspo",
@@ -953,7 +961,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Wings",
+    "name": "Wings",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Eternity",
@@ -966,7 +974,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Wings",
+    "name": "Wings",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Eternity",
@@ -979,7 +987,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Covenanter's Wings",
+    "name": "Wings",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Volition",
@@ -992,7 +1000,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Covenanter's Wings",
+    "name": "Wings",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Volition",
@@ -1005,7 +1013,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Eldritch Cerberus's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "ATK Speed +10%",
@@ -1014,7 +1022,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "ATK Speed +20%",
@@ -1023,7 +1031,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "⊙",
@@ -1033,7 +1041,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "⊙",
@@ -1043,7 +1051,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "Smash ATK +30%",
@@ -1052,7 +1060,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "Smash ATK +60%",
@@ -1061,7 +1069,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1071,7 +1079,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1081,7 +1089,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Edge",
+    "name": "Eldritch Edge",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "Slash ATK +30%",
@@ -1090,7 +1098,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Edge",
+    "name": "Eldritch Edge",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "Slash ATK +60%",
@@ -1099,7 +1107,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Edge",
+    "name": "Eldritch Edge",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1109,7 +1117,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Edge",
+    "name": "Eldritch Edge",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1119,7 +1127,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Focus",
+    "name": "Eldritch Focus",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "CRIT Chance +20%",
@@ -1128,7 +1136,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Focus",
+    "name": "Eldritch Focus",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "CRIT Chance +40%",
@@ -1137,7 +1145,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Focus",
+    "name": "Eldritch Focus",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1147,7 +1155,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Focus",
+    "name": "Eldritch Focus",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1157,7 +1165,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "ATK +30%",
@@ -1166,7 +1174,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "ATK +60%",
@@ -1175,7 +1183,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1185,7 +1193,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1195,7 +1203,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "Spike ATK +30%",
@@ -1204,7 +1212,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "Spike ATK +60%",
@@ -1213,7 +1221,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1223,7 +1231,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1233,7 +1241,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Rage",
+    "name": "Eldritch Rage",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "CRIT Damage +20%",
@@ -1242,7 +1250,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Rage",
+    "name": "Eldritch Rage",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "CRIT Damage +40%",
@@ -1251,7 +1259,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Rage",
+    "name": "Eldritch Rage",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1261,7 +1269,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Rage",
+    "name": "Eldritch Rage",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "◬",
@@ -1271,7 +1279,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Threshold",
+    "name": "Eldritch Threshold",
     "rarity": 2,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "ATK Range +0.24",
@@ -1280,7 +1288,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Threshold",
+    "name": "Eldritch Threshold",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "ATK Range +0.48",
@@ -1289,7 +1297,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Threshold",
+    "name": "Eldritch Threshold",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "⊙",
@@ -1299,7 +1307,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Threshold",
+    "name": "Eldritch Threshold",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "⊙",
@@ -1309,7 +1317,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Trammel",
+    "name": "Eldritch Trammel",
     "rarity": 3,
     "modType": "Melee Consonance Weapon",
     "mainAttribute": "Trigger Probability +40%",
@@ -1318,7 +1326,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Trammel",
+    "name": "Eldritch Trammel",
     "rarity": 4,
     "modType": "Melee Consonance Weapon",
     "symbol": "☽",
@@ -1328,7 +1336,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Cerberus's Trammel",
+    "name": "Eldritch Trammel",
     "rarity": 5,
     "modType": "Melee Consonance Weapon",
     "symbol": "☽",
@@ -1338,7 +1346,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "ATK Speed +10%",
@@ -1347,7 +1355,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "ATK Speed +20%",
@@ -1356,7 +1364,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "⊙",
@@ -1366,7 +1374,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Celerity",
+    "name": "Eldritch Celerity",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "⊙",
@@ -1376,7 +1384,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Smash ATK +30%",
@@ -1385,7 +1393,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Smash ATK +60%",
@@ -1394,7 +1402,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1404,7 +1412,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Crusher",
+    "name": "Eldritch Crusher",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1414,7 +1422,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Edge",
+    "name": "Eldritch Edge",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Slash ATK +30%",
@@ -1423,7 +1431,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Edge",
+    "name": "Eldritch Edge",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Slash ATK +60%",
@@ -1432,7 +1440,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Edge",
+    "name": "Eldritch Edge",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1442,7 +1450,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Edge",
+    "name": "Eldritch Edge",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1452,7 +1460,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Focus",
+    "name": "Eldritch Focus",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "CRIT Chance +20%",
@@ -1461,7 +1469,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Focus",
+    "name": "Eldritch Focus",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "CRIT Chance +40%",
@@ -1470,7 +1478,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Focus",
+    "name": "Eldritch Focus",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1480,7 +1488,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Focus",
+    "name": "Eldritch Focus",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1490,7 +1498,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Foldover",
+    "name": "Eldritch Foldover",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Multishot +10%",
@@ -1499,7 +1507,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Foldover",
+    "name": "Eldritch Foldover",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Multishot +20%",
@@ -1508,7 +1516,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Foldover",
+    "name": "Eldritch Foldover",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "⊙",
@@ -1518,7 +1526,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Foldover",
+    "name": "Eldritch Foldover",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "⊙",
@@ -1528,7 +1536,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "ATK +30%",
@@ -1537,7 +1545,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "ATK +60%",
@@ -1546,7 +1554,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1556,7 +1564,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Impetus",
+    "name": "Eldritch Impetus",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1566,7 +1574,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Spike ATK +30%",
@@ -1575,7 +1583,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Spike ATK +60%",
@@ -1584,7 +1592,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1594,7 +1602,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Penetration",
+    "name": "Eldritch Penetration",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1604,7 +1612,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Rage",
+    "name": "Eldritch Rage",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "CRIT Damage +20%",
@@ -1613,7 +1621,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Rage",
+    "name": "Eldritch Rage",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "CRIT Damage +40%",
@@ -1622,7 +1630,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Rage",
+    "name": "Eldritch Rage",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1632,7 +1640,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Rage",
+    "name": "Eldritch Rage",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "◬",
@@ -1642,7 +1650,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Trammel",
+    "name": "Eldritch Trammel",
     "rarity": 2,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Trigger Proabability +20%",
@@ -1651,7 +1659,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Trammel",
+    "name": "Eldritch Trammel",
     "rarity": 3,
     "modType": "Ranged Consonance Weapon",
     "mainAttribute": "Trigger Proabability +40%",
@@ -1660,7 +1668,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Trammel",
+    "name": "Eldritch Trammel",
     "rarity": 4,
     "modType": "Ranged Consonance Weapon",
     "symbol": "☽",
@@ -1670,7 +1678,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Eldritch Lilith's Trammel",
+    "name": "Eldritch Trammel",
     "rarity": 5,
     "modType": "Ranged Consonance Weapon",
     "symbol": "☽",
@@ -1680,7 +1688,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fafnir's Abundance",
+    "name": "Abundance",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Ammo Conversion Rate +30%",
@@ -1689,7 +1697,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fafnir's Arrow",
+    "name": "Arrow",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Max Ammo +90%",
@@ -1698,7 +1706,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fafnir's Carefree",
+    "name": "Carefree",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "–",
@@ -1708,7 +1716,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Fafnir's Coercion",
+    "name": "Coercion",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Projectile Explosion Range +1.5",
@@ -1717,7 +1725,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Fafnir's Decline",
+    "name": "Decline",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "–",
@@ -1727,7 +1735,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Fafnir's Dexterity",
+    "name": "Dexterity",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Reload Speed +30%",
@@ -1736,7 +1744,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fafnir's Divine Herald Hunt",
+    "name": "Divine Herald Hunt",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -1747,7 +1755,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Fafnir's Filthoid Hunt",
+    "name": "Filthoid Hunt",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -1758,7 +1766,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Fafnir's Focus",
+    "name": "Focus",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
@@ -1769,7 +1777,7 @@ export const allMods: Mod[] = [
     "source": "Level 55, Level 60"
   },
   {
-    "name": "Fafnir's Forsaken Hunt",
+    "name": "Forsaken Hunt",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -1780,7 +1788,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fafnir's Frugality",
+    "name": "Frugality",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◊",
@@ -1791,7 +1799,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Fafnir's Furious Beam",
+    "name": "Furious Beam",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
@@ -1802,7 +1810,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Fafnir's Furious Blast",
+    "name": "Furious Blast",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
@@ -1813,7 +1821,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Fafnir's Hunt",
+    "name": "Hunt",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "–",
@@ -1823,7 +1831,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Fafnir's Legion Hunt",
+    "name": "Legion Hunt",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -1834,7 +1842,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Fafnir's Lingering Might",
+    "name": "Lingering Might",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "–",
@@ -1844,7 +1852,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Fafnir's Loadout",
+    "name": "Loadout",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◊",
@@ -1855,7 +1863,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Fafnir's Pierce",
+    "name": "Pierce",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -1865,7 +1873,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fafnir's Quiver",
+    "name": "Quiver",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Mag Capacity +30%",
@@ -1874,7 +1882,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fafnir's Severance",
+    "name": "Severance",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -1884,7 +1892,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Fafnir's Speed Boost",
+    "name": "Speed Boost",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
@@ -1894,7 +1902,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fafnir's Stall",
+    "name": "Stall",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
@@ -1904,7 +1912,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fafnir's Tyranny",
+    "name": "Tyranny",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "–",
@@ -1914,7 +1922,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Feathered Serpent's Blastwave",
+    "name": "Blastwave",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "◬",
@@ -1926,7 +1934,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Cutoff",
+    "name": "Cutoff",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "☽",
@@ -1938,7 +1946,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Helido",
+    "name": "Helido",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "◬",
@@ -1950,7 +1958,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Ignite",
+    "name": "Ignite",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "◬",
@@ -1962,7 +1970,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Prance",
+    "name": "Prance",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "◊",
@@ -1974,7 +1982,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Recovery",
+    "name": "Recovery",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "⊙",
@@ -1986,7 +1994,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Rescue",
+    "name": "Rescue",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "☽",
@@ -1998,7 +2006,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Sidestep",
+    "name": "Sidestep",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2010,7 +2018,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Steadfast",
+    "name": "Steadfast",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "◬",
@@ -2022,7 +2030,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Unyielding",
+    "name": "Unyielding",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "☽",
@@ -2034,7 +2042,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Feathered Serpent's Vigilant",
+    "name": "Vigilant",
     "rarity": 3,
     "modType": "Characters",
     "symbol": "☽",
@@ -2046,7 +2054,7 @@ export const allMods: Mod[] = [
     "centerOnly": true
   },
   {
-    "name": "Fenrir's Afterimage",
+    "name": "Afterimage",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -2057,7 +2065,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fenrir's Blade Feint",
+    "name": "Blade Feint",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2068,7 +2076,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Blitz",
+    "name": "Blitz",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -2078,7 +2086,7 @@ export const allMods: Mod[] = [
     "source": "Level 55, Level 60"
   },
   {
-    "name": "Fenrir's Brutality",
+    "name": "Brutality",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2089,7 +2097,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Fenrir's Commanding Thrust",
+    "name": "Commanding Thrust",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2100,7 +2108,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Continuity",
+    "name": "Continuity",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "Combo Duration +6",
@@ -2109,7 +2117,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fenrir's Continuity",
+    "name": "Continuity",
     "rarity": 4,
     "modType": "Melee Weapon",
     "variant": "Trammel",
@@ -2120,7 +2128,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Fenrir's Crescent Flurry",
+    "name": "Crescent Flurry",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2131,7 +2139,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Divine Herald Hunt",
+    "name": "Divine Herald Hunt",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -2142,7 +2150,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Fenrir's Dropshot",
+    "name": "Dropshot",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -2152,7 +2160,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Fenrir's Edgeless Blade",
+    "name": "Edgeless Blade",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2163,7 +2171,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Fervor",
+    "name": "Fervor",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2174,7 +2182,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Fenrir's Filthoid Hunt",
+    "name": "Filthoid Hunt",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -2185,7 +2193,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Fenrir's Flash Strike",
+    "name": "Flash Strike",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -2195,7 +2203,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fenrir's Forsaken Hunt",
+    "name": "Forsaken Hunt",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -2206,7 +2214,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fenrir's Fortune",
+    "name": "Fortune",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "–",
@@ -2216,7 +2224,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fenrir's In Full Bloom",
+    "name": "In Full Bloom",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2227,7 +2235,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Kismet",
+    "name": "Kismet",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "–",
@@ -2237,7 +2245,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fenrir's Legion Hunt",
+    "name": "Legion Hunt",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -2248,7 +2256,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Fenrir's Patrol",
+    "name": "Patrol",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2259,7 +2267,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Fenrir's Pierce",
+    "name": "Pierce",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -2269,7 +2277,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fenrir's Piercing Ascent",
+    "name": "Piercing Ascent",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2280,7 +2288,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Puncture Cascade",
+    "name": "Puncture Cascade",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2291,7 +2299,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Savage Charge",
+    "name": "Savage Charge",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2302,7 +2310,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Severance",
+    "name": "Severance",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◬",
@@ -2312,7 +2320,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Fenrir's Shockwave Echo",
+    "name": "Shockwave Echo",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2323,7 +2331,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Sundering Edgefield",
+    "name": "Sundering Edgefield",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2334,7 +2342,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Fenrir's Swift Dropshot",
+    "name": "Swift Dropshot",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -2344,7 +2352,7 @@ export const allMods: Mod[] = [
     "source": "Level 55, Level 60"
   },
   {
-    "name": "Fenrir's Swift Momentum",
+    "name": "Swift Momentum",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "⊙",
@@ -2354,7 +2362,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Fenrir's Utmost",
+    "name": "Utmost",
     "rarity": 3,
     "modType": "Melee Weapon",
     "mainAttribute": "–",
@@ -2364,7 +2372,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Fenrir's Vigilance",
+    "name": "Vigilance",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2375,7 +2383,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Fenrir's Whirl of Illusion",
+    "name": "Whirl of Illusion",
     "rarity": 4,
     "modType": "Melee Weapon",
     "symbol": "◊",
@@ -2386,7 +2394,7 @@ export const allMods: Mod[] = [
     "source": "Shop Exchange"
   },
   {
-    "name": "Griffin's Inferno",
+    "name": "Inferno",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2398,7 +2406,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Inferno",
+    "name": "Inferno",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2410,7 +2418,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Inferno",
+    "name": "Inferno",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Volition",
@@ -2421,7 +2429,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Griffin's Inferno",
+    "name": "Inferno",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2433,7 +2441,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Inferno",
+    "name": "Inferno",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2445,7 +2453,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Nihility",
+    "name": "Nihility",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2457,7 +2465,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Nihility",
+    "name": "Nihility",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2469,7 +2477,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Nihility",
+    "name": "Nihility",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Volition",
@@ -2480,7 +2488,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Griffin's Nihility",
+    "name": "Nihility",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2492,7 +2500,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Nihility",
+    "name": "Nihility",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2504,7 +2512,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Seawave",
+    "name": "Seawave",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2516,7 +2524,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Seawave",
+    "name": "Seawave",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2528,7 +2536,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Seawave",
+    "name": "Seawave",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Volition",
@@ -2539,7 +2547,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Griffin's Seawave",
+    "name": "Seawave",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2551,7 +2559,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Seawave",
+    "name": "Seawave",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2563,7 +2571,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Skylume",
+    "name": "Skylume",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2575,7 +2583,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Skylume",
+    "name": "Skylume",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2587,7 +2595,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Skylume",
+    "name": "Skylume",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Volition",
@@ -2598,7 +2606,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Griffin's Skylume",
+    "name": "Skylume",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2610,7 +2618,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Skylume",
+    "name": "Skylume",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2622,7 +2630,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Squall",
+    "name": "Squall",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2634,7 +2642,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Squall",
+    "name": "Squall",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Volition",
@@ -2645,7 +2653,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Griffin's Squall",
+    "name": "Squall",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2657,7 +2665,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Squall",
+    "name": "Squall",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2669,7 +2677,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Thunder",
+    "name": "Thunder",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Midnight Sun",
@@ -2681,7 +2689,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Griffin's Thunder",
+    "name": "Thunder",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Volition",
@@ -2692,7 +2700,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Griffin's Thunder",
+    "name": "Thunder",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2704,7 +2712,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Griffin's Thunder",
+    "name": "Thunder",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Wildfire",
@@ -2716,7 +2724,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Hastur's Turbulent Cyclone",
+    "name": "Turbulent Cyclone",
     "rarity": 4,
     "modType": "Characters",
     "element": "Anemo",
@@ -2728,7 +2736,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Hastur's Turbulent Cyclone",
+    "name": "Turbulent Cyclone",
     "rarity": 5,
     "modType": "Characters",
     "element": "Anemo",
@@ -2740,7 +2748,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Hastur's Whispering Zephyr",
+    "name": "Whispering Zephyr",
     "rarity": 4,
     "modType": "Characters",
     "element": "Anemo",
@@ -2752,7 +2760,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Hastur's Whispering Zephyr",
+    "name": "Whispering Zephyr",
     "rarity": 5,
     "modType": "Characters",
     "element": "Anemo",
@@ -2764,7 +2772,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Helios's Glimm & Glimmer",
+    "name": "Glimm & Glimmer",
     "rarity": 4,
     "modType": "Characters",
     "element": "Lumino",
@@ -2776,7 +2784,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Helios's Glimm & Glimmer",
+    "name": "Glimm & Glimmer",
     "rarity": 5,
     "modType": "Characters",
     "element": "Lumino",
@@ -2788,7 +2796,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Helios's Prismatic Neon",
+    "name": "Prismatic Neon",
     "rarity": 4,
     "modType": "Characters",
     "element": "Lumino",
@@ -2800,7 +2808,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Helios's Prismatic Neon",
+    "name": "Prismatic Neon",
     "rarity": 5,
     "modType": "Characters",
     "element": "Lumino",
@@ -2812,7 +2820,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Ifrit's Devouring Wildfire",
+    "name": "Devouring Wildfire",
     "rarity": 4,
     "modType": "Characters",
     "element": "Pyro",
@@ -2824,7 +2832,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Ifrit's Devouring Wildfire",
+    "name": "Devouring Wildfire",
     "rarity": 5,
     "modType": "Characters",
     "element": "Pyro",
@@ -2836,7 +2844,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Jormugand's Gleaming Assault Rifle",
+    "name": "Gleaming Assault Rifle",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2847,7 +2855,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Assault Rifle",
+    "name": "Gleaming Assault Rifle",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2858,7 +2866,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Bow",
+    "name": "Gleaming Bow",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2869,7 +2877,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Bow",
+    "name": "Gleaming Bow",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2880,7 +2888,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Dual Blades",
+    "name": "Gleaming Dual Blades",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2891,7 +2899,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Dual Blades",
+    "name": "Gleaming Dual Blades",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2902,7 +2910,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Dual Pistols",
+    "name": "Gleaming Dual Pistols",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2913,7 +2921,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Dual Pistols",
+    "name": "Gleaming Dual Pistols",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2924,7 +2932,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Greatsword",
+    "name": "Gleaming Greatsword",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2935,7 +2943,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Greatsword",
+    "name": "Gleaming Greatsword",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2946,7 +2954,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Grenade Launcher",
+    "name": "Gleaming Grenade Launcher",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2957,7 +2965,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Grenade Launcher",
+    "name": "Gleaming Grenade Launcher",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2968,7 +2976,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Katana",
+    "name": "Gleaming Katana",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2979,7 +2987,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Katana",
+    "name": "Gleaming Katana",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -2990,7 +2998,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Pistol",
+    "name": "Gleaming Pistol",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3001,7 +3009,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Pistol",
+    "name": "Gleaming Pistol",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3012,7 +3020,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Polearm",
+    "name": "Gleaming Polearm",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3023,7 +3031,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Polearm",
+    "name": "Gleaming Polearm",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3034,7 +3042,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Shotgun",
+    "name": "Gleaming Shotgun",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3045,7 +3053,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Shotgun",
+    "name": "Gleaming Shotgun",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3056,7 +3064,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Sword",
+    "name": "Gleaming Sword",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3067,7 +3075,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Sword",
+    "name": "Gleaming Sword",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3078,7 +3086,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Jormugand's Gleaming Whipsword",
+    "name": "Gleaming Whipsword",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3089,7 +3097,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Jormugand's Gleaming Whipsword",
+    "name": "Gleaming Whipsword",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3100,7 +3108,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Lilith's Celerity",
+    "name": "Celerity",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "ATK Speed +30%",
@@ -3109,7 +3117,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Lilith's Celerity",
+    "name": "Celerity",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
@@ -3119,7 +3127,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Celerity",
+    "name": "Celerity",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "variant": "Cunning",
@@ -3130,7 +3138,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Lilith's Crusher",
+    "name": "Crusher",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Smash ATK +50%",
@@ -3139,7 +3147,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Lilith's Crusher",
+    "name": "Crusher",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -3149,7 +3157,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Crusher",
+    "name": "Crusher",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "variant": "Quiver",
@@ -3160,7 +3168,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Lilith's Crusher",
+    "name": "Crusher",
     "rarity": 2,
     "modType": "Ranged Weapon",
     "variant": "Trammel",
@@ -3170,7 +3178,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Lilith's Edge",
+    "name": "Edge",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Slash ATK +50%",
@@ -3179,7 +3187,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Lilith's Edge",
+    "name": "Edge",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -3189,7 +3197,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Edge",
+    "name": "Edge",
     "rarity": 2,
     "modType": "Ranged Weapon",
     "variant": "Trammel",
@@ -3199,7 +3207,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Lilith's Focus",
+    "name": "Focus",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -3209,7 +3217,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Lilith's Focus",
+    "name": "Focus",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "variant": "Mass",
@@ -3220,7 +3228,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Lilith's Foldover",
+    "name": "Foldover",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Multishot +60%",
@@ -3229,7 +3237,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Lilith's Foldover",
+    "name": "Foldover",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "⊙",
@@ -3239,7 +3247,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Impetus",
+    "name": "Impetus",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -3249,7 +3257,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Lilith's Impetus",
+    "name": "Impetus",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -3259,7 +3267,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Impetus",
+    "name": "Impetus",
     "rarity": 2,
     "modType": "Ranged Weapon",
     "variant": "Focus",
@@ -3269,7 +3277,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Lilith's Impetus",
+    "name": "Impetus",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "variant": "Focus",
@@ -3280,7 +3288,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Penetration",
+    "name": "Penetration",
     "rarity": 3,
     "modType": "Ranged Weapon",
     "mainAttribute": "Spike ATK +50%",
@@ -3289,7 +3297,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Lilith's Penetration",
+    "name": "Penetration",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -3299,7 +3307,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Penetration",
+    "name": "Penetration",
     "rarity": 2,
     "modType": "Ranged Weapon",
     "variant": "Trammel",
@@ -3309,7 +3317,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Lilith's Quiver",
+    "name": "Quiver",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "variant": "Loadout",
@@ -3320,7 +3328,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Lilith's Rage",
+    "name": "Rage",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "◬",
@@ -3330,7 +3338,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Lilith's Rage",
+    "name": "Rage",
     "rarity": 2,
     "modType": "Ranged Weapon",
     "variant": "Trammel",
@@ -3340,7 +3348,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Lilith's Rage",
+    "name": "Rage",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "variant": "Trammel",
@@ -3351,7 +3359,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Lilith's Rage",
+    "name": "Rage",
     "rarity": 5,
     "modType": "Ranged Weapon",
     "variant": "Trammel",
@@ -3362,7 +3370,7 @@ export const allMods: Mod[] = [
     "source": "Level 70, Level 80"
   },
   {
-    "name": "Lilith's Rain of Quivers",
+    "name": "Rain of Quivers",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "☽",
@@ -3373,7 +3381,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Lilith's Trammel",
+    "name": "Trammel",
     "rarity": 4,
     "modType": "Ranged Weapon",
     "symbol": "☽",
@@ -3383,7 +3391,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Pan's Eternity",
+    "name": "Eternity",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "Skill Duration +20%",
@@ -3392,7 +3400,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Pan's Eternity",
+    "name": "Eternity",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Abnegation",
@@ -3403,7 +3411,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Pan's Inspo",
+    "name": "Inspo",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "Skill Efficiency +16%",
@@ -3412,7 +3420,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Pan's Inspo",
+    "name": "Inspo",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Elapse",
@@ -3422,7 +3430,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Pan's Inspo",
+    "name": "Inspo",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Shards",
@@ -3432,7 +3440,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Pan's Spectrum",
+    "name": "Spectrum",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "Skill Range +30%",
@@ -3441,7 +3449,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Pan's Spectrum",
+    "name": "Spectrum",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Omen",
@@ -3452,7 +3460,7 @@ export const allMods: Mod[] = [
     "source": "Level 55"
   },
   {
-    "name": "Pan's Volition",
+    "name": "Volition",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "Skill DMG +24%",
@@ -3461,7 +3469,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Pan's Wings",
+    "name": "Wings",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Elapse",
@@ -3471,7 +3479,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Pan's Wings",
+    "name": "Wings",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Shards",
@@ -3481,7 +3489,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Phoenix's Blaze",
+    "name": "Blaze",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "ATK +60%",
@@ -3490,7 +3498,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Phoenix's Blaze",
+    "name": "Blaze",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "◬",
@@ -3500,7 +3508,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Phoenix's Blaze",
+    "name": "Blaze",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Blessing",
@@ -3510,7 +3518,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Phoenix's Blaze",
+    "name": "Blaze",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Nirvana",
@@ -3520,7 +3528,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Phoenix's Blaze",
+    "name": "Blaze",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Standfast",
@@ -3530,7 +3538,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Phoenix's Blaze",
+    "name": "Blaze",
     "rarity": 2,
     "modType": "Characters",
     "variant": "Wings",
@@ -3540,7 +3548,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Phoenix's Blaze",
+    "name": "Blaze",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Wings",
@@ -3550,7 +3558,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Phoenix's Blessing",
+    "name": "Blessing",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "Shield +60%",
@@ -3559,7 +3567,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Phoenix's Blessing",
+    "name": "Blessing",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "☽",
@@ -3569,7 +3577,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Phoenix's Nirvana",
+    "name": "Nirvana",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "HP +60%",
@@ -3578,7 +3586,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Phoenix's Nirvana",
+    "name": "Nirvana",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "☽",
@@ -3588,7 +3596,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Phoenix's Nirvana",
+    "name": "Nirvana",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "☽",
@@ -3598,7 +3606,7 @@ export const allMods: Mod[] = [
     "source": "Level 80"
   },
   {
-    "name": "Phoenix's Nirvana",
+    "name": "Nirvana",
     "rarity": 2,
     "modType": "Characters",
     "variant": "Blessing",
@@ -3608,7 +3616,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Phoenix's Nirvana",
+    "name": "Nirvana",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Blessing",
@@ -3618,7 +3626,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Phoenix's Nirvana",
+    "name": "Nirvana",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Standfast",
@@ -3628,7 +3636,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Phoenix's Nirvana",
+    "name": "Nirvana",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Wings",
@@ -3638,7 +3646,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Phoenix's Shield",
+    "name": "Shield",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "☽",
@@ -3648,7 +3656,7 @@ export const allMods: Mod[] = [
     "source": "Level 80"
   },
   {
-    "name": "Phoenix's Standfast",
+    "name": "Standfast",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "DEF +60%",
@@ -3657,7 +3665,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Phoenix's Standfast",
+    "name": "Standfast",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "☽",
@@ -3667,7 +3675,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Phoenix's Standfast",
+    "name": "Standfast",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "☽",
@@ -3677,7 +3685,7 @@ export const allMods: Mod[] = [
     "source": "Level 80"
   },
   {
-    "name": "Phoenix's Wings",
+    "name": "Wings",
     "rarity": 3,
     "modType": "Characters",
     "mainAttribute": "Max Sanity +40%",
@@ -3686,7 +3694,7 @@ export const allMods: Mod[] = [
     "source": "Level 30"
   },
   {
-    "name": "Phoenix's Wings",
+    "name": "Wings",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3696,7 +3704,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Phoenix's Wings",
+    "name": "Wings",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Standfast",
@@ -3706,7 +3714,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Siren's Wings",
+    "name": "Wings",
     "rarity": 3,
     "modType": "Characters",
     "variant": "Inspo",
@@ -3716,7 +3724,7 @@ export const allMods: Mod[] = [
     "source": "Level 40"
   },
   {
-    "name": "Siren's Wings",
+    "name": "Wings",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Inspo",
@@ -3727,7 +3735,7 @@ export const allMods: Mod[] = [
     "source": "Level 80"
   },
   {
-    "name": "Sphinx's Duel",
+    "name": "Duel",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3738,7 +3746,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Sphinx's Duel",
+    "name": "Duel",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3749,7 +3757,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Sphinx's Intrepidity",
+    "name": "Intrepidity",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3760,7 +3768,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Sphinx's Intrepidity",
+    "name": "Intrepidity",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3771,7 +3779,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Sphinx's Onslaught",
+    "name": "Onslaught",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3782,7 +3790,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Sphinx's Onslaught",
+    "name": "Onslaught",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3793,7 +3801,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Sphinx's Relentless",
+    "name": "Relentless",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3804,7 +3812,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Sphinx's Relentless",
+    "name": "Relentless",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3815,7 +3823,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Sphinx's Surge",
+    "name": "Surge",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3826,7 +3834,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Sphinx's Surge",
+    "name": "Surge",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3837,7 +3845,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Sphinx's Trapped",
+    "name": "Trapped",
     "rarity": 4,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3848,7 +3856,7 @@ export const allMods: Mod[] = [
     "source": "Level 60"
   },
   {
-    "name": "Sphinx's Trapped",
+    "name": "Trapped",
     "rarity": 5,
     "modType": "Characters",
     "symbol": "⊙",
@@ -3859,7 +3867,7 @@ export const allMods: Mod[] = [
     "source": "Level 70"
   },
   {
-    "name": "Summanus's Ravaging Thunder",
+    "name": "Ravaging Thunder",
     "rarity": 4,
     "modType": "Characters",
     "element": "Electro",
@@ -3871,7 +3879,7 @@ export const allMods: Mod[] = [
     "source": "Level 65"
   },
   {
-    "name": "Summanus's Ravaging Thunder",
+    "name": "Ravaging Thunder",
     "rarity": 5,
     "modType": "Characters",
     "element": "Electro",
@@ -3883,7 +3891,7 @@ export const allMods: Mod[] = [
     "source": "Covert Comission"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 2,
     "modType": "Characters",
     "element": "Anemo",
@@ -3893,7 +3901,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 2,
     "modType": "Characters",
     "element": "Electro",
@@ -3903,7 +3911,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 2,
     "modType": "Characters",
     "element": "Hydro",
@@ -3913,7 +3921,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 2,
     "modType": "Characters",
     "element": "Lumino",
@@ -3923,7 +3931,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 2,
     "modType": "Characters",
     "element": "Pyro",
@@ -3933,7 +3941,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 2,
     "modType": "Characters",
     "element": "Umbro",
@@ -3943,7 +3951,7 @@ export const allMods: Mod[] = [
     "source": "Level 20"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -3956,7 +3964,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -3969,7 +3977,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -3982,7 +3990,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -3995,7 +4003,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4008,7 +4016,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4021,7 +4029,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4034,7 +4042,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4047,7 +4055,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4060,7 +4068,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4073,7 +4081,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4086,7 +4094,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Huntdown",
@@ -4099,7 +4107,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -4111,7 +4119,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -4123,7 +4131,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -4135,7 +4143,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -4147,7 +4155,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -4159,7 +4167,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -4171,7 +4179,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -4183,7 +4191,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -4195,7 +4203,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -4207,7 +4215,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -4219,7 +4227,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Morale",
@@ -4231,7 +4239,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Morale",
@@ -4243,7 +4251,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4255,7 +4263,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4267,7 +4275,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4279,7 +4287,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4291,7 +4299,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4303,7 +4311,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4315,7 +4323,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4327,7 +4335,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4339,7 +4347,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4351,7 +4359,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4363,7 +4371,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4375,7 +4383,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Resolve",
@@ -4387,7 +4395,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4400,7 +4408,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4413,7 +4421,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4426,7 +4434,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4439,7 +4447,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4452,7 +4460,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4465,7 +4473,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4478,7 +4486,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4491,7 +4499,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4504,7 +4512,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4517,7 +4525,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4530,7 +4538,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Serenity",
@@ -4543,7 +4551,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4556,7 +4564,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4569,7 +4577,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4582,7 +4590,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4595,7 +4603,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4608,7 +4616,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4621,7 +4629,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4634,7 +4642,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4647,7 +4655,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4660,7 +4668,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4673,7 +4681,7 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 4,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4686,7 +4694,7 @@ export const allMods: Mod[] = [
     "source": "Level 50"
   },
   {
-    "name": "Typhon's Prime",
+    "name": "Prime",
     "rarity": 5,
     "modType": "Characters",
     "variant": "Uplift",
@@ -4699,15 +4707,18 @@ export const allMods: Mod[] = [
     "source": "Bounty"
   },
 ].map(m => {
+  const displayName = getModDisplayName(m as any);
   const mod: any = {
     ...m,
+    name: displayName, // Use full display name (base + variant)
     rarity: m.rarity as ModRarity,
-    id: generateId(m.name + (m.variant || '') + (m.element || '') + m.rarity),
-    image: getModImage(m.name, m.element)
+    id: generateId(displayName + (m.element || '') + m.rarity),
+    image: getModImage((m as any).name, (m as any).element) // Use base name for image lookup
   };
 
-  // Add Prime mod properties for Typhon's Prime mods
-  if (m.name === "Typhon's Prime") {
+  // Add Prime mod properties for Prime mods (formerly Typhon's Prime)
+  const baseName = (m as any).name;
+  if (baseName === "Prime") {
     mod.isPrimeMod = true;
     // Tolerance boost based on rarity
     if (m.rarity === 2) {

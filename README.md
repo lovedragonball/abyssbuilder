@@ -11,6 +11,8 @@ A Next.js application for creating and sharing character/weapon builds.
 - 💾 Local storage - all data stored in your browser
 - 🎨 Beautiful UI with Radix UI + Tailwind CSS
 - 📱 Responsive design
+- ✨ Smooth page transitions with accessibility support
+- ♿ Full accessibility compliance (WCAG 2.1)
 
 ## Getting Started
 
@@ -81,6 +83,26 @@ All data is stored locally in your browser's Local Storage. This means:
 - No database setup needed
 - Data persists in your browser
 - Each browser has its own data
+
+## Accessibility
+
+This application is built with accessibility in mind:
+- **Keyboard Navigation**: Full keyboard support throughout the application
+- **Screen Reader Support**: ARIA labels and live regions for important updates
+- **Reduced Motion**: Respects `prefers-reduced-motion` system preference
+- **Focus Management**: Proper focus handling during page transitions
+- **Color Contrast**: WCAG 2.1 AA compliant color schemes
+
+## Recent Updates
+
+### Page Rendering Fix (November 2024)
+Fixed critical issue where pages would not display content when navigating through menus. The solution includes:
+- Enhanced page transition animations with fallback mechanisms
+- Error boundary for graceful degradation
+- Improved accessibility features
+- Comprehensive testing coverage
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed information.
 
 ## License
 

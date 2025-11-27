@@ -14,9 +14,10 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Sparkles, Sword, Users, Zap, Grid3x3, List, SortAsc, Star, TrendingUp, X } from 'lucide-react';
+import { Search, Sparkles, Sword, Users, Zap, Grid3x3, List, SortAsc, Star, TrendingUp, X, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { WeaponInfoModal } from '@/components/WeaponInfoModal';
 
 
 const characterElements: (Element | 'all')[] = ['all', 'Lumino', 'Anemo', 'Hydro', 'Pyro', 'Electro', 'Umbro'];
@@ -378,6 +379,7 @@ const WeaponGrid = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
     const [sortBy, setSortBy] = useState<'name' | 'type'>('name');
+    const [isWeaponInfoOpen, setIsWeaponInfoOpen] = useState(false);
 
     const filteredWeapons = useMemo(() => {
         let filtered = allWeapons;
@@ -460,6 +462,101 @@ const WeaponGrid = () => {
                     </motion.div>
 
                     <div className="flex items-center gap-2">
+                        {/* Weapon Info Button - Ultra Enhanced */}
+                        <motion.div
+                            className="relative"
+                            whileHover={{ scale: 1.08 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            {/* Animated Glow Ring */}
+                            <motion.div
+                                className="absolute -inset-1 rounded-lg bg-gradient-to-r from-primary via-blue-500 to-purple-500 opacity-75 blur-md"
+                                animate={{
+                                    opacity: [0.5, 0.8, 0.5],
+                                    scale: [1, 1.05, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
+
+                            {/* Secondary Glow Pulse */}
+                            <motion.div
+                                className="absolute -inset-2 rounded-lg bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 opacity-40 blur-xl"
+                                animate={{
+                                    opacity: [0.2, 0.5, 0.2],
+                                    scale: [0.95, 1.1, 0.95],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.5
+                                }}
+                            />
+
+                            {/* Pulsing Notification Dot - Top Layer */}
+                            <motion.span
+                                className="absolute -top-2 -right-2 flex h-5 w-5 z-50"
+                                animate={{
+                                    scale: [1, 1.3, 1],
+                                }}
+                                transition={{
+                                    duration: 1.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-5 w-5 bg-yellow-300 shadow-lg border-2 border-white"></span>
+                            </motion.span>
+
+                            <Button
+                                variant="default"
+                                size="lg"
+                                onClick={() => setIsWeaponInfoOpen(true)}
+                                className="relative overflow-hidden flex items-center gap-3 bg-gradient-to-r from-primary via-blue-600 to-purple-600 hover:from-primary/95 hover:via-blue-700 hover:to-purple-700 text-white font-bold shadow-2xl hover:shadow-primary/50 transition-all duration-300 border-2 border-white/20 px-6 py-3 text-base"
+                            >
+                                {/* Shine Effect */}
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                                    animate={{
+                                        x: ['-200%', '200%'],
+                                    }}
+                                    transition={{
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: "linear",
+                                        repeatDelay: 1
+                                    }}
+                                    style={{ width: '50%' }}
+                                />
+
+                                {/* Animated Icon */}
+                                <motion.div
+                                    className="relative z-10"
+                                    animate={{
+                                        rotate: [0, 15, -15, 0],
+                                        scale: [1, 1.1, 1],
+                                    }}
+                                    transition={{
+                                        duration: 2.5,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                >
+                                    <Info className="h-6 w-6 drop-shadow-lg" />
+                                </motion.div>
+
+                                {/* Text with Effects */}
+                                <span className="relative z-10">
+                                    <span className="drop-shadow-lg tracking-wide">Weapon Info</span>
+                                </span>
+                            </Button>
+                        </motion.div>
+
                         <Select value={sortBy} onValueChange={(value) => setSortBy(value as 'name' | 'type')}>
                             <SelectTrigger className="w-32">
                                 <SortAsc className="h-4 w-4 mr-2" />
@@ -555,6 +652,12 @@ const WeaponGrid = () => {
                     )}
                 </motion.div>
             </AnimatePresence>
+
+            {/* Weapon Info Modal */}
+            <WeaponInfoModal
+                open={isWeaponInfoOpen}
+                onOpenChange={setIsWeaponInfoOpen}
+            />
         </motion.div>
     )
 }
@@ -562,20 +665,26 @@ const WeaponGrid = () => {
 const GeniemonGrid = () => {
     const [selectedElement, setSelectedElement] = useState<GeniemonElement | 'all'>('all');
     const [searchQuery, setSearchQuery] = useState('');
-    const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-    const [sortBy, setSortBy] = useState<'name' | 'element'>('name');
+    const [sortBy, setSortBy] = useState<'name' | 'element' | 'rarity'>('name');
+    const [rarityFilter, setRarityFilter] = useState<'all' | '2' | '3' | '4' | '5'>('all');
 
     const filteredGeniemon = useMemo(() => {
-        let filtered = allGeniemon;
+        let filtered = allGeniemon.filter(g => g.status === 'Active'); // Only show active geniemon
 
         if (selectedElement !== 'all') {
             filtered = filtered.filter(g => g.element === selectedElement);
         }
 
+        if (rarityFilter !== 'all') {
+            filtered = filtered.filter(g => g.rarity === parseInt(rarityFilter));
+        }
+
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase();
             filtered = filtered.filter(g =>
-                g.name.toLowerCase().includes(query)
+                g.name.toLowerCase().includes(query) ||
+                g.activeSkill.description.toLowerCase().includes(query) ||
+                g.passiveSkill.description.toLowerCase().includes(query)
             );
         }
 
@@ -584,10 +693,28 @@ const GeniemonGrid = () => {
             filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
         } else if (sortBy === 'element') {
             filtered = [...filtered].sort((a, b) => a.element.localeCompare(b.element));
+        } else if (sortBy === 'rarity') {
+            filtered = [...filtered].sort((a, b) => b.rarity - a.rarity);
         }
 
         return filtered;
-    }, [selectedElement, searchQuery, sortBy]);
+    }, [selectedElement, searchQuery, sortBy, rarityFilter]);
+
+    const getRarityColor = (rarity: number) => {
+        switch (rarity) {
+            case 5: return 'from-yellow-600/20 via-yellow-500/10 to-transparent';
+            case 4: return 'from-purple-600/20 via-purple-500/10 to-transparent';
+            case 3: return 'from-blue-600/20 via-blue-500/10 to-transparent';
+            case 2: return 'from-green-600/20 via-green-500/10 to-transparent';
+            default: return 'from-gray-600/20 via-gray-500/10 to-transparent';
+        }
+    };
+
+    const getRarityStars = (rarity: number) => {
+        return Array.from({ length: rarity }, (_, i) => (
+            <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+        ));
+    };
 
     return (
         <motion.div
@@ -651,6 +778,20 @@ const GeniemonGrid = () => {
                     </div>
 
                     <div className="ml-auto flex items-center gap-2">
+                        <Select value={rarityFilter} onValueChange={(value) => setRarityFilter(value as 'all' | '2' | '3' | '4' | '5')}>
+                            <SelectTrigger className="w-32">
+                                <Star className="h-4 w-4 mr-2" />
+                                <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">All Rarity</SelectItem>
+                                <SelectItem value="5">5 Star</SelectItem>
+                                <SelectItem value="4">4 Star</SelectItem>
+                                <SelectItem value="3">3 Star</SelectItem>
+                                <SelectItem value="2">2 Star</SelectItem>
+                            </SelectContent>
+                        </Select>
+
                         <motion.div
                             className="flex items-center gap-2 px-3 py-1.5 bg-card border rounded-md text-sm"
                             whileHover={{ scale: 1.05 }}
@@ -660,7 +801,7 @@ const GeniemonGrid = () => {
                             <span className="text-muted-foreground">items</span>
                         </motion.div>
 
-                        <Select value={sortBy} onValueChange={(value) => setSortBy(value as 'name' | 'element')}>
+                        <Select value={sortBy} onValueChange={(value) => setSortBy(value as 'name' | 'element' | 'rarity')}>
                             <SelectTrigger className="w-32">
                                 <SortAsc className="h-4 w-4 mr-2" />
                                 <SelectValue />
@@ -668,80 +809,225 @@ const GeniemonGrid = () => {
                             <SelectContent>
                                 <SelectItem value="name">Name</SelectItem>
                                 <SelectItem value="element">Element</SelectItem>
+                                <SelectItem value="rarity">Rarity</SelectItem>
                             </SelectContent>
                         </Select>
-
-                        <div className="flex gap-1 p-1 bg-card border rounded-md">
-                            <Button
-                                variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                                size="sm"
-                                onClick={() => setViewMode('grid')}
-                                className="h-8 w-8 p-0"
-                            >
-                                <Grid3x3 className="h-4 w-4" />
-                            </Button>
-                            <Button
-                                variant={viewMode === 'list' ? 'default' : 'ghost'}
-                                size="sm"
-                                onClick={() => setViewMode('list')}
-                                className="h-8 w-8 p-0"
-                            >
-                                <List className="h-4 w-4" />
-                            </Button>
-                        </div>
                     </div>
                 </motion.div>
             </div>
 
             <AnimatePresence mode="wait">
                 <motion.div
-                    key={`${selectedElement}-${searchQuery}-${viewMode}`}
+                    key={`${selectedElement}-${searchQuery}-${rarityFilter}-${sortBy}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
                 >
                     {filteredGeniemon.length > 0 ? (
-                        viewMode === 'grid' ? (
-                            <ItemGrid items={filteredGeniemon} type="geniemon" />
-                        ) : (
-                            <div className="space-y-2">
-                                {filteredGeniemon.map((geniemon, index) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {filteredGeniemon.map((geniemon, index) => {
+                                const getElementColor = (element: string) => {
+                                    switch (element) {
+                                        case 'Pyro': return { text: 'text-red-400', glow: 'shadow-red-500/20', border: 'border-red-500/30' };
+                                        case 'Hydro': return { text: 'text-blue-400', glow: 'shadow-blue-500/20', border: 'border-blue-500/30' };
+                                        case 'Electro': return { text: 'text-purple-400', glow: 'shadow-purple-500/20', border: 'border-purple-500/30' };
+                                        case 'Anemo': return { text: 'text-cyan-400', glow: 'shadow-cyan-500/20', border: 'border-cyan-500/30' };
+                                        case 'Umbro': return { text: 'text-indigo-400', glow: 'shadow-indigo-500/20', border: 'border-indigo-500/30' };
+                                        case 'Lumino': return { text: 'text-yellow-400', glow: 'shadow-yellow-500/20', border: 'border-yellow-500/30' };
+                                        default: return { text: 'text-gray-400', glow: 'shadow-gray-500/20', border: 'border-gray-500/30' };
+                                    }
+                                };
+
+                                const elementTheme = getElementColor(geniemon.element);
+
+                                return (
                                     <motion.div
                                         key={geniemon.id}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: index * 0.03 }}
+                                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                                        transition={{
+                                            delay: index * 0.05,
+                                            type: "spring",
+                                            stiffness: 100,
+                                            damping: 15
+                                        }}
+                                        whileHover={{
+                                            y: -8,
+                                            transition: { duration: 0.2 }
+                                        }}
                                     >
-                                        <Link href={`/geniemon/${geniemon.id}`}>
-                                            <Card className="p-4 hover:border-primary transition-all hover:shadow-lg group cursor-pointer">
+                                        <Card className={`
+                                            group relative overflow-hidden 
+                                            bg-gradient-to-br ${getRarityColor(geniemon.rarity)} 
+                                            backdrop-blur-sm border-2 
+                                            hover:border-primary/70 
+                                            transition-all duration-500 
+                                            hover:shadow-2xl ${elementTheme.glow}
+                                            cursor-pointer
+                                        `}>
+                                            {/* Animated Background Glow */}
+                                            <motion.div
+                                                className={`absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent`}
+                                                initial={{ x: '-100%' }}
+                                                whileHover={{ x: '100%' }}
+                                                transition={{ duration: 0.8, ease: "easeInOut" }}
+                                            />
+
+                                            {/* Rarity Badge with Pulse */}
+                                            <motion.div
+                                                className="absolute top-2 right-2 z-10"
+                                                animate={{
+                                                    scale: [1, 1.05, 1],
+                                                }}
+                                                transition={{
+                                                    duration: 2,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut"
+                                                }}
+                                            >
+                                                <div className="flex gap-0.5 bg-black/60 backdrop-blur-sm px-2 py-1 rounded-full border border-white/20">
+                                                    {getRarityStars(geniemon.rarity)}
+                                                </div>
+                                            </motion.div>
+
+                                            {/* Header with Image and Name */}
+                                            <div className="p-4 bg-black/30 border-b border-white/10 relative">
                                                 <div className="flex items-center gap-4">
-                                                    <div className="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                                                    {/* Animated Image Container */}
+                                                    <motion.div
+                                                        className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-black/40 border-2 ${elementTheme.border}`}
+                                                        whileHover={{ scale: 1.1, rotate: 5 }}
+                                                        transition={{ duration: 0.3 }}
+                                                    >
                                                         <Image
                                                             src={geniemon.image}
                                                             alt={geniemon.name}
                                                             fill
-                                                            className="object-cover group-hover:scale-110 transition-transform"
+                                                            className="object-cover transition-transform duration-500 group-hover:scale-110"
                                                         />
-                                                    </div>
+                                                        {/* Image Glow Overlay */}
+                                                        <motion.div
+                                                            className={`absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-primary/20`}
+                                                            initial={{ opacity: 0 }}
+                                                            whileHover={{ opacity: 1 }}
+                                                            transition={{ duration: 0.3 }}
+                                                        />
+                                                    </motion.div>
                                                     <div className="flex-1">
-                                                        <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                                                        <motion.h3
+                                                            className="font-bold text-lg text-foreground mb-1 group-hover:text-primary transition-colors"
+                                                            whileHover={{ x: 2 }}
+                                                        >
                                                             {geniemon.name}
-                                                        </h3>
-                                                        <div className="flex items-center gap-2 mt-1">
-                                                            <Badge variant="outline">{geniemon.element}</Badge>
+                                                        </motion.h3>
+                                                        <div className="flex items-center gap-2">
+                                                            <Badge
+                                                                variant="outline"
+                                                                className={`text-xs ${elementTheme.text} border-current transition-all group-hover:shadow-lg group-hover:shadow-current/20`}
+                                                            >
+                                                                {geniemon.element}
+                                                            </Badge>
                                                         </div>
                                                     </div>
-                                                    <div className="text-muted-foreground group-hover:text-primary transition-colors">
-                                                        →
-                                                    </div>
                                                 </div>
-                                            </Card>
-                                        </Link>
+                                            </div>
+
+                                            {/* Effect Section with Animated Icon */}
+                                            <div className="p-4 space-y-3 relative">
+                                                <div>
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <motion.div
+                                                            animate={{
+                                                                rotate: [0, 10, -10, 0],
+                                                                scale: [1, 1.1, 1],
+                                                            }}
+                                                            transition={{
+                                                                duration: 2,
+                                                                repeat: Infinity,
+                                                                ease: "easeInOut",
+                                                            }}
+                                                        >
+                                                            <Zap className="h-4 w-4 text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+                                                        </motion.div>
+                                                        <h4 className="text-sm font-bold text-blue-400 uppercase tracking-wide">Effect</h4>
+                                                        {geniemon.activeSkill.cooldown !== '-' && (
+                                                            <motion.span
+                                                                className="ml-auto text-xs px-2 py-0.5 bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30"
+                                                                whileHover={{ scale: 1.05 }}
+                                                            >
+                                                                CD: {geniemon.activeSkill.cooldown}
+                                                            </motion.span>
+                                                        )}
+                                                    </div>
+                                                    <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors">
+                                                        {geniemon.activeSkill.description}
+                                                    </p>
+                                                </div>
+
+                                                {/* Passive Section with Animated Icon */}
+                                                <div className="pt-3 border-t border-white/10">
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <motion.div
+                                                            animate={{
+                                                                rotate: [0, 180, 360],
+                                                                scale: [1, 1.2, 1],
+                                                            }}
+                                                            transition={{
+                                                                duration: 3,
+                                                                repeat: Infinity,
+                                                                ease: "easeInOut",
+                                                            }}
+                                                        >
+                                                            <Sparkles className="h-4 w-4 text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]" />
+                                                        </motion.div>
+                                                        <h4 className="text-sm font-bold text-purple-400 uppercase tracking-wide">Passive</h4>
+                                                    </div>
+                                                    <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors">
+                                                        {geniemon.passiveSkill.description}
+                                                    </p>
+                                                </div>
+
+                                                {/* Floating Particles Effect on Hover */}
+                                                <motion.div
+                                                    className="absolute inset-0 pointer-events-none"
+                                                    initial={{ opacity: 0 }}
+                                                    whileHover={{ opacity: 1 }}
+                                                >
+                                                    {[...Array(3)].map((_, i) => (
+                                                        <motion.div
+                                                            key={i}
+                                                            className={`absolute w-1 h-1 ${elementTheme.text} rounded-full`}
+                                                            style={{
+                                                                left: `${20 + i * 30}%`,
+                                                                top: '50%',
+                                                            }}
+                                                            animate={{
+                                                                y: [-20, -40, -20],
+                                                                opacity: [0, 1, 0],
+                                                            }}
+                                                            transition={{
+                                                                duration: 2,
+                                                                repeat: Infinity,
+                                                                delay: i * 0.3,
+                                                            }}
+                                                        />
+                                                    ))}
+                                                </motion.div>
+                                            </div>
+
+                                            {/* Bottom Glow Line */}
+                                            <motion.div
+                                                className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent`}
+                                                initial={{ scaleX: 0 }}
+                                                whileHover={{ scaleX: 1 }}
+                                                transition={{ duration: 0.3 }}
+                                            />
+                                        </Card>
                                     </motion.div>
-                                ))}
-                            </div>
-                        )
+                                );
+                            })}
+                        </div>
                     ) : (
                         <motion.div
                             className="text-center py-16"
@@ -758,6 +1044,9 @@ const GeniemonGrid = () => {
         </motion.div>
     )
 }
+
+
+
 
 
 

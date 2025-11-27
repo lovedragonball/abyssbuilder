@@ -5,6 +5,12 @@ import { useEffect, useState } from 'react';
 export default function MouseGradient() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Avoid rendering on the server to prevent hydration style mismatches from extensions
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -24,6 +30,10 @@ export default function MouseGradient() {
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [isVisible]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div

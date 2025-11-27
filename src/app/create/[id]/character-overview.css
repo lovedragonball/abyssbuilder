@@ -1,0 +1,26 @@
+/* Styles to hide unwanted elements in the embedded character overview */
+.character-overview-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.character-overview-iframe {
+    width: 100%;
+    min-height: 1200px;
+    border: 0;
+    display: block;
+    background: transparent;
+}
+
+/* Attempt to hide elements via iframe (may not work due to CORS) */
+.character-overview-iframe::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--background) 0%, transparent 100%);
+    pointer-events: none;
+}

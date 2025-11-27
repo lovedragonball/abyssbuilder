@@ -1,0 +1,1340 @@
+{
+  "name": "Lisbell",
+  "overview_stats": [
+    {
+      "Level": 1,
+      "ATK": "24.00",
+      "HP": "90.00",
+      "Shield": "90.00",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 2,
+      "ATK": "25.01",
+      "HP": "93.80",
+      "Shield": "93.80",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 3,
+      "ATK": "26.06",
+      "HP": "97.74",
+      "Shield": "97.74",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 4,
+      "ATK": "27.13",
+      "HP": "101.75",
+      "Shield": "101.75",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 5,
+      "ATK": "28.26",
+      "HP": "105.97",
+      "Shield": "105.97",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 6,
+      "ATK": "33.57",
+      "HP": "125.89",
+      "Shield": "125.89",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 7,
+      "ATK": "34.74",
+      "HP": "130.27",
+      "Shield": "130.27",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 8,
+      "ATK": "36.03",
+      "HP": "135.11",
+      "Shield": "135.11",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 9,
+      "ATK": "37.41",
+      "HP": "140.30",
+      "Shield": "140.30",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 10,
+      "ATK": "38.78",
+      "HP": "145.41",
+      "Shield": "145.41",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 11,
+      "ATK": "43.99",
+      "HP": "164.98",
+      "Shield": "164.98",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 12,
+      "ATK": "45.41",
+      "HP": "170.29",
+      "Shield": "170.29",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 13,
+      "ATK": "46.86",
+      "HP": "175.74",
+      "Shield": "175.74",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 14,
+      "ATK": "48.39",
+      "HP": "181.46",
+      "Shield": "181.46",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 15,
+      "ATK": "49.95",
+      "HP": "187.32",
+      "Shield": "187.32",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 16,
+      "ATK": "55.51",
+      "HP": "208.15",
+      "Shield": "208.15",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 17,
+      "ATK": "57.14",
+      "HP": "214.28",
+      "Shield": "214.28",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 18,
+      "ATK": "58.81",
+      "HP": "220.54",
+      "Shield": "220.54",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 19,
+      "ATK": "60.45",
+      "HP": "226.67",
+      "Shield": "226.67",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 20,
+      "ATK": "62.15",
+      "HP": "233.07",
+      "Shield": "233.07",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 21,
+      "ATK": "68.01",
+      "HP": "255.05",
+      "Shield": "255.05",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 22,
+      "ATK": "69.73",
+      "HP": "261.48",
+      "Shield": "261.48",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 23,
+      "ATK": "71.51",
+      "HP": "268.15",
+      "Shield": "268.15",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 24,
+      "ATK": "73.29",
+      "HP": "274.84",
+      "Shield": "274.84",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 25,
+      "ATK": "75.09",
+      "HP": "281.59",
+      "Shield": "281.59",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 26,
+      "ATK": "79.44",
+      "HP": "297.88",
+      "Shield": "297.88",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 27,
+      "ATK": "85.29",
+      "HP": "319.84",
+      "Shield": "319.84",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 28,
+      "ATK": "87.18",
+      "HP": "326.94",
+      "Shield": "326.94",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 29,
+      "ATK": "89.08",
+      "HP": "334.05",
+      "Shield": "334.05",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 30,
+      "ATK": "91.01",
+      "HP": "341.29",
+      "Shield": "341.29",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 31,
+      "ATK": "98.47",
+      "HP": "369.25",
+      "Shield": "369.25",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 32,
+      "ATK": "100.42",
+      "HP": "376.58",
+      "Shield": "376.58",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 33,
+      "ATK": "102.64",
+      "HP": "384.89",
+      "Shield": "384.89",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 34,
+      "ATK": "104.94",
+      "HP": "393.52",
+      "Shield": "393.52",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 35,
+      "ATK": "107.29",
+      "HP": "402.35",
+      "Shield": "402.35",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 36,
+      "ATK": "115.31",
+      "HP": "432.42",
+      "Shield": "432.42",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 37,
+      "ATK": "117.73",
+      "HP": "441.48",
+      "Shield": "441.48",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 38,
+      "ATK": "120.14",
+      "HP": "450.53",
+      "Shield": "450.53",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 39,
+      "ATK": "122.45",
+      "HP": "459.19",
+      "Shield": "459.19",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 40,
+      "ATK": "124.64",
+      "HP": "467.40",
+      "Shield": "467.40",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 41,
+      "ATK": "132.71",
+      "HP": "497.65",
+      "Shield": "497.65",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 42,
+      "ATK": "134.90",
+      "HP": "505.89",
+      "Shield": "505.89",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 43,
+      "ATK": "137.14",
+      "HP": "514.27",
+      "Shield": "514.27",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 44,
+      "ATK": "139.39",
+      "HP": "522.71",
+      "Shield": "522.71",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 45,
+      "ATK": "141.68",
+      "HP": "531.29",
+      "Shield": "531.29",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 46,
+      "ATK": "150.02",
+      "HP": "562.57",
+      "Shield": "562.57",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 47,
+      "ATK": "152.35",
+      "HP": "571.32",
+      "Shield": "571.32",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 48,
+      "ATK": "154.68",
+      "HP": "580.06",
+      "Shield": "580.06",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 49,
+      "ATK": "157.05",
+      "HP": "588.93",
+      "Shield": "588.93",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 50,
+      "ATK": "159.40",
+      "HP": "597.74",
+      "Shield": "597.74",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 51,
+      "ATK": "163.66",
+      "HP": "613.72",
+      "Shield": "613.72",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 52,
+      "ATK": "170.59",
+      "HP": "639.71",
+      "Shield": "639.71",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 53,
+      "ATK": "173.06",
+      "HP": "648.96",
+      "Shield": "648.96",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 54,
+      "ATK": "175.50",
+      "HP": "658.14",
+      "Shield": "658.14",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 55,
+      "ATK": "177.97",
+      "HP": "667.39",
+      "Shield": "667.39",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 56,
+      "ATK": "186.90",
+      "HP": "700.88",
+      "Shield": "700.88",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 57,
+      "ATK": "189.45",
+      "HP": "710.44",
+      "Shield": "710.44",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 58,
+      "ATK": "192.00",
+      "HP": "719.99",
+      "Shield": "719.99",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 59,
+      "ATK": "194.55",
+      "HP": "729.55",
+      "Shield": "729.55",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 60,
+      "ATK": "205.64",
+      "HP": "771.16",
+      "Shield": "771.16",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 61,
+      "ATK": "208.47",
+      "HP": "781.77",
+      "Shield": "781.77",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 62,
+      "ATK": "211.27",
+      "HP": "792.27",
+      "Shield": "792.27",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 63,
+      "ATK": "214.11",
+      "HP": "802.93",
+      "Shield": "802.93",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 64,
+      "ATK": "217.02",
+      "HP": "813.82",
+      "Shield": "813.82",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 65,
+      "ATK": "233.04",
+      "HP": "873.91",
+      "Shield": "873.91",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 66,
+      "ATK": "233.97",
+      "HP": "877.39",
+      "Shield": "877.39",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 67,
+      "ATK": "236.84",
+      "HP": "888.16",
+      "Shield": "888.16",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 68,
+      "ATK": "239.80",
+      "HP": "899.24",
+      "Shield": "899.24",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 69,
+      "ATK": "242.66",
+      "HP": "909.96",
+      "Shield": "909.96",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 70,
+      "ATK": "245.09",
+      "HP": "919.10",
+      "Shield": "919.10",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 71,
+      "ATK": "269.66",
+      "HP": "1011.24",
+      "Shield": "1011.24",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 72,
+      "ATK": "272.41",
+      "HP": "1021.54",
+      "Shield": "1021.54",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 73,
+      "ATK": "275.02",
+      "HP": "1031.31",
+      "Shield": "1031.31",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 74,
+      "ATK": "277.60",
+      "HP": "1041.00",
+      "Shield": "1041.00",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 75,
+      "ATK": "287.54",
+      "HP": "1078.28",
+      "Shield": "1078.28",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 76,
+      "ATK": "290.23",
+      "HP": "1088.37",
+      "Shield": "1088.37",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 77,
+      "ATK": "292.92",
+      "HP": "1098.46",
+      "Shield": "1098.46",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 78,
+      "ATK": "295.73",
+      "HP": "1109.00",
+      "Shield": "1109.00",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 79,
+      "ATK": "298.49",
+      "HP": "1119.35",
+      "Shield": "1119.35",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    },
+    {
+      "Level": 80,
+      "ATK": "301.25",
+      "HP": "1129.70",
+      "Shield": "1129.70",
+      "DEF": "240.00",
+      "Max Sanity": "150.00",
+      "Skill DMG": "100.00%",
+      "Skill Range": "100.00%",
+      "Skill Duration": "100.00%",
+      "Skill Efficiency": "100.00%",
+      "Morale": "0.00%",
+      "Resolve": "0.00%"
+    }
+  ],
+  "skills": {
+    "passiveNodes": [
+      {
+        "name": "ATK Boost",
+        "value": "+20%"
+      },
+      {
+        "name": "ATK Boost",
+        "value": "+30%"
+      },
+      {
+        "name": "Skill Duration Boost",
+        "value": "+6%"
+      },
+      {
+        "name": "Skill Duration Boost",
+        "value": "+9%"
+      }
+    ],
+    "talents": [
+      {
+        "name": "Can't Keep My Cool !!",
+        "description": "Unleashing [Samael]'s Charged Attack at Combo Level S extends [Impatience] Duration.",
+        "stats": [
+          {
+            "Stat": "[Impatience]\nDuration",
+            "Value": "12s"
+          }
+        ]
+      },
+      {
+        "name": "Crimson Radiance",
+        "description": "[Only active when deployed as a Combat Partner]Increase ATK for the character and their nearby Lumino allies.",
+        "stats": [
+          {
+            "Stat": "ATK Boost",
+            "Value": "50%"
+          }
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "name": "In the Name of Patience",
+        "type": "Skill (DMG)",
+        "description": "Lunges forward, dealing Lumino AOE DMG 3 times along the path, then slasms down to deal more Lumino AOE damage.",
+        "stats": [
+          {
+            "Stat": "Sanity Cost",
+            "Lv.1": "15",
+            "Lv.10": "15"
+          },
+          {
+            "Stat": "Lunge DMG",
+            "Lv.1": "274% x 3",
+            "Lv.10": "814% x 3"
+          },
+          {
+            "Stat": "Slam DMG",
+            "Lv.1": "667%",
+            "Lv.10": "1999%"
+          }
+        ]
+      },
+      {
+        "name": "That's It!",
+        "type": "Ultimate (Buff)",
+        "description": "Switches the user's melee weapon to [Samael], the skill is used again to withdraw [Samael]. Normal Attacks with [Samael] chain up to 4 hits.While wielding [Samael], hold attack to charge - Sanity is consumed over time. While charging, gains [Impatience], generating combo points every 0.5s. Releasing attack, reaching max Combo Level, or running out of Sanity unleashes a powerful Charged Attack, dealing Lumino AOE DMG to enemies ahead.[Impatience]: Grants immunity to Hitstun and reduces Damage Taken.",
+        "stats": [
+          {
+            "Stat": "Sanity Cost",
+            "Lv.1": "10",
+            "Lv.10": "10"
+          },
+          {
+            "Stat": "Skill DMG",
+            "Lv.1": "481%",
+            "Lv.10": "1435%"
+          },
+          {
+            "Stat": "Skill DMG Radius",
+            "Lv.1": "10m",
+            "Lv.10": "10m"
+          },
+          {
+            "Stat": "1-Hit DMG",
+            "Lv.1": "346%",
+            "Lv.10": "697%"
+          },
+          {
+            "Stat": "2-Hit DMG",
+            "Lv.1": "409%",
+            "Lv.10": "814%"
+          },
+          {
+            "Stat": "3-Hit DMG",
+            "Lv.1": "200% x 2",
+            "Lv.10": "407% x 2"
+          },
+          {
+            "Stat": "4-Hit DMG",
+            "Lv.1": "189% + 556%",
+            "Lv.10": "378% + 1133%"
+          },
+          {
+            "Stat": "Normal Hit DMG Radius",
+            "Lv.1": "3m",
+            "Lv.10": "3m"
+          },
+          {
+            "Stat": "Plunge DMG",
+            "Lv.1": "51%",
+            "Lv.10": "51%"
+          },
+          {
+            "Stat": "Sliding Attack DMG",
+            "Lv.1": "73%",
+            "Lv.10": "73%"
+          },
+          {
+            "Stat": "Charged Attack DMG",
+            "Lv.1": "848%",
+            "Lv.10": "1703%"
+          },
+          {
+            "Stat": "Charged Attack DMG: Level S",
+            "Lv.1": "179% + 848%",
+            "Lv.10": "359% + 1703%"
+          },
+          {
+            "Stat": "Charged Attack AOE Range",
+            "Lv.1": "6m x 6m",
+            "Lv.10": "6m x 6m"
+          },
+          {
+            "Stat": "Continuous Sanity Consumption while Charging",
+            "Lv.1": "25",
+            "Lv.10": "25"
+          },
+          {
+            "Stat": "Sanity Cost while Charging",
+            "Lv.1": "15",
+            "Lv.10": "15"
+          },
+          {
+            "Stat": "Reduced DMG Taken under\n[Impatience]",
+            "Lv.1": "30%",
+            "Lv.10": "30%"
+          }
+        ]
+      },
+      {
+        "name": "Hmph!!",
+        "type": "Passive",
+        "description": "When Combo Level increases, deals Lumino DMG to nearby enemies and enhances [Samael]. At Combo Levels C / B / A / S, [Samael] gains enhancement Lv.1 / 2 / 3 / 4 respectively. If combo Level drops, the current enhancement level persists for a short time. While [Samael] is enhanced, the user's Consonance Weapon gains increased ATK Range dna Trigger Probability based on the enhancement level.",
+        "stats": [
+          {
+            "Stat": "DMG",
+            "Lv.1": "204%",
+            "Lv.10": "600%"
+          },
+          {
+            "Stat": "DMG",
+            "Lv.1": "6m",
+            "Lv.10": "6m"
+          },
+          {
+            "Stat": "+Weapon Attack Range",
+            "Lv.1": "1.2 x\n[Samael]\nenhancement level",
+            "Lv.10": "1.2 x\n[Samael]\nenhancement level"
+          },
+          {
+            "Stat": "Trigger Probability Boost",
+            "Lv.1": "14% x\n[Samael]\nenhancement level",
+            "Lv.10": "50% x\n[Samael]\nenhancement level"
+          },
+          {
+            "Stat": "[Samael]\nEnhancement Duration",
+            "Lv.1": "12s",
+            "Lv.10": "13.8s"
+          }
+        ]
+      }
+    ]
+  },
+  "introns": [
+    {
+      "id": 1,
+      "description": "Using [In The Name of Patience] increases Character ATK by 35% for 15s.",
+      "note": "ATK is an oversaturated stat, making this intron much less impactful than it seems like."
+    },
+    {
+      "id": 2,
+      "description": "When damage triggers a bonus effect, gain 1 additional combo point.",
+      "note": "Extremely strong when used in tandem with Guixu Rachet. This ranged weapon can passively stack a full 120 Combo within a few seconds versus single target. Somewhat required for a good performance versus Bosses."
+    },
+    {
+      "id": 3,
+      "description": "[In the Name of Patience] Level +2; [Hmph !!] Level +1;"
+    },
+    {
+      "id": 4,
+      "description": "When Combo level increases, gains 5 additional combo points.",
+      "note": "Again, very good in combination with Guixu Rachet."
+    },
+    {
+      "id": 5,
+      "description": "[That's It!] Level +2; [Hmph !!] Level +1;"
+    },
+    {
+      "id": 6,
+      "description": "After using [That's It!] or [Samael]'s Charged Attack, gains 30% additional Lumino Damage for 15 seconds.",
+      "note": "One of the best introns in the game. [additional Element] Damage is a separate Damage Multiplier from other Damage Bonuses and a very rare stat."
+    }
+  ]
+}

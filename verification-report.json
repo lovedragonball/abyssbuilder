@@ -1,0 +1,5384 @@
+{
+  "timestamp": "2025-11-27T00:57:03.137Z",
+  "summary": {
+    "totalDatasetCards": 206,
+    "totalCurrentCards": 423,
+    "verified": 3,
+    "issues": 420,
+    "missing": 0,
+    "extra": 0
+  },
+  "verified": [
+    {
+      "cardNumber": 1,
+      "fullName": "Cerberus's Crusher - Trammel"
+    },
+    {
+      "cardNumber": 2,
+      "fullName": "Cerberus's Edge - Trammel"
+    },
+    {
+      "cardNumber": 3,
+      "fullName": "Cerberus's Penetration - Trammel"
+    }
+  ],
+  "issues": [
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Blaze - Wings",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Blaze - Blessing",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Rage",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Threshold",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Rage",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Foldover",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Blaze",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Blessing",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Nirvana",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Standfast",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Wings",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Scorch",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Spectrum",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Eternity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Inspo",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Nirvana",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Volition",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Standfast",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Rage - Trammel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Threshold",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Rage - Trammel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Cerberus's Impetus - Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Rage - Trammel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Lilith's Impetus - Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Rage",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Rage",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Threshold",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Threshold",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Trammel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Cerberus's Trammel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Crusher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Edge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Penetration",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Impetus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Focus",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Rage",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Rage",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Foldover",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Foldover",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Trammel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Trammel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Eldritch Lilith's Celerity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Huntdown",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Serenity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Typhon's Prime - Uplift",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Arbiter's Illusionary Sacrifice",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Bahamut's Frosty Torrent",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Bahamut's Misty Veil",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Ifrit's Devouring Wildfire",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Summanus's Ravaging Thunder",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Helios's Glimm & Glimmer",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Helios's Prismatic Neon",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Hastur's Turbulent Cyclone",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Hastur's Whispering Zephyr",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Sphinx's Duel",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Sphinx's Intrepidity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Sphinx's Onslaught",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Sphinx's Relentless",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Sphinx's Surge",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Sphinx's Trapped",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Pan's Eternity - Abnegation",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Pan's Spectrum - Omen",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Blaze",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Blessing",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Nirvana",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Standfast",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Phoenix's Wings",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Inferno - Wildfire",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Inferno - Midnight Sun",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Nihility - Wildfire",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Nihility - Midnight Sun",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Seawave - Wildfire",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Seawave - Midnight Sun",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Skylume - Wildfire",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Skylume - Midnight Sun",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Squall - Wildfire",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Squall - Midnight Sun",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Griffin's Thunder - Wildfire",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Scorch",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Scorch",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Standfast - Eternity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Standfast - Inspo",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Wings - Eternity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Wings - Volition",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Nirvana - Volition",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Nirvana - Spectrum",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Spectrum",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Spectrum",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Inspo",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Nirvana",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Eternity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Eternity",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Inspo",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Standfast",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Morale",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Volition",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Nirvana",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Resolve",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Volition",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Covenanter's Blaze - Standfast",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Assault Rifle",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Bow",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Dual Blades",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Dual Pistols",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Greatsword",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Grenade Launcher",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Katana",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Pistol",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Polearm",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Shotgun",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Sword",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Jormungand's Gleaming Whipsword",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "type": "duplicate",
+      "name": "Siren's Wings - Inspo",
+      "message": "Duplicate fullName in current data"
+    },
+    {
+      "cardNumber": 276,
+      "fullName": "Cerberus's Rage - Trammel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Moon"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Crit DMG",
+              "value": "54%"
+            },
+            {
+              "name": "Trigger Probability",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 278,
+      "fullName": "Cerberus's Impetus - Focus",
+      "issues": [
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "41%"
+            },
+            {
+              "name": "Crit Chance",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 288,
+      "fullName": "Eldritch Cerberus's Crusher",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Smash ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 290,
+      "fullName": "Eldritch Cerberus's Edge",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Slash ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 292,
+      "fullName": "Eldritch Cerberus's Penetration",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Spike ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 294,
+      "fullName": "Eldritch Cerberus's Impetus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 296,
+      "fullName": "Eldritch Cerberus's Focus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Crit Chance",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 298,
+      "fullName": "Eldritch Cerberus's Celerity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK Speed",
+              "value": "27%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 300,
+      "fullName": "Eldritch Cerberus's Rage",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Crit DMG",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 302,
+      "fullName": "Eldritch Cerberus's Threshold",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK Range",
+              "value": "0.66"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 14,
+      "fullName": "Lilith's Crusher - Trammel",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 15,
+      "fullName": "Lilith's Edge - Trammel",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 16,
+      "fullName": "Lilith's Penetration - Trammel",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 284,
+      "fullName": "Lilith's Rage - Trammel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Crit DMG",
+              "value": "54%"
+            },
+            {
+              "name": "Trigger Probability",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 286,
+      "fullName": "Lilith's Impetus - Focus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "41%"
+            },
+            {
+              "name": "Crit Chance",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 306,
+      "fullName": "Eldritch Lilith's Crusher",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Smash ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 308,
+      "fullName": "Eldritch Lilith's Edge",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Slash ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 310,
+      "fullName": "Eldritch Lilith's Penetration",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Spike ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 312,
+      "fullName": "Eldritch Lilith's Impetus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "81.60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 314,
+      "fullName": "Eldritch Lilith's Focus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Crit Chance",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 322,
+      "fullName": "Eldritch Lilith's Celerity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK Speed",
+              "value": "27%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 316,
+      "fullName": "Eldritch Lilith's Rage",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Crit DMG",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 318,
+      "fullName": "Eldritch Lilith's Foldover",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Multishot",
+              "value": "27%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 61,
+      "fullName": "Phoenix's Blaze - Wings",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 63,
+      "fullName": "Phoenix's Blaze - Blessing",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 34,
+      "fullName": "Typhon's Prime",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 35,
+      "fullName": "Feathered Serpent's Blastwave",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 36,
+      "fullName": "Feathered Serpent's Cutoff",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 37,
+      "fullName": "Feathered Serpent's Helido",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 38,
+      "fullName": "Feathered Serpent's Ignite",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 39,
+      "fullName": "Feathered Serpent's Prance",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 40,
+      "fullName": "Feathered Serpent's Recovery",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 41,
+      "fullName": "Feathered Serpent's Rescue",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 42,
+      "fullName": "Feathered Serpent's Sidestep",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 43,
+      "fullName": "Feathered Serpent's Steadfast",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 44,
+      "fullName": "Feathered Serpent's Unyielding",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 45,
+      "fullName": "Feathered Serpent's Vigilant",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_FeatheredSnake01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 46,
+      "fullName": "Griffin's Inferno - Volition",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 47,
+      "fullName": "Griffin's Nihility - Volition",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 48,
+      "fullName": "Griffin's Seawave - Volition",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 49,
+      "fullName": "Griffin's Skylume - Volition",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 50,
+      "fullName": "Griffin's Squall - Volition",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 51,
+      "fullName": "Griffin's Thunder - Volition",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 52,
+      "fullName": "Pan's Eternity",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 53,
+      "fullName": "Pan's Inspo - Elapse",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 54,
+      "fullName": "Pan's Inspo - Shards",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 55,
+      "fullName": "Pan's Inspo",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 56,
+      "fullName": "Pan's Spectrum",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 57,
+      "fullName": "Pan's Volition",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 58,
+      "fullName": "Pan's Wings - Elapse",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 59,
+      "fullName": "Pan's Wings - Shards",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 370,
+      "fullName": "Phoenix's Blaze",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "75%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 62,
+      "fullName": "Phoenix's Blaze - Nirvana",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 64,
+      "fullName": "Phoenix's Blaze - Standfast",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 371,
+      "fullName": "Phoenix's Blessing",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Shield",
+              "value": "82%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 66,
+      "fullName": "Phoenix's Blessing - Wings",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 67,
+      "fullName": "Phoenix's Blessing - Standfast",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 372,
+      "fullName": "Phoenix's Nirvana",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "HP",
+              "value": "82%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 69,
+      "fullName": "Phoenix's Nirvana - Blessing",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 70,
+      "fullName": "Phoenix's Nirvana - Wings",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 71,
+      "fullName": "Phoenix's Nirvana - Standfast",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 373,
+      "fullName": "Phoenix's Standfast",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "DEF",
+              "value": "82%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 374,
+      "fullName": "Phoenix's Wings",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Max Sanity",
+              "value": "50%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 74,
+      "fullName": "Phoenix's Wings - Standfast",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Phoenix01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 423,
+      "fullName": "Siren's Wings - Inspo",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Siren01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Max Sanity",
+              "value": "55.00%"
+            },
+            {
+              "name": "Skill Efficiency",
+              "value": "17%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 271,
+      "fullName": "Cerberus's Crusher",
+      "issues": [
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Smash ATK",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 272,
+      "fullName": "Cerberus's Edge",
+      "issues": [
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Slash ATK",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 273,
+      "fullName": "Cerberus's Penetration",
+      "issues": [
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Spike ATK",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 274,
+      "fullName": "Cerberus's Celerity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK Speed",
+              "value": "42%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 275,
+      "fullName": "Cerberus's Threshold",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK Range",
+              "value": "1.36"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 81,
+      "fullName": "Fenrir's Continuity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 82,
+      "fullName": "Fenrir's Fortune",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 83,
+      "fullName": "Fenrir's Kismet",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 84,
+      "fullName": "Fenrir's Utmost",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 85,
+      "fullName": "Fafnir's Abundance",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 86,
+      "fullName": "Fafnir's Arrow",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 87,
+      "fullName": "Fafnir's Carefree",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 88,
+      "fullName": "Fafnir's Coercion",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 89,
+      "fullName": "Fafnir's Decline",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 90,
+      "fullName": "Fafnir's Dexterity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 91,
+      "fullName": "Fafnir's Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 92,
+      "fullName": "Fafnir's Lingering Might",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 93,
+      "fullName": "Fafnir's Quiver",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 94,
+      "fullName": "Fafnir's Tyranny",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 279,
+      "fullName": "Lilith's Crusher",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Smash ATK",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 280,
+      "fullName": "Lilith's Edge",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Slash ATK",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 281,
+      "fullName": "Lilith's Penetration",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Spike ATK",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 282,
+      "fullName": "Lilith's Celerity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK Speed",
+              "value": "42%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 304,
+      "fullName": "Eldritch Cerberus's Trammel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Trigger Probability",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 320,
+      "fullName": "Eldritch Lilith's Trammel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Trigger Probability",
+              "value": "54%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 353,
+      "fullName": "Arbiter's Illusionary Sacrifice",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill DMG",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "When an Umbro character consumes Sanity, they gain 1 stack that increases Weapon CRIT Chance by 5.40% for 15s, up to 15 stacks."
+        }
+      ]
+    },
+    {
+      "cardNumber": 354,
+      "fullName": "Bahamut's Frosty Torrent",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill DMG",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "When a Hydro character use a skill, the user and nearby allies gain an ATK increases equal to 11.40% of the user's ATK (up to 275) for 10s."
+        }
+      ]
+    },
+    {
+      "cardNumber": 355,
+      "fullName": "Bahamut's Misty Veil",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill DMG",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Hydro Charactes' Summon gains an ATK speed boost equal to 27.00% of the summoner's melee weapon ATK Speed and a Skill range boost equal to 13.20 of the Summoner's Skill range."
+        }
+      ]
+    },
+    {
+      "cardNumber": 356,
+      "fullName": "Ifrit's Devouring Wildfire",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill DMG",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "When an Pyro character deals damage, gains 1 stack that increases ATK by 1.00% for 15s, up to 120 stacks."
+        }
+      ]
+    },
+    {
+      "cardNumber": 357,
+      "fullName": "Summanus's Ravaging Thunder",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill DMG",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 5.40% for 16s, up to 8 stacks."
+        }
+      ]
+    },
+    {
+      "cardNumber": 358,
+      "fullName": "Helios's Glimm & Glimmer",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill Duration",
+              "value": "24%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increases the Lumino character's ATK by [their current Skill Duration x 48.60%], up to 117.00%."
+        }
+      ]
+    },
+    {
+      "cardNumber": 359,
+      "fullName": "Helios's Prismatic Neon",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Circle"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill Duration",
+              "value": "24%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "When enemies near a Lumino character take Weapon DMG, CRIT Chance increases by 32.70%. Gains an additional +8.20% against targets with debuffs."
+        }
+      ]
+    },
+    {
+      "cardNumber": 360,
+      "fullName": "Hastur's Turbulent Cyclone",
+      "issues": [
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill Duration",
+              "value": "24%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "When an Anemo character character's ranged weapon triggers a bonus effect, grants +5.40% resolve to the user and nearby allies for 10s."
+        }
+      ]
+    },
+    {
+      "cardNumber": 361,
+      "fullName": "Hastur's Whispering Zephyr",
+      "issues": [
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill DMG",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "When an Anemo character uses Combat Skills, it gains 84.00% Skill Damage increase for 6s."
+        }
+      ]
+    },
+    {
+      "cardNumber": 362,
+      "fullName": "Sphinx's Duel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase Damage Dealt by 24.00% when facing less than 2 enemies within a 20 metre range."
+        }
+      ]
+    },
+    {
+      "cardNumber": 363,
+      "fullName": "Sphinx's Intrepidity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "HP",
+              "value": "-27%"
+            },
+            {
+              "name": "Shield",
+              "value": "-27%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase Skill Damage by 54.00% for 30s when battle starts during commissions or Nocturnal Echoes."
+        }
+      ]
+    },
+    {
+      "cardNumber": 364,
+      "fullName": "Sphinx's Onslaught",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Decrease Damage Taken by 12%. Defeating an enemy grants 1 stack that increases ATK by 6.00% for 30s, up to 15 stacks. This effect duration refreshes with each new stack gained."
+        }
+      ]
+    },
+    {
+      "cardNumber": 365,
+      "fullName": "Sphinx's Relentless",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase ATK by 42.00% with each revival during commissions or Nocturnal Echoes (up to 126.00%)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 366,
+      "fullName": "Sphinx's Surge",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase Damage Dealt by 24.00% when attacking off-balance enemies (with Stance completely weakened)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 367,
+      "fullName": "Sphinx's Trapped",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Sphinx01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase Damage Dealt by 1.20% per enemy within 20 metre range (up to 24.00%)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 368,
+      "fullName": "Pan's Eternity - Abnegation",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill Duration",
+              "value": "40%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "-60%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 369,
+      "fullName": "Pan's Spectrum - Omen",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Pan01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Skill Range",
+              "value": "50%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "-30%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 375,
+      "fullName": "Griffin's Inferno - Wildfire",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Pyro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "18%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 376,
+      "fullName": "Griffin's Inferno - Midnight Sun",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Red.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Pyro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "12%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 377,
+      "fullName": "Griffin's Nihility - Wildfire",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Umbro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "18%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 378,
+      "fullName": "Griffin's Nihility - Midnight Sun",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Black.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Umbro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "12%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 379,
+      "fullName": "Griffin's Seawave - Wildfire",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Hydro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "18%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 380,
+      "fullName": "Griffin's Seawave - Midnight Sun",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Hydro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "12%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 381,
+      "fullName": "Griffin's Skylume - Wildfire",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Lumino ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "18%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 382,
+      "fullName": "Griffin's Skylume - Midnight Sun",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Orange.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Lumino ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "12%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 383,
+      "fullName": "Griffin's Squall - Wildfire",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Anemo ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "18%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 384,
+      "fullName": "Griffin's Squall - Midnight Sun",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Green.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Anemo ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "12%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 385,
+      "fullName": "Griffin's Thunder - Wildfire",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Electro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "18%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 388,
+      "fullName": "Covenanter's Scorch",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "96%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 389,
+      "fullName": "Covenanter's Standfast - Eternity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "DEF",
+              "value": "48%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "18%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 390,
+      "fullName": "Covenanter's Standfast - Inspo",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Black.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_umbro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "DEF",
+              "value": "48%"
+            },
+            {
+              "name": "Skill Efficiency",
+              "value": "12%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 391,
+      "fullName": "Covenanter's Wings - Eternity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Max Sanity",
+              "value": "24%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "18%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 392,
+      "fullName": "Covenanter's Wings - Volition",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Max Sanity",
+              "value": "24%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "24%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 393,
+      "fullName": "Covenanter's Nirvana - Volition",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Orange.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_lumino.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "HP",
+              "value": "48%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "24%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 394,
+      "fullName": "Covenanter's Nirvana - Spectrum",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "HP",
+              "value": "48%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 408,
+      "fullName": "Covenanter's Blaze - Resolve",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Moon"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "Resolve",
+              "value": "4%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 402,
+      "fullName": "Covenanter's Blaze - Eternity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Moon"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "18%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 405,
+      "fullName": "Covenanter's Blaze - Morale",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Rhombus",
+          "actual": "Moon"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "Morale",
+              "value": "12%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 397,
+      "fullName": "Covenanter's Blaze - Spectrum",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Blue.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_hydro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "Skill Range",
+              "value": "30%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 403,
+      "fullName": "Covenanter's Blaze - Inspo",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Rhombus"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Red.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_pyro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "Skill Efficiency",
+              "value": "12%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 407,
+      "fullName": "Covenanter's Blaze - Nirvana",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Purple.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_electro_v1.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "HP",
+              "value": "48%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 410,
+      "fullName": "Covenanter's Blaze - Standfast",
+      "issues": [
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "DEF",
+              "value": "48%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 409,
+      "fullName": "Covenanter's Blaze - Volition",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Rhombus"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Mephisto01_Green.webp",
+          "actual": "https://files.boarhat.gg/assets/duetnightabyss/demonwedge/covenanter_anemo.png"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "48%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "24%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Once upgraded to +5, this Demon Wedge can be equipped in multiples"
+        }
+      ]
+    },
+    {
+      "cardNumber": 411,
+      "fullName": "Jormungand's Gleaming Assault Rifle",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Assault Rifle equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 412,
+      "fullName": "Jormungand's Gleaming Bow",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Bow equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 413,
+      "fullName": "Jormungand's Gleaming Dual Blades",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Dual Blades equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 414,
+      "fullName": "Jormungand's Gleaming Dual Pistols",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Dual Pistols equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 415,
+      "fullName": "Jormungand's Gleaming Greatsword",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Greatsword equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 416,
+      "fullName": "Jormungand's Gleaming Grenade Launcher",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Grenade Launcher equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 417,
+      "fullName": "Jormungand's Gleaming Katana",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Katana equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 418,
+      "fullName": "Jormungand's Gleaming Pistol",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Pistol equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 419,
+      "fullName": "Jormungand's Gleaming Polearm",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Polearm equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 420,
+      "fullName": "Jormungand's Gleaming Shotgun",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Shotgun equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 421,
+      "fullName": "Jormungand's Gleaming Sword",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Sword equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 422,
+      "fullName": "Jormungand's Gleaming Whipsword",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Jormungand01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increase your Damage Dealt by 6.00% per Whipsword equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner)."
+        }
+      ]
+    },
+    {
+      "cardNumber": 328,
+      "fullName": "Typhon's Prime - Morale",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "84%"
+            },
+            {
+              "name": "HP",
+              "value": "84%"
+            },
+            {
+              "name": "DEF",
+              "value": "84%"
+            },
+            {
+              "name": "Morale",
+              "value": "18%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 334,
+      "fullName": "Typhon's Prime - Resolve",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "84%"
+            },
+            {
+              "name": "HP",
+              "value": "84%"
+            },
+            {
+              "name": "DEF",
+              "value": "84%"
+            },
+            {
+              "name": "Resolve",
+              "value": "6%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 340,
+      "fullName": "Typhon's Prime - Huntdown",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "84%"
+            },
+            {
+              "name": "HP",
+              "value": "84%"
+            },
+            {
+              "name": "DEF",
+              "value": "84%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Skill DMG -50%. When attacking with a weapon, deals 18.00% additional damage of the same element type."
+        }
+      ]
+    },
+    {
+      "cardNumber": 346,
+      "fullName": "Typhon's Prime - Serenity",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "84%"
+            },
+            {
+              "name": "HP",
+              "value": "84%"
+            },
+            {
+              "name": "DEF",
+              "value": "84%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Restores additional Sanity by 7 for you and your teammates every 3s."
+        }
+      ]
+    },
+    {
+      "cardNumber": 352,
+      "fullName": "Typhon's Prime - Uplift",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Typhon01_Blue.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "84%"
+            },
+            {
+              "name": "HP",
+              "value": "84%"
+            },
+            {
+              "name": "DEF",
+              "value": "84%"
+            }
+          ]
+        },
+        {
+          "field": "description",
+          "expected": "None",
+          "actual": "Increases Damage Dealt by you and your teammate by 11.00%."
+        }
+      ]
+    },
+    {
+      "cardNumber": 216,
+      "fullName": "Cerberus's Focus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Diamond"
+        }
+      ]
+    },
+    {
+      "cardNumber": 217,
+      "fullName": "Cerberus's Rage",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Diamond"
+        }
+      ]
+    },
+    {
+      "cardNumber": 277,
+      "fullName": "Cerberus's Impetus",
+      "issues": [
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "82%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 219,
+      "fullName": "Cerberus's Trammel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Moon"
+        }
+      ]
+    },
+    {
+      "cardNumber": 220,
+      "fullName": "Fenrir's Afterimage",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 221,
+      "fullName": "Fenrir's Blade Feint",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 222,
+      "fullName": "Fenrir's Blitz",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 223,
+      "fullName": "Fenrir's Brutality",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 224,
+      "fullName": "Fenrir's Commanding Thrust",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 225,
+      "fullName": "Fenrir's Continuity - Trammel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 226,
+      "fullName": "Fenrir's Crescent Flurry",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 227,
+      "fullName": "Fenrir's Divine Herald Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 228,
+      "fullName": "Fenrir's Dropshot",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 229,
+      "fullName": "Fenrir's Edgeless Blade",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 230,
+      "fullName": "Fenrir's Fervor",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 231,
+      "fullName": "Fenrir's Filthoid Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 232,
+      "fullName": "Fenrir's Flash Strike",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 233,
+      "fullName": "Fenrir's Forsaken Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 234,
+      "fullName": "Fenrir's In Full Bloom",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 235,
+      "fullName": "Fenrir's Legion Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 236,
+      "fullName": "Fenrir's Patrol",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 237,
+      "fullName": "Fenrir's Pierce",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [
+            {
+              "name": "HP Reduce on Bonus Effect",
+              "value": "Spike: 80%"
+            }
+          ],
+          "actual": [
+            {
+              "name": "HP Reduce on Bonus Effect",
+              "value": "Spike"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 238,
+      "fullName": "Fenrir's Piercing Ascent",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 239,
+      "fullName": "Fenrir's Puncture Cascade",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 240,
+      "fullName": "Fenrir's Savage Charge",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 241,
+      "fullName": "Fenrir's Severance",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [
+            {
+              "name": "Shield Reduce on Bonus Effect",
+              "value": "Slash: 80%"
+            }
+          ],
+          "actual": [
+            {
+              "name": "Shield Reduce on Bonus Effect",
+              "value": "Slash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 242,
+      "fullName": "Fenrir's Shockwave Echo",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 243,
+      "fullName": "Fenrir's Sundering Edgefield",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 244,
+      "fullName": "Fenrir's Swift Dropshot",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 245,
+      "fullName": "Fenrir's Swift Momentum",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 246,
+      "fullName": "Fenrir's Vigilance",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 247,
+      "fullName": "Fenrir's Whirl of Illusion",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fenrir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 248,
+      "fullName": "Fafnir's Divine Herald Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 249,
+      "fullName": "Fafnir's Filthoid Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 250,
+      "fullName": "Fafnir's Forsaken Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 251,
+      "fullName": "Fafnir's Legion Hunt",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 252,
+      "fullName": "Fafnir's Focus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 253,
+      "fullName": "Fafnir's Frugality",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 254,
+      "fullName": "Fafnir's Furious Beam",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 255,
+      "fullName": "Fafnir's Furious Blast",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 256,
+      "fullName": "Fafnir's Loadout",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 257,
+      "fullName": "Fafnir's Pierce",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [
+            {
+              "name": "HP Reduce on Bonus Effect",
+              "value": "Spike: 80%"
+            }
+          ],
+          "actual": [
+            {
+              "name": "HP Reduce on Bonus Effect",
+              "value": "Spike"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 258,
+      "fullName": "Fafnir's Severance",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [
+            {
+              "name": "HP Reduce on Bonus Effect",
+              "value": "Slash: 80%"
+            }
+          ],
+          "actual": [
+            {
+              "name": "HP Reduce on Bonus Effect",
+              "value": "Slash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 259,
+      "fullName": "Fafnir's Speed Boost",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 260,
+      "fullName": "Fafnir's Stall",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 264,
+      "fullName": "Lilith's Focus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 285,
+      "fullName": "Lilith's Impetus",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Diamond",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "ATK",
+              "value": "82%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 266,
+      "fullName": "Lilith's Rage",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 267,
+      "fullName": "Lilith's Quiver - Loadout",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 269,
+      "fullName": "Lilith's Rain of Quivers",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 270,
+      "fullName": "Lilith's Trammel",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        }
+      ]
+    },
+    {
+      "cardNumber": 283,
+      "fullName": "Lilith's Foldover",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Moon",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Multishot",
+              "value": "82%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardNumber": 386,
+      "fullName": "Griffin's Thunder - Midnight Sun",
+      "issues": [
+        {
+          "field": "type",
+          "expected": "Circle",
+          "actual": "Normal"
+        },
+        {
+          "field": "image",
+          "expected": "https://dna.interknot-network.com/images/wedges/T_Mod_Griffin01_Purple.webp",
+          "actual": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus01.webp"
+        },
+        {
+          "field": "stats",
+          "expected": [],
+          "actual": [
+            {
+              "name": "Electro ATK",
+              "value": "18%"
+            },
+            {
+              "name": "Skill DMG",
+              "value": "18%"
+            },
+            {
+              "name": "Skill Duration",
+              "value": "12%"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "missing": [],
+  "extra": []
+}

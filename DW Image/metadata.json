@@ -1,0 +1,1154 @@
+{
+    "description": "Metadata for all screenshots in DW Image folder - contains mod names found in each image",
+    "version": "1.0.0",
+    "lastUpdated": "2025-11-23T00:37:41.786Z",
+    "images": {
+        "character/Screenshot_1.png": {
+            "mods": [
+                "Skylume • Wildfire",
+                "Skylume • Midnight Sun"
+            ],
+            "processedAt": "2025-11-23T00:18:06.610Z",
+            "rawText": "Skylume • Wildfire\nSkylume • Midnight Sun\n"
+        },
+        "character/Screenshot_2.png": {
+            "mods": [
+                "Squall • Wildfire",
+                "Squall • Midnight Sun"
+            ],
+            "processedAt": "2025-11-23T00:18:43.000Z",
+            "rawText": "Squall • Wildfire\nSquall • Midnight Sun\n"
+        },
+        "character/Screenshot_10.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:18:09.864Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_11.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:18:13.199Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_12.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:18:16.527Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_13.png": {
+            "mods": [
+                "Scorch",
+                "Blaze • Resolve",
+                "Blaze • Eternity",
+                "Nirvana • Volition"
+            ],
+            "processedAt": "2025-11-23T00:18:19.879Z",
+            "rawText": "Scorch\nBlaze • Resolve\nBlaze • Eternity\nNirvana • Volition"
+        },
+        "character/Screenshot_14.png": {
+            "mods": [
+                "Blaze • Standfast",
+                "Blaze • Resolve",
+                "Blaze • Volition",
+                "Wings • Eternity"
+            ],
+            "processedAt": "2025-11-23T00:18:23.060Z",
+            "rawText": "Blaze • Standfast\nBlaze • Resolve\nBlaze • Volition\nWings • Eternity"
+        },
+        "character/Screenshot_15.png": {
+            "mods": [
+                "Blaze • Nirvana",
+                "Blaze • Morale",
+                "Blaze • Volition",
+                "Standfast • Eternity"
+            ],
+            "processedAt": "2025-11-23T00:18:26.197Z",
+            "rawText": "Blaze • Nirvana\nBlaze • Morale\nBlaze • Volition\nStandfast • Eternity"
+        },
+        "character/Screenshot_16.png": {
+            "mods": [
+                "Blaze • Standfast",
+                "Blaze • Eternity",
+                "Blaze • Inspo",
+                "Nirvana • Spectrum"
+            ],
+            "processedAt": "2025-11-23T00:18:29.341Z",
+            "rawText": "Blaze • Standfast\nBlaze • Eternity\nBlaze • Inspo\nNirvana • Spectrum"
+        },
+        "character/Screenshot_17.png": {
+            "mods": [
+                "Blaze • Nirvana",
+                "Blaze • Spectrum",
+                "Blaze • Inspo",
+                "Wings • Volition"
+            ],
+            "processedAt": "2025-11-23T00:18:32.602Z",
+            "rawText": "Blaze • Nirvana\nBlaze • Spectrum\nBlaze • Inspo\nWings • Volition"
+        },
+        "character/Screenshot_18.png": {
+            "mods": [
+                "Scorch",
+                "Blaze • Morale",
+                "Blaze • Spectrum",
+                "Standfast • Inspo"
+            ],
+            "processedAt": "2025-11-23T00:18:35.653Z",
+            "rawText": "Scorch\nBlaze • Morale\nBlaze • Spectrum\nStandfast • Inspo"
+        },
+        "character/Screenshot_19.png": {
+            "mods": [
+                "Gleaming Sword",
+                "Gleaming Polearm",
+                "Gleaming Greatsword",
+                "Gleaming Dual Blades",
+                "Gleaming Whipsword",
+                "Gleaming Katana",
+                "Gleaming Pistol",
+                "Gleaming Dual Pistols",
+                "Gleaming Grenade Launcher",
+                "Gleaming Shotgun",
+                "Gleaming Assault Rifle",
+                "Gleaming Bow"
+            ],
+            "processedAt": "2025-11-23T00:18:39.794Z",
+            "rawText": "Gleaming Sword\nGleaming Polearm\nGleaming Greatsword\nGleaming Dual Blades\nGleaming Whipsword\nGleaming Katana\nGleaming Pistol\nGleaming Dual Pistols\nGleaming Grenade Launcher\nGleaming Shotgun\nGleaming Assault Rifle\nGleaming Bow"
+        },
+        "character/Screenshot_20.png": {
+            "mods": [
+                "Prismatic Neon",
+                "Gleam & Glimmer"
+            ],
+            "processedAt": "2025-11-23T00:18:46.271Z",
+            "rawText": "Prismatic Neon\nGleam & Glimmer\n"
+        },
+        "character/Screenshot_21.png": {
+            "mods": [
+                "Whispering Zephyr",
+                "Turbulent Cyclone"
+            ],
+            "processedAt": "2025-11-23T00:18:49.309Z",
+            "rawText": "Whispering Zephyr\nTurbulent Cyclone\n"
+        },
+        "character/Screenshot_22.png": {
+            "mods": [
+                "Ravaging Thunder"
+            ],
+            "processedAt": "2025-11-23T00:18:52.440Z",
+            "rawText": "Ravaging Thunder\n"
+        },
+        "character/Screenshot_23.png": {
+            "mods": [
+                "Devouring Wildfire"
+            ],
+            "processedAt": "2025-11-23T00:24:46.969Z",
+            "rawText": "Devouring Wildfire\n"
+        },
+        "character/Screenshot_24.png": {
+            "mods": [
+                "Misty Veil",
+                "Frosty Torrent"
+            ],
+            "processedAt": "2025-11-23T00:24:54.328Z",
+            "rawText": "Misty Veil\nFrosty Torrent\n"
+        },
+        "character/Screenshot_25.png": {
+            "mods": [
+                "Illusionary Sacrifice"
+            ],
+            "processedAt": "2025-11-23T00:25:01.479Z",
+            "rawText": "Illusionary Sacrifice\n"
+        },
+        "character/Screenshot_26.png": {
+            "mods": [
+                "Blaze • Wings",
+                "Nirvana • Blessing"
+            ],
+            "processedAt": "2025-11-23T00:25:08.854Z",
+            "rawText": "Blaze • Wings\nNirvana • Blessing\n"
+        },
+        "character/Screenshot_27.png": {
+            "mods": [],
+            "processedAt": "2025-11-23T00:25:16.206Z",
+            "rawText": "Feathered Serpent's Prime\nFeathered Serpent's Prime\nFeathered Serpent's Prime\nFeathered Serpent's Prime\nFeathered Serpent's Prime\nFeathered Serpent's Prime"
+        },
+        "character/Screenshot_28.png": {
+            "mods": [
+                "Inspo • Elapse",
+                "Inspo • Shards",
+                "Wings • Elapse",
+                "Wings • Shards"
+            ],
+            "processedAt": "2025-11-23T00:25:23.752Z",
+            "rawText": "Inspo • Elapse\nInspo • Shards\nWings • Elapse\nWings • Shards"
+        },
+        "character/Screenshot_29.png": {
+            "mods": [
+                "Typhon's Prime",
+                "Typhon's Prime",
+                "Typhon's Prime",
+                "Typhon's Prime",
+                "Typhon's Prime",
+                "Typhon's Prime"
+            ],
+            "processedAt": "2025-11-23T00:25:31.231Z",
+            "rawText": "Typhon's Prime\nTyphon's Prime\nTyphon's Prime\nTyphon's Prime\nTyphon's Prime\nTyphon's Prime"
+        },
+        "character/Screenshot_3.png": {
+            "mods": [
+                "Thunder • Wildfire",
+                "Thunder • Midnight Sun"
+            ],
+            "processedAt": "2025-11-23T00:25:38.457Z",
+            "rawText": "Thunder • Wildfire\nThunder • Midnight Sun\n"
+        },
+        "character/Screenshot_30.png": {
+            "mods": [
+                "Phoenix's Blaze",
+                "Phoenix's Nirvana",
+                "Phoenix's Blessing",
+                "Phoenix's Wings",
+                "Phoenix's Standfast"
+            ],
+            "processedAt": "2025-11-23T00:25:45.817Z",
+            "rawText": "Phoenix's Blaze\nPhoenix's Nirvana\nPhoenix's Blessing\nPhoenix's Wings\nPhoenix's Standfast"
+        },
+        "character/Screenshot_31.png": {
+            "mods": [
+                "Nihility • Volition",
+                "Seawave • Volition",
+                "Inferno • Volition",
+                "Thunder • Volition",
+                "Squall • Volition",
+                "Skylume • Volition"
+            ],
+            "processedAt": "2025-11-23T00:25:53.252Z",
+            "rawText": "Nihility • Volition\nSeawave • Volition\nInferno • Volition\nThunder • Volition\nSquall • Volition\nSkylume • Volition"
+        },
+        "character/Screenshot_32.png": {
+            "mods": [
+                "Blaze • Wings",
+                "Nirvana • Blessing",
+                "Blaze • Nirvana",
+                "Blaze • Blessing",
+                "Blaze • Standfast",
+                "Nirvana • Wings",
+                "Nirvana • Standfast",
+                "Blessing • Wings",
+                "Blessing • Standfast",
+                "Wings • Standfast"
+            ],
+            "processedAt": "2025-11-23T00:26:00.826Z",
+            "rawText": "Blaze • Wings\nNirvana • Blessing\nBlaze • Nirvana\nBlaze • Blessing\nBlaze • Standfast\nNirvana • Wings\nNirvana • Standfast\nBlessing • Wings\nBlessing • Standfast\nWings • Standfast"
+        },
+        "character/Screenshot_33.png": {
+            "mods": [
+                "Volition",
+                "Inspo",
+                "Spectrum",
+                "Eternity"
+            ],
+            "processedAt": "2025-11-23T00:26:08.281Z",
+            "rawText": "Volition\nInspo\nSpectrum\nEternity"
+        },
+        "character/Screenshot_34.png": {
+            "mods": [
+                "Wings • Inspo"
+            ],
+            "processedAt": "2025-11-23T00:26:15.307Z",
+            "rawText": "Wings • Inspo\n"
+        },
+        "character/Screenshot_35.png": {
+            "mods": [
+                "Helido",
+                "Prance",
+                "Blastwave"
+            ],
+            "processedAt": "2025-11-23T00:26:22.660Z",
+            "rawText": "Helido\nPrance\nBlastwave"
+        },
+        "character/Screenshot_36.png": {
+            "mods": [],
+            "processedAt": "2025-11-23T00:26:30.020Z",
+            "rawText": "Feathered Serpent's Recovery\nFeathered Serpent's Cutoff\nFeathered Serpent's Unyielding\nFeathered Serpent's Vigilant\nFeathered Serpent's Rescue"
+        },
+        "character/Screenshot_37.png": {
+            "mods": [
+                "Sidestep",
+                "Ignite",
+                "Steadfast"
+            ],
+            "processedAt": "2025-11-23T00:26:37.388Z",
+            "rawText": "Sidestep\nIgnite\nSteadfast"
+        },
+        "character/Screenshot_38.png": {
+            "mods": [
+                "Phoenix's Blaze",
+                "Phoenix's Nirvana",
+                "Phoenix's Blessing",
+                "Phoenix's Wings",
+                "Phoenix's Standfast"
+            ],
+            "processedAt": "2025-11-23T00:26:44.726Z",
+            "rawText": "Phoenix's Blaze\nPhoenix's Nirvana\nPhoenix's Blessing\nPhoenix's Wings\nPhoenix's Standfast"
+        },
+        "character/Screenshot_39.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:26:52.444Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_4.png": {
+            "mods": [
+                "Inferno • Wildfire",
+                "Inferno • Midnight Sun"
+            ],
+            "processedAt": "2025-11-23T00:26:59.653Z",
+            "rawText": "Inferno • Wildfire\nInferno • Midnight Sun\n"
+        },
+        "character/Screenshot_40.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:27:06.867Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_41.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:27:14.410Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_42.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:27:22.351Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_43.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:27:29.620Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_44.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:27:36.879Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_45.png": {
+            "mods": [
+                "Eternity • Abnegation",
+                "Spectrum • Omen"
+            ],
+            "processedAt": "2025-11-23T00:27:44.175Z",
+            "rawText": "Eternity • Abnegation\nSpectrum • Omen\n"
+        },
+        "character/Screenshot_46.png": {
+            "mods": [
+                "Onslaught",
+                "Intrepidity",
+                "Duel",
+                "Trapped",
+                "Surge",
+                "Relentless"
+            ],
+            "processedAt": "2025-11-23T00:27:51.589Z",
+            "rawText": "Onslaught\nIntrepidity\nDuel\nTrapped\nSurge\nRelentless"
+        },
+        "character/Screenshot_47.png": {
+            "mods": [
+                "Nihility • Wildfire",
+                "Seawave • Wildfire",
+                "Inferno • Wildfire",
+                "Thunder • Wildfire",
+                "Squall • Wildfire",
+                "Skylume • Wildfire"
+            ],
+            "processedAt": "2025-11-23T00:27:58.977Z",
+            "rawText": "Nihility • Wildfire\nSeawave • Wildfire\nInferno • Wildfire\nThunder • Wildfire\nSquall • Wildfire\nSkylume • Wildfire"
+        },
+        "character/Screenshot_48.png": {
+            "mods": [
+                "Nihility • Midnight Sun",
+                "Seawave • Midnight Sun",
+                "Inferno • Midnight Sun",
+                "Thunder • Midnight Sun",
+                "Squall • Midnight Sun",
+                "Skylume • Midnight Sun"
+            ],
+            "processedAt": "2025-11-23T00:28:06.531Z",
+            "rawText": "Nihility • Midnight Sun\nSeawave • Midnight Sun\nInferno • Midnight Sun\nThunder • Midnight Sun\nSquall • Midnight Sun\nSkylume • Midnight Sun"
+        },
+        "character/Screenshot_49.png": {
+            "mods": [
+                "Scorch",
+                "Blaze • Resolve",
+                "Blaze • Eternity",
+                "Nirvana • Volition"
+            ],
+            "processedAt": "2025-11-23T00:28:13.933Z",
+            "rawText": "Scorch\nBlaze • Resolve\nBlaze • Eternity\nNirvana • Volition"
+        },
+        "character/Screenshot_5.png": {
+            "mods": [
+                "Seawave • Wildfire",
+                "Seawave • Midnight Sun"
+            ],
+            "processedAt": "2025-11-23T00:28:21.203Z",
+            "rawText": "Seawave • Wildfire\nSeawave • Midnight Sun\n"
+        },
+        "character/Screenshot_50.png": {
+            "mods": [
+                "Blaze • Standfast",
+                "Blaze • Resolve",
+                "Blaze • Volition",
+                "Wings • Eternity"
+            ],
+            "processedAt": "2025-11-23T00:28:28.676Z",
+            "rawText": "Blaze • Standfast\nBlaze • Resolve\nBlaze • Volition\nWings • Eternity"
+        },
+        "character/Screenshot_51.png": {
+            "mods": [
+                "Blaze • Nirvana",
+                "Blaze • Morale",
+                "Blaze • Volition",
+                "Standfast • Eternity"
+            ],
+            "processedAt": "2025-11-23T00:28:35.925Z",
+            "rawText": "Blaze • Nirvana\nBlaze • Morale\nBlaze • Volition\nStandfast • Eternity"
+        },
+        "character/Screenshot_52.png": {
+            "mods": [
+                "Blaze • Standfast",
+                "Blaze • Eternity",
+                "Blaze • Inspo",
+                "Nirvana • Spectrum"
+            ],
+            "processedAt": "2025-11-23T00:28:43.676Z",
+            "rawText": "Blaze • Standfast\nBlaze • Eternity\nBlaze • Inspo\nNirvana • Spectrum"
+        },
+        "character/Screenshot_53.png": {
+            "mods": [
+                "Blaze • Nirvana",
+                "Blaze • Spectrum",
+                "Blaze • Inspo",
+                "Wings • Volition"
+            ],
+            "processedAt": "2025-11-23T00:28:50.994Z",
+            "rawText": "Blaze • Nirvana\nBlaze • Spectrum\nBlaze • Inspo\nWings • Volition"
+        },
+        "character/Screenshot_54.png": {
+            "mods": [
+                "Scorch",
+                "Blaze • Morale",
+                "Blaze • Spectrum",
+                "Standfast • Inspo"
+            ],
+            "processedAt": "2025-11-23T00:28:58.312Z",
+            "rawText": "Scorch\nBlaze • Morale\nBlaze • Spectrum\nStandfast • Inspo"
+        },
+        "character/Screenshot_55.png": {
+            "mods": [
+                "Gleaming Sword",
+                "Gleaming Polearm",
+                "Gleaming Greatsword",
+                "Gleaming Dual Blades",
+                "Gleaming Whipsword",
+                "Gleaming Katana",
+                "Gleaming Pistol",
+                "Gleaming Dual Pistols",
+                "Gleaming Grenade Launcher",
+                "Gleaming Shotgun",
+                "Gleaming Assault Rifle",
+                "Gleaming Bow"
+            ],
+            "processedAt": "2025-11-23T00:29:06.210Z",
+            "rawText": "Gleaming Sword\nGleaming Polearm\nGleaming Greatsword\nGleaming Dual Blades\nGleaming Whipsword\nGleaming Katana\nGleaming Pistol\nGleaming Dual Pistols\nGleaming Grenade Launcher\nGleaming Shotgun\nGleaming Assault Rifle\nGleaming Bow"
+        },
+        "character/Screenshot_56.png": {
+            "mods": [
+                "Prismatic Neon",
+                "Gleam & Glimmer"
+            ],
+            "processedAt": "2025-11-23T00:29:13.471Z",
+            "rawText": "Prismatic Neon\nGleam & Glimmer\n"
+        },
+        "character/Screenshot_57.png": {
+            "mods": [
+                "Whispering Zephyr",
+                "Turbulent Cyclone"
+            ],
+            "processedAt": "2025-11-23T00:29:20.659Z",
+            "rawText": "Whispering Zephyr\nTurbulent Cyclone\n"
+        },
+        "character/Screenshot_58.png": {
+            "mods": [
+                "Ravaging Thunder"
+            ],
+            "processedAt": "2025-11-23T00:29:27.822Z",
+            "rawText": "Ravaging Thunder\n"
+        },
+        "character/Screenshot_59.png": {
+            "mods": [
+                "Devouring Wildfire"
+            ],
+            "processedAt": "2025-11-23T00:29:35.009Z",
+            "rawText": "Devouring Wildfire\n"
+        },
+        "character/Screenshot_6.png": {
+            "mods": [
+                "Nihility • Wildfire",
+                "Nihility • Midnight Sun"
+            ],
+            "processedAt": "2025-11-23T00:29:42.192Z",
+            "rawText": "Nihility • Wildfire\nNihility • Midnight Sun\n"
+        },
+        "character/Screenshot_60.png": {
+            "mods": [
+                "Misty Veil",
+                "Frosty Torrent"
+            ],
+            "processedAt": "2025-11-23T00:29:49.278Z",
+            "rawText": "Misty Veil\nFrosty Torrent\n"
+        },
+        "character/Screenshot_61.png": {
+            "mods": [
+                "Illusionary Sacrifice"
+            ],
+            "processedAt": "2025-11-23T00:29:56.786Z",
+            "rawText": "Illusionary Sacrifice\n"
+        },
+        "character/Screenshot_62.png": {
+            "mods": [
+                "Phoenix's Nirvana",
+                "Phoenix's Blessing",
+                "Covenanter's Standfast"
+            ],
+            "processedAt": "2025-11-23T00:30:04.327Z",
+            "rawText": "Phoenix's Nirvana\nPhoenix's Blessing\nCovenanter's Standfast"
+        },
+        "character/Screenshot_63.png": {
+            "mods": [
+                "Wings • Inspo"
+            ],
+            "processedAt": "2025-11-23T00:30:11.329Z",
+            "rawText": "Wings • Inspo\n"
+        },
+        "character/Screenshot_64.png": {
+            "mods": [
+                "Onslaught",
+                "Intrepidity",
+                "Duel",
+                "Trapped",
+                "Surge",
+                "Relentless"
+            ],
+            "processedAt": "2025-11-23T00:30:18.589Z",
+            "rawText": "Onslaught\nIntrepidity\nDuel\nTrapped\nSurge\nRelentless"
+        },
+        "character/Screenshot_7.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:30:25.720Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift\n"
+        },
+        "character/Screenshot_8.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:30:33.093Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "character/Screenshot_9.png": {
+            "mods": [
+                "Prime • Morale",
+                "Prime • Resolve",
+                "Prime • Huntdown",
+                "Prime • Serenity",
+                "Prime • Uplift"
+            ],
+            "processedAt": "2025-11-23T00:30:40.316Z",
+            "rawText": "Prime • Morale\nPrime • Resolve\nPrime • Huntdown\nPrime • Serenity\nPrime • Uplift"
+        },
+        "Melee consonance weapon/Screenshot_1.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:30:47.722Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Melee consonance weapon/Screenshot_10.png": {
+            "mods": [
+                "Threshold",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:30:54.791Z",
+            "rawText": "Threshold\nTrammel\n"
+        },
+        "Melee consonance weapon/Screenshot_2.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:31:02.038Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Melee consonance weapon/Screenshot_3.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:31:09.310Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Melee consonance weapon/Screenshot_4.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity",
+                "Threshold"
+            ],
+            "processedAt": "2025-11-23T00:31:16.614Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity\nThreshold"
+        },
+        "Melee consonance weapon/Screenshot_5.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:31:23.865Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Melee consonance weapon/Screenshot_6.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity",
+                "Threshold",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:31:31.200Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity\nThreshold\nTrammel"
+        },
+        "Melee consonance weapon/Screenshot_7.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity"
+            ],
+            "processedAt": "2025-11-23T00:31:38.506Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity"
+        },
+        "Melee consonance weapon/Screenshot_8.png": {
+            "mods": [
+                "Threshold",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:31:45.754Z",
+            "rawText": "Threshold\nTrammel\n"
+        },
+        "Melee consonance weapon/Screenshot_9.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity"
+            ],
+            "processedAt": "2025-11-23T00:31:53.077Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity"
+        },
+        "Melee wepaon/Screenshot_1.png": {
+            "mods": [
+                "Puncture Cascade",
+                "Shockwave Echo",
+                "Commanding Thrust",
+                "Piercing Ascent"
+            ],
+            "processedAt": "2025-11-23T00:32:00.392Z",
+            "rawText": "Puncture Cascade\nShockwave Echo\nCommanding Thrust\nPiercing Ascent\n"
+        },
+        "Melee wepaon/Screenshot_10.png": {
+            "mods": [
+                "Utmost",
+                "Kismet"
+            ],
+            "processedAt": "2025-11-23T00:32:07.455Z",
+            "rawText": "Utmost\nKismet\n"
+        },
+        "Melee wepaon/Screenshot_11.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:32:14.617Z",
+            "rawText": "Impetus\nFocus\nRage\nTrammel"
+        },
+        "Melee wepaon/Screenshot_12.png": {
+            "mods": [
+                "Continuity • Trammel"
+            ],
+            "processedAt": "2025-11-23T00:32:21.668Z",
+            "rawText": "Continuity • Trammel\n"
+        },
+        "Melee wepaon/Screenshot_13.png": {
+            "mods": [
+                "Brutality",
+                "Fervor"
+            ],
+            "processedAt": "2025-11-23T00:32:28.739Z",
+            "rawText": "Brutality\nFervor\n"
+        },
+        "Melee wepaon/Screenshot_14.png": {
+            "mods": [
+                "Vigilance",
+                "Patrol"
+            ],
+            "processedAt": "2025-11-23T00:32:35.763Z",
+            "rawText": "Vigilance\nPatrol\n"
+        },
+        "Melee wepaon/Screenshot_15.png": {
+            "mods": [
+                "Pierce",
+                "Severance"
+            ],
+            "processedAt": "2025-11-23T00:32:42.721Z",
+            "rawText": "Pierce\nSeverance\n"
+        },
+        "Melee wepaon/Screenshot_16.png": {
+            "mods": [
+                "Dropshot",
+                "Swift Dropshot"
+            ],
+            "processedAt": "2025-11-23T00:32:49.877Z",
+            "rawText": "Dropshot\nSwift Dropshot\n"
+        },
+        "Melee wepaon/Screenshot_17.png": {
+            "mods": [
+                "Blitz",
+                "Flash Strike",
+                "Afterimage"
+            ],
+            "processedAt": "2025-11-23T00:32:57.086Z",
+            "rawText": "Blitz\nFlash Strike\nAfterimage\n"
+        },
+        "Melee wepaon/Screenshot_18.png": {
+            "mods": [
+                "Swift Momentum"
+            ],
+            "processedAt": "2025-11-23T00:33:04.049Z",
+            "rawText": "Swift Momentum\n"
+        },
+        "Melee wepaon/Screenshot_19.png": {
+            "mods": [
+                "Filthoid Hunt",
+                "Legion Hunt",
+                "Divine Herald Hunt",
+                "Forsakens Hunt"
+            ],
+            "processedAt": "2025-11-23T00:33:11.362Z",
+            "rawText": "Filthoid Hunt\nLegion Hunt\nDivine Herald Hunt\nForsakens Hunt"
+        },
+        "Melee wepaon/Screenshot_2.png": {
+            "mods": [
+                "Edgeless Blade",
+                "Savage Charge"
+            ],
+            "processedAt": "2025-11-23T00:33:18.555Z",
+            "rawText": "Edgeless Blade\nSavage Charge\n"
+        },
+        "Melee wepaon/Screenshot_20.png": {
+            "mods": [
+                "Impetus",
+                "Impetus • Focus",
+                "Rage • Trammel"
+            ],
+            "processedAt": "2025-11-23T00:33:25.672Z",
+            "rawText": "Impetus\nImpetus • Focus\nRage • Trammel"
+        },
+        "Melee wepaon/Screenshot_21.png": {
+            "mods": [
+                "Celerity",
+                "Threshold"
+            ],
+            "processedAt": "2025-11-23T00:33:32.852Z",
+            "rawText": "Celerity\nThreshold\n"
+        },
+        "Melee wepaon/Screenshot_22.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:33:39.972Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Melee wepaon/Screenshot_3.png": {
+            "mods": [
+                "In Full Bloom",
+                "Blade Feint"
+            ],
+            "processedAt": "2025-11-23T00:33:47.372Z",
+            "rawText": "In Full Bloom\nBlade Feint\n"
+        },
+        "Melee wepaon/Screenshot_4.png": {
+            "mods": [
+                "Crescent Flurry"
+            ],
+            "processedAt": "2025-11-23T00:33:54.459Z",
+            "rawText": "Crescent Flurry\n"
+        },
+        "Melee wepaon/Screenshot_5.png": {
+            "mods": [
+                "Whirl of Illusion",
+                "Sundering Edgefield"
+            ],
+            "processedAt": "2025-11-23T00:34:01.994Z",
+            "rawText": "Whirl of Illusion\nSundering Edgefield\n"
+        },
+        "Melee wepaon/Screenshot_6.png": {
+            "mods": [
+                "Impetus • Focus",
+                "Rage • Trammel",
+                "Edge • Trammel",
+                "Penetration • Trammel",
+                "Crusher • Trammel"
+            ],
+            "processedAt": "2025-11-23T00:34:09.414Z",
+            "rawText": "Impetus • Focus\nRage • Trammel\nEdge • Trammel\nPenetration • Trammel\nCrusher • Trammel"
+        },
+        "Melee wepaon/Screenshot_7.png": {
+            "mods": [
+                "Celerity",
+                "Threshold"
+            ],
+            "processedAt": "2025-11-23T00:34:16.496Z",
+            "rawText": "Celerity\nThreshold\n"
+        },
+        "Melee wepaon/Screenshot_8.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:34:23.783Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Melee wepaon/Screenshot_9.png": {
+            "mods": [
+                "Continuity",
+                "Fortune"
+            ],
+            "processedAt": "2025-11-23T00:34:30.904Z",
+            "rawText": "Continuity\nFortune\n"
+        },
+        "Range consonance weapon/Screenshot_1.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:34:38.390Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Range consonance weapon/Screenshot_10.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:34:45.658Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Range consonance weapon/Screenshot_2.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity",
+                "Foldover",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:34:53.207Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity\nFoldover\nTrammel"
+        },
+        "Range consonance weapon/Screenshot_3.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:35:00.544Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Range consonance weapon/Screenshot_4.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity",
+                "Foldover",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:35:08.109Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity\nFoldover\nTrammel"
+        },
+        "Range consonance weapon/Screenshot_5.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity"
+            ],
+            "processedAt": "2025-11-23T00:35:15.408Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity\n"
+        },
+        "Range consonance weapon/Screenshot_6.png": {
+            "mods": [
+                "Foldover",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:35:22.460Z",
+            "rawText": "Foldover\nTrammel\n"
+        },
+        "Range consonance weapon/Screenshot_7.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:35:29.808Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Range consonance weapon/Screenshot_8.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Celerity"
+            ],
+            "processedAt": "2025-11-23T00:35:37.278Z",
+            "rawText": "Impetus\nFocus\nRage\nCelerity\n"
+        },
+        "Range consonance weapon/Screenshot_9.png": {
+            "mods": [
+                "Foldover",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:35:44.447Z",
+            "rawText": "Foldover\nTrammel\n"
+        },
+        "Range weapon/Screenshot_1.png": {
+            "mods": [
+                "Impetus • Focus",
+                "Rage • Trammel",
+                "Edge • Trammel",
+                "Penetration • Trammel",
+                "Crusher • Trammel"
+            ],
+            "processedAt": "2025-11-23T00:35:51.970Z",
+            "rawText": "Impetus • Focus\nRage • Trammel\nEdge • Trammel\nPenetration • Trammel\nCrusher • Trammel"
+        },
+        "Range weapon/Screenshot_10.png": {
+            "mods": [
+                "Pierce",
+                "Severance"
+            ],
+            "processedAt": "2025-11-23T00:35:59.215Z",
+            "rawText": "Pierce\nSeverance\n"
+        },
+        "Range weapon/Screenshot_11.png": {
+            "mods": [
+                "Furious Blast",
+                "Furious Beam",
+                "Focus"
+            ],
+            "processedAt": "2025-11-23T00:36:06.818Z",
+            "rawText": "Furious Blast\nFurious Beam\nFocus"
+        },
+        "Range weapon/Screenshot_12.png": {
+            "mods": [
+                "Speed Boost",
+                "Stall"
+            ],
+            "processedAt": "2025-11-23T00:36:14.158Z",
+            "rawText": "Speed Boost\nStall\n"
+        },
+        "Range weapon/Screenshot_13.png": {
+            "mods": [
+                "Filthoid Hunt",
+                "Legion Hunt",
+                "Divine Herald Hunt",
+                "Forsakens Hunt"
+            ],
+            "processedAt": "2025-11-23T00:36:21.831Z",
+            "rawText": "Filthoid Hunt\nLegion Hunt\nDivine Herald Hunt\nForsakens Hunt"
+        },
+        "Range weapon/Screenshot_14.png": {
+            "mods": [
+                "Impetus",
+                "Impetus • Focus",
+                "Rage • Trammel"
+            ],
+            "processedAt": "2025-11-23T00:36:29.074Z",
+            "rawText": "Impetus\nImpetus • Focus\nRage • Trammel"
+        },
+        "Range weapon/Screenshot_15.png": {
+            "mods": [
+                "Celerity",
+                "Foldover"
+            ],
+            "processedAt": "2025-11-23T00:36:36.303Z",
+            "rawText": "Celerity\nFoldover\n"
+        },
+        "Range weapon/Screenshot_16.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:36:43.519Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Range weapon/Screenshot_2.png": {
+            "mods": [
+                "Celerity",
+                "Foldover"
+            ],
+            "processedAt": "2025-11-23T00:36:50.671Z",
+            "rawText": "Celerity\nFoldover\n"
+        },
+        "Range weapon/Screenshot_3.png": {
+            "mods": [
+                "Edge",
+                "Penetration",
+                "Crusher"
+            ],
+            "processedAt": "2025-11-23T00:36:58.025Z",
+            "rawText": "Edge\nPenetration\nCrusher"
+        },
+        "Range weapon/Screenshot_4.png": {
+            "mods": [
+                "Quiver",
+                "Arrow",
+                "Dexterity",
+                "Abundance"
+            ],
+            "processedAt": "2025-11-23T00:37:05.235Z",
+            "rawText": "Quiver\nArrow\nDexterity\nAbundance"
+        },
+        "Range weapon/Screenshot_5.png": {
+            "mods": [
+                "Lingering Might",
+                "Tyranny",
+                "Decline",
+                "Hunt",
+                "Carefree",
+                "Coercion"
+            ],
+            "processedAt": "2025-11-23T00:37:12.792Z",
+            "rawText": "Lingering Might\nTyranny\nDecline\nHunt\nCarefree\nCoercion"
+        },
+        "Range weapon/Screenshot_6.png": {
+            "mods": [
+                "Impetus",
+                "Focus",
+                "Rage",
+                "Trammel"
+            ],
+            "processedAt": "2025-11-23T00:37:20.121Z",
+            "rawText": "Impetus\nFocus\nRage\nTrammel"
+        },
+        "Range weapon/Screenshot_7.png": {
+            "mods": [
+                "Rage • Trammel",
+                "Crusher • Quiver"
+            ],
+            "processedAt": "2025-11-23T00:37:27.238Z",
+            "rawText": "Rage • Trammel\nCrusher • Quiver\n"
+        },
+        "Range weapon/Screenshot_8.png": {
+            "mods": [
+                "Loadout",
+                "Frugality"
+            ],
+            "processedAt": "2025-11-23T00:37:34.459Z",
+            "rawText": "Loadout\nFrugality\n"
+        },
+        "Range weapon/Screenshot_9.png": {
+            "mods": [
+                "Focus • Mass",
+                "Celerity • Cunning",
+                "Quiver • Loadout",
+                "Rain of Quivers"
+            ],
+            "processedAt": "2025-11-23T00:37:41.785Z",
+            "rawText": "Focus • Mass\nCelerity • Cunning\nQuiver • Loadout\nRain of Quivers"
+        }
+    }
+}

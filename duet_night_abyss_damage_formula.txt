@@ -1,0 +1,186 @@
+# DUET NIGHT ABYSS DAMAGE CALCULATION FORMULA AND DEMON WEDGE MECHANICS
+
+This document provides the core damage formula and explains the "Damage Bucket" system, which is crucial for accurately calculating the effect of Demon Wedge stats.
+
+## 1. CORE DAMAGE FORMULA (Multiplicative Buckets)
+
+The total damage is calculated by multiplying several independent "buckets" (multipliers) together.
+
+```
+Damage = 
+    Base_DMG 
+    * Enemy_DEF_Multiplier 
+    * Enemy_RES_Multiplier 
+    * Resolve_Multiplier 
+    * Morale_Multiplier 
+    * DMG_Boost_Multiplier 
+    * DMG_Bonus_Multiplier 
+    * CRIT_Multiplier 
+    * Enemy_Damage_Taken_Multiplier 
+    * Final_DMG_Multiplier 
+    * RNG_Multiplier
+```
+
+---
+
+## 2. DEMON WEDGE STAT APPLICATION (Additive Stacking within Buckets)
+
+The primary function of Demon Wedge stats is to contribute to the values within these multiplicative buckets. **Stats of the same type are ADDITIVE (summed up) before being applied to their respective bucket.** This is the key to understanding Diminishing Returns.
+
+### A. BASE DMG BUCKET
+
+The Base Damage is the foundation of the calculation. Demon Wedge stats contribute to the `Scalar` and `MV Multiplier` components.
+
+#### Base DMG Formula:
+```
+Base_DMG = MV_Multiplier * Skill_or_Weapon_Scalar
+```
+
+#### 1. ATK% (Demon Wedge Main/Sub Stat)
+- **Bucket:** Contributes to the `Skill_or_Weapon_Scalar`.
+- **Stacking:** **ADDITIVE** with all other ATK% sources (e.g., Trial Rank, other Demon Wedges).
+
+**Formula for Character ATK Scalar (Used for Skill DMG):**
+```
+Skill_Scalar = Base_Character_ATK * (1 + SUM(All_ATK_Percent)) * (1 + SUM(All_Elemental_ATK_Percent))
+```
+
+**Formula for Weapon DMG Scalar (Used for Weapon/Consonance DMG):**
+```
+Weapon_Scalar = 
+    [Character_Base_ATK * (1 + SUM(Char_ATK_Percent)) * (1 + SUM(Char_Elemental_ATK_Percent))] 
+    + [Weapon_Base_ATK * (1 + SUM(Weapon_ATK_Percent)) * (1 + SUM(WeaponType_ATK_Percent)) * Proficiency]
+```
+
+#### 2. Skill DMG% (Demon Wedge Main/Sub Stat, e.g., Arbiter's Illusionary Sacrifice)
+- **Bucket:** Contributes to the `MV_Multiplier`.
+- **Stacking:** **ADDITIVE** with all other Skill DMG% sources.
+
+**Formula for MV Multiplier:**
+```
+MV_Multiplier = Base_Skill_Multiplier * (1 + SUM(All_Skill_DMG_Percent))
+```
+
+### B. DMG BOOST MULTIPLIER BUCKET
+
+This bucket is a major source of damage increase and is where general damage buffs are grouped.
+
+- **Stats Included:** Any stat worded as: `DMG Boost`, `[Weapon Type] DMG Boost`, `Weapon DMG`, `Skill DMG`, or `"Increases Damage Dealt"`.
+- **Stacking:** **ADDITIVE** with all other DMG Boost sources.
+
+**Formula for DMG Boost Multiplier:**
+```
+DMG_Boost_Multiplier = 1 + SUM(All_Damage_Boost_Percent)
+```
+
+### C. CRIT MULTIPLIER BUCKET
+
+This bucket determines the damage bonus on a critical hit.
+
+#### CRIT Damage (Demon Wedge Main/Sub Stat, e.g., Cerberus's Rage)
+- **Bucket:** Contributes to the `CRIT_Multiplier`.
+- **Stacking:** **ADDITIVE** with all other CRIT Damage sources.
+
+**Formula for CRIT Multiplier (if the attack crits):**
+```
+CRIT_Multiplier = 1 + CRIT_Level * (SUM(All_CRIT_Damage_Percent) - 1)
+```
+*Note: `CRIT_Level` is 1 by default, but increases if CRIT Rate exceeds 100%.*
+
+---
+
+## 3. SUMMARY FOR CALCULATOR IMPLEMENTATION
+
+To accurately model the impact of a Demon Wedge, the calculator must:
+
+1.  **Identify the Stat Type:** Determine if the Demon Wedge provides ATK%, Skill DMG%, CRIT Damage, or a general DMG Boost.
+2.  **Sum the Bucket:** Add the Demon Wedge's percentage value to the total sum of all other stats in that specific bucket (e.g., `Total_ATK_Percent = Existing_ATK_Percent + New_Demon_Wedge_ATK_Percent`).
+3.  **Apply Multiplicatively:** Use the final summed value of each bucket to calculate the total damage by multiplying the independent buckets together.
+
+**Example of Multiplicative Stacking (Optimization Principle):**
+-   **Bad Stacking (Additive):** Adding 50% ATK% to an existing 100% ATK% only results in a 50% relative gain to the ATK Scalar.
+-   **Good Stacking (Multiplicative):** Adding 50% ATK% (to the Base DMG bucket) and 50% Skill DMG% (to the MV Multiplier bucket) results in a much larger overall damage increase because the two buckets multiply each other.
+
+This structure ensures that the calculator accurately reflects the in-game mechanics, where spreading stats across different buckets is more efficient than stacking one type.
+
+# DUET NIGHT ABYSS: DEMON WEDGE IMPACT ON DAMAGE CALCULATION (FOR AI COPILOT)
+
+This document focuses exclusively on how Demon Wedge stats are integrated into the damage formula via the "Damage Bucket" system. The goal is to provide a clear, structured guide for calculating the marginal damage increase from adding a specific Demon Wedge.
+
+## 1. CORE PRINCIPLE: ADDITIVE VS. MULTIPLICATIVE STACKING
+
+The entire damage calculation is based on the principle of **Additive Stacking within Buckets** and **Multiplicative Stacking between Buckets**.
+
+| Stacking Type | Principle | Effect on Demon Wedge |
+| :--- | :--- | :--- |
+| **Additive** | Stats of the same type are summed together: `(Stat_A + Stat_B + Stat_C)` | Leads to **Diminishing Returns** when stacking the same stat (e.g., ATK%) from multiple Demon Wedges. |
+| **Multiplicative** | Independent buckets are multiplied together: `Bucket_1 * Bucket_2 * Bucket_3` | Provides the **Highest Damage Gain** when Demon Wedge stats are spread across different buckets. |
+
+## 2. DEMON WEDGE STAT BUCKETS
+
+Demon Wedge stats fall into three primary damage buckets. The final value of each bucket is a multiplier in the overall damage formula.
+
+### A. BASE DMG SCALAR BUCKET (ATK%, HP%, DEF%)
+
+This bucket determines the raw power value that the skill/weapon multiplier (MV) is applied to.
+
+| Demon Wedge Stat | Damage Type Affected | Calculation Principle |
+| :--- | :--- | :--- |
+| **ATK%** | Skill Damage, Weapon Damage | **ADDITIVE** with all other ATK% sources (Character, Weapon, Trial Rank). |
+| **HP%** | Skill Damage (if skill scales with HP) | **ADDITIVE** with all other HP% sources. |
+| **DEF%** | Skill Damage (if skill scales with DEF) | **ADDITIVE** with all other DEF% sources. |
+
+**Impact Calculation (Example: ATK%):**
+1.  Calculate the total ATK% sum: $\sum \text{ATK}\% = \text{Base\_ATK}\% + \text{Wedge\_1\_ATK}\% + \text{Wedge\_2\_ATK}\% + \dots$
+2.  The Scalar is proportional to: $(1 + \sum \text{ATK}\%)$
+
+### B. MV MULTIPLIER BUCKET (Skill DMG%)
+
+This bucket modifies the skill's Motion Value (MV) or base damage percentage.
+
+| Demon Wedge Stat | Damage Type Affected | Calculation Principle |
+| :--- | :--- | :--- |
+| **Skill DMG%** | Skill Damage, Weapon Damage | **ADDITIVE** with all other Skill DMG% sources. |
+
+**Impact Calculation:**
+1.  Calculate the total Skill DMG% sum: $\sum \text{Skill\_DMG}\% = \text{Base\_Skill\_DMG}\% + \text{Wedge\_1\_Skill\_DMG}\% + \dots$
+2.  The MV Multiplier is proportional to: $(1 + \sum \text{Skill\_DMG}\%)$
+
+### C. DMG BOOST MULTIPLIER BUCKET (DMG Boost, Weapon DMG, Skill DMG)
+
+This is a separate, multiplicative bucket that groups all general damage increases.
+
+| Demon Wedge Stat | Damage Type Affected | Calculation Principle |
+| :--- | :--- | :--- |
+| **DMG Boost** (General) | Skill Damage, Weapon Damage | **ADDITIVE** with all other DMG Boost sources. |
+| **Weapon DMG** | Weapon Damage ONLY | **ADDITIVE** with all other Weapon DMG and General DMG Boost sources. |
+| **Skill DMG** | Skill Damage ONLY | **ADDITIVE** with all other Skill DMG and General DMG Boost sources. |
+
+**Impact Calculation:**
+1.  Calculate the total DMG Boost sum: $\sum \text{DMG\_Boost} = \text{Base\_DMG\_Boost} + \text{Wedge\_1\_DMG\_Boost} + \dots$
+2.  The DMG Boost Multiplier is: $(1 + \sum \text{DMG\_Boost})$
+
+### D. CRIT MULTIPLIER BUCKET (CRIT Damage)
+
+This bucket applies only if the attack is a critical hit.
+
+| Demon Wedge Stat | Damage Type Affected | Calculation Principle |
+| :--- | :--- | :--- |
+| **CRIT Damage** | Weapon Damage ONLY (Skills cannot crit) | **ADDITIVE** with all other CRIT Damage sources. |
+
+**Impact Calculation:**
+1.  Calculate the total CRIT Damage sum: $\sum \text{CRIT\_DMG} = \text{Base\_CRIT\_DMG} + \text{Wedge\_1\_CRIT\_DMG} + \dots$
+2.  The CRIT Multiplier is proportional to: $(\sum \text{CRIT\_DMG})$
+
+## 3. CALCULATOR LOGIC SUMMARY
+
+To demonstrate the impact of a Demon Wedge, the calculator must:
+
+1.  **Identify the Wedge's Primary Stat:** (e.g., ATK%, Skill DMG%, CRIT Damage).
+2.  **Calculate the Total Bucket Value:** Sum the new Demon Wedge stat with the existing total of that stat type.
+3.  **Calculate the Marginal Gain:**
+    *   **Old Damage:** $\text{Damage}_{\text{Old}} = \text{Bucket}_{\text{Old}} \times \text{Other\_Buckets}$
+    *   **New Damage:** $\text{Damage}_{\text{New}} = \text{Bucket}_{\text{New}} \times \text{Other\_Buckets}$
+    *   **Percentage Increase:** $(\text{Damage}_{\text{New}} / \text{Damage}_{\text{Old}}) - 1$
+
+This approach clearly illustrates the **Diminishing Returns** of stacking the same stat (Additive) versus the high efficiency of spreading stats across different buckets (Multiplicative).

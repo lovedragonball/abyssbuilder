@@ -35,7 +35,7 @@ interface ModSelectorDialogProps {
 }
 
 const RarityStars = ({ rarity }: { rarity: ModRarity }) => (
-  <div className="flex items-center">
+  <div className="flex items-center" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8))' }}>
     {[...Array(rarity)].map((_, i) => (
       <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
     ))}
@@ -76,7 +76,7 @@ const ModCard = ({ mod, onDragStart, onClick }: { mod: Mod; onDragStart: (e: Rea
                   )}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-1 left-1">
+                <div className="absolute bottom-1 left-1 z-10">
                   <RarityStars rarity={mod.rarity} />
                 </div>
                 {mod.symbol && (
@@ -102,55 +102,55 @@ const ModCard = ({ mod, onDragStart, onClick }: { mod: Mod; onDragStart: (e: Rea
             </Card>
           </div>
         </TooltipTrigger>
-      <TooltipContent side="left" align="start" className="w-72">
-        <div className="p-3 space-y-3">
-          <div className="space-y-1">
-            <div className="flex justify-between items-start gap-2">
-              <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
-              <div className="flex items-center gap-1 flex-shrink-0">
-                {mod.symbol && <div className="bg-black/50 text-white text-xs p-1 rounded-sm font-bold">{mod.symbol}</div>}
-                <RarityStars rarity={mod.rarity} />
+        <TooltipContent side="left" align="start" className="w-72">
+          <div className="p-3 space-y-3">
+            <div className="space-y-1">
+              <div className="flex justify-between items-start gap-2">
+                <h4 className="font-bold text-base text-foreground">{mod.name}</h4>
+                <div className="flex items-center gap-1 flex-shrink-0">
+                  {mod.symbol && <div className="bg-black/50 text-white text-xs p-1 rounded-sm font-bold">{mod.symbol}</div>}
+                  <RarityStars rarity={mod.rarity} />
+                </div>
+              </div>
+              <div className="flex gap-2 text-xs text-muted-foreground">
+                <span>{mod.modType}</span>
+                {mod.element && (
+                  <>
+                    <span>&bull;</span> <span>{mod.element}</span>
+                  </>
+                )}
               </div>
             </div>
-            <div className="flex gap-2 text-xs text-muted-foreground">
-              <span>{mod.modType}</span>
-              {mod.element && (
-                <>
-                  <span>&bull;</span> <span>{mod.element}</span>
-                </>
+
+            <div className="space-y-1 text-sm">
+              <p className="font-semibold text-primary">Main Attribute</p>
+              <p className="text-foreground">{mod.mainAttribute}</p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 pt-2 text-xs">
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Tolerance</span>
+                <span className="font-medium text-foreground">{mod.tolerance}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Track</span>
+                <span className="font-medium text-foreground">{mod.track}</span>
+              </div>
+              {mod.isPrimeMod && mod.toleranceBoost && (
+                <div className="flex justify-between col-span-2">
+                  <span className="text-muted-foreground">Tolerance Boost</span>
+                  <span className="font-medium text-yellow-500">+{mod.toleranceBoost}</span>
+                </div>
               )}
-            </div>
-          </div>
-
-          <div className="space-y-1 text-sm">
-            <p className="font-semibold text-primary">Main Attribute</p>
-            <p className="text-foreground">{mod.mainAttribute}</p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2 pt-2 text-xs">
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Tolerance</span>
-              <span className="font-medium text-foreground">{mod.tolerance}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-muted-foreground">Track</span>
-              <span className="font-medium text-foreground">{mod.track}</span>
-            </div>
-            {mod.isPrimeMod && mod.toleranceBoost && (
               <div className="flex justify-between col-span-2">
-                <span className="text-muted-foreground">Tolerance Boost</span>
-                <span className="font-medium text-yellow-500">+{mod.toleranceBoost}</span>
+                <span className="text-muted-foreground">Source</span>
+                <span className="font-medium text-foreground">{mod.source}</span>
               </div>
-            )}
-            <div className="flex justify-between col-span-2">
-              <span className="text-muted-foreground">Source</span>
-              <span className="font-medium text-foreground">{mod.source}</span>
             </div>
           </div>
-        </div>
-      </TooltipContent>
-    </Tooltip>
-  </TooltipProvider>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 

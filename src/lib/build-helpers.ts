@@ -1,6 +1,7 @@
 import { createBuild, updateBuild, getBuild } from '@/lib/firestore';
 import { allMods, allCharacters, allWeapons } from '@/lib/data';
 import type { Build } from '@/lib/types';
+import { sanitizeGleamingModsOnLoad } from '@/lib/gleaming-utils';
 
 export async function saveBuildToFirestore(
   buildData: Omit<Build, 'id' | 'createdAt' | 'updatedAt'>,
@@ -22,9 +23,12 @@ export async function loadBuildForEditing(buildId: string) {
   if (!build) return null;
 
   // Convert mod names back to mod objects
-  const loadedMods = (build.mods || [])
+  let loadedMods = (build.mods || [])
     .map((modName: string) => allMods.find((m) => m.name === modName))
     .filter(Boolean);
+
+  // Sanitize Gleaming mods - ensure only one Gleaming mod in the build
+  loadedMods = sanitizeGleamingModsOnLoad(loadedMods);
 
   // Convert character IDs back to character objects
   const loadedTeam = (build.team || [])
@@ -36,13 +40,16 @@ export async function loadBuildForEditing(buildId: string) {
     .map((wpnId: string) => allWeapons.find((w) => w.id === wpnId))
     .filter(Boolean);
 
-  // Convert support mod names back to mod objects
+  // Convert support mod names back to mod objects and sanitize Gleaming mods
   const loadedSupportMods: Record<string, any[]> = {};
   if (build.supportMods) {
     Object.entries(build.supportMods).forEach(([key, modNames]) => {
-      const mods = (modNames as string[])
+      let mods = (modNames as string[])
         .map((modName) => allMods.find((m) => m.name === modName))
         .filter(Boolean);
+
+      // Sanitize Gleaming mods for each support item
+      mods = sanitizeGleamingModsOnLoad(mods);
       loadedSupportMods[key] = mods;
     });
   }

@@ -1,0 +1,1406 @@
+Cerberus's Crusher - Trammel
+Smash ATK
+20%
+Trigger Probability
+40%
+Tolerance
+9
+Cerberus's Edge - Trammel
+Slash ATK
+20%
+Trigger Probability
+40%
+Tolerance
+9
+Cerberus's Penetration - Trammel
+Spike ATK
+20%
+Trigger Probability
+40%
+Tolerance
+9
+Cerberus's Rage - Trammel
+Crit DMG
+40%
+Trigger Probability
+40%
+Tolerance
+10
+Cerberus's Impetus - Focus
+ATK
+30%
+Crit Chance
+40%
+Tolerance
+11
+Eldritch Cerberus's Crusher
+Smash ATK
+30%
+Tolerance
+10
+Eldritch Cerberus's Edge
+Slash ATK
+30%
+Tolerance
+10
+Eldritch Cerberus's Penetration
+Spike ATK
+30%
+Tolerance
+10
+Eldritch Cerberus's Impetus
+ATK
+30%
+Tolerance
+10
+Eldritch Cerberus's Focus
+Crit Chance
+20%
+Tolerance
+11
+Eldritch Cerberus's Celerity
+ATK Speed
+10%
+Tolerance
+15
+Eldritch Cerberus's Rage
+Crit DMG
+20%
+Tolerance
+11
+Eldritch Cerberus's Threshold
+ATK Range
+0.24
+Tolerance
+15
+Lilith's Crusher - Trammel
+Smash ATK
+20%
+Trigger Probability
+40%
+Tolerance
+9
+Lilith's Edge - Trammel
+Slash ATK
+20%
+Trigger Probability
+40%
+Tolerance
+9
+Lilith's Penetration - Trammel
+Spike ATK
+20%
+Trigger Probability
+40%
+Tolerance
+9
+Lilith's Rage - Trammel
+Crit DMG
+40%
+Trigger Probability
+40%
+Tolerance
+10
+Lilith's Impetus - Focus
+ATK
+30%
+Crit Chance
+40%
+Tolerance
+11
+Eldritch Lilith's Crusher
+Smash ATK
+30%
+Tolerance
+10
+Eldritch Lilith's Edge
+Slash ATK
+30%
+Tolerance
+10
+Eldritch Lilith's Penetration
+Spike ATK
+30%
+Tolerance
+10
+Eldritch Lilith's Impetus
+ATK
+30%
+Tolerance
+10
+Eldritch Lilith's Focus
+Crit Chance
+20%
+Tolerance
+11
+Eldritch Lilith's Celerity
+ATK Speed
+10%
+Tolerance
+15
+Eldritch Lilith's Rage
+Crit DMG
+20%
+Tolerance
+11
+Eldritch Lilith's Foldover
+Multishot
+10%
+Tolerance
+15
+Phoenix's Blaze - Wings
+ATK
+24%
+Max Sanity
+24%
+Tolerance
+11
+Phoenix's Blaze - Blessing
+HP
+24%
+Shield
+24%
+Tolerance
+9
+Typhon's Prime
+ATK
+40%
+HP
+40%
+DEF
+40%
+Tolerance
+11
+Typhon's Prime
+ATK
+40%
+HP
+40%
+DEF
+40%
+Tolerance
+11
+Typhon's Prime
+ATK
+40%
+HP
+40%
+DEF
+40%
+Tolerance
+11
+Typhon's Prime
+ATK
+40%
+HP
+40%
+DEF
+40%
+Tolerance
+11
+Typhon's Prime
+ATK
+40%
+HP
+40%
+DEF
+40%
+Tolerance
+11
+Typhon's Prime
+ATK
+40%
+HP
+40%
+DEF
+40%
+Tolerance
+11
+Feathered Serpent's Blastwave
+Upon landing from a height, deals Smash Damage equal to 128% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Cutoff
+While taking damage mid-air, the damage taken is reduced by 10%. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Helido
+When performing a Helix Leap, deals Anemo Damage equal to 256% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Ignite
+When performing a Helix Leap, deals Pyro Damage equal to 256% of ATK to nearby enemies. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Prance
+After defeating an enemy in mid-air, reset the character's air jump count, up to a maximum of 6 times. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Recovery
+Damage Taken Rate
+50%
+Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Rescue
+When using Ultimate Skill, restores HP equal to 3% of max HP to teammates within a 10-metre range. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Sidestep
+Dodge Attempts
+1
+Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Steadfast
+Gains immunity to Hitsun, but Damage Dealt is reduced by 15% (unaffected by other modifiers). Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Unyielding
+Survives Fatal damage, reducing the character's HP to 1. This effect can only be triggered once every 300s max. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Feathered Serpent's Vigilant
+When taking damage, there is a 50% chance to reduce damage taken by 20%. Increases the character's max tolerance by 2.5 times the Demon Wedge's required tolerance.
+Tolerance
+7
+Track
+
+Griffin's Inferno - Volition
+Pyro ATK
+18%
+Skill DMG
+18%
+Tolerance
+15
+Griffin's Nihility - Volition
+Umbro ATK
+18%
+Skill DMG
+18%
+Tolerance
+15
+Griffin's Seawave - Volition
+Hydro ATK
+18%
+Skill DMG
+18%
+Tolerance
+15
+Griffin's Skylume - Volition
+Lumino ATK
+18%
+Skill DMG
+18%
+Tolerance
+15
+Griffin's Squall - Volition
+Anemo ATK
+18%
+Skill DMG
+18%
+Tolerance
+15
+Griffin's Thunder - Volition
+Electro ATK
+18%
+Skill DMG
+18%
+Tolerance
+15
+Pan's Eternity
+Skill Duration
+20%
+Tolerance
+11
+Pan's Inspo - Elapse
+Skill Efficiency
+18%
+HP
+-24%
+Tolerance
+15
+Pan's Inspo - Shards
+Skill Efficiency
+18%
+Shield
+-24%
+Tolerance
+15
+Pan's Inspo
+Skill Efficiency
+16%
+Tolerance
+10
+Pan's Spectrum
+Skill Range
+30%
+Tolerance
+8
+Pan's Volition
+Skill DMG
+24%
+Tolerance
+9
+Pan's Wings - Elapse
+Max Sanity
+48%
+HP
+-30%
+Tolerance
+15
+Pan's Wings - Shards
+Max Sanity
+48%
+Shield
+-30%
+Tolerance
+15
+Phoenix's Blaze
+ATK
+60%
+Tolerance
+10
+Phoenix's Blaze - Wings
+ATK
+30%
+Max Sanity
+30%
+Tolerance
+13
+Phoenix's Blaze - Nirvana
+ATK
+30%
+HP
+30%
+Tolerance
+10
+Phoenix's Blaze - Blessing
+ATK
+30%
+Shield
+30%
+Tolerance
+10
+Phoenix's Blaze - Standfast
+ATK
+30%
+DEF
+30%
+Tolerance
+10
+Phoenix's Blessing
+Shield
+60%
+Tolerance
+10
+Phoenix's Blessing - Wings
+Shield
+30%
+Max Sanity
+30%
+Tolerance
+13
+Phoenix's Blessing - Standfast
+Shield
+30%
+DEF
+30%
+Tolerance
+13
+Phoenix's Nirvana
+HP
+60%
+Tolerance
+13
+Phoenix's Nirvana - Blessing
+HP
+30%
+Shield
+30%
+Tolerance
+10
+Phoenix's Nirvana - Wings
+HP
+30%
+Max Sanity
+30%
+Tolerance
+13
+Phoenix's Nirvana - Standfast
+HP
+30%
+DEF
+30%
+Tolerance
+10
+Phoenix's Standfast
+DEF
+60%
+Tolerance
+10
+Phoenix's Wings
+Max Sanity
+40%
+Tolerance
+10
+Phoenix's Wings - Standfast
+Max Sanity
+30%
+DEF
+30%
+Tolerance
+13
+Siren's Wings - Inspo
+Max Sanity
+30%
+Skill Efficiency
+12%
+Tolerance
+16
+Cerberus's Crusher
+Smash ATK
+50%
+Tolerance
+12
+Track
+
+Cerberus's Edge
+Slash ATK
+50%
+Tolerance
+12
+Track
+
+Cerberus's Penetration
+Spike ATK
+50%
+Tolerance
+12
+Track
+
+Cerberus's Celerity
+ATK Speed
+20%
+Tolerance
+12
+Track
+
+Cerberus's Threshold
+ATK Range
+1
+Tolerance
+9
+Track
+
+Fenrir's Continuity
+Combo Duration
+6
+Tolerance
+10
+Track
+
+Fenrir's Fortune
+When gaining Combo Point through attacking, there is 100% chance to gain 1 additional
+Tolerance
+12
+Track
+
+Fenrir's Kismet
+Each Combo Level increase Trigger Probability by 16%
+Tolerance
+10
+Track
+
+Fenrir's Utmost
+Each Combo Level increase CRIT Chance by 20%
+Tolerance
+13
+Track
+
+Fafnir's Abundance
+Ammo Conversion Rate
+30%
+Tolerance
+10
+Track
+
+Fafnir's Arrow
+Max Ammo
+90%
+Tolerance
+9
+Track
+
+Fafnir's Carefree
+Upon triggering Bonus Effect, there is 30% chance to reload 1 bullet.
+Tolerance
+10
+Track
+
+Fafnir's Coercion
+Projectile Explosion Range
+1.50
+Tolerance
+15
+Track
+
+Fafnir's Decline
+When dealing CRIT Damage, there is 100% chance to disarm the target.
+Tolerance
+8
+Track
+
+Fafnir's Dexterity
+Reload Speed
+30%
+Tolerance
+9
+Track
+
+Fafnir's Hunt
+When triggering Bonus Effect, gain 1 stack that increases Multishot by 10% for 10s, up to 5 stacks.
+Tolerance
+12
+Track
+
+Fafnir's Lingering Might
+Triggers an explosion at the target location upon defeating enemy, dealing 15% of your Ranged Weapon damage to enemies within 6 metre range.
+Tolerance
+10
+Track
+
+Fafnir's Quiver
+Mag Capacity
+30%
+Tolerance
+9
+Track
+
+Fafnir's Tyranny
+When dealing CRIT Damage, gains 1 stack that increases Trigger Probability by 30% for 5s, up to 5 stacks.
+Tolerance
+10
+Track
+
+Lilith's Crusher
+Smash ATK
+50%
+Tolerance
+12
+Track
+
+Lilith's Edge
+Slash ATK
+50%
+Tolerance
+12
+Track
+
+Lilith's Penetration
+Spike ATK
+50%
+Tolerance
+12
+Track
+
+Lilith's Celerity
+ATK Speed
+30%
+Tolerance
+12
+Track
+
+Eldritch Cerberus's Crusher
+Smash ATK
+60%
+Tolerance
+10
+Track
+
+Eldritch Cerberus's Edge
+Slash ATK
+60%
+Tolerance
+10
+Track
+
+Eldritch Cerberus's Penetration
+Spike ATK
+60%
+Tolerance
+10
+Track
+
+Eldritch Cerberus's Impetus
+ATK
+60%
+Tolerance
+10
+Track
+
+Eldritch Cerberus's Focus
+Crit Chance
+40%
+Tolerance
+11
+Track
+
+Eldritch Cerberus's Celerity
+ATK Speed
+20%
+Tolerance
+15
+Track
+
+Eldritch Cerberus's Rage
+Crit DMG
+40%
+Tolerance
+11
+Track
+
+Eldritch Cerberus's Threshold
+ATK Range
+0.48
+Tolerance
+15
+Track
+
+Eldritch Cerberus's Trammel
+Trigger Probability
+40%
+Tolerance
+18
+Track
+
+Eldritch Lilith's Crusher
+Smash ATK
+60%
+Tolerance
+13
+Track
+
+Eldritch Lilith's Edge
+Slash ATK
+60%
+Tolerance
+13
+Track
+
+Eldritch Lilith's Penetration
+Spike ATK
+60%
+Tolerance
+13
+Track
+
+Eldritch Lilith's Impetus
+ATK
+60%
+Tolerance
+13
+Track
+
+Eldritch Lilith's Focus
+Crit Chance
+40%
+Tolerance
+14
+Track
+
+Eldritch Lilith's Rage
+Crit DMG
+40%
+Tolerance
+14
+Track
+
+Eldritch Lilith's Foldover
+Multishot
+20%
+Tolerance
+18
+Track
+
+Eldritch Lilith's Trammel
+Trigger Probability
+40%
+Tolerance
+18
+Track
+
+Eldritch Lilith's Celerity
+ATK Speed
+20%
+Tolerance
+15
+Track
+
+Arbiter's Illusionary Sacrifice
+Skill DMG
+30%
+When an Umbro character consumes Sanity, they gain 1 stack that increases Weapon CRIT Chance by 5.40% for 15s, up to 15 stacks.
+Tolerance
+24
+Track
+
+Bahamut's Frosty Torrent
+Skill DMG
+30%
+When a Hydro character use a skill, the user and nearby allies gain an ATK increases equal to 11.40% of the user's ATK (up to 275) for 10s.
+Tolerance
+24
+Track
+
+Bahamut's Misty Veil
+Skill DMG
+30%
+Hydro Characters' Summon gains an ATK speed boost equal to 27.00% of the summoner's melee weapon ATK Speed and a Skill range boost equal to 13.20 of the Summoner's Skill range.
+Tolerance
+24
+Track
+
+Ifrit's Devouring Wildfire
+Skill DMG
+30%
+When an Pyro character deals damage, gains 1 stack that increases ATK by 1.00% for 15s, up to 120 stacks.
+Tolerance
+24
+Track
+
+Summanus's Ravaging Thunder
+Skill DMG
+30%
+When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 5.40% for 16s, up to 8 stacks.
+Tolerance
+24
+Track
+
+Helios's Glimm & Glimmer
+Skill Duration
+24%
+Increases the Lumino character's ATK by [their current Skill Duration x 48.60%], up to 117.00%.
+Tolerance
+24
+Track
+
+Helios's Prismatic Neon
+Skill Duration
+24%
+When enemies near a Lumino character take Weapon DMG, CRIT Chance increases by 32.70%. Gains an additional +8.20% against targets with debuffs.
+Tolerance
+24
+Track
+
+Hastur's Turbulent Cyclone
+Skill Duration
+24%
+When an Anemo character character's ranged weapon triggers a bonus effect, grants +5.40% resolve to the user and nearby allies for 10s.
+Tolerance
+24
+Track
+
+Hastur's Whispering Zephyr
+Skill DMG
+30%
+When an Anemo character uses Combat Skills, it gains 84.00% Skill Damage increase for 6s.
+Tolerance
+24
+Track
+
+Sphinx's Duel
+Increase Damage Dealt by 24.00% when facing less than 2 enemies within a 20 metre range.
+Tolerance
+16
+Track
+
+Sphinx's Intrepidity
+HP
+-27%
+Shield
+-27%
+Increase Skill Damage by 54.00% for 30s when battle starts during commissions or Nocturnal Echoes.
+Tolerance
+12
+Track
+
+Sphinx's Onslaught
+Decrease Damage Taken by 12%. Defeating an enemy grants 1 stack that increases ATK by 6.00% for 30s, up to 15 stacks. This effect duration refreshes with each new stack.
+Tolerance
+14
+Track
+
+Sphinx's Relentless
+Increase ATK by 42.00% with each revival during commissions or Nocturnal Echoes (up to 126.00%).
+Tolerance
+11
+Track
+
+Sphinx's Surge
+Increase Damage Dealt by 24.00% when attacking off-balance enemies (with Stance completely weakened).
+Tolerance
+13
+Track
+
+Sphinx's Trapped
+Increase Damage Dealt by 1.20% per enemy within 20 metre range (up to 24.00%).
+Tolerance
+13
+Track
+
+Pan's Eternity - Abnegation
+Amplification
+Skill Duration
+40%
+Skill Range
+-60%
+Tolerance
+16
+Track
+
+Pan's Spectrum - Omen
+Amplification
+Skill Range
+50%
+Skill DMG
+-30%
+Tolerance
+12
+Track
+
+Phoenix's Blaze
+Amplification
+ATK
+75%
+Tolerance
+13
+Track
+
+Phoenix's Blessing
+Amplification
+Shield
+82%
+Tolerance
+13
+Track
+
+Phoenix's Nirvana
+Amplification
+HP
+82%
+Tolerance
+13
+Track
+
+Phoenix's Standfast
+Amplification
+DEF
+82%
+Tolerance
+13
+Track
+
+Phoenix's Wings
+Amplification
+Max Sanity
+50%
+Tolerance
+13
+Track
+
+Griffin's Inferno - Wildfire
+Amplification
+Pyro ATK
+18%
+Skill DMG
+18%
+Skill Range
+18%
+Tolerance
+20
+Track
+
+Griffin's Inferno - Midnight Sun
+Amplification
+Pyro ATK
+18%
+Skill DMG
+18%
+Skill Duration
+12%
+Tolerance
+22
+Track
+
+Griffin's Nihility - Wildfire
+Amplification
+Umbro ATK
+18%
+Skill DMG
+18%
+Skill Range
+18%
+Tolerance
+20
+Track
+
+Griffin's Nihility - Midnight Sun
+Amplification
+Umbro ATK
+18%
+Skill DMG
+18%
+Skill Duration
+12%
+Tolerance
+22
+Track
+
+Griffin's Seawave - Wildfire
+Amplification
+Hydro ATK
+18%
+Skill DMG
+18%
+Skill Range
+18%
+Tolerance
+20
+Track
+
+Griffin's Seawave - Midnight Sun
+Amplification
+Hydro ATK
+18%
+Skill DMG
+18%
+Skill Duration
+12%
+Tolerance
+22
+Track
+
+Griffin's Skylume - Wildfire
+Amplification
+Lumino ATK
+18%
+Skill DMG
+18%
+Skill Range
+18%
+Tolerance
+20
+Track
+
+Griffin's Skylume - Midnight Sun
+Amplification
+Lumino ATK
+18%
+Skill DMG
+18%
+Skill Duration
+12%
+Tolerance
+22
+Track
+
+Griffin's Squall - Wildfire
+Amplification
+Anemo ATK
+18%
+Skill DMG
+18%
+Skill Range
+18%
+Tolerance
+20
+Track
+
+Griffin's Squall - Midnight Sun
+Amplification
+Anemo ATK
+18%
+Skill DMG
+18%
+Skill Duration
+12%
+Tolerance
+22
+Track
+
+Griffin's Thunder - Wildfire
+Amplification
+Electro ATK
+18%
+Skill DMG
+18%
+Skill Range
+18%
+Tolerance
+20
+Track
+
+Covenanter's Scorch
+Amplification
+ATK
+96%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Scorch
+Amplification
+ATK
+96%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Standfast - Eternity
+Amplification
+DEF
+48%
+Skill Duration
+18%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+15
+Track
+
+Covenanter's Standfast - Inspo
+Amplification
+DEF
+48%
+Skill Efficiency
+12%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Wings - Eternity
+Amplification
+Max Sanity
+24%
+Skill Duration
+18%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Wings - Volition
+Amplification
+Max Sanity
+24%
+Skill DMG
+24%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Nirvana - Volition
+Amplification
+HP
+48%
+Skill DMG
+24%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+15
+Track
+
+Covenanter's Nirvana - Spectrum
+Amplification
+HP
+48%
+Skill Range
+30%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Morale
+Amplification
+ATK
+48%
+Morale
+12%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+12
+Track
+
+Covenanter's Blaze - Spectrum
+Amplification
+ATK
+48%
+Skill Range
+30%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Spectrum
+Amplification
+ATK
+48%
+Skill Range
+30%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Inspo
+Amplification
+ATK
+48%
+Skill Efficiency
+12%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Nirvana
+Amplification
+ATK
+48%
+HP
+48%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Resolve
+Amplification
+ATK
+48%
+Resolve
+4%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+17
+Track
+
+Covenanter's Blaze - Eternity
+Amplification
+ATK
+48%
+Skill Duration
+18%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+20
+Track
+
+Covenanter's Blaze - Eternity
+Amplification
+ATK
+48%
+Skill Duration
+18%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+15
+Track
+
+Covenanter's Blaze - Inspo
+Amplification
+ATK
+48%
+Skill Efficiency
+12%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Standfast
+Amplification
+ATK
+48%
+DEF
+48%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Morale
+Amplification
+ATK
+48%
+Morale
+12%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+12
+Track
+
+Covenanter's Blaze - Volition
+Amplification
+ATK
+48%
+Skill DMG
+24%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+15
+Track
+
+Covenanter's Blaze - Nirvana
+Amplification
+ATK
+48%
+HP
+48%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Covenanter's Blaze - Resolve
+Amplification
+ATK
+48%
+Resolve
+4%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+12
+Track
+
+Covenanter's Blaze - Volition
+Amplification
+ATK
+48%
+Skill DMG
+24%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+15
+Track
+
+Covenanter's Blaze - Standfast
+Amplification
+ATK
+48%
+DEF
+48%
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance
+13
+Track
+
+Jormungand's Gleaming Assault Rifle
+Amplification
+Increase your Damage Dealt by 6.00% per Assault Rifle equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Bow
+Amplification
+Increase your Damage Dealt by 6.00% per Bow equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Dual Blades
+Amplification
+Increase your Damage Dealt by 6.00% per Dual Blades equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Dual Pistols
+Amplification
+Increase your Damage Dealt by 6.00% per Dual Pistols equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Greatsword
+Amplification
+Increase your Damage Dealt by 6.00% per Greatsword equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Grenade Launcher
+Amplification
+Increase your Damage Dealt by 6.00% per Grenade Launcher equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Katana
+Amplification
+Increase your Damage Dealt by 6.00% per Katana equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Pistol
+Amplification
+Increase your Damage Dealt by 6.00% per Pistol equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Polearm
+Amplification
+Increase your Damage Dealt by 6.00% per Polearm equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Shotgun
+Amplification
+Increase your Damage Dealt by 6.00% per Shotgun equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Sword
+Amplification
+Increase your Damage Dealt by 6.00% per Sword equipped by you or your Combat Partner (up to 18.00%; does not apply when acting as Combat Partner).
+Tolerance
+9
+Track
+
+Jormungand's Gleaming Whipsword
+Amplification
+Increase your Damage Dealt by 6% per Whipsword equipped by you, (up to 18%) (does not apply if acting as Combat Partner).
+Tolerance
+9
+Track

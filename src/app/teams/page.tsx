@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { allCharacters, allWeapons } from '@/lib/data';
 import type { Character, Weapon, Mod } from '@/lib/types';
-import { Card } from '@/components/ui/card';
+import { EnhancedCard } from '@/components/ui/enhanced-card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Users } from 'lucide-react';
@@ -89,7 +89,12 @@ export default function TeamsPage() {
         {/* Support Characters */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {team.map((member, index) => (
-            <Card key={index} className="p-6 bg-card/60 backdrop-blur border-2 border-border">
+            <EnhancedCard 
+              key={index} 
+              variant="glass" 
+              hoverEffect="lift"
+              className="p-6"
+            >
               <h3 className="text-lg font-semibold mb-4 text-center">Support {index + 1}</h3>
 
               {/* Character Slot */}
@@ -157,7 +162,7 @@ export default function TeamsPage() {
                   )}
                 </div>
               </div>
-            </Card>
+            </EnhancedCard>
           ))}
         </div>
       </div>
@@ -171,9 +176,12 @@ export default function TeamsPage() {
           <ScrollArea className="h-[60vh]">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
               {allCharacters.map(char => (
-                <Card
+                <EnhancedCard
                   key={char.id}
-                  className="overflow-hidden cursor-pointer hover:border-primary transition-colors"
+                  variant="elevated"
+                  hoverEffect="scale"
+                  clickable
+                  className="overflow-hidden"
                   onClick={() => handleSelectCharacter(char)}
                 >
                   <div className="relative aspect-square">
@@ -182,7 +190,7 @@ export default function TeamsPage() {
                   <div className="p-2">
                     <p className="text-sm text-center font-semibold truncate">{char.name}</p>
                   </div>
-                </Card>
+                </EnhancedCard>
               ))}
             </div>
           </ScrollArea>
@@ -198,9 +206,12 @@ export default function TeamsPage() {
           <ScrollArea className="h-[60vh]">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
               {allWeapons.map(weapon => (
-                <Card
+                <EnhancedCard
                   key={weapon.id}
-                  className="overflow-hidden cursor-pointer hover:border-primary transition-colors"
+                  variant="elevated"
+                  hoverEffect="scale"
+                  clickable
+                  className="overflow-hidden"
                   onClick={() => handleSelectWeapon(weapon)}
                 >
                   <div className="relative aspect-square">
@@ -209,7 +220,7 @@ export default function TeamsPage() {
                   <div className="p-2">
                     <p className="text-sm text-center font-semibold truncate">{weapon.name}</p>
                   </div>
-                </Card>
+                </EnhancedCard>
               ))}
             </div>
           </ScrollArea>

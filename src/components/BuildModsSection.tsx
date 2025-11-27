@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Plus, Trash2, Settings } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
+import { isGleamingMod, hasAnyGleamingInBuild } from '@/lib/gleaming-utils';
 
 interface BuildModsSectionProps {
   mods: (Mod | null)[];
@@ -38,6 +39,7 @@ export function BuildModsSection({
   const rightMods = mods.slice(4);
   const leftFilled = leftMods.filter(Boolean).length;
   const rightFilled = rightMods.filter(Boolean).length;
+  const primeSymbol = primeMod?.isPrimeMod ? primeMod.symbol : undefined;
 
   const canEquipMultiple = (mod: Mod) => {
     return mod.effect?.includes('can be equipped in multiples') || false;
@@ -49,6 +51,19 @@ export function BuildModsSection({
     const mod = allMods.find(m => m.name === modName);
     // Prevent centerOnly mods from being placed in regular slots
     if (mod && !mod.centerOnly) {
+      // Check for Gleaming mod restriction - only ONE Gleaming mod allowed in entire build
+      if (isGleamingMod(mod)) {
+        const hasGleaming = hasAnyGleamingInBuild(mods, index);
+        if (hasGleaming) {
+          toast({
+            title: 'Cannot Equip Gleaming Mod',
+            description: 'You can only equip one Gleaming mod in a build. Remove the existing Gleaming mod first.',
+            variant: 'destructive',
+          });
+          return;
+        }
+      }
+
       // Check if mod already exists in build (excluding the target slot)
       const isDuplicate = mods.some((slot, i) => i !== index && slot?.name === mod.name);
 
@@ -223,8 +238,8 @@ export function BuildModsSection({
                         onDrop={(e: DragEvent<HTMLDivElement>) => handleDrop(e, i)}
                         onDragOver={handleDragOver}
                         onRemove={mod ? () => handleRemoveMod(i) : undefined}
-                        primeSymbol={primeMod?.symbol}
-                        onClick={() => handleSlotClick(i)}
+                        primeSymbol={primeSymbol}
+                        onClick={mod ? () => handleSlotClick(i) : onOpenModSelector}
                         isAdjustMode={adjustSlotTrackMode}
                         isAdjusted={adjustedSlots.has(i)}
                       />
@@ -253,6 +268,7 @@ export function BuildModsSection({
                     onDragOver={handleDragOver}
                     onRemove={primeMod ? handleRemovePrimeMod : undefined}
                     isPrimeSlot
+                    onClick={primeMod ? undefined : onOpenModSelector}
                   />
                 </div>
               </div>
@@ -267,8 +283,8 @@ export function BuildModsSection({
                         onDrop={(e: DragEvent<HTMLDivElement>) => handleDrop(e, i + 4)}
                         onDragOver={handleDragOver}
                         onRemove={mod ? () => handleRemoveMod(i + 4) : undefined}
-                        primeSymbol={primeMod?.symbol}
-                        onClick={() => handleSlotClick(i + 4)}
+                        primeSymbol={primeSymbol}
+                        onClick={mod ? () => handleSlotClick(i + 4) : onOpenModSelector}
                         isAdjustMode={adjustSlotTrackMode}
                         isAdjusted={adjustedSlots.has(i + 4)}
                       />

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { allCharacters } from '@/lib/data';
 import Image from 'next/image';
+import { EnhancedCard } from '@/components/ui/enhanced-card';
 
 type TierMode = 'ramming' | 'boss';
 type TierRank = 'T0' | 'T1' | 'T2' | 'T3';
@@ -284,11 +285,10 @@ export default function TierListPage() {
       </div>
 
       {/* Filters */}
-      <motion.div 
-        className="bg-card border border-border rounded-lg p-4 space-y-4"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
+      <EnhancedCard 
+        variant="elevated"
+        hoverEffect="none"
+        className="p-4 space-y-4"
       >
         {/* Element Filter */}
         <div>
@@ -444,10 +444,10 @@ export default function TierListPage() {
             Clear All Filters
           </motion.button>
         )}
-      </motion.div>
+      </EnhancedCard>
 
       {/* Legend */}
-      <div className="bg-card border border-border rounded-lg p-4">
+      <EnhancedCard variant="default" hoverEffect="none" className="p-4">
         <h3 className="font-semibold mb-2">Legend</h3>
         <ul className="text-sm text-muted-foreground space-y-1">
           <li>• <span className="text-rose-400 font-semibold">T0</span> - The strongest characters, highly recommended</li>
@@ -455,15 +455,14 @@ export default function TierListPage() {
           <li>• <span className="text-emerald-400 font-semibold">T2</span> - Good characters, viable options</li>
           <li>• <span className="text-sky-400 font-semibold">T3</span> - Characters that require more investment</li>
         </ul>
-      </div>
+      </EnhancedCard>
 
       {/* Selected Characters Info */}
       {selectedCharacters.length > 0 && (
-        <motion.div
-          className="bg-card border border-primary/50 rounded-lg p-3"
-          initial={{ opacity: 0, y: -10, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+        <EnhancedCard
+          variant="bordered"
+          hoverEffect="none"
+          className="p-3"
         >
           <div className="flex items-center justify-between mb-2">
             <h3 className="font-semibold text-sm">Selected Characters ({selectedCharacters.length})</h3>
@@ -511,7 +510,7 @@ export default function TierListPage() {
               );
             })}
           </div>
-        </motion.div>
+        </EnhancedCard>
       )}
 
       {/* Tier List */}
@@ -528,7 +527,12 @@ export default function TierListPage() {
       </motion.div>
 
       {/* Notice */}
-      <div className="bg-rose-950/20 border border-rose-900/30 rounded-lg p-4">
+      <EnhancedCard 
+        variant="default" 
+        hoverEffect="none"
+        accentColor="hsl(350, 70%, 50%)"
+        className="bg-rose-950/20 border border-rose-900/30 p-4"
+      >
         <div className="flex items-start gap-2">
           <span className="text-rose-400 text-xl">⚠️</span>
           <div className="space-y-1">
@@ -538,7 +542,7 @@ export default function TierListPage() {
             </p>
           </div>
         </div>
-      </div>
+      </EnhancedCard>
     </div>
   );
 }

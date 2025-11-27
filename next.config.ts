@@ -43,6 +43,41 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  
+  // Performance optimizations
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+  
+  // Optimize CSS
+  experimental: {
+    optimizeCss: true,
+  },
+  
+  // Webpack optimizations
+  webpack: (config, { isServer, dev }) => {
+    // Production optimizations
+    if (!dev && !isServer) {
+      // Enable tree shaking
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,
+        sideEffects: false,
+      };
+      
+      // Performance budgets
+      config.performance = {
+        maxAssetSize: 244000, // 244kb
+        maxEntrypointSize: 244000,
+        hints: 'warning',
+      };
+    }
+    
+    return config;
+  },
 };
 
 export default nextConfig;

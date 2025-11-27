@@ -25,7 +25,7 @@ interface ModSlotProps {
 }
 
 const RarityStars = ({ rarity }: { rarity: ModRarity }) => (
-  <div className="flex items-center gap-0.5">
+  <div className="flex items-center gap-0.5" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8))' }}>
     {[...Array(rarity)].map((_, i) => (
       <Star key={i} className="h-2.5 w-2.5 fill-yellow-400 text-yellow-400" />
     ))}
@@ -68,13 +68,15 @@ export function ModSlot({
     return (
       <div
         className={cn(
-          'relative aspect-square bg-black/20 border-2 border-dashed rounded-md flex items-center justify-center overflow-hidden group transition-all border-border'
+          'relative aspect-square bg-black/20 border-2 border-dashed rounded-md flex items-center justify-center overflow-hidden group transition-all border-border hover:border-primary/50 hover:bg-black/30 cursor-pointer'
         )}
         onDrop={onDrop}
         onDragOver={onDragOver}
+        onClick={onClick}
       >
-        <div className="flex flex-col items-center justify-center text-muted-foreground">
+        <div className="flex flex-col items-center justify-center text-muted-foreground group-hover:text-primary transition-colors">
           <span className="text-2xl">+</span>
+          <span className="text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Add Mod</span>
         </div>
       </div>
     );

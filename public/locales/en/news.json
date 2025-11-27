@@ -1,0 +1,22 @@
+{
+  "knownIssues": {
+    "title": "Known Issues (Still Unresolved)",
+    "empty": "No known issues at this time"
+  },
+  "patchNotes": {
+    "title": "Patch Notes (Bug Fixes and Improvements)",
+    "empty": "No recent updates",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "viewAll": "View All"
+  },
+  "section": {
+    "title": "Game News and Updates",
+    "noData": "No updates available"
+  },
+  "error": {
+    "title": "Unable to load patch notes",
+    "defaultMessage": "Please try again later.",
+    "retry": "Retry"
+  }
+}

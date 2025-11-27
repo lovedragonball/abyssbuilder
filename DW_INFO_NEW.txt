@@ -1,0 +1,937 @@
+Arbiter's Illusionary Sacrifice
+4★
+Characters
+Umbro
+⊙
+Main Attribute
+Skill DMG +30%
+Effect
+When an Umbro character consumes Sanity, they gain 1 stack that increases Weapon CRIT Chance by 5.4% for 15s, up to 15 stacks.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Arbiter's Illusionary Sacrifice
+5★
+Characters
+Umbro
+⊙
+Main Attribute
+Skill DMG +55%
+Effect
+When an Umbro character consumes Sanity, they gain 1 stack that increases Weapon CRIT Chance by 9.9% for 15s, up to 15 stacks.
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Bahamut's Frosty Torrent
+4★
+Characters
+Hydro
+⊙
+Main Attribute
+Skill DMG +30%
+Effect
+When a Hydro character use a skill, the user and nearby allies gain an ATK increases equal to 11.4% of the user's ATK (up to 275) for 10s.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Bahamut's Frosty Torrent
+5★
+Characters
+Hydro
+⊙
+Main Attribute
+Skill DMG +55%
+Effect
+When a Hydro character use a skill, the user and nearby allies gain an ATK increases equal to 20.9% of the user's ATK (up to 275) for 10s.
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Bahamut's Misty Veil
+4★
+Characters
+Hydro
+⊙
+Main Attribute
+Skill DMG +30%
+Effect
+Hydro Charactes' Summon gains an ATK speed boost equal to 27% of the summoner's melee weapon ATK Speed and a Skill range boost equal to Summoner's Skill range.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Bahamut's Misty Veil
+5★
+Characters
+Hydro
+⊙
+Main Attribute
+Skill DMG +55%
+Effect
+Hydro Charactes' Summon gains an ATK speed boost equal to 49.5% of the summoner's melee weapon ATK Speed and a Skill range boost equal to 24.2% Summoner's Skill range.
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Cerberus's Celerity
+3★
+Melee Weapon
+Main Attribute
+ATK Speed +20%
+Tolerance: 12
+Track: 5
+Source: Level 30
+
+Cerberus's Celerity
+5★
+Melee Weapon
+⊙
+Main Attribute
+ATK Speed +75%
+Tolerance: 25
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Crusher
+Trammel
+2★
+Melee Weapon
+Main Attribute
+Smash ATK +20%
+Trigger Probability +40%
+Tolerance: 9
+Track: 3
+Source: Level 20
+
+Cerberus's Crusher
+3★
+Melee Weapon
+Main Attribute
+Smash ATK +50%
+Tolerance: 12
+Track: 5
+Source: Level 30
+
+Cerberus's Crusher
+5★
+Melee Weapon
+◬
+Main Attribute
+Smash ATK +99%
+Tolerance: 14
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Edge
+Trammel
+2★
+Melee Weapon
+Main Attribute
+Slash ATK +20%
+Trigger Probability +40%
+Tolerance: 9
+Track: 3
+Source: Level 20
+
+Cerberus's Edge
+3★
+Melee Weapon
+Main Attribute
+Slash ATK +50%
+Tolerance: 12
+Track: 5
+Source: Level 30
+
+Cerberus's Edge
+5★
+Melee Weapon
+◬
+Main Attribute
+Slash ATK +99%
+Tolerance: 14
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Focus
+4★
+Melee Weapon
+◬
+Main Attribute
+CRIT Chance +100%
+Tolerance: 17
+Track: 5
+Source: Level 40
+
+Cerberus's Impetus
+Focus
+2★
+Melee Weapon
+Main Attribute
+ATK +30%
+Crit Chance +40%
+Tolerance: 11
+Track: 3
+Source: Level 20
+
+Cerberus's Impetus
+4★
+Melee Weapon
+◬
+Main Attribute
+ATK +75%
+Tolerance: 10
+Track: 5
+Source: Level 40
+
+Cerberus's Impetus
+5★
+Melee Weapon
+◬
+Main Attribute
+ATK +150%
+Tolerance: 15
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Impetus
+Focus
+5★
+Melee Weapon
+◬
+Main Attribute
+ATK +75%
+CRIT Chance +99%
+Tolerance: 17
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Penetration
+Trammel
+2★
+Melee Weapon
+Main Attribute
+Spike ATK +20%
+Trigger Probability +40%
+Tolerance: 9
+Track: 3
+Source: Level 20
+
+Cerberus's Penetration
+3★
+Melee Weapon
+Main Attribute
+Spike ATK +50%
+Tolerance: 12
+Track: 5
+Source: Level 30
+
+Cerberus's Penetration
+5★
+Melee Weapon
+◬
+Main Attribute
+Spike ATK +99%
+Tolerance: 14
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Rage
+Trammel
+2★
+Melee Weapon
+Main Attribute
+Crit Damage +40%
+Trigger Probability +40%
+Tolerance: 10
+Track: 3
+Source: Level 20
+
+Cerberus's Rage
+4★
+Melee Weapon
+◬
+Main Attribute
+CRIT Damage +100%
+Tolerance: 14
+Track: 5
+Source: Level 40
+
+Cerberus's Rage
+Trammel
+5★
+Melee Weapon
+☽
+Main Attribute
+CRIT Damage +99%
+Trigger Probability +99%
+Tolerance: 16
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Threshold
+3★
+Melee Weapon
+Main Attribute
+ATK Range +1
+Tolerance: 9
+Track: 5
+Source: Level 30
+
+Cerberus's Threshold
+5★
+Melee Weapon
+⊙
+Main Attribute
+ATK Range +2.5
+Tolerance: 15
+Track: 10
+Source: Level 70, Level 80
+
+Cerberus's Trammel
+4★
+Melee Weapon
+☽
+Main Attribute
+Trigger Probability +100%
+Tolerance: 12
+Track: 5
+Source: Level 40
+
+Covenanter's Blaze
+Resolve
+4★
+Characters
+Lumino
+☽
+Main Attribute
+ATK +48%
+Resolve +4%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 15
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Eternity
+4★
+Characters
+Lumino
+◊
+Main Attribute
+ATK +48%
+Skill Duration +18%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Standfast
+4★
+Characters
+Anemo
+◬
+Main Attribute
+ATK +48%
+DEF +48%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 16
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Resolve
+4★
+Characters
+Anemo
+☽
+Main Attribute
+ATK +48%
+Resolve +4%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 15
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Volition
+4★
+Characters
+Anemo
+◊
+Main Attribute
+ATK +48%
+Skill DMG +24%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Nirvana
+4★
+Characters
+Electro
+◬
+Main Attribute
+ATK +48%
+HP +48%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 16
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Morale
+4★
+Characters
+Electro
+☽
+Main Attribute
+ATK +48%
+Morale +12%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 15
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Volition
+4★
+Characters
+Electro
+◊
+Main Attribute
+ATK +48%
+Skill DMG +24%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Standfast
+4★
+Characters
+Pyro
+◬
+Main Attribute
+ATK +48%
+DEF +48%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 16
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Eternity
+4★
+Characters
+Pyro
+☽
+Main Attribute
+ATK +48%
+Skill Duration +18%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Inspo
+4★
+Characters
+Pyro
+◊
+Main Attribute
+ATK +48%
+Skill Efficiency +12%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 16
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Nirvana
+4★
+Characters
+Hydro
+◬
+Main Attribute
+ATK +48%
+HP +48%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 16
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Spectrum
+4★
+Characters
+Hydro
+☽
+Main Attribute
+ATK +48%
+Skill Range +30%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 17
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Inspo
+4★
+Characters
+Hydro
+◊
+Main Attribute
+ATK +48%
+Skill Efficiency +12%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 16
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Morale
+4★
+Characters
+Umbro
+☽
+Main Attribute
+ATK +48%
+Morale +12%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 15
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Spectrum
+4★
+Characters
+Umbro
+◊
+Main Attribute
+ATK +48%
+Skill Range +30%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 17
+Track: 5
+Source: Level 65
+
+Covenanter's Blaze
+Resolve
+5★
+Characters
+Lumino
+☽
+Main Attribute
+ATK +88%
+Resolve +7.3%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 17
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Eternity
+5★
+Characters
+Lumino
+◊
+Main Attribute
+ATK +88%
+Skill Duration +33%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 20
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Standfast
+5★
+Characters
+Anemo
+◬
+Main Attribute
+ATK +88%
+DEF +88%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Resolve
+5★
+Characters
+Anemo
+☽
+Main Attribute
+ATK +88%
+Resolve +7.3%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 17
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Volition
+5★
+Characters
+Anemo
+◊
+Main Attribute
+ATK +88%
+Skill DMG +44%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 20
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Nirvana
+5★
+Characters
+Electro
+◬
+Main Attribute
+ATK +88%
+HP +88%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Morale
+5★
+Characters
+Electro
+☽
+Main Attribute
+ATK +88%
+Morale +22%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 17
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Volition
+5★
+Characters
+Electro
+◊
+Main Attribute
+ATK +88%
+Skill DMG +44%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 20
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Standfast
+5★
+Characters
+Pyro
+◬
+Main Attribute
+ATK +88%
+DEF +88%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Eternity
+5★
+Characters
+Pyro
+☽
+Main Attribute
+ATK +88%
+Skill Duration +33%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 20
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Inspo
+5★
+Characters
+Pyro
+◊
+Main Attribute
+ATK +88%
+Skill Efficiency +22%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Nirvana
+5★
+Characters
+Hydro
+◬
+Main Attribute
+ATK +88%
+HP +88%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Spectrum
+5★
+Characters
+Hydro
+☽
+Main Attribute
+ATK +88%
+Skill Range +55%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Inspo
+5★
+Characters
+Hydro
+◊
+Main Attribute
+ATK +88%
+Skill Efficiency +22%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Morale
+5★
+Characters
+Umbro
+☽
+Main Attribute
+ATK +88%
+Morale +22%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 17
+Track: 10
+Source: Covert Comission
+
+Covenanter's Blaze
+Spectrum
+5★
+Characters
+Umbro
+◊
+Main Attribute
+ATK +88%
+Skill Range +55%
+Effect
+Once upgraded to +5, this Demon Wedge can be equipped in multiples
+Tolerance: 18
+Track: 10
+Source: Covert Comission
+
+Hastur's Turbulent Cyclone
+4★
+Characters
+Anemo
+⊙
+Main Attribute
+Skill Duration +24%
+Effect
+When an Anemo character character's ranged weapon triggers a bonus effect, grants +5.4% resolve to the user and nearby allies for 10s.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Hastur's Turbulent Cyclone
+5★
+Characters
+Anemo
+⊙
+Main Attribute
+Skill Duration +44%
+Effect
+When an Anemo character character's ranged weapon triggers a bonus effect, grants +9.9% resolve to the user and nearby allies for 10s.
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Hastur's Whispering Zephyr
+4★
+Characters
+Anemo
+⊙
+Main Attribute
+Skill DMG +30%
+Effect
+When an Anemo character uses Combat Skills, it gains 84% Skill Damage increase for 6s.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Hastur's Whispering Zephyr
+5★
+Characters
+Anemo
+⊙
+Main Attribute
+Skill DMG +55%
+Effect
+When an Anemo character uses Combat Skills, it gains 154% Skill Damage increase for 6s.
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Helios's Glimm & Glimmer
+4★
+Characters
+Lumino
+⊙
+Main Attribute
+Skill Duration +24%
+Effect
+Increases the Lumino character's ATK by [their current Skill Duration x 48.6%], up to 117%.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Helios's Glimm & Glimmer
+5★
+Characters
+Lumino
+⊙
+Main Attribute
+Skill Duration +44%
+Effect
+Increases the Lumino character's ATK by [their current Skill Duration x 88.9%], up to 214%.
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Helios's Prismatic Neon
+4★
+Characters
+Lumino
+⊙
+Main Attribute
+Skill Duration +24%
+Effect
+When enemies near a Lumino character take Weapon DMG, CRIT Chance increases by 32.7%. Gains an additional +8.2% against targets with debuffs.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Helios's Prismatic Neon
+5★
+Characters
+Lumino
+⊙
+Main Attribute
+Skill Duration +44%
+Effect
+When enemies near a Lumino character take Weapon DMG CRIT Chance increases by 59.8%. Gains an additional +15% against targets with debuffs.
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Ifrit's Devouring Wildfire
+4★
+Characters
+Pyro
+⊙
+Main Attribute
+Skill DMG +30%
+Effect
+When an Pyro character deals damage, gains 1 stack that increases ATK by 1% for 15s, up to 120 stacks
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Ifrit's Devouring Wildfire
+5★
+Characters
+Pyro
+⊙
+Main Attribute
+Skill DMG +55%
+Effect
+When an Pyro character deals damage, gains 1 stack that increases ATK by 1.8% for 15s, up to 120 stacks
+Tolerance: 27
+Track: 10
+Source: Covert Comission
+
+Summanus's Ravaging Thunder
+4★
+Characters
+Electro
+⊙
+Main Attribute
+Skill DMG +30%
+Effect
+When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 5.4% for 16s, up to 8 stacks.
+Tolerance: 24
+Track: 5
+Source: Level 65
+
+Summanus's Ravaging Thunder
+5★
+Characters
+Electro
+⊙
+Main Attribute
+Skill DMG +55%
+Effect
+When an Electro character uses skills, they gain 1 stack that increase Skill Damage by 9.9% for 16s, up to 8 stacks.
+Tolerance: 27
+Track: 10
+Source: Covert Comission

@@ -1,0 +1,327 @@
+{
+  "timestamp": "2025-11-23T22:58:39.387Z",
+  "desktop": {
+    "Chrome": {
+      "name": "Chrome",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "tests": [
+        {
+          "page": "/",
+          "status": "passed",
+          "renderTime": 325
+        },
+        {
+          "page": "/my-builds",
+          "status": "failed",
+          "error": "Render failed"
+        },
+        {
+          "page": "/tier-list",
+          "status": "passed",
+          "renderTime": 394
+        },
+        {
+          "page": "/map",
+          "status": "passed",
+          "renderTime": 509
+        },
+        {
+          "page": "/attribute-optimizer",
+          "status": "passed",
+          "renderTime": 184
+        },
+        {
+          "page": "/materials",
+          "status": "passed",
+          "renderTime": 442
+        },
+        {
+          "page": "/news",
+          "status": "passed",
+          "renderTime": 310
+        }
+      ],
+      "passed": 6,
+      "failed": 1,
+      "avgRenderTime": 309,
+      "consoleErrors": false
+    },
+    "Firefox": {
+      "name": "Firefox",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
+      "tests": [
+        {
+          "page": "/",
+          "status": "passed",
+          "renderTime": 374
+        },
+        {
+          "page": "/my-builds",
+          "status": "passed",
+          "renderTime": 101
+        },
+        {
+          "page": "/tier-list",
+          "status": "passed",
+          "renderTime": 134
+        },
+        {
+          "page": "/map",
+          "status": "passed",
+          "renderTime": 372
+        },
+        {
+          "page": "/attribute-optimizer",
+          "status": "passed",
+          "renderTime": 563
+        },
+        {
+          "page": "/materials",
+          "status": "passed",
+          "renderTime": 328
+        },
+        {
+          "page": "/news",
+          "status": "passed",
+          "renderTime": 465
+        }
+      ],
+      "passed": 7,
+      "failed": 0,
+      "avgRenderTime": 334,
+      "consoleErrors": false
+    },
+    "Safari": {
+      "name": "Safari",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15",
+      "tests": [
+        {
+          "page": "/",
+          "status": "passed",
+          "renderTime": 200
+        },
+        {
+          "page": "/my-builds",
+          "status": "passed",
+          "renderTime": 392
+        },
+        {
+          "page": "/tier-list",
+          "status": "passed",
+          "renderTime": 325
+        },
+        {
+          "page": "/map",
+          "status": "passed",
+          "renderTime": 333
+        },
+        {
+          "page": "/attribute-optimizer",
+          "status": "passed",
+          "renderTime": 478
+        },
+        {
+          "page": "/materials",
+          "status": "passed",
+          "renderTime": 545
+        },
+        {
+          "page": "/news",
+          "status": "passed",
+          "renderTime": 291
+        }
+      ],
+      "passed": 7,
+      "failed": 0,
+      "avgRenderTime": 366,
+      "consoleErrors": false
+    },
+    "Edge": {
+      "name": "Edge",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0",
+      "tests": [
+        {
+          "page": "/",
+          "status": "passed",
+          "renderTime": 322
+        },
+        {
+          "page": "/my-builds",
+          "status": "passed",
+          "renderTime": 316
+        },
+        {
+          "page": "/tier-list",
+          "status": "passed",
+          "renderTime": 567
+        },
+        {
+          "page": "/map",
+          "status": "passed",
+          "renderTime": 377
+        },
+        {
+          "page": "/attribute-optimizer",
+          "status": "passed",
+          "renderTime": 122
+        },
+        {
+          "page": "/materials",
+          "status": "passed",
+          "renderTime": 558
+        },
+        {
+          "page": "/news",
+          "status": "passed",
+          "renderTime": 460
+        }
+      ],
+      "passed": 7,
+      "failed": 0,
+      "avgRenderTime": 389,
+      "consoleErrors": false
+    }
+  },
+  "mobile": {
+    "Chrome Mobile": {
+      "name": "Chrome Mobile",
+      "userAgent": "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.43 Mobile Safari/537.36",
+      "tests": [
+        {
+          "page": "/",
+          "status": "passed",
+          "renderTime": 147
+        },
+        {
+          "page": "/my-builds",
+          "status": "passed",
+          "renderTime": 332
+        },
+        {
+          "page": "/tier-list",
+          "status": "passed",
+          "renderTime": 455
+        },
+        {
+          "page": "/map",
+          "status": "passed",
+          "renderTime": 427
+        },
+        {
+          "page": "/attribute-optimizer",
+          "status": "passed",
+          "renderTime": 187
+        },
+        {
+          "page": "/materials",
+          "status": "passed",
+          "renderTime": 391
+        },
+        {
+          "page": "/news",
+          "status": "passed",
+          "renderTime": 153
+        }
+      ],
+      "passed": 7,
+      "failed": 0,
+      "avgRenderTime": 299,
+      "consoleErrors": false
+    },
+    "Safari iOS": {
+      "name": "Safari iOS",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Mobile/15E148 Safari/604.1",
+      "tests": [
+        {
+          "page": "/",
+          "status": "failed",
+          "error": "Render failed"
+        },
+        {
+          "page": "/my-builds",
+          "status": "passed",
+          "renderTime": 427
+        },
+        {
+          "page": "/tier-list",
+          "status": "passed",
+          "renderTime": 180
+        },
+        {
+          "page": "/map",
+          "status": "passed",
+          "renderTime": 262
+        },
+        {
+          "page": "/attribute-optimizer",
+          "status": "passed",
+          "renderTime": 250
+        },
+        {
+          "page": "/materials",
+          "status": "passed",
+          "renderTime": 145
+        },
+        {
+          "page": "/news",
+          "status": "passed",
+          "renderTime": 169
+        }
+      ],
+      "passed": 6,
+      "failed": 1,
+      "avgRenderTime": 205,
+      "consoleErrors": false
+    },
+    "Firefox Mobile": {
+      "name": "Firefox Mobile",
+      "userAgent": "Mozilla/5.0 (Android 13; Mobile; rv:121.0) Gecko/121.0 Firefox/121.0",
+      "tests": [
+        {
+          "page": "/",
+          "status": "passed",
+          "renderTime": 117
+        },
+        {
+          "page": "/my-builds",
+          "status": "passed",
+          "renderTime": 166
+        },
+        {
+          "page": "/tier-list",
+          "status": "passed",
+          "renderTime": 371
+        },
+        {
+          "page": "/map",
+          "status": "passed",
+          "renderTime": 118
+        },
+        {
+          "page": "/attribute-optimizer",
+          "status": "passed",
+          "renderTime": 350
+        },
+        {
+          "page": "/materials",
+          "status": "passed",
+          "renderTime": 150
+        },
+        {
+          "page": "/news",
+          "status": "passed",
+          "renderTime": 185
+        }
+      ],
+      "passed": 7,
+      "failed": 0,
+      "avgRenderTime": 208,
+      "consoleErrors": false
+    }
+  },
+  "summary": {
+    "total": 49,
+    "passed": 47,
+    "failed": 2
+  }
+}

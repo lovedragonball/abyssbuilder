@@ -1,97 +1,56 @@
-'use client';
+import React from 'react';
+import { HeroSection } from '@/components/homepage/hero-section';
+import { FeatureGrid } from '@/components/homepage/feature-grid';
+import { RecentBuildsSection } from '@/components/homepage/recent-builds-section';
+import { NewsUpdatesSection } from '@/components/news/news-updates-section';
+import { getPatchData } from '@/lib/patch-data-server';
 
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import React, { useEffect } from 'react';
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-    },
-  },
-};
-
-export default function HomePage() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://tenor.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Check if the script is still in the body before removing
-      if (script.parentNode) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+export default async function HomePage() {
+  const patchData = await getPatchData();
 
   return (
-    <motion.div
-      className="space-y-16 md:space-y-24"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      {/* Hero Section */}
-      <motion.section
-        className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-xl border border-border bg-black p-8 text-center"
-        variants={itemVariants}
-      >
-        <div className="absolute inset-0 h-full w-full opacity-30 overflow-hidden">
-          <div
-            className="tenor-gif-embed absolute top-1/2 left-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2"
-            data-postid="4027223289355280337"
-            data-share-method="host"
-            data-aspect-ratio="1.77778"
-            data-width="100%"
-          ></div>
-        </div>
+    <div className="space-y-16 md:space-y-24">
+      {/* Hero Section with enhanced design */}
+      <HeroSection
+        title="Forge Your Legend"
+        subtitle="The ultimate platform to create, share, and discover builds for your favorite abyss-crawling adventure."
+        ctaButtons={[
+          {
+            label: 'Create New Build',
+            href: '/create',
+            variant: 'gradient',
+          },
+        ]}
+      />
 
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 space-y-6">
-          <motion.h1
-            className="font-headline text-5xl font-bold tracking-tighter text-white shadow-black [text-shadow:0_2px_4px_var(--tw-shadow-color)] md:text-7xl"
-            variants={itemVariants}
-          >
-            Forge Your Legend
-          </motion.h1>
-          <motion.p
-            className="mx-auto max-w-2xl text-lg text-muted-foreground"
-            variants={itemVariants}
-          >
-            The ultimate platform to create, share, and discover builds for your
-            favorite abyss-crawling adventure.
-          </motion.p>
-          <motion.div
-            className="flex flex-col gap-4 sm:flex-row sm:justify-center"
-            variants={itemVariants}
-          >
-            <Button asChild size="lg">
-              <Link href="/create">
-                Create New Build <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-          </motion.div>
+      {/* Feature Grid Section */}
+      <FeatureGrid />
+
+      {/* Recent/Featured Builds Section */}
+      <RecentBuildsSection
+        title="Recent Builds"
+        subtitle="Check out the latest character builds from the community"
+        maxBuilds={4}
+        showFeatured={false}
+      />
+
+      {/* News & Updates Section */}
+      <section className="container mx-auto px-4">
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              News & Updates
+            </h2>
+            <p className="text-muted-foreground">
+              Stay informed about the latest patch notes and known issues
+            </p>
+          </div>
+          <NewsUpdatesSection 
+            patchData={patchData} 
+            maxVisibleUpdates={5}
+          />
         </div>
-      </motion.section>
-    </motion.div>
+      </section>
+    </div>
   );
 }

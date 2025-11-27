@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol Badge Visibility Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #f1f5f9;
+        }
+
+        .intro {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .test-section {
+            margin-bottom: 3rem;
+        }
+
+        .test-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-container {
+            text-align: center;
+        }
+
+        .mod-card {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.5rem;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.8;
+        }
+
+        .dark-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+        }
+
+        /* Gradient backgrounds */
+        .rarity-2 {
+            background: linear-gradient(180deg, rgb(15, 23, 42) 0%, rgb(34, 197, 94) 50%, rgb(74, 222, 128) 100%);
+        }
+
+        .rarity-3 {
+            background: linear-gradient(180deg, rgb(15, 23, 42) 0%, rgb(59, 130, 246) 50%, rgb(96, 165, 250) 100%);
+        }
+
+        .rarity-4 {
+            background: linear-gradient(180deg, rgb(15, 23, 42) 0%, rgb(139, 92, 246) 45%, rgb(217, 70, 239) 75%, rgb(236, 72, 153) 100%);
+        }
+
+        .rarity-5 {
+            background: linear-gradient(180deg, rgb(15, 23, 42) 0%, rgb(245, 158, 11) 50%, rgb(251, 191, 36) 100%);
+        }
+
+        /* Symbol badge */
+        .symbol-badge {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.125rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .symbol-badge.normal {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .symbol-badge.matched {
+            background: rgba(22, 163, 74, 0.9);
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .card-label {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .status-pass {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        .status-warning {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        .status-fail {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+
+        .instructions {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .instructions h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+        }
+
+        .instructions ol,
+        .instructions ul {
+            margin-left: 1.5rem;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .checklist h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: #0f172a;
+            border-radius: 0.375rem;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .priority-high {
+            border-left: 3px solid #ef4444;
+        }
+
+        .priority-medium {
+            border-left: 3px solid #fbbf24;
+        }
+
+        .note-box {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .note-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #cbd5e1;
+        }
+
+        .symbol-examples {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .symbol-example {
+            background: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎯 Symbol Badge Visibility Test</h1>
+
+        <div class="intro">
+            <p><strong>Purpose:</strong> Focused testing of symbol badge visibility on gradient backgrounds, with
+                emphasis on the matched state (green badge) on 2-star green gradients.</p>
+            <p style="margin-top: 0.5rem;"><strong>Test Date:</strong> <span id="test-date"></span></p>
+            <p style="margin-top: 0.5rem;"><strong>Priority:</strong> HIGH - Symbol badges are critical for identifying
+                mod symbols and match status</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Testing Instructions</h3>
+            <ol>
+                <li>Review each pair of cards below (Normal vs Matched state)</li>
+                <li>Verify that symbol badges are clearly visible in both states</li>
+                <li>Pay special attention to 2-star matched state (green on green)</li>
+                <li>Check that the pulse animation is noticeable on matched badges</li>
+                <li>Verify that symbol characters (⊙, ◬) are readable</li>
+                <li>Complete the checklist at the bottom</li>
+            </ol>
+        </div>
+
+        <div class="note-box">
+            <h4>⚠️ Known Potential Issue</h4>
+            <p>The <strong>2-star matched state</strong> (green badge on green gradient) has the highest risk of
+                visibility issues due to similar colors. This is the priority test case.</p>
+            <p style="margin-top: 0.5rem;"><strong>Mitigations in place:</strong></p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                <li>90% opacity (nearly opaque)</li>
+                <li>Pulse animation to draw attention</li>
+                <li>White text for symbol character</li>
+                <li>Badge positioned at top where gradient is darker</li>
+            </ul>
+        </div>
+
+        <!-- 2-Star Test (PRIORITY) -->
+        <div class="test-section">
+            <h2>⭐⭐ 2-Star Mods (Green Gradient) - PRIORITY TEST</h2>
+            <div class="comparison-grid">
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-2"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge normal">⊙</div>
+                    </div>
+                    <div class="card-label">Normal State (Black Badge)</div>
+                    <div class="status-badge status-pass">Expected: PASS</div>
+                </div>
+
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-2"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge matched">⊙</div>
+                    </div>
+                    <div class="card-label">Matched State (Green Badge)</div>
+                    <div class="status-badge status-warning">Expected: CHECK CAREFULLY</div>
+                </div>
+            </div>
+
+            <div class="note-box">
+                <h4>🔍 What to Check</h4>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Is the green badge visible against the green gradient?</li>
+                    <li>Is the pulse animation noticeable?</li>
+                    <li>Can you read the ⊙ symbol clearly?</li>
+                    <li>Does the badge stand out enough to indicate a match?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3-Star Test -->
+        <div class="test-section">
+            <h2>⭐⭐⭐ 3-Star Mods (Blue Gradient)</h2>
+            <div class="comparison-grid">
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-3"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge normal">⊙</div>
+                    </div>
+                    <div class="card-label">Normal State (Black Badge)</div>
+                    <div class="status-badge status-pass">Expected: PASS</div>
+                </div>
+
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-3"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge matched">⊙</div>
+                    </div>
+                    <div class="card-label">Matched State (Green Badge)</div>
+                    <div class="status-badge status-pass">Expected: PASS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4-Star Test (PRIORITY GRADIENT) -->
+        <div class="test-section">
+            <h2>⭐⭐⭐⭐ 4-Star Mods (Purple-to-Pink Gradient) - PRIORITY GRADIENT</h2>
+            <div class="comparison-grid">
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-4"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge normal">⊙</div>
+                    </div>
+                    <div class="card-label">Normal State (Black Badge)</div>
+                    <div class="status-badge status-pass">Expected: PASS</div>
+                </div>
+
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-4"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge matched">⊙</div>
+                    </div>
+                    <div class="card-label">Matched State (Green Badge)</div>
+                    <div class="status-badge status-pass">Expected: PASS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5-Star Test -->
+        <div class="test-section">
+            <h2>⭐⭐⭐⭐⭐ 5-Star Mods (Gold Gradient)</h2>
+            <div class="comparison-grid">
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-5"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge normal">⊙</div>
+                    </div>
+                    <div class="card-label">Normal State (Black Badge)</div>
+                    <div class="status-badge status-pass">Expected: PASS</div>
+                </div>
+
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-5"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge matched">⊙</div>
+                    </div>
+                    <div class="card-label">Matched State (Green Badge)</div>
+                    <div class="status-badge status-pass">Expected: PASS</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Symbol Variations -->
+        <div class="test-section">
+            <h2>🔣 Symbol Variations Test</h2>
+            <p style="margin-bottom: 1rem; color: #94a3b8;">Test different symbol characters to ensure all are readable
+            </p>
+
+            <div class="comparison-grid">
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-4"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge normal">◬</div>
+                    </div>
+                    <div class="card-label">◬ Symbol (Normal)</div>
+                </div>
+
+                <div class="card-container">
+                    <div class="mod-card">
+                        <div class="gradient-overlay rarity-4"></div>
+                        <div class="dark-overlay"></div>
+                        <div class="symbol-badge matched">◬</div>
+                    </div>
+                    <div class="card-label">◬ Symbol (Matched)</div>
+                </div>
+            </div>
+
+            <div class="symbol-examples">
+                <div class="symbol-example">⊙</div>
+                <div class="symbol-example">◬</div>
+                <div class="symbol-example">●</div>
+                <div class="symbol-example">◆</div>
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="checklist">
+            <h3>✅ Symbol Badge Visibility Checklist</h3>
+
+            <div class="checklist-item priority-high">
+                <input type="checkbox" id="check-1">
+                <label for="check-1">
+                    <strong>2-Star Normal State:</strong> Black badge with ⊙ symbol is clearly visible on green gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <input type="checkbox" id="check-2">
+                <label for="check-2">
+                    <strong>2-Star Matched State (CRITICAL):</strong> Green badge with ⊙ symbol is visible on green
+                    gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <input type="checkbox" id="check-3">
+                <label for="check-3">
+                    <strong>2-Star Pulse Animation:</strong> Pulse animation on matched badge is noticeable and helps
+                    draw attention
+                </label>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <input type="checkbox" id="check-4">
+                <label for="check-4">
+                    <strong>3-Star Normal State:</strong> Black badge is clearly visible on blue gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <input type="checkbox" id="check-5">
+                <label for="check-5">
+                    <strong>3-Star Matched State:</strong> Green badge is clearly visible on blue gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <input type="checkbox" id="check-6">
+                <label for="check-6">
+                    <strong>4-Star Normal State:</strong> Black badge is clearly visible on purple-pink gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-high">
+                <input type="checkbox" id="check-7">
+                <label for="check-7">
+                    <strong>4-Star Matched State:</strong> Green badge is clearly visible on purple-pink gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <input type="checkbox" id="check-8">
+                <label for="check-8">
+                    <strong>5-Star Normal State:</strong> Black badge is clearly visible on gold gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <input type="checkbox" id="check-9">
+                <label for="check-9">
+                    <strong>5-Star Matched State:</strong> Green badge is clearly visible on gold gradient
+                </label>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <input type="checkbox" id="check-10">
+                <label for="check-10">
+                    <strong>Symbol Readability:</strong> All symbol characters (⊙, ◬) are readable in both states
+                </label>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <input type="checkbox" id="check-11">
+                <label for="check-11">
+                    <strong>White Text Contrast:</strong> White text has sufficient contrast on both black and green
+                    backgrounds
+                </label>
+            </div>
+
+            <div class="checklist-item priority-medium">
+                <input type="checkbox" id="check-12">
+                <label for="check-12">
+                    <strong>Overall Assessment:</strong> Symbol badges are effective for identifying symbols and match
+                    status
+                </label>
+            </div>
+        </div>
+
+        <div class="instructions" style="margin-top: 2rem;">
+            <h3>📝 Test Notes</h3>
+            <textarea id="notes"
+                style="width: 100%; min-height: 150px; padding: 1rem; background: #0f172a; color: #e2e8f0; border: 1px solid #334155; border-radius: 0.375rem; font-family: inherit; resize: vertical;"
+                placeholder="Document any visibility issues, especially for 2-star matched state..."></textarea>
+        </div>
+
+        <div class="instructions" style="margin-top: 2rem;">
+            <h3>🎯 Test Results Summary</h3>
+            <div id="summary" style="padding: 1rem; background: #0f172a; border-radius: 0.375rem; margin-top: 1rem;">
+                <p><strong>Checked Items:</strong> <span id="checked-count">0</span> / 12</p>
+                <p style="margin-top: 0.5rem;"><strong>Critical Items:</strong> <span id="critical-count">0</span> / 5
+                </p>
+                <p style="margin-top: 0.5rem;"><strong>Status:</strong> <span id="status-text">Not Started</span></p>
+            </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 2rem;">
+            <h4>💡 If Issues Are Found</h4>
+            <p>If the 2-star matched state (green on green) has visibility issues, consider these fixes:</p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                <li><strong>Add border:</strong> <code>border: 1px solid rgba(255, 255, 255, 0.3)</code></li>
+                <li><strong>Increase opacity:</strong> Change from 0.9 to 0.95</li>
+                <li><strong>Add text shadow:</strong> <code>text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)</code></li>
+                <li><strong>Adjust green shade:</strong> Use a darker or lighter green</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Set test date
+        document.getElementById('test-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Update summary when checkboxes change
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        const checkedCount = document.getElementById('checked-count');
+        const criticalCount = document.getElementById('critical-count');
+        const statusText = document.getElementById('status-text');
+
+        function updateSummary() {
+            const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const criticalChecked = Array.from(document.querySelectorAll('.priority-high input[type="checkbox"]')).filter(cb => cb.checked).length;
+
+            checkedCount.textContent = checked;
+            criticalCount.textContent = criticalChecked;
+
+            if (checked === 0) {
+                statusText.textContent = 'Not Started';
+                statusText.style.color = '#94a3b8';
+            } else if (criticalChecked < 5) {
+                statusText.textContent = 'Critical Items Pending';
+                statusText.style.color = '#ef4444';
+            } else if (checked < 12) {
+                statusText.textContent = 'In Progress';
+                statusText.style.color = '#fbbf24';
+            } else {
+                statusText.textContent = 'Complete';
+                statusText.style.color = '#4ade80';
+            }
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateSummary);
+        });
+
+        // Save state to localStorage
+        const STORAGE_KEY = 'symbol-badge-test-state';
+
+        function saveState() {
+            const state = {
+                checkboxes: Array.from(checkboxes).map(cb => cb.checked),
+                notes: document.getElementById('notes').value,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function loadState() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                const state = JSON.parse(saved);
+                checkboxes.forEach((cb, i) => {
+                    cb.checked = state.checkboxes[i] || false;
+                });
+                document.getElementById('notes').value = state.notes || '';
+                updateSummary();
+            }
+        }
+
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', saveState);
+        });
+
+        document.getElementById('notes').addEventListener('input', saveState);
+
+        // Load saved state on page load
+        loadState();
+    </script>
+</body>
+
+</html>

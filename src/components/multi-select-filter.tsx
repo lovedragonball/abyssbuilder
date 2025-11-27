@@ -61,11 +61,17 @@ export function MultiSelectFilter<T extends string | number>({
                         <div
                             key={option.value}
                             className="flex items-center space-x-2 p-2 hover:bg-accent rounded-sm cursor-pointer"
-                            onClick={() => onToggle(option.value)}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onToggle(option.value);
+                            }}
                         >
                             <Checkbox
                                 checked={selected.includes(option.value)}
-                                onCheckedChange={() => onToggle(option.value)}
+                                onCheckedChange={(checked) => {
+                                    onToggle(option.value);
+                                }}
+                                onClick={(e) => e.stopPropagation()}
                             />
                             <label className="text-sm cursor-pointer flex-1">
                                 {option.label}
