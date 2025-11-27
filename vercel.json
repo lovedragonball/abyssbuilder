@@ -1,7 +1,2 @@
 {
-  "functions": {
-    "api/ocr_match.py": {
-      "runtime": "python3.9"
-    }
-  }
 }
