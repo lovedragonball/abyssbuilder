@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import MainLayout from '@/components/layout/main-layout';
 import { cn } from '@/lib/utils';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { AuthProvider } from '@/contexts/auth-context';
 import MouseGradient from '@/components/MouseGradient';
 import { TextSelectionSearch } from '@/components/TextSelectionSearch';
 import SkipToMain from '@/components/SkipToMain';
+import ClientLayout from '@/components/layout/client-layout';
 
 export const metadata: Metadata = {
   title: 'AbyssBuilds',
@@ -111,7 +111,7 @@ export default function RootLayout({
           <AuthProvider>
             <MouseGradient />
             <TextSelectionSearch />
-            <MainLayout>{children}</MainLayout>
+            <ClientLayout>{children}</ClientLayout>
             <Toaster />
           </AuthProvider>
         </ErrorBoundary>

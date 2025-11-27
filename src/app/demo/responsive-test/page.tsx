@@ -15,9 +15,11 @@ export default function ResponsiveTestPage() {
 
   useEffect(() => {
     // Detect current viewport on mount
-    const width = window.innerWidth;
-    const config = VIEWPORT_CONFIGS.find((v) => Math.abs(v.width - width) < 50);
-    setCurrentViewport(config || null);
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      const config = VIEWPORT_CONFIGS.find((v) => Math.abs(v.width - width) < 50);
+      setCurrentViewport(config || null);
+    }
   }, []);
 
   const runTests = () => {
@@ -46,11 +48,11 @@ export default function ResponsiveTestPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <div className="text-sm text-muted-foreground">Width</div>
-              <div className="text-2xl font-bold">{window.innerWidth}px</div>
+              <div className="text-2xl font-bold">{typeof window !== 'undefined' ? window.innerWidth : 0}px</div>
             </div>
             <div>
               <div className="text-sm text-muted-foreground">Height</div>
-              <div className="text-2xl font-bold">{window.innerHeight}px</div>
+              <div className="text-2xl font-bold">{typeof window !== 'undefined' ? window.innerHeight : 0}px</div>
             </div>
             <div>
               <div className="text-sm text-muted-foreground">Device Type</div>
@@ -155,11 +157,10 @@ export default function ResponsiveTestPage() {
               <h2 className="text-2xl font-semibold mb-4">Horizontal Overflow</h2>
               <div className="space-y-2">
                 <div
-                  className={`text-sm ${
-                    testResults.overflow.hasOverflow
+                  className={`text-sm ${testResults.overflow.hasOverflow
                       ? 'text-red-500'
                       : 'text-green-500'
-                  }`}
+                    }`}
                 >
                   {testResults.overflow.message}
                 </div>
