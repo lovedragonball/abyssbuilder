@@ -1,0 +1,29 @@
+# Ignore Python API files (not needed for deployment)
+api/
+requirements.txt
+
+# Ignore data files
+*.txt
+!package.json
+!tsconfig.json
+
+# Ignore scripts directory
+scripts/
+
+# Ignore test files
+__tests__/
+__mocks__/
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+jest.config.js
+jest.setup.js
+
+# Ignore other unnecessary files
+.git/
+.vscode/
+.idx/
+.kiro/
+*.md
+!README.md
