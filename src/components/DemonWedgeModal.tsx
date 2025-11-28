@@ -81,20 +81,20 @@ export function DemonWedgeModal({ open, onOpenChange, wedge }: DemonWedgeModalPr
     ));
 
     // Get all images: main image + preview images
-    const allImages = wedge.preview && wedge.preview.length > 0 
+    const allImages = wedge.preview && wedge.preview.length > 0
         ? [wedge.image, ...wedge.preview]
         : [wedge.image];
 
     const currentImage = allImages[selectedPreviewIndex] || wedge.image;
 
     const handlePrevious = () => {
-        setSelectedPreviewIndex((prev) => 
+        setSelectedPreviewIndex((prev) =>
             prev === 0 ? allImages.length - 1 : prev - 1
         );
     };
 
     const handleNext = () => {
-        setSelectedPreviewIndex((prev) => 
+        setSelectedPreviewIndex((prev) =>
             prev === allImages.length - 1 ? 0 : prev + 1
         );
     };
@@ -103,7 +103,7 @@ export function DemonWedgeModal({ open, onOpenChange, wedge }: DemonWedgeModalPr
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-5xl w-full max-h-[92vh] p-0 gap-0 overflow-hidden">
+            <DialogContent className="max-w-4xl w-full max-h-[90vh] p-0 gap-0 overflow-hidden">
                 <VisuallyHidden>
                     <h2>{wedge.fullName}</h2>
                 </VisuallyHidden>
@@ -153,10 +153,10 @@ export function DemonWedgeModal({ open, onOpenChange, wedge }: DemonWedgeModalPr
                     </div>
 
                     {/* Main Content */}
-                    <div className="flex-1 overflow-y-auto p-8 space-y-6 bg-[#0c0c0f]">
+                    <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#0c0c0f]">
                         {/* Image Preview Section */}
                         <div className="relative">
-                            <div className="relative w-full aspect-square max-w-lg mx-auto bg-black/40 rounded-2xl overflow-hidden border-2 border-white/10">
+                            <div className="relative w-full aspect-square max-w-md mx-auto bg-black/40 rounded-2xl overflow-hidden border-2 border-white/10">
                                 <Image
                                     src={currentImage}
                                     alt={wedge.fullName}
@@ -193,11 +193,10 @@ export function DemonWedgeModal({ open, onOpenChange, wedge }: DemonWedgeModalPr
                                         <button
                                             key={index}
                                             onClick={() => setSelectedPreviewIndex(index)}
-                                            className={`w-2 h-2 rounded-full transition-all ${
-                                                index === selectedPreviewIndex
-                                                    ? 'bg-white w-8'
-                                                    : 'bg-white/30 hover:bg-white/50'
-                                            }`}
+                                            className={`w-2 h-2 rounded-full transition-all ${index === selectedPreviewIndex
+                                                ? 'bg-white w-8'
+                                                : 'bg-white/30 hover:bg-white/50'
+                                                }`}
                                             aria-label={`Go to image ${index + 1}`}
                                         />
                                     ))}

@@ -1,14 +1,23 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getPatchData } from '@/lib/patch-data-server';
 
 // Ensure this runs on Node.js runtime (not Edge)
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const patchData = await getPatchData();
-    
+    // Try to get base URL from request headers for Vercel
+    const host = request.headers.get('host');
+    const protocol = request.headers.get('x-forwarded-proto') || 
+                     (request.url.startsWith('https') ? 'https' : 'http');
+    const baseUrl = host ? `${protocol}://${host}` : undefined;
+
+    // Try to get patch data using the server function
+    // This function already tries multiple methods (filesystem + HTTP)
+    // Pass baseUrl so it can fetch from public folder if filesystem fails
+    const patchData = await getPatchData(baseUrl);
+
     // If there's an error in the patch data, still return it but with 200 status
     // so the client can handle the error state gracefully
     if (patchData.error) {

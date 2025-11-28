@@ -135,60 +135,109 @@ class ServerPatchParser {
 /**
  * Server-side function to fetch and parse patch data from Patch.txt
  * This function reads the file from the filesystem and returns structured data
+ * @param baseUrl - Optional base URL for fetching from public folder (for Vercel)
  * @returns Promise<PatchData> - Structured patch data
  */
-export async function getPatchData(): Promise<PatchData> {
+export async function getPatchData(baseUrl?: string): Promise<PatchData> {
   try {
-    // Try multiple possible paths for the Patch.txt file
-    // On Vercel, process.cwd() should point to the project root
-    const cwd = process.cwd();
+    let htmlContent: string | null = null;
+    let loadMethod = 'unknown';
 
-    // On Vercel, process.cwd() should point to the project root
-    // Try multiple possible paths for the Patch.txt file
+    // Method 1: Try to read from filesystem (for local development)
+    const cwd = process.cwd();
     const possiblePaths = [
-      path.join(cwd, 'public', 'Patch.txt'), // Check public folder first (for Vercel/Production)
       path.join(cwd, 'Patch.txt'),
+      path.join(cwd, 'public', 'Patch.txt'),
       path.resolve(cwd, 'Patch.txt'),
-      // Additional fallback paths
-      '/Patch.txt',
-      './Patch.txt',
     ];
 
-    let htmlContent: string | null = null;
-    let lastError: Error | null = null;
-    let foundPath: string | null = null;
-
-    // Try each path until one works
     for (const filePath of possiblePaths) {
       try {
-        // Check if file exists first
-        try {
-          await fs.promises.access(filePath, fs.constants.F_OK);
-        } catch (accessErr) {
-          // File doesn't exist at this path, try next
-          continue;
-        }
-
-        // Use async file reading for better error handling
+        await fs.promises.access(filePath, fs.constants.F_OK);
         htmlContent = await fs.promises.readFile(filePath, 'utf-8');
-        foundPath = filePath;
-        console.log(`Successfully loaded Patch.txt from: ${filePath}`);
+        loadMethod = `filesystem: ${filePath}`;
+        console.log(`✅ Loaded Patch.txt from filesystem: ${filePath}`);
         break;
       } catch (err) {
-        lastError = err instanceof Error ? err : new Error(String(err));
         // Continue to next path
         continue;
       }
     }
 
-    // If we couldn't read the file from any path
+    // Method 2: If filesystem fails, try to fetch from public URL (for Vercel/production)
     if (!htmlContent) {
-      const errorMessage = lastError
-        ? `Failed to load Patch.txt from any path. Last error: ${lastError.message}`
-        : 'Failed to load Patch.txt: File not found in any expected location';
+      try {
+        // Get the base URL - prioritize passed parameter, then environment variables
+        const url = baseUrl 
+          || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
+          || process.env.NEXT_PUBLIC_BASE_URL
+          || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : null);
+        
+        if (url) {
+          const patchUrl = `${url}/Patch.txt`;
+          console.log(`Attempting to fetch Patch.txt from URL: ${patchUrl}`);
+          
+          const response = await fetch(patchUrl, {
+            cache: 'no-store',
+            headers: {
+              'User-Agent': 'AbyssBuilder/1.0',
+            },
+          });
 
+          if (response.ok) {
+            htmlContent = await response.text();
+            loadMethod = `http: ${patchUrl}`;
+            console.log(`✅ Loaded Patch.txt from URL: ${patchUrl}`);
+          } else {
+            console.warn(`Failed to fetch from URL: ${response.status} ${response.statusText}`);
+          }
+        } else {
+          console.warn('No base URL available for fetching Patch.txt');
+        }
+      } catch (fetchErr) {
+        console.warn('Failed to fetch Patch.txt from URL:', fetchErr);
+      }
+    }
+
+    // Method 3: Try reading from public folder using absolute path
+    if (!htmlContent) {
+      try {
+        // On Vercel, public files are served from the root
+        // Try to read from .next/server/public or use process.cwd()
+        const publicPath = path.join(cwd, '.next', 'server', 'app', 'Patch.txt');
+        try {
+          await fs.promises.access(publicPath, fs.constants.F_OK);
+          htmlContent = await fs.promises.readFile(publicPath, 'utf-8');
+          loadMethod = `filesystem: ${publicPath}`;
+          console.log(`✅ Loaded Patch.txt from build path: ${publicPath}`);
+        } catch {
+          // Try alternative public path
+          const altPublicPath = path.join(cwd, 'public', 'Patch.txt');
+          if (altPublicPath !== possiblePaths[1]) { // Avoid duplicate
+            try {
+              await fs.promises.access(altPublicPath, fs.constants.F_OK);
+              htmlContent = await fs.promises.readFile(altPublicPath, 'utf-8');
+              loadMethod = `filesystem: ${altPublicPath}`;
+              console.log(`✅ Loaded Patch.txt from public: ${altPublicPath}`);
+            } catch {}
+          }
+        }
+      } catch (altErr) {
+        console.warn('Failed to read from alternative paths:', altErr);
+      }
+    }
+
+    // If all methods failed
+    if (!htmlContent) {
+      const errorMessage = 'Failed to load Patch.txt: Tried filesystem and HTTP methods, all failed.';
       console.error(errorMessage);
-      console.error('Tried paths:', possiblePaths);
+      console.error('Tried filesystem paths:', possiblePaths);
+      console.error('Environment:', {
+        VERCEL_URL: process.env.VERCEL_URL,
+        NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+        NODE_ENV: process.env.NODE_ENV,
+        cwd: cwd,
+      });
 
       return {
         knownIssues: [],
