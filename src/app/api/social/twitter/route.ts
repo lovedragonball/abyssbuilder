@@ -233,26 +233,50 @@ function extractTweets(markdown: string): TweetItem[] {
   return tweets.slice(0, 6)
 }
 
+// Ensure this runs on Node.js runtime (not Edge)
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const res = await fetch(TWITTER_PROXY, {
-      headers: { "User-Agent": "AbyssBuilder/1.0" },
-      next: { revalidate: 120 }
+      headers: { 
+        "User-Agent": "AbyssBuilder/1.0",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+      },
+      next: { revalidate: 120 },
+      // Add timeout
+      signal: AbortSignal.timeout(10000) // 10 second timeout
     })
 
     if (!res.ok) {
-      return NextResponse.json({ error: "twitter_fetch_failed" }, { status: 502 })
+      console.error(`Twitter proxy failed: ${res.status} ${res.statusText}`);
+      return NextResponse.json({ 
+        error: "twitter_fetch_failed",
+        tweets: [] 
+      }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
     const markdown = await res.text()
     const tweets = extractTweets(markdown)
 
     if (!tweets.length) {
-      return NextResponse.json({ error: "twitter_empty" }, { status: 204 })
+      return NextResponse.json({ 
+        error: "twitter_empty",
+        tweets: [] 
+      }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
-    return NextResponse.json({ tweets })
+    return NextResponse.json({ tweets }, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
+      },
+    })
   } catch (error) {
-    return NextResponse.json({ error: "twitter_fetch_error" }, { status: 500 })
+    console.error('Twitter fetch error:', error);
+    return NextResponse.json({ 
+      error: "twitter_fetch_error",
+      tweets: [] 
+    }, { status: 200 }) // Return 200 so client can handle gracefully
   }
 }

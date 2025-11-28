@@ -43,22 +43,34 @@ export function RedditCard() {
     const loadPosts = async () => {
       try {
         setStatus("loading")
-        const response = await fetch("/api/social/reddit")
+        const response = await fetch("/api/social/reddit", {
+          cache: 'no-store',
+        })
 
-        if (!response.ok) {
-          throw new Error("reddit-request-failed")
+        // Always try to parse JSON, even if status is not ok
+        const json = await response.json()
+        
+        // Check if there's an error in the response
+        if (json.error) {
+          console.warn('Reddit API error:', json.error);
+          if (!cancelled) {
+            setStatus("error")
+            setPosts([])
+          }
+          return
         }
 
-        const json = await response.json()
         const parsed = (json?.posts ?? []) as RedditPost[]
 
         if (!cancelled) {
           setPosts(parsed)
-          setStatus("ready")
+          setStatus(parsed.length > 0 ? "ready" : "error")
         }
       } catch (error) {
+        console.error('Reddit fetch error:', error);
         if (!cancelled) {
           setStatus("error")
+          setPosts([])
         }
       }
     }
@@ -106,16 +118,43 @@ export function RedditCard() {
           )}
 
           {status === "error" && (
-            <div className="flex flex-col items-center justify-center gap-2 h-full text-gray-300 text-sm text-center">
+            <div className="flex flex-col items-center justify-center gap-3 h-full text-gray-300 text-sm text-center px-4">
               <p>Unable to load Reddit right now.</p>
-              <a
-                href="https://www.reddit.com/user/DNAbyss_Official"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#FF4500] text-xs hover:underline"
-              >
-                Open Reddit profile
-              </a>
+              <div className="flex flex-col gap-2 items-center">
+                <button
+                  onClick={() => {
+                    setStatus("loading");
+                    // Retry loading
+                    const loadPosts = async () => {
+                      try {
+                        const response = await fetch("/api/social/reddit", { cache: 'no-store' });
+                        const json = await response.json();
+                        if (json.error) {
+                          setStatus("error");
+                          return;
+                        }
+                        const parsed = (json?.posts ?? []) as RedditPost[];
+                        setPosts(parsed);
+                        setStatus(parsed.length > 0 ? "ready" : "error");
+                      } catch (error) {
+                        setStatus("error");
+                      }
+                    };
+                    loadPosts();
+                  }}
+                  className="px-3 py-1.5 rounded-md border border-gray-700/70 bg-gray-900/70 text-xs text-gray-100 hover:border-gray-600 hover:bg-gray-800/70 transition-colors"
+                >
+                  Retry
+                </button>
+                <a
+                  href="https://www.reddit.com/user/DNAbyss_Official"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#FF4500] text-xs hover:underline"
+                >
+                  Open Reddit profile
+                </a>
+              </div>
             </div>
           )}
 

@@ -92,23 +92,33 @@ export function TwitterCard() {
     fallbackStatusRef.current = "loading"
     setFallbackTweets([])
 
-    fetch("/api/social/twitter")
+    fetch("/api/social/twitter", {
+      cache: 'no-store',
+    })
       .then(async (res) => {
-        if (!res.ok) throw new Error("fallback-failed")
+        // Always try to parse JSON, even if status is not ok
         const json = await res.json()
+        
+        // Check if there's an error in the response
+        if (json.error) {
+          console.warn('Twitter API error:', json.error);
+          throw new Error("fallback-failed")
+        }
+        
         return (json?.tweets ?? []) as TweetItem[]
       })
       .then((tweets) => {
         setFallbackTweets(tweets)
-        setFallbackStatus("ready")
-        fallbackStatusRef.current = "ready"
+        setFallbackStatus(tweets.length > 0 ? "ready" : "error")
+        fallbackStatusRef.current = tweets.length > 0 ? "ready" : "error"
         if (widgetStatusRef.current !== "ready") {
           setWidgetStatus("error")
           widgetStatusRef.current = "error"
           setView("fallback")
         }
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error('Twitter fallback fetch error:', error);
         setFallbackStatus("error")
         fallbackStatusRef.current = "error"
         if (widgetStatusRef.current !== "ready") {

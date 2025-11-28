@@ -12,18 +12,28 @@ type RedditPost = {
 const USER_AGENT = "AbyssBuilder/1.0 (contact: dev@local)"
 const REDDIT_URL = "https://www.reddit.com/user/DNAbyss_Official/submitted.json?limit=6"
 
+// Ensure this runs on Node.js runtime (not Edge)
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const res = await fetch(REDDIT_URL, {
       headers: {
         "User-Agent": USER_AGENT,
-        Accept: "application/json"
+        "Accept": "application/json"
       },
-      next: { revalidate: 120 } // cache for 2 minutes
+      next: { revalidate: 120 }, // cache for 2 minutes
+      // Add timeout
+      signal: AbortSignal.timeout(10000) // 10 second timeout
     })
 
     if (!res.ok) {
-      return NextResponse.json({ error: "reddit_fetch_failed" }, { status: 502 })
+      console.error(`Reddit API failed: ${res.status} ${res.statusText}`);
+      return NextResponse.json({ 
+        error: "reddit_fetch_failed",
+        posts: [] 
+      }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
     const json = await res.json()
@@ -40,8 +50,16 @@ export async function GET() {
         createdUtc: entry.created_utc ?? 0
       }))
 
-    return NextResponse.json({ posts })
+    return NextResponse.json({ posts }, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
+      },
+    })
   } catch (error) {
-    return NextResponse.json({ error: "reddit_fetch_error" }, { status: 500 })
+    console.error('Reddit fetch error:', error);
+    return NextResponse.json({ 
+      error: "reddit_fetch_error",
+      posts: [] 
+    }, { status: 200 }) // Return 200 so client can handle gracefully
   }
 }

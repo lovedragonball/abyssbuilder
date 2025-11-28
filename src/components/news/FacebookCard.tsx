@@ -76,9 +76,9 @@ export function FacebookCard() {
         </a>
       </div>
 
-      <div className="flex-1 overflow-hidden rounded-b-lg bg-white">
+      <div className="flex-1 overflow-hidden rounded-b-lg bg-gray-900/50">
         {currentSrc ? (
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full min-h-[520px]">
             <iframe
               key={`${view}-${reloadKey}`}
               src={currentSrc}
@@ -93,20 +93,20 @@ export function FacebookCard() {
             />
 
             {embedStatus === "loading" && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-600 bg-gray-100/90 z-10 space-y-3">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 bg-gray-900/90 z-10 space-y-3">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1877F2]" />
                 <p className="text-sm">Loading Facebook content...</p>
               </div>
             )}
 
             {embedStatus === "error" && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-700 bg-gray-100/95 z-20 p-6 text-center space-y-4">
-                <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mb-2">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-200 bg-gray-900/95 z-20 p-6 text-center space-y-4">
+                <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-2">
                   <FacebookIcon className="w-6 h-6 text-gray-400" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-800">Embedded feed unavailable</h4>
-                  <p className="text-xs text-gray-500 mt-1 max-w-[260px] mx-auto">
+                  <h4 className="font-semibold text-gray-100">Embedded feed unavailable</h4>
+                  <p className="text-xs text-gray-400 mt-1 max-w-[260px] mx-auto">
                     The Facebook plugin was blocked. Use the link below to view.
                   </p>
                 </div>
@@ -121,8 +121,11 @@ export function FacebookCard() {
                     <span>Open on Facebook</span>
                   </a>
                   <button
-                    onClick={() => setReloadKey((k) => k + 1)}
-                    className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 text-xs font-medium rounded hover:bg-gray-200 transition-colors"
+                    onClick={() => {
+                      setReloadKey((k) => k + 1);
+                      setEmbedStatus("loading");
+                    }}
+                    className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
                   >
                     Reload
                   </button>
@@ -131,9 +134,18 @@ export function FacebookCard() {
             )}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center text-gray-600 bg-gray-100 p-6 text-center h-full space-y-3">
-            <p className="text-sm">No embed URL configured.</p>
-            <p className="text-xs text-gray-500">Add NEXT_PUBLIC_FACEBOOK_VIDEO_URL to show the featured video.</p>
+          <div className="flex flex-col items-center justify-center text-gray-300 bg-gray-900/50 p-6 text-center h-full space-y-3 min-h-[520px]">
+            <FacebookIcon className="w-12 h-12 text-gray-500" />
+            <p className="text-sm">Facebook Feed</p>
+            <p className="text-xs text-gray-400">Visit our official Facebook page</p>
+            <a
+              href={pageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-[#1877F2] text-white text-xs font-medium rounded hover:bg-[#166fe5] transition-colors mt-2"
+            >
+              <span>Open on Facebook</span>
+            </a>
           </div>
         )}
       </div>
