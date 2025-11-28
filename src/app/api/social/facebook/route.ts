@@ -16,7 +16,7 @@ export async function GET() {
                 {
                     id: "fb-fallback-error",
                     message: "Unable to load latest posts. Please check our official page.",
-                    postUrl: "https://www.facebook.com/DuelNightAbyss",
+                    postUrl: "https://www.facebook.com/DNAbyss.Official",
                     createdTime: "Now"
                 }
             ]

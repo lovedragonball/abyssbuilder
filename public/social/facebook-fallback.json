@@ -3,20 +3,20 @@
         {
             "id": "fb-1",
             "message": "🌈 Event reminder: Rainbow-coloured Dream continues this week. Don't forget to claim Secret Letter rewards!",
-            "postUrl": "https://www.facebook.com/DuelNightAbyss",
+            "postUrl": "https://www.facebook.com/DNAbyss.Official",
             "createdTime": "Recent",
             "imageUrl": "/images/social/fb-placeholder-1.jpg"
         },
         {
             "id": "fb-2",
             "message": "⚔️ Known issues tracker — co-op homing arrow and summon buffs are being investigated.",
-            "postUrl": "https://www.facebook.com/DuelNightAbyss",
+            "postUrl": "https://www.facebook.com/DNAbyss.Official",
             "createdTime": "Recent"
         },
         {
             "id": "fb-3",
             "message": "📝 Patch note highlights: fixed Secret Letter sources, resolved duplicated UI in event screens, and reissued missing clues via in-game mail.",
-            "postUrl": "https://www.facebook.com/DuelNightAbyss",
+            "postUrl": "https://www.facebook.com/DNAbyss.Official",
             "createdTime": "Recent"
         }
     ]

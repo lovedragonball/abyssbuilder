@@ -30,7 +30,7 @@ type FacebookPost = {
 }
 
 export function FacebookCard() {
-  const pageUrl = "https://www.facebook.com/DuelNightAbyss"
+  const pageUrl = "https://www.facebook.com/DNAbyss.Official"
   const [view, setView] = React.useState<ViewMode>("embed")
   const [embedStatus, setEmbedStatus] = React.useState<EmbedStatus>("idle")
   const [fallbackStatus, setFallbackStatus] = React.useState<FallbackStatus>("idle")
@@ -264,8 +264,8 @@ export function FacebookCard() {
           <button
             onClick={() => setView("embed")}
             className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${view === "embed"
-                ? "bg-gray-900/80 border-gray-700 text-gray-100"
-                : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
+              ? "bg-gray-900/80 border-gray-700 text-gray-100"
+              : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
               }`}
           >
             Embed
@@ -276,8 +276,8 @@ export function FacebookCard() {
               if (fallbackStatus === "idle") loadFallback()
             }}
             className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${view === "fallback"
-                ? "bg-gray-900/80 border-gray-700 text-gray-100"
-                : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
+              ? "bg-gray-900/80 border-gray-700 text-gray-100"
+              : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
               }`}
           >
             Posts
