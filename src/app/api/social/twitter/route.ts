@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server"
+import fs from "fs/promises"
+import path from "path"
 
 export type TweetItem = {
   id: string
@@ -17,6 +19,7 @@ export type TweetItem = {
 }
 
 const TWITTER_PROXY = "https://r.jina.ai/http://nitter.net/DNAbyss_EN"
+const FALLBACK_PATH = path.join(process.cwd(), "public", "social", "twitter-fallback.json")
 
 const IMAGE_LINK_PATTERN = /\[!\[[^\]]*]\((https?:\/\/[^\s)]+)\)]\((https?:\/\/[^\s)]+)\)/g
 const SIMPLE_IMAGE_PATTERN = /!\[[^\]]*]\((https?:\/\/[^\s)]+)\)/g
@@ -233,6 +236,17 @@ function extractTweets(markdown: string): TweetItem[] {
   return tweets.slice(0, 6)
 }
 
+async function loadFallbackTweets(): Promise<TweetItem[]> {
+  try {
+    const raw = await fs.readFile(FALLBACK_PATH, "utf-8")
+    const json = JSON.parse(raw)
+    return Array.isArray(json?.tweets) ? (json.tweets as TweetItem[]) : []
+  } catch (err) {
+    console.error("Twitter fallback load failed:", err)
+    return []
+  }
+}
+
 // Ensure this runs on Node.js runtime (not Edge)
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -251,32 +265,35 @@ export async function GET() {
 
     if (!res.ok) {
       console.error(`Twitter proxy failed: ${res.status} ${res.statusText}`);
+      const fallback = await loadFallbackTweets()
       return NextResponse.json({ 
         error: "twitter_fetch_failed",
-        tweets: [] 
+        tweets: fallback 
       }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
     const markdown = await res.text()
     const tweets = extractTweets(markdown)
+    const payload = tweets.length ? tweets : await loadFallbackTweets()
 
-    if (!tweets.length) {
+    if (!tweets.length && !payload.length) {
       return NextResponse.json({ 
         error: "twitter_empty",
         tweets: [] 
       }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
-    return NextResponse.json({ tweets }, {
+    return NextResponse.json({ tweets: payload }, {
       headers: {
         'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
       },
     })
   } catch (error) {
     console.error('Twitter fetch error:', error);
+    const fallback = await loadFallbackTweets()
     return NextResponse.json({ 
       error: "twitter_fetch_error",
-      tweets: [] 
+      tweets: fallback 
     }, { status: 200 }) // Return 200 so client can handle gracefully
   }
 }

@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server"
+import fs from "fs/promises"
+import path from "path"
 
 type RedditPost = {
   id: string
@@ -11,6 +13,18 @@ type RedditPost = {
 
 const USER_AGENT = "AbyssBuilder/1.0 (contact: dev@local)"
 const REDDIT_URL = "https://www.reddit.com/user/DNAbyss_Official/submitted.json?limit=6"
+const FALLBACK_PATH = path.join(process.cwd(), "public", "social", "reddit-fallback.json")
+
+async function loadFallbackPosts(): Promise<RedditPost[]> {
+  try {
+    const raw = await fs.readFile(FALLBACK_PATH, "utf-8")
+    const json = JSON.parse(raw)
+    return Array.isArray(json?.posts) ? (json.posts as RedditPost[]) : []
+  } catch (err) {
+    console.error("Reddit fallback load failed:", err)
+    return []
+  }
+}
 
 // Ensure this runs on Node.js runtime (not Edge)
 export const runtime = 'nodejs';
@@ -30,9 +44,10 @@ export async function GET() {
 
     if (!res.ok) {
       console.error(`Reddit API failed: ${res.status} ${res.statusText}`);
+      const fallback = await loadFallbackPosts()
       return NextResponse.json({ 
         error: "reddit_fetch_failed",
-        posts: [] 
+        posts: fallback 
       }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
@@ -50,16 +65,19 @@ export async function GET() {
         createdUtc: entry.created_utc ?? 0
       }))
 
-    return NextResponse.json({ posts }, {
+    const payload = posts.length ? posts : await loadFallbackPosts()
+
+    return NextResponse.json({ posts: payload }, {
       headers: {
         'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
       },
     })
   } catch (error) {
     console.error('Reddit fetch error:', error);
+    const fallback = await loadFallbackPosts()
     return NextResponse.json({ 
       error: "reddit_fetch_error",
-      posts: [] 
+      posts: fallback 
     }, { status: 200 }) // Return 200 so client can handle gracefully
   }
 }

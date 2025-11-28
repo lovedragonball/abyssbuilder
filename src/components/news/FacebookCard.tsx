@@ -25,6 +25,7 @@ export function FacebookCard() {
   const [view, setView] = React.useState<"page" | "lite" | "video">("page")
   const [embedStatus, setEmbedStatus] = React.useState<"loading" | "ready" | "error">("loading")
   const [reloadKey, setReloadKey] = React.useState(0)
+  const [autoTriedLite, setAutoTriedLite] = React.useState(false)
 
   const pagePluginSrc = React.useMemo(
     () =>
@@ -51,6 +52,20 @@ export function FacebookCard() {
     return () => clearTimeout(timer)
   }, [view, reloadKey])
 
+  React.useEffect(() => {
+    if (embedStatus === "error" && view === "page" && !autoTriedLite) {
+      setAutoTriedLite(true)
+      setView("lite")
+      setReloadKey((k) => k + 1)
+      setEmbedStatus("loading")
+    }
+  }, [embedStatus, view, autoTriedLite])
+
+  const setViewWithReload = (next: "page" | "lite" | "video") => {
+    setView(next)
+    setReloadKey((k) => k + 1)
+  }
+
   return (
     <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 overflow-hidden h-full flex flex-col">
       <div className="p-4 border-b border-gray-700/50 flex items-center justify-between">
@@ -63,17 +78,41 @@ export function FacebookCard() {
             <p className="text-xs text-gray-400">Official Page</p>
           </div>
         </div>
-        <a
-          href={pageUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-xs text-[#1877F2] hover:underline"
-        >
-          <span>Visit</span>
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
+        <div className="flex items-center gap-2">
+          <div className="flex rounded-md border border-gray-700/60 overflow-hidden text-xs">
+            <button
+              onClick={() => setViewWithReload("page")}
+              className={`px-2 py-1 ${view === "page" ? "bg-[#1877F2]/20 text-[#1877F2]" : "text-gray-300 hover:bg-gray-800/70"}`}
+            >
+              Feed
+            </button>
+            <button
+              onClick={() => setViewWithReload("lite")}
+              className={`px-2 py-1 ${view === "lite" ? "bg-[#1877F2]/20 text-[#1877F2]" : "text-gray-300 hover:bg-gray-800/70"}`}
+            >
+              Lite
+            </button>
+            {videoEmbedUrl && (
+              <button
+                onClick={() => setViewWithReload("video")}
+                className={`px-2 py-1 ${view === "video" ? "bg-[#1877F2]/20 text-[#1877F2]" : "text-gray-300 hover:bg-gray-800/70"}`}
+              >
+                Video
+              </button>
+            )}
+          </div>
+          <a
+            href={pageUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-xs text-[#1877F2] hover:underline"
+          >
+            <span>Visit</span>
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
       </div>
 
       <div className="flex-1 overflow-hidden rounded-b-lg bg-gray-900/50">
@@ -107,7 +146,7 @@ export function FacebookCard() {
                 <div>
                   <h4 className="font-semibold text-gray-100">Embedded feed unavailable</h4>
                   <p className="text-xs text-gray-400 mt-1 max-w-[260px] mx-auto">
-                    The Facebook plugin was blocked. Use the link below to view.
+                    The Facebook plugin was blocked. Use the link below or switch to Lite view.
                   </p>
                 </div>
 
@@ -128,6 +167,12 @@ export function FacebookCard() {
                     className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
                   >
                     Reload
+                  </button>
+                  <button
+                    onClick={() => setViewWithReload(view === "lite" ? "page" : "lite")}
+                    className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
+                  >
+                    {view === "lite" ? "Try Feed View" : "Try Lite View"}
                   </button>
                 </div>
               </div>
