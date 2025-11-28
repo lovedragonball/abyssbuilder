@@ -218,27 +218,9 @@ export function TwitterCard() {
       loadFallback()
     }
   }, [view, fallbackStatus, loadFallback])
-
   const renderTweetMedia = (tweet: TweetItem) => {
-    const poster = tweet.imageUrl ?? tweet.imageUrls?.[0]
-
     // Priority 1: Display images first if available
-    if (poster) {
-      return (
-        <div className="relative w-full overflow-hidden rounded-md border border-gray-800/60 bg-gray-950/40">
-          <img
-            src={poster}
-            alt="Tweet media"
-            className="w-full h-auto object-cover max-h-[500px]"
-            loading="lazy"
-            onError={(e) => {
-              // Hide broken images
-              e.currentTarget.style.display = 'none'
-            }}
-          />
-        </div>
-      )
-    }
+    // Removed image preview as per user request
 
     // Priority 2: Video embed URLs (YouTube, Piped, etc.)
     if (tweet.videoEmbedUrl) {
@@ -386,8 +368,8 @@ export function TwitterCard() {
           <button
             onClick={() => setView("widget")}
             className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${view === "widget"
-                ? "bg-gray-900/80 border-gray-700 text-gray-100"
-                : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
+              ? "bg-gray-900/80 border-gray-700 text-gray-100"
+              : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
               }`}
           >
             Widget
@@ -398,8 +380,8 @@ export function TwitterCard() {
               if (fallbackStatus === "idle") loadFallback()
             }}
             className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${view === "fallback"
-                ? "bg-gray-900/80 border-gray-700 text-gray-100"
-                : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
+              ? "bg-gray-900/80 border-gray-700 text-gray-100"
+              : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
               }`}
           >
             Fallback
