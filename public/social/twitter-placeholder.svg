@@ -1,0 +1,14 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1DA1F2"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <rect x="40" y="40" width="1120" height="595" rx="24" fill="rgba(0,0,0,0.28)" stroke="#0EA5E9" stroke-width="4" opacity="0.85"/>
+  <text x="100" y="170" fill="#E2E8F0" font-family="Inter, 'Segoe UI', system-ui" font-size="64" font-weight="700">Twitter fallback media</text>
+  <text x="100" y="240" fill="#CBD5E1" font-family="Inter, 'Segoe UI', system-ui" font-size="32">Duet Night Abyss — update preview</text>
+  <text x="100" y="305" fill="#A5B4FC" font-family="Inter, 'Segoe UI', system-ui" font-size="26">Media not available from source; using placeholder.</text>
+  <text x="100" y="520" fill="#94A3B8" font-family="Inter, 'Segoe UI', system-ui" font-size="24">#DNAbyss #Update #PatchNotes</text>
+</svg>

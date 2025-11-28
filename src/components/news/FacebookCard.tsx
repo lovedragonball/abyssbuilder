@@ -22,7 +22,7 @@ export function FacebookCard() {
     ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(featuredVideoUrl)}&show_text=false&width=500`
     : undefined
 
-  const [view, setView] = React.useState<"page" | "lite" | "video">("page")
+  const [view, setView] = React.useState<"page" | "lite" | "video">("lite")
   const [embedStatus, setEmbedStatus] = React.useState<"loading" | "ready" | "error">("loading")
   const [reloadKey, setReloadKey] = React.useState(0)
   const [autoTriedLite, setAutoTriedLite] = React.useState(false)
@@ -48,7 +48,7 @@ export function FacebookCard() {
   React.useEffect(() => {
     const timer = window.setTimeout(() => {
       setEmbedStatus((prev) => (prev === "loading" ? "error" : prev))
-    }, 8000)
+    }, 6000)
     return () => clearTimeout(timer)
   }, [view, reloadKey])
 
