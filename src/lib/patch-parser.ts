@@ -130,10 +130,19 @@ export class PatchParser {
         const description = text.substring(1).trim(); // Remove ✧ symbol
         const highlightedTerms = this.extractHighlightedTerms(description);
         
+        // Extract translations from data attributes
+        const element = line as HTMLElement;
+        const enText = element.getAttribute('data-lang-en') || description;
+        const thText = element.getAttribute('data-lang-th') || '';
+        
         issues.push({
           id: `issue-${issues.length + 1}`,
           description,
           highlightedTerms,
+          translations: {
+            en: enText,
+            th: thText,
+          },
         });
       }
     }
@@ -190,11 +199,20 @@ export class PatchParser {
         const highlightedTerms = this.extractHighlightedTerms(description);
         const type = this.determinePatchType(description);
         
+        // Extract translations from data attributes
+        const element = line as HTMLElement;
+        const enText = element.getAttribute('data-lang-en') || description;
+        const thText = element.getAttribute('data-lang-th') || '';
+        
         currentGroup.notes.push({
           id: `${currentGroup.date}-note-${currentGroup.notes.length + 1}`,
           description,
           highlightedTerms,
           type,
+          translations: {
+            en: enText,
+            th: thText,
+          },
         });
       }
     }

@@ -10,6 +10,7 @@ interface DemonWedgeCardProps {
     onClick?: () => void;
     level?: number;
     onLevelChange?: (level: number) => void;
+    className?: string;
 }
 
 const rarityThemes = {
@@ -59,7 +60,7 @@ const elementIconMap = {
     Umbro: 'https://dna.interknot-network.com/images/elements/umbro.webp'
 };
 
-export function DemonWedgeCard({ wedge, onClick, level: controlledLevel, onLevelChange }: DemonWedgeCardProps) {
+export function DemonWedgeCard({ wedge, onClick, level: controlledLevel, onLevelChange, className }: DemonWedgeCardProps) {
     const theme = rarityThemes[wedge.rarity as keyof typeof rarityThemes] ?? {
         border: 'border-white/10',
         header: 'from-slate-900 via-slate-800 to-black',
@@ -113,7 +114,7 @@ export function DemonWedgeCard({ wedge, onClick, level: controlledLevel, onLevel
         <motion.div
             whileHover={{ scale: 1.02 }}
             onClick={onClick}
-            className={`border rounded-2xl overflow-hidden bg-[#0c0c0f]/80 backdrop-blur-sm cursor-pointer transition-colors hover:border-white/40 ${theme.border}`}
+            className={`border rounded-2xl overflow-hidden bg-[#0c0c0f]/80 backdrop-blur-sm cursor-pointer transition-colors hover:border-white/40 ${theme.border} ${className || ''}`}
         >
             <div className={`relative h-32 bg-gradient-to-r ${theme.header}`}>
                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_#ffffff30,_transparent_60%)]" />

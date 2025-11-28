@@ -79,8 +79,13 @@ const itemVariants = {
  * Individual issue item component with hover effects
  */
 const IssueItem = React.memo(({ issue, index, locale }: { issue: KnownIssue; index: number; locale: Locale }) => {
-  const displayText = issue.translations?.[locale] || issue.description
-  
+  const englishText = issue.description
+  const thaiText = issue.translations?.th?.trim() || ""
+  const showThai = locale === "th" && thaiText.length > 0
+  const displayLang: Locale = showThai ? "th" : "en"
+  const displayText = showThai ? thaiText : englishText
+  const accessibleText = displayText || englishText
+
   return (
     <motion.div
       className={cn(
@@ -94,7 +99,7 @@ const IssueItem = React.memo(({ issue, index, locale }: { issue: KnownIssue; ind
       style={{ willChange: "transform, background-color" }}
       role="listitem"
       tabIndex={0}
-      aria-label={`Known issue ${index + 1}: ${displayText}`}
+      aria-label={`Known issue ${index + 1}: ${accessibleText}`}
     >
       <span
         className="item-icon text-yellow-400 text-base flex-shrink-0 mt-0.5"
@@ -102,7 +107,10 @@ const IssueItem = React.memo(({ issue, index, locale }: { issue: KnownIssue; ind
       >
         ✧
       </span>
-      <p className="item-description text-gray-300 text-sm leading-relaxed">
+      <p
+        className="item-description text-gray-100 text-sm leading-relaxed"
+        lang={displayLang}
+      >
         {highlightTerms(displayText, issue.highlightedTerms)}
       </p>
     </motion.div>

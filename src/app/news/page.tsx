@@ -47,6 +47,7 @@ export default function NewsPage() {
       <NewsUpdatesSection
         patchData={patchData}
         maxVisibleUpdates={10}
+        locale="th"
       />
     </div>
   );

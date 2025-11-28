@@ -82,8 +82,13 @@ const itemVariants = {
  * Individual patch note item component with hover effects
  */
 const PatchNoteItem = React.memo(({ note, index, locale }: { note: PatchNote; index: number; locale: Locale }) => {
-  const displayText = note.translations?.[locale] || note.description
-  
+  const englishText = note.description
+  const thaiText = note.translations?.th?.trim() || ""
+  const showThai = locale === "th" && thaiText.length > 0
+  const displayLang: Locale = showThai ? "th" : "en"
+  const displayText = showThai ? thaiText : englishText
+  const accessibleText = displayText || englishText
+
   return (
     <motion.div
       className={cn(
@@ -97,7 +102,7 @@ const PatchNoteItem = React.memo(({ note, index, locale }: { note: PatchNote; in
       style={{ willChange: "transform, background-color" }}
       role="listitem"
       tabIndex={0}
-      aria-label={`Patch note ${index + 1}: ${displayText}`}
+      aria-label={`Patch note ${index + 1}: ${accessibleText}`}
     >
       <span
         className="item-icon text-yellow-400 text-base flex-shrink-0 mt-0.5"
@@ -105,7 +110,10 @@ const PatchNoteItem = React.memo(({ note, index, locale }: { note: PatchNote; in
       >
         ✦
       </span>
-      <p className="item-description text-gray-300 text-sm leading-relaxed">
+      <p
+        className="item-description text-gray-100 text-sm leading-relaxed"
+        lang={displayLang}
+      >
         {highlightTerms(displayText, note.highlightedTerms)}
       </p>
     </motion.div>

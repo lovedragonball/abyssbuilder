@@ -4,21 +4,25 @@ import { useState, useMemo, useEffect } from 'react';
 import { DamageVisualization } from '@/components/calculator/DamageVisualization';
 import { WedgeSelectionModal } from '@/components/calculator/WedgeSelectionModal';
 import { CharacterSelectionModal } from '@/components/calculator/CharacterSelectionModal';
-import { calculateDamage } from '@/lib/damage-calculator';
-import { DemonWedge, DemonWedgeCategory, DemonWedgeStat } from '@/lib/demon-wedges-data';
+import { calculateDamage, EquippedCalculatorWedge } from '@/lib/damage-calculator';
+import { DemonWedge, DemonWedgeCategory } from '@/lib/demon-wedges-data';
 import { Character } from '@/lib/types';
-import { 
-    getCharacterStats, 
-    parseStatValue, 
+import {
+    getCharacterStats,
+    parseStatValue,
     CharacterLevelStats,
     FinalStats,
     collectWedgeStats,
     applyWedgeStats
 } from '@/lib/character-stats';
-import { User } from 'lucide-react';
+import { getConditionalEffects } from '@/lib/demon-wedge-conditions';
+import { User, X } from 'lucide-react';
 import Image from 'next/image';
 
 const MULTI_EQUIP_PHRASE = "Once upgraded to +5, this Demon Wedge can be equipped in multiples";
+
+type PresetSlot = EquippedCalculatorWedge & { enabled: boolean };
+type MaybePresetSlot = PresetSlot | undefined;
 
 const canEquipMultiple = (wedge: DemonWedge) => {
     if (wedge.canEquipMultiple) return true;
@@ -33,6 +37,15 @@ const canEquipMultiple = (wedge: DemonWedge) => {
     );
 
     return Boolean(hasPhraseInDescription || hasPhraseInLevels || hasPhraseInStats || hasPhraseInLevelStats);
+};
+
+const buildConditionDefaults = (wedge: DemonWedge) => {
+    const effects = getConditionalEffects(wedge);
+    if (!effects.length) return undefined;
+    return effects.reduce((acc, effect) => {
+        acc[effect.id] = effect.defaultEnabled;
+        return acc;
+    }, {} as Record<string, boolean | number>);
 };
 
 export default function CalculatorPage() {
@@ -52,12 +65,12 @@ export default function CalculatorPage() {
     const [proficiency] = useState(1.0);
 
     // 9 slots for each preset (0-7: normal, 8: center)
-    const [presetA, setPresetA] = useState<{ wedge: DemonWedge; level: number; enabled: boolean }[]>([]);
-    const [presetB, setPresetB] = useState<{ wedge: DemonWedge; level: number; enabled: boolean }[]>([]);
+    const [presetA, setPresetA] = useState<MaybePresetSlot[]>([]);
+    const [presetB, setPresetB] = useState<MaybePresetSlot[]>([]);
 
     // 4 Consonance Weapon slots for characters that need them
-    const [consonanceA, setConsonanceA] = useState<{ wedge: DemonWedge; level: number; enabled: boolean }[]>([]);
-    const [consonanceB, setConsonanceB] = useState<{ wedge: DemonWedge; level: number; enabled: boolean }[]>([]);
+    const [consonanceA, setConsonanceA] = useState<MaybePresetSlot[]>([]);
+    const [consonanceB, setConsonanceB] = useState<MaybePresetSlot[]>([]);
 
     const [isWedgeModalOpen, setIsWedgeModalOpen] = useState(false);
     const [isCharacterModalOpen, setIsCharacterModalOpen] = useState(false);
@@ -80,8 +93,8 @@ export default function CalculatorPage() {
     ), [damageType]);
 
     useEffect(() => {
-        const sanitizePreset = (preset: { wedge: DemonWedge; level: number; enabled: boolean }[]) =>
-            preset.map((item) => (item && allowedCategories.includes(item.wedge.category) ? item : null)) as typeof preset;
+        const sanitizePreset = (preset: MaybePresetSlot[]) =>
+            preset.map((item) => (item && allowedCategories.includes(item.wedge.category) ? item : undefined)) as typeof preset;
 
         setPresetA((prev) => sanitizePreset(prev));
         setPresetB((prev) => sanitizePreset(prev));
@@ -89,13 +102,13 @@ export default function CalculatorPage() {
 
     const resultA = useMemo(() => {
         const enabledWedges = presetA
-            .filter(w => w && w.enabled)
-            .map(w => ({ wedge: w.wedge, level: w.level }));
+            .filter((w): w is PresetSlot => Boolean(w && w.enabled))
+            .map(w => ({ wedge: w.wedge, level: w.level, conditions: w.conditions }));
 
         // Add enabled consonance wedges
         const enabledConsonanceWedges = consonanceA
-            .filter(w => w && w.enabled)
-            .map(w => ({ wedge: w.wedge, level: w.level }));
+            .filter((w): w is PresetSlot => Boolean(w && w.enabled))
+            .map(w => ({ wedge: w.wedge, level: w.level, conditions: w.conditions }));
 
         const allWedges = [...enabledWedges, ...enabledConsonanceWedges];
 
@@ -112,13 +125,13 @@ export default function CalculatorPage() {
 
     const resultB = useMemo(() => {
         const enabledWedges = presetB
-            .filter(w => w && w.enabled)
-            .map(w => ({ wedge: w.wedge, level: w.level }));
+            .filter((w): w is PresetSlot => Boolean(w && w.enabled))
+            .map(w => ({ wedge: w.wedge, level: w.level, conditions: w.conditions }));
 
         // Add enabled consonance wedges
         const enabledConsonanceWedges = consonanceB
-            .filter(w => w && w.enabled)
-            .map(w => ({ wedge: w.wedge, level: w.level }));
+            .filter((w): w is PresetSlot => Boolean(w && w.enabled))
+            .map(w => ({ wedge: w.wedge, level: w.level, conditions: w.conditions }));
 
         const allWedges = [...enabledWedges, ...enabledConsonanceWedges];
 
@@ -146,8 +159,8 @@ export default function CalculatorPage() {
     function calculateFinalStats(
         character: Character | null,
         level: number,
-        preset: { wedge: DemonWedge; level: number; enabled: boolean }[],
-        consonance: { wedge: DemonWedge; level: number; enabled: boolean }[]
+        preset: MaybePresetSlot[],
+        consonance: MaybePresetSlot[]
     ): FinalStats {
         // 1. Get Base Stats
         let baseStats: CharacterLevelStats | null = null;
@@ -200,7 +213,7 @@ export default function CalculatorPage() {
         };
 
         // 3. Collect all enabled wedge stats (normal + consonance)
-        const allWedges = [...preset, ...consonance].filter(item => item && item.enabled);
+        const allWedges = [...preset, ...consonance].filter((item): item is PresetSlot => Boolean(item && item.enabled));
         const normalizedWedgeStats = collectWedgeStats(allWedges);
 
         // 4. Apply all wedge stats to base stats
@@ -222,12 +235,16 @@ export default function CalculatorPage() {
 
             // Ensure array is large enough
             while (currentPreset.length <= editingSlot) {
-                // @ts-ignore
-                currentPreset.push(null);
+                currentPreset.push(undefined);
             }
 
             if (editingSlot >= 0 && editingSlot < 4) {
-                currentPreset[editingSlot] = { wedge, level: 0, enabled: true };
+                currentPreset[editingSlot] = {
+                    wedge,
+                    level: 0,
+                    enabled: true,
+                    conditions: buildConditionDefaults(wedge)
+                };
                 setPreset(currentPreset);
             }
         } else {
@@ -237,7 +254,6 @@ export default function CalculatorPage() {
 
             // Enforce category by damage type
             if (!allowedCategories.includes(wedge.category)) return;
-
 
             // Block equipping duplicates unless the wedge explicitly allows multiples
             const isDuplicate = currentPreset.some((slot, index) =>
@@ -249,14 +265,81 @@ export default function CalculatorPage() {
 
             // Ensure array is large enough
             while (currentPreset.length <= editingSlot) {
-                // @ts-ignore - pushing undefined/null temporarily or handling sparse array
-                currentPreset.push(null);
+                currentPreset.push(undefined);
             }
 
             if (editingSlot >= 0 && editingSlot < 9) {
-                currentPreset[editingSlot] = { wedge, level: 0, enabled: true };
+                currentPreset[editingSlot] = {
+                    wedge,
+                    level: 0,
+                    enabled: true,
+                    conditions: buildConditionDefaults(wedge)
+                };
                 setPreset(currentPreset);
             }
+        }
+
+        setIsWedgeModalOpen(false);
+        setEditingSlot(-1);
+        setIsConsonanceSlot(false);
+    };
+
+    const handleSelectMultipleWedges = (wedges: DemonWedge[]) => {
+        if (isConsonanceSlot) {
+            // Handle consonance weapon slots
+            const currentPreset = editingPreset === 'A' ? [...consonanceA] : [...consonanceB];
+            const setPreset = editingPreset === 'A' ? setConsonanceA : setConsonanceB;
+
+            let slotIndex = editingSlot;
+            for (const wedge of wedges) {
+                if (slotIndex >= 4) break; // Max 4 consonance slots
+                
+                // Ensure array is large enough
+                while (currentPreset.length <= slotIndex) {
+                    currentPreset.push(undefined);
+                }
+
+                currentPreset[slotIndex] = {
+                    wedge,
+                    level: 0,
+                    enabled: true,
+                    conditions: buildConditionDefaults(wedge)
+                };
+                slotIndex++;
+            }
+            setPreset(currentPreset);
+        } else {
+            // Handle normal wedge slots
+            const currentPreset = editingPreset === 'A' ? [...presetA] : [...presetB];
+            const setPreset = editingPreset === 'A' ? setPresetA : setPresetB;
+
+            let slotIndex = editingSlot;
+            for (const wedge of wedges) {
+                if (slotIndex >= 9) break; // Max 9 normal slots
+
+                // Enforce category by damage type
+                if (!allowedCategories.includes(wedge.category)) continue;
+
+                // Block equipping duplicates unless the wedge explicitly allows multiples
+                const isDuplicate = currentPreset.some((slot, index) =>
+                    slot && slot.wedge.name === wedge.name && index !== slotIndex
+                );
+                if (isDuplicate && !canEquipMultiple(wedge)) continue;
+
+                // Ensure array is large enough
+                while (currentPreset.length <= slotIndex) {
+                    currentPreset.push(undefined);
+                }
+
+                currentPreset[slotIndex] = {
+                    wedge,
+                    level: 0,
+                    enabled: true,
+                    conditions: buildConditionDefaults(wedge)
+                };
+                slotIndex++;
+            }
+            setPreset(currentPreset);
         }
 
         setIsWedgeModalOpen(false);
@@ -318,6 +401,38 @@ export default function CalculatorPage() {
         }
     };
 
+    const handleUpdateConditions = (
+        preset: 'A' | 'B',
+        index: number,
+        conditionId: string,
+        enabled: boolean,
+        isConsonance = false,
+        selectedValue?: number
+    ) => {
+        const [currentPreset, setPreset] = isConsonance
+            ? [preset === 'A' ? [...consonanceA] : [...consonanceB], preset === 'A' ? setConsonanceA : setConsonanceB]
+            : [preset === 'A' ? [...presetA] : [...presetB], preset === 'A' ? setPresetA : setPresetB];
+
+        if (!currentPreset[index]) return;
+
+        const newConditions: Record<string, boolean | number> = {
+            ...(currentPreset[index]?.conditions || {}),
+            [conditionId]: enabled
+        };
+        
+        // Store selected value if provided
+        if (selectedValue !== undefined) {
+            newConditions[`${conditionId}_value`] = selectedValue;
+        }
+
+        currentPreset[index] = {
+            ...currentPreset[index],
+            conditions: newConditions as Record<string, boolean | number>
+        };
+
+        setPreset(currentPreset);
+    };
+
     const handleCopyPreset = (from: 'A' | 'B', to: 'A' | 'B') => {
         const source = from === 'A' ? presetA : presetB;
         const sourceConsonance = from === 'A' ? consonanceA : consonanceB;
@@ -327,8 +442,8 @@ export default function CalculatorPage() {
         const setTargetLevel = to === 'A' ? setCharacterLevelA : setCharacterLevelB;
 
         // Deep copy both normal and consonance wedges
-        const copy = source.map(item => item ? { ...item } : item);
-        const copyConsonance = sourceConsonance.map(item => item ? { ...item } : item);
+        const copy = source.map(item => item ? { ...item, conditions: item.conditions ? { ...item.conditions } : undefined } : item);
+        const copyConsonance = sourceConsonance.map(item => item ? { ...item, conditions: item.conditions ? { ...item.conditions } : undefined } : item);
         setTarget(copy);
         setTargetConsonance(copyConsonance);
         setTargetLevel(sourceLevel);
@@ -436,85 +551,85 @@ export default function CalculatorPage() {
                     {/* Preset A Character */}
                     <div className="flex items-center justify-between bg-[#1a1a1f] p-4 rounded-xl border border-white/10">
                         <div className="text-lg font-bold text-white/80">Preset A</div>
-                        <button
-                            onClick={() => handleOpenCharacterModal('A')}
-                            className="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-2 pr-6 transition-all group"
-                        >
-                            <div className="w-12 h-12 rounded-lg bg-black/40 overflow-hidden relative border border-white/10 group-hover:border-white/30">
-                                {selectedCharacterA ? (
-                                    <Image
-                                        src={selectedCharacterA.image}
-                                        alt={selectedCharacterA.name}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                ) : (
-                                    <div className="flex items-center justify-center h-full text-white/20">
-                                        <User className="w-6 h-6" />
-                                    </div>
-                                )}
-                            </div>
-                            <div className="text-left">
-                                <div className="text-xs text-white/40 uppercase tracking-wider font-semibold">Character</div>
-                                <div className="text-lg font-bold text-white">
-                                    {selectedCharacterA ? selectedCharacterA.name : 'Select'}
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => handleOpenCharacterModal('A')}
+                                className="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-2 pr-6 transition-all group"
+                            >
+                                <div className="w-12 h-12 rounded-lg bg-black/40 overflow-hidden relative border border-white/10 group-hover:border-white/30">
+                                    {selectedCharacterA ? (
+                                        <Image
+                                            src={selectedCharacterA.image}
+                                            alt={selectedCharacterA.name}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    ) : (
+                                        <div className="flex items-center justify-center h-full text-white/20">
+                                            <User className="w-6 h-6" />
+                                        </div>
+                                    )}
                                 </div>
-                            </div>
-                        </button>
+                                <div className="text-left">
+                                    <div className="text-xs text-white/40 uppercase tracking-wider font-semibold">Character</div>
+                                    <div className="text-lg font-bold text-white">
+                                        {selectedCharacterA ? selectedCharacterA.name : 'Select'}
+                                    </div>
+                                </div>
+                            </button>
+                            {selectedCharacterA && (
+                                <button
+                                    onClick={() => setSelectedCharacterA(null)}
+                                    className="p-2 rounded-lg bg-red-500/20 hover:bg-red-500/40 text-red-400 hover:text-red-300 transition-all"
+                                    title="Clear character"
+                                >
+                                    <X className="w-5 h-5" />
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     {/* Preset B Character */}
                     <div className="flex items-center justify-between bg-[#1a1a1f] p-4 rounded-xl border border-white/10">
                         <div className="text-lg font-bold text-white/80">Preset B</div>
-                        <button
-                            onClick={() => handleOpenCharacterModal('B')}
-                            className="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-2 pr-6 transition-all group"
-                        >
-                            <div className="w-12 h-12 rounded-lg bg-black/40 overflow-hidden relative border border-white/10 group-hover:border-white/30">
-                                {selectedCharacterB ? (
-                                    <Image
-                                        src={selectedCharacterB.image}
-                                        alt={selectedCharacterB.name}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                ) : (
-                                    <div className="flex items-center justify-center h-full text-white/20">
-                                        <User className="w-6 h-6" />
-                                    </div>
-                                )}
-                            </div>
-                            <div className="text-left">
-                                <div className="text-xs text-white/40 uppercase tracking-wider font-semibold">Character</div>
-                                <div className="text-lg font-bold text-white">
-                                    {selectedCharacterB ? selectedCharacterB.name : 'Select'}
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => handleOpenCharacterModal('B')}
+                                className="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-2 pr-6 transition-all group"
+                            >
+                                <div className="w-12 h-12 rounded-lg bg-black/40 overflow-hidden relative border border-white/10 group-hover:border-white/30">
+                                    {selectedCharacterB ? (
+                                        <Image
+                                            src={selectedCharacterB.image}
+                                            alt={selectedCharacterB.name}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    ) : (
+                                        <div className="flex items-center justify-center h-full text-white/20">
+                                            <User className="w-6 h-6" />
+                                        </div>
+                                    )}
                                 </div>
-                            </div>
-                        </button>
+                                <div className="text-left">
+                                    <div className="text-xs text-white/40 uppercase tracking-wider font-semibold">Character</div>
+                                    <div className="text-lg font-bold text-white">
+                                        {selectedCharacterB ? selectedCharacterB.name : 'Select'}
+                                    </div>
+                                </div>
+                            </button>
+                            {selectedCharacterB && (
+                                <button
+                                    onClick={() => setSelectedCharacterB(null)}
+                                    className="p-2 rounded-lg bg-red-500/20 hover:bg-red-500/40 text-red-400 hover:text-red-300 transition-all"
+                                    title="Clear character"
+                                >
+                                    <X className="w-5 h-5" />
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Damage Type Toggle */}
-            <div className="flex gap-2">
-                <button
-                    onClick={() => setDamageType('character')}
-                    className={`px-6 py-3 rounded-xl font-semibold transition-all ${damageType === 'character'
-                        ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/50'
-                        : 'bg-white/5 text-white/60 hover:bg-white/10'
-                        }`}
-                >
-                    Character / Skill
-                </button>
-                <button
-                    onClick={() => setDamageType('weapon')}
-                    className={`px-6 py-3 rounded-xl font-semibold transition-all ${damageType === 'weapon'
-                        ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/50'
-                        : 'bg-white/5 text-white/60 hover:bg-white/10'
-                        }`}
-                >
-                    Weapon
-                </button>
             </div>
 
             {/* Comparison */}
@@ -535,6 +650,7 @@ export default function CalculatorPage() {
                 onRemoveWedge={handleRemoveWedge}
                 onUpdateLevel={handleUpdateLevel}
                 onToggleEnabled={handleToggleEnabled}
+                onUpdateConditions={handleUpdateConditions}
                 onCopyPreset={handleCopyPreset}
                 onLevelChangeA={setCharacterLevelA}
                 onLevelChangeB={setCharacterLevelB}
@@ -548,12 +664,15 @@ export default function CalculatorPage() {
                     setIsConsonanceSlot(false);
                 }}
                 onSelect={handleSelectWedge}
+                onSelectMultiple={handleSelectMultipleWedges}
                 customFilter={customFilter}
                 allowedCategories={
                     isConsonanceSlot
                         ? ['melee-consonance', 'ranged-consonance']
                         : allowedCategories
                 }
+                maxSlots={isConsonanceSlot ? 4 : 9}
+                currentSlotIndex={editingSlot}
             />
 
             <CharacterSelectionModal

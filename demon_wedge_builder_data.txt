@@ -1,0 +1,77 @@
+# DUET NIGHT ABYSS: DEMON WEDGE BUILDER DATA (FOR AI COPILOT)
+
+This file provides a structured mapping of Demon Wedge stats and effects to the specific "Damage Buckets" in the Duet Night Abyss damage formula. This is the essential data required for building an accurate damage calculator or build optimizer.
+
+## 1. DAMAGE BUCKET DEFINITIONS
+
+All percentage-based stats are **ADDITIVE** within their assigned bucket and **MULTIPLICATIVE** between buckets.
+
+| Bucket ID | Bucket Name | Formula Component | Stacking Type | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| SCALAR\_ATK | Base ATK Scalar | Character/Weapon Final ATK | Additive | Includes ATK%, Smash ATK%, Slash ATK%, Spike ATK%, Elemental ATK% |
+| SCALAR\_HP | Base HP Scalar | Character Final HP | Additive | Includes HP% |
+| SCALAR\_DEF | Base DEF Scalar | Character Final DEF | Additive | Includes DEF% |
+| MV\_DMG | MV Multiplier | (1 + SUM(Skill DMG%)) | Additive | Applies to Skill DMG% stat |
+| DMG\_BOOST | DMG Boost Multiplier | (1 + SUM(DMG Boost)) | Additive | Includes General DMG Boost, Weapon DMG, Skill DMG (from set effects) |
+| CRIT\_DMG | CRIT Multiplier | (1 + CRIT Level * (SUM(Crit DMG) - 1)) | Additive | Applies to Crit DMG% stat |
+| CRIT\_RATE | Crit Chance | Crit Chance % | Additive | Affects CRIT Multiplier activation chance and CRIT Level |
+| UTILITY | Utility/Other | N/A | N/A | Stats that do not directly affect the damage formula (e.g., Tolerance, ATK Speed, Max Sanity) |
+
+## 2. DEMON WEDGE STAT MAPPING
+
+This section maps the common Demon Wedge stat names to their corresponding Damage Bucket.
+
+| Stat Name in Data File | Bucket ID | Notes |
+| :--- | :--- | :--- |
+| ATK | SCALAR\_ATK | Contributes to the Character's ATK% pool. |
+| HP | SCALAR\_HP | Contributes to the Character's HP% pool. |
+| DEF | SCALAR\_DEF | Contributes to the Character's DEF% pool. |
+| Smash ATK | SCALAR\_ATK | Contributes to the Character's ATK% pool, specific to Smash attacks. |
+| Slash ATK | SCALAR\_ATK | Contributes to the Character's ATK% pool, specific to Slash attacks. |
+| Spike ATK | SCALAR\_ATK | Contributes to the Character's ATK% pool, specific to Spike attacks. |
+| Weapon ATK% | SCALAR\_ATK | Contributes to the Weapon's ATK% pool. |
+| Weapon Type ATK% | SCALAR\_ATK | Contributes to the Weapon Type's ATK% pool. |
+| Crit DMG | CRIT\_DMG | Contributes to the Crit DMG% pool. |
+| Crit Chance | CRIT\_RATE | Contributes to the Crit Chance% pool. |
+| Skill DMG | MV\_DMG | Contributes to the Skill DMG% pool (MV Multiplier). |
+| Pyro ATK | SCALAR\_ATK | Contributes to the Elemental ATK% pool (Pyro). |
+| Hydro ATK | SCALAR\_ATK | Contributes to the Elemental ATK% pool (Hydro). |
+| Electro ATK | SCALAR\_ATK | Contributes to the Elemental ATK% pool (Electro). |
+| Anemo ATK | SCALAR\_ATK | Contributes to the Elemental ATK% pool (Anemo). |
+| Lumino ATK | SCALAR\_ATK | Contributes to the Elemental ATK% pool (Lumino). |
+| Umbro ATK | SCALAR\_ATK | Contributes to the Elemental ATK% pool (Umbro). |
+| ATK Speed | UTILITY | Affects attack rate, not damage formula. |
+| Max Sanity | UTILITY | Affects resource pool. |
+| Trigger Probability | UTILITY | Affects proc chance. |
+| Skill Efficiency | UTILITY | Affects resource generation/cost. |
+| Skill Duration | UTILITY | Affects skill uptime. |
+| ATK Range | UTILITY | Affects attack reach. |
+| Multishot | UTILITY | Affects number of hits, not direct damage multiplier. |
+| Reload Speed | UTILITY | Affects reload time. |
+| Damage Taken Rate | UTILITY | Affects survivability (Enemy Damage Taken Multiplier is a separate bucket). |
+
+## 3. DEMON WEDGE SET EFFECT MAPPING (Examples from Data File)
+
+Set effects often provide **DMG Boost** or **CRIT** bonuses. These must be correctly categorized.
+
+| Demon Wedge Name (Example) | Effect/Set Bonus (Simplified) | Value | Bucket ID | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Feathered Serpent's Steadfast** | Damage Dealt is reduced by 15% (unaffected by other modifiers) | -15% | FINAL\_DMG | This is a rare **Final DMG Multiplier** reduction. |
+| **Griffin's Inferno - Volition** | Pyro ATK | 18% | SCALAR\_ATK | Elemental ATK is a SCALAR stat. |
+| **Griffin's Inferno - Volition** | Skill DMG | 18% | MV\_DMG | Skill DMG is an MV Multiplier stat. |
+| **Fenrir's Utmost** | Each Combo Level increase CRIT Chance by 20% | 20% per stack | CRIT\_RATE | Dynamic CRIT Rate increase. |
+| **Fafnir's Hunt** | Gain 1 stack that increases Multishot by 10% | 10% per stack | UTILITY | Affects number of hits, not direct damage multiplier. |
+| **Feathered Serpent's Blastwave** | Deals Smash Damage equal to 128% of ATK | 128% | SCALAR\_ATK | This is a new damage instance. The damage is calculated using the **SCALAR\_ATK** bucket and the MV is 1.28. |
+
+## 4. CALCULATOR LOGIC REQUIREMENTS
+
+The AI Copilot must implement the following logic to correctly calculate the impact of a Demon Wedge:
+
+1.  **Input:** Accept the Demon Wedge's stat value and the current total sum of that stat's bucket (e.g., New ATK% = 30%, Current Total ATK% = 150%).
+2.  **Additive Summation:** Calculate the new total bucket value: $\text{New Total ATK}\% = 150\% + 30\% = 180\%$.
+3.  **Marginal Gain Calculation:** The true damage increase is the ratio of the new multiplier to the old multiplier.
+    $$\text{Damage Gain} = \frac{1 + \text{New Total Stat}\%}{1 + \text{Old Total Stat}\%} - 1$$
+    *   *Example (ATK%):* $\text{Damage Gain} = \frac{1 + 1.80}{1 + 1.50} - 1 = 0.12 \text{ or } 12\%$
+4.  **Demonstration of Multiplicative Stacking:** The calculator should show that a 30% ATK% (SCALAR\_ATK) provides a smaller gain than a 30% DMG Boost (DMG\_BOOST) if the other bucket is low, and vice-versa. This is the core purpose of the tool.
+
+This structured data should allow the AI Copilot to accurately model the Demon Wedge system.

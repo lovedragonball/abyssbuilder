@@ -3,16 +3,26 @@ import { CalculationResult } from '@/lib/damage-calculator';
 import { DemonWedge } from '@/lib/demon-wedges-data';
 import { Character } from '@/lib/types';
 import { FinalStats } from '@/lib/character-stats';
-import { TrendingUp, Plus, X, Eye, EyeOff, ArrowRight, ArrowLeft } from 'lucide-react';
+import { TrendingUp, Plus, X, Eye, EyeOff, ArrowRight, ArrowLeft, SlidersHorizontal } from 'lucide-react';
 import Image from 'next/image';
+import { getConditionalEffects } from '@/lib/demon-wedge-conditions';
+import { DAMAGE_BUCKETS } from '@/lib/damage-buckets';
+
+type PresetSlot = {
+    wedge: DemonWedge;
+    level: number;
+    enabled: boolean;
+    conditions?: Record<string, boolean>;
+};
+type MaybePresetSlot = PresetSlot | undefined;
 
 interface DamageVisualizationProps {
     resultA: CalculationResult;
     resultB: CalculationResult;
-    presetA: { wedge: DemonWedge; level: number; enabled: boolean }[];
-    presetB: { wedge: DemonWedge; level: number; enabled: boolean }[];
-    consonanceA?: { wedge: DemonWedge; level: number; enabled: boolean }[];
-    consonanceB?: { wedge: DemonWedge; level: number; enabled: boolean }[];
+    presetA: MaybePresetSlot[];
+    presetB: MaybePresetSlot[];
+    consonanceA?: MaybePresetSlot[];
+    consonanceB?: MaybePresetSlot[];
     selectedCharacterA?: Character | null;
     selectedCharacterB?: Character | null;
     characterLevelA?: number;
@@ -23,6 +33,14 @@ interface DamageVisualizationProps {
     onRemoveWedge: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
     onUpdateLevel: (preset: 'A' | 'B', index: number, level: number, isConsonance?: boolean) => void;
     onToggleEnabled: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
+    onUpdateConditions: (
+        preset: 'A' | 'B',
+        index: number,
+        conditionId: string,
+        enabled: boolean,
+        isConsonance?: boolean,
+        selectedValue?: number
+    ) => void;
     onCopyPreset: (from: 'A' | 'B', to: 'A' | 'B') => void;
     onLevelChangeA?: (level: number) => void;
     onLevelChangeB?: (level: number) => void;
@@ -34,6 +52,8 @@ interface StatRowProps {
     valueA: number;
     valueB: number;
     format?: 'number' | 'percentage' | 'multiplier';
+    hasCharacterA?: boolean;
+    hasCharacterB?: boolean;
 }
 
 export function DamageVisualization({
@@ -53,6 +73,7 @@ export function DamageVisualization({
     onRemoveWedge,
     onUpdateLevel,
     onToggleEnabled,
+    onUpdateConditions,
     onCopyPreset,
     onLevelChangeA,
     onLevelChangeB
@@ -89,6 +110,20 @@ export function DamageVisualization({
 
     const [viewingStatsWedge, setViewingStatsWedge] = useState<DemonWedge | null>(null);
 
+    const bucketRows = buildBucketRows(resultA, resultB);
+    const [conditionEditor, setConditionEditor] = useState<'A' | 'B' | null>(null);
+
+    const openConditionModal = (preset: 'A' | 'B') => {
+        setConditionEditor(preset);
+    };
+
+    // Get all wedges with conditions for the active preset
+    const activePresetWedges = conditionEditor
+        ? [
+            ...((conditionEditor === 'A' ? presetA : presetB) || []).map((slot, index) => ({ slot, index, isConsonance: false })),
+            ...((conditionEditor === 'A' ? consonanceA : consonanceB) || []).map((slot, index) => ({ slot, index, isConsonance: true }))
+        ].filter(item => item.slot && getConditionalEffects(item.slot.wedge).length > 0)
+        : [];
     return (
         <div className="bg-[#0c0c0f] border border-white/10 rounded-2xl p-6">
             <h2 className="text-2xl font-bold mb-6 text-center">Compare Stats</h2>
@@ -130,6 +165,7 @@ export function DamageVisualization({
                     onUpdateLevel={onUpdateLevel}
                     onToggleEnabled={onToggleEnabled}
                     onViewStats={setViewingStatsWedge}
+                    onOpenConditionModal={() => openConditionModal('A')}
                     onLevelChange={onLevelChangeA}
                 />
 
@@ -161,9 +197,64 @@ export function DamageVisualization({
                                         </div>
                                     </div>
                                 )}
-                                <StatRow {...row} />
+                                <StatRow
+                                    {...row}
+                                    hasCharacterA={!!selectedCharacterA}
+                                    hasCharacterB={!!selectedCharacterB}
+                                />
                             </div>
                         ))}
+                    </div>
+
+                    <div className="border-t border-white/5 bg-black/20">
+                        <div className="px-4 py-2">
+                            <div className="text-xs font-semibold text-white/60 uppercase tracking-wider">
+                                Damage Buckets
+                            </div>
+                        </div>
+                        <div className="divide-y divide-white/5">
+                            {bucketRows.map((row) => (
+                                <div key={row.label} className="px-4 py-3 hover:bg-white/5 transition-colors space-y-1">
+                                    <div className="flex justify-between text-sm font-mono text-white">
+                                        <span>{formatMultiplier(row.valueA)}</span>
+                                        <span className="text-xs text-white/50">x{row.label}</span>
+                                        <span className="text-right">{formatMultiplier(row.valueB)}</span>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-3 text-[11px] text-white/60">
+                                        <div>
+                                            <div className="text-white/40 uppercase tracking-widest">Preset A</div>
+                                            <div>{row.descA}</div>
+                                            <div className="text-white/30 mt-0.5 italic">{row.breakdownA}</div>
+                                        </div>
+                                        <div className="text-right">
+                                            <div className="text-white/40 uppercase tracking-widest">Preset B</div>
+                                            <div>{row.descB}</div>
+                                            <div className="text-white/30 mt-0.5 italic">{row.breakdownB}</div>
+                                        </div>
+                                    </div>
+                                    {row.subRows && (
+                                        <div className="grid grid-cols-2 gap-3 text-[10px] text-white/50 border-t border-white/10 pt-2 mt-2">
+                                            <div className="space-y-1">
+                                                {row.subRows.map(sub => (
+                                                    <div key={`${row.label}-a-${sub.label}`} className="flex justify-between">
+                                                        <span>{sub.label}</span>
+                                                        <span className="font-mono text-white">{formatPercent(sub.valueA)}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className="space-y-1 text-right">
+                                                {row.subRows.map(sub => (
+                                                    <div key={`${row.label}-b-${sub.label}`} className="flex justify-between">
+                                                        <span>{formatPercent(sub.valueB)}</span>
+                                                        <span>{sub.label}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
@@ -182,6 +273,7 @@ export function DamageVisualization({
                     onUpdateLevel={onUpdateLevel}
                     onToggleEnabled={onToggleEnabled}
                     onViewStats={setViewingStatsWedge}
+                    onOpenConditionModal={() => openConditionModal('B')}
                     onLevelChange={onLevelChangeB}
                 />
             </div>
@@ -242,6 +334,144 @@ export function DamageVisualization({
                     </div>
                 </div>
             )}
+
+            {conditionEditor && activePresetWedges.length > 0 && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+                    onClick={() => setConditionEditor(null)}
+                >
+                    <div
+                        className="bg-[#1a1a1f] border border-white/20 rounded-2xl p-6 max-w-2xl w-full shadow-2xl relative space-y-4 max-h-[80vh] overflow-y-auto"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setConditionEditor(null)}
+                            className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors z-10"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+
+                        <div>
+                            <div className="text-xs uppercase tracking-widest text-white/40 mb-1">Preset {conditionEditor}</div>
+                            <h3 className="text-2xl font-bold text-white">Configure Conditions</h3>
+                            <p className="text-sm text-white/50 mt-1">
+                                Toggle conditional bonuses for all demon wedges in this preset.
+                            </p>
+                        </div>
+
+                        <div className="space-y-4">
+                            {activePresetWedges.map(({ slot, index, isConsonance }) => {
+                                if (!slot) return null;
+                                const effects = getConditionalEffects(slot.wedge);
+
+                                return (
+                                    <div key={`${conditionEditor}-${isConsonance ? 'cons' : 'norm'}-${index}`} className="bg-black/40 border border-white/10 rounded-xl p-4 space-y-3">
+                                        {/* Wedge Header */}
+                                        <div className="flex items-center gap-3 pb-3 border-b border-white/10">
+                                            <div className="w-12 h-12 rounded-lg overflow-hidden bg-black/60 border border-white/20 flex items-center justify-center">
+                                                {slot.wedge.image ? (
+                                                    <Image
+                                                        src={slot.wedge.image}
+                                                        alt={slot.wedge.fullName}
+                                                        width={48}
+                                                        height={48}
+                                                        className="object-contain"
+                                                    />
+                                                ) : (
+                                                    <span className="text-xl font-bold text-white">{slot.wedge.fullName[0]}</span>
+                                                )}
+                                            </div>
+                                            <div>
+                                                <div className="text-sm font-bold text-white">{slot.wedge.fullName}</div>
+                                                <div className="text-xs text-white/40">{effects.length} condition{effects.length !== 1 ? 's' : ''} available</div>
+                                            </div>
+                                        </div>
+
+                                        {/* Conditions */}
+                                        <div className="space-y-2">
+                                            {effects.map((effect, effectIndex) => {
+                                                const isActive = Boolean(slot.conditions?.[effect.id]);
+                                                const bucketLabel = DAMAGE_BUCKETS[effect.bucketId]?.label || effect.bucketId;
+                                                const hasLevelOptions = effect.levelOptions && effect.levelOptions.length > 1;
+                                                
+                                                // Get current selected value from conditions
+                                                const currentValue = slot.conditions?.[`${effect.id}_value`] as unknown as number | undefined;
+                                                const displayValue = currentValue ?? effect.value;
+                                                
+                                                return (
+                                                    <div
+                                                        key={`${effect.id}-${effectIndex}`}
+                                                        className={`bg-white/5 border rounded-lg p-3 transition-all ${isActive ? 'border-purple-400/50' : 'border-white/10 hover:border-purple-400/30'}`}
+                                                    >
+                                                        <label className="flex items-start gap-3 cursor-pointer">
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={isActive}
+                                                                onChange={(e) => {
+                                                                    onUpdateConditions(
+                                                                        conditionEditor,
+                                                                        index,
+                                                                        effect.id,
+                                                                        e.target.checked,
+                                                                        isConsonance,
+                                                                        displayValue
+                                                                    );
+                                                                }}
+                                                                className="mt-0.5 accent-purple-500"
+                                                            />
+                                                            <div className="flex-1 space-y-1">
+                                                                {hasLevelOptions ? (
+                                                                    <>
+                                                                        <div className="text-sm text-white font-medium leading-snug">
+                                                                            {effect.baseLabel?.replace('X%', `${formatPercent(displayValue)}`)}
+                                                                        </div>
+                                                                        <div className="flex items-center gap-2 mt-2">
+                                                                            <span className="text-xs text-white/40">Level:</span>
+                                                                            <select
+                                                                                value={displayValue}
+                                                                                onChange={(e) => {
+                                                                                    const newValue = parseFloat(e.target.value);
+                                                                                    onUpdateConditions(
+                                                                                        conditionEditor,
+                                                                                        index,
+                                                                                        effect.id,
+                                                                                        isActive,
+                                                                                        isConsonance,
+                                                                                        newValue
+                                                                                    );
+                                                                                }}
+                                                                                onClick={(e) => e.stopPropagation()}
+                                                                                className="bg-black/60 border border-white/20 rounded px-2 py-1 text-xs text-white focus:outline-none focus:border-purple-400"
+                                                                            >
+                                                                                {effect.levelOptions!.map((opt) => (
+                                                                                    <option key={opt.level} value={opt.value}>
+                                                                                        +{opt.level} ({formatPercent(opt.value)})
+                                                                                    </option>
+                                                                                ))}
+                                                                            </select>
+                                                                        </div>
+                                                                    </>
+                                                                ) : (
+                                                                    <div className="text-sm text-white font-medium leading-snug">
+                                                                        {effect.label}
+                                                                    </div>
+                                                                )}
+                                                                <div className="text-xs text-white/50">
+                                                                    {bucketLabel} • {formatPercent(displayValue)}
+                                                                </div>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
@@ -260,10 +490,11 @@ function PresetPanel({
     onUpdateLevel,
     onToggleEnabled,
     onViewStats,
+    onOpenConditionModal,
     onLevelChange
 }: {
-    preset: { wedge: DemonWedge; level: number; enabled: boolean }[];
-    consonanceSlots?: { wedge: DemonWedge; level: number; enabled: boolean }[];
+    preset: MaybePresetSlot[];
+    consonanceSlots?: MaybePresetSlot[];
     selectedCharacter?: Character | null;
     characterLevel?: number;
     result: CalculationResult;
@@ -275,6 +506,7 @@ function PresetPanel({
     onUpdateLevel: (preset: 'A' | 'B', index: number, level: number, isConsonance?: boolean) => void;
     onToggleEnabled: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
     onViewStats: (wedge: DemonWedge) => void;
+    onOpenConditionModal: () => void;
     onLevelChange?: (level: number) => void;
 }) {
     const maxLevel = (rarity: number) => rarity === 5 ? 5 : 0;
@@ -514,36 +746,145 @@ function PresetPanel({
                 </div>
             )}
 
+            {/* Configure Conditions Button */}
+            <button
+                onClick={onOpenConditionModal}
+                className="w-full mt-4 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 hover:from-purple-500/30 hover:to-pink-500/30 border border-purple-500/30 hover:border-purple-400/50 rounded-xl text-white font-semibold text-sm transition-all flex items-center justify-center gap-2 group"
+            >
+                <SlidersHorizontal className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                Configure Conditions
+            </button>
+
         </div>
     );
 }
 
-function StatRow({ label, valueA, valueB, format = 'number' }: StatRowProps) {
+function StatRow({ label, valueA, valueB, format = 'number', hasCharacterA = false, hasCharacterB = false }: StatRowProps) {
     const formatValue = (value: number) => {
         if (format === 'percentage') return `${Math.round(value)}%`;
         if (format === 'multiplier') return `x${value.toFixed(2)}`;
         return Math.round(value).toLocaleString();
     };
 
+    const formatDiff = (value: number) => {
+        const sign = value >= 0 ? '+' : '';
+        if (format === 'percentage') return `${sign}${Math.round(value)}%`;
+        if (format === 'multiplier') return `${sign}${value.toFixed(2)}`;
+        return `${sign}${Math.round(value)}`;
+    };
+
+    const diff = valueB - valueA;
+    const showDiff = hasCharacterA && hasCharacterB; // แสดง diff เฉพาะเมื่อทั้งสองฝั่งมี character
+
     return (
-        <div className="grid grid-cols-[1fr,auto,1fr] gap-4 px-4 py-2 hover:bg-white/5 transition-colors">
-            <div className="text-right">
-                <div className="text-sm font-mono font-semibold text-white">
+        <div className="grid grid-cols-[80px,70px,1fr,70px,80px] gap-3 px-6 py-2 hover:bg-white/5 transition-colors">
+            {/* Value A - ชิดซ้าย */}
+            <div className="text-left">
+                <div className="text-sm font-mono font-semibold text-white tabular-nums">
                     {formatValue(valueA)}
                 </div>
             </div>
 
-            <div className="flex items-center justify-center min-w-[200px]">
+            {/* Diff A - แสดงว่า A เทียบกับ B เท่าไร (A - B) */}
+            <div className="text-left">
+                {showDiff && (
+                    <div className={`text-sm font-mono font-semibold tabular-nums ${diff < 0 ? 'text-green-400' : diff > 0 ? 'text-red-400' : 'text-white/40'}`}>
+                        {diff !== 0 ? formatDiff(-diff) : ''}
+                    </div>
+                )}
+            </div>
+
+            {/* Label - ตรงกลาง - ไม่ขยับ */}
+            <div className="flex items-center justify-center">
                 <div className="text-xs text-white/60 text-center">
                     {label}
                 </div>
             </div>
 
-            <div className="text-left">
-                <div className="text-sm font-mono font-semibold text-white">
+            {/* Diff B - แสดงว่า B เทียบกับ A เท่าไร (B - A) */}
+            <div className="text-right">
+                {showDiff && (
+                    <div className={`text-sm font-mono font-semibold tabular-nums ${diff > 0 ? 'text-green-400' : diff < 0 ? 'text-red-400' : 'text-white/40'}`}>
+                        {diff !== 0 ? formatDiff(diff) : ''}
+                    </div>
+                )}
+            </div>
+
+            {/* Value B - ชิดขวา */}
+            <div className="text-right">
+                <div className="text-sm font-mono font-semibold text-white tabular-nums">
                     {formatValue(valueB)}
                 </div>
             </div>
         </div>
     );
+}
+
+function buildBucketRows(resultA: CalculationResult, resultB: CalculationResult) {
+    const rows = [
+        {
+            label: 'ATK Scalar',
+            bucketA: resultA.buckets.atk,
+            bucketB: resultB.buckets.atk,
+            subRows: [
+                { label: 'Char ATK%', valueA: resultA.atkPools.char, valueB: resultB.atkPools.char },
+                { label: 'Weapon ATK%', valueA: resultA.atkPools.weapon, valueB: resultB.atkPools.weapon },
+                { label: 'Elemental ATK%', valueA: resultA.atkPools.elemental, valueB: resultB.atkPools.elemental }
+            ]
+        },
+        {
+            label: 'Skill DMG',
+            bucketA: resultA.buckets.skillDmg,
+            bucketB: resultB.buckets.skillDmg
+        },
+        {
+            label: 'DMG Boost',
+            bucketA: resultA.buckets.dmgBoost,
+            bucketB: resultB.buckets.dmgBoost
+        },
+        {
+            label: 'Final Damage',
+            bucketA: resultA.buckets.final,
+            bucketB: resultB.buckets.final
+        }
+    ].map(row => ({
+        label: row.label,
+        valueA: row.bucketA.value,
+        valueB: row.bucketB.value,
+        descA: row.bucketA.description,
+        descB: row.bucketB.description,
+        breakdownA: summarizeContributions(row.bucketA.breakdown),
+        breakdownB: summarizeContributions(row.bucketB.breakdown),
+        subRows: row.subRows
+    }));
+
+    const critRow = {
+        label: 'CRIT',
+        valueA: resultA.buckets.crit.value,
+        valueB: resultB.buckets.crit.value,
+        descA: `Rate ${Math.round(resultA.buckets.crit.critRate * 100)}% | DMG ${Math.round((resultA.buckets.crit.value - 1) * 100)}%`,
+        descB: `Rate ${Math.round(resultB.buckets.crit.critRate * 100)}% | DMG ${Math.round((resultB.buckets.crit.value - 1) * 100)}%`,
+        breakdownA: `Rate: ${summarizeContributions(resultA.buckets.crit.rateBreakdown)} • DMG: ${summarizeContributions(resultA.buckets.crit.breakdown)}`,
+        breakdownB: `Rate: ${summarizeContributions(resultB.buckets.crit.rateBreakdown)} • DMG: ${summarizeContributions(resultB.buckets.crit.breakdown)}`
+    };
+
+    return [...rows, critRow];
+}
+
+function formatMultiplier(value: number) {
+    return `x${value.toFixed(2)}`;
+}
+
+function formatPercent(value: number) {
+    const percent = (value * 100).toFixed(1);
+    const sign = Number(percent) > 0 ? '+' : '';
+    return `${sign}${percent}%`;
+}
+
+function summarizeContributions(contributions: { source: string; value: number; note?: string }[]) {
+    if (!contributions || contributions.length === 0) return '—';
+    return contributions
+        .slice(0, 2)
+        .map(entry => `${entry.source} (${formatPercent(entry.value)})${entry.note ? ` – ${entry.note}` : ''}`)
+        .join(', ');
 }
