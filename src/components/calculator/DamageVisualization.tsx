@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { CalculationResult } from '@/lib/damage-calculator';
-import { FinalStats, emptyFinalStats } from '@/lib/character-stats';
 import { DemonWedge } from '@/lib/demon-wedges-data';
 import { Character } from '@/lib/types';
+import { FinalStats } from '@/lib/character-stats';
 import { TrendingUp, Plus, X, Eye, EyeOff, ArrowRight, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 
@@ -15,17 +15,17 @@ interface DamageVisualizationProps {
     consonanceB?: { wedge: DemonWedge; level: number; enabled: boolean }[];
     selectedCharacterA?: Character | null;
     selectedCharacterB?: Character | null;
-    characterLevelA: number;
-    characterLevelB: number;
-    finalStatsA: FinalStats | null;
-    finalStatsB: FinalStats | null;
+    characterLevelA?: number;
+    characterLevelB?: number;
+    finalStatsA?: FinalStats;
+    finalStatsB?: FinalStats;
     onOpenWedgeModal: (preset: 'A' | 'B', slot: number, isConsonance?: boolean) => void;
     onRemoveWedge: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
     onUpdateLevel: (preset: 'A' | 'B', index: number, level: number, isConsonance?: boolean) => void;
     onToggleEnabled: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
     onCopyPreset: (from: 'A' | 'B', to: 'A' | 'B') => void;
-    onLevelChangeA: (level: number) => void;
-    onLevelChangeB: (level: number) => void;
+    onLevelChangeA?: (level: number) => void;
+    onLevelChangeB?: (level: number) => void;
 }
 
 interface StatRowProps {
@@ -43,10 +43,10 @@ export function DamageVisualization({
     presetB,
     consonanceA = [],
     consonanceB = [],
-    selectedCharacterA = null,
-    selectedCharacterB = null,
-    characterLevelA,
-    characterLevelB,
+    selectedCharacterA,
+    selectedCharacterB,
+    characterLevelA = 1,
+    characterLevelB = 1,
     finalStatsA,
     finalStatsB,
     onOpenWedgeModal,
@@ -61,8 +61,17 @@ export function DamageVisualization({
     const winner = avgDamageDiff > 0 ? 'B' : avgDamageDiff < 0 ? 'A' : 'tie';
 
     // Use provided finalStats or fallback to default/placeholder
-    const statsA = finalStatsA ?? emptyFinalStats();
-    const statsB = finalStatsB ?? emptyFinalStats();
+    const statsA = finalStatsA || {
+        ATK: 0, HP: 0, Shield: 0, DEF: 0, MaxSanity: 0,
+        SkillDMG: 0, SkillRange: 0, SkillDuration: 0, SkillEfficiency: 0,
+        Morale: 0, Resolve: 0
+    };
+
+    const statsB = finalStatsB || {
+        ATK: 0, HP: 0, Shield: 0, DEF: 0, MaxSanity: 0,
+        SkillDMG: 0, SkillRange: 0, SkillDuration: 0, SkillEfficiency: 0,
+        Morale: 0, Resolve: 0
+    };
 
     const statRows: StatRowProps[] = [
         { category: 'BASE STATS', label: 'ATK', valueA: statsA.ATK, valueB: statsB.ATK, format: 'number' },
@@ -240,8 +249,8 @@ export function DamageVisualization({
 function PresetPanel({
     preset,
     consonanceSlots = [],
-    selectedCharacter = null,
-    characterLevel,
+    selectedCharacter,
+    characterLevel = 1,
     result,
     title,
     gradient,
@@ -256,7 +265,7 @@ function PresetPanel({
     preset: { wedge: DemonWedge; level: number; enabled: boolean }[];
     consonanceSlots?: { wedge: DemonWedge; level: number; enabled: boolean }[];
     selectedCharacter?: Character | null;
-    characterLevel: number;
+    characterLevel?: number;
     result: CalculationResult;
     title: string;
     gradient: string;
@@ -266,14 +275,12 @@ function PresetPanel({
     onUpdateLevel: (preset: 'A' | 'B', index: number, level: number, isConsonance?: boolean) => void;
     onToggleEnabled: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
     onViewStats: (wedge: DemonWedge) => void;
-    onLevelChange: (level: number) => void;
+    onLevelChange?: (level: number) => void;
 }) {
     const maxLevel = (rarity: number) => rarity === 5 ? 5 : 0;
 
     // Check if character requires consonance weapons
-    const requiresConsonance = Boolean(
-        selectedCharacter && ['Lynn', 'Lisbell', 'Psyche', 'Berenica'].includes(selectedCharacter.name)
-    );
+    const requiresConsonance = selectedCharacter && ['Lynn', 'Lisbell', 'Psyche', 'Berenica'].includes(selectedCharacter.name);
 
     const renderSlot = (slotIndex: number, isCenter: boolean = false) => {
         const item = preset[slotIndex];
@@ -322,7 +329,7 @@ function PresetPanel({
                     {maxLevel(item.wedge.rarity) > 0 && (
                         <select
                             value={item.level}
-                            onChange={(e) => { e.stopPropagation(); onUpdateLevel(presetId, slotIndex, parseInt(e.target.value, 10)); }}
+                            onChange={(e) => { e.stopPropagation(); onUpdateLevel(presetId, slotIndex, parseInt(e.target.value)); }}
                             className="absolute top-1 right-1 z-20 bg-black/80 backdrop-blur-sm text-white text-[9px] font-semibold px-1.5 py-0.5 rounded border border-purple-500/50 cursor-pointer hover:bg-purple-600/80 hover:border-purple-400 transition-all focus:outline-none focus:ring-1 focus:ring-purple-400"
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -366,7 +373,7 @@ function PresetPanel({
             </h3>
 
             {/* Character Level Slider */}
-            {selectedCharacter && (
+            {selectedCharacter && onLevelChange && (
                 <div className="bg-[#1a1a1f] rounded-xl border border-white/10 p-4">
                     <div className="flex justify-between items-center mb-2">
                         <span className="text-xs font-semibold text-white/60">Character Level</span>
@@ -377,7 +384,7 @@ function PresetPanel({
                         min="1"
                         max="80"
                         value={characterLevel}
-                        onChange={(e) => onLevelChange(parseInt(e.target.value, 10))}
+                        onChange={(e) => onLevelChange(parseInt(e.target.value))}
                         className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-purple-500"
                     />
                 </div>
@@ -512,24 +519,11 @@ function PresetPanel({
 }
 
 function StatRow({ label, valueA, valueB, format = 'number' }: StatRowProps) {
-    const formatValue = (value: number, withSign = false) => {
-        let formatted: string;
-        if (format === 'percentage') {
-            formatted = `${Math.round(value)}%`;
-        } else if (format === 'multiplier') {
-            formatted = `x${value.toFixed(2)}`;
-        } else {
-            formatted = Math.round(value).toLocaleString();
-        }
-
-        if (!withSign) return formatted;
-        if (value > 0) return `+${formatted}`;
-        if (value === 0) return format === 'percentage' ? '0%' : (format === 'multiplier' ? 'x0.00' : '0');
-        return formatted;
+    const formatValue = (value: number) => {
+        if (format === 'percentage') return `${Math.round(value)}%`;
+        if (format === 'multiplier') return `x${value.toFixed(2)}`;
+        return Math.round(value).toLocaleString();
     };
-
-    const diff = valueB - valueA;
-    const diffColor = diff > 0 ? 'text-emerald-400' : diff < 0 ? 'text-rose-400' : 'text-white/60';
 
     return (
         <div className="grid grid-cols-[1fr,auto,1fr] gap-4 px-4 py-2 hover:bg-white/5 transition-colors">
@@ -539,10 +533,9 @@ function StatRow({ label, valueA, valueB, format = 'number' }: StatRowProps) {
                 </div>
             </div>
 
-            <div className="flex flex-col items-center justify-center min-w-[200px]">
-                <div className="text-xs text-white/60 text-center">{label}</div>
-                <div className={`text-[11px] font-mono font-semibold ${diffColor}`}>
-                    {formatValue(diff, true)}
+            <div className="flex items-center justify-center min-w-[200px]">
+                <div className="text-xs text-white/60 text-center">
+                    {label}
                 </div>
             </div>
 

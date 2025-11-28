@@ -5,14 +5,15 @@ import { DamageVisualization } from '@/components/calculator/DamageVisualization
 import { WedgeSelectionModal } from '@/components/calculator/WedgeSelectionModal';
 import { CharacterSelectionModal } from '@/components/calculator/CharacterSelectionModal';
 import { calculateDamage } from '@/lib/damage-calculator';
-import { DemonWedge, DemonWedgeCategory } from '@/lib/demon-wedges-data';
+import { DemonWedge, DemonWedgeCategory, DemonWedgeStat } from '@/lib/demon-wedges-data';
 import { Character } from '@/lib/types';
-import {
-    getCharacterStats,
-    characterStatsToFinalStats,
-    collectWedgeStats,
-    applyWedgeStats,
+import { 
+    getCharacterStats, 
+    parseStatValue, 
+    CharacterLevelStats,
     FinalStats,
+    collectWedgeStats,
+    applyWedgeStats
 } from '@/lib/character-stats';
 import { User } from 'lucide-react';
 import Image from 'next/image';
@@ -147,16 +148,63 @@ export default function CalculatorPage() {
         level: number,
         preset: { wedge: DemonWedge; level: number; enabled: boolean }[],
         consonance: { wedge: DemonWedge; level: number; enabled: boolean }[]
-    ): FinalStats | null {
-        if (!character) return null;
+    ): FinalStats {
+        // 1. Get Base Stats
+        let baseStats: CharacterLevelStats | null = null;
+        if (character) {
+            baseStats = getCharacterStats(character.name, level);
+        }
 
-        const baseStats = getCharacterStats(character.name, level);
-        if (!baseStats) return null;
+        // If no character selected, return 0s
+        if (!character || !baseStats) {
+            return {
+                ATK: 0,
+                HP: 0,
+                Shield: 0,
+                DEF: 0,
+                MaxSanity: 0,
+                SkillDMG: 0,
+                SkillRange: 0,
+                SkillDuration: 0,
+                SkillEfficiency: 0,
+                Morale: 0,
+                Resolve: 0,
+            };
+        }
 
-        const normalizedBase = characterStatsToFinalStats(baseStats);
-        const aggregatedWedgeStats = collectWedgeStats(preset, consonance);
+        // 2. Convert CharacterLevelStats to FinalStats (parse all string values)
+        const parsedATK = parseStatValue(baseStats.ATK);
+        const parsedHP = parseStatValue(baseStats.HP);
+        const parsedShield = parseStatValue(baseStats.Shield);
+        const parsedDEF = parseStatValue(baseStats.DEF);
+        const parsedMaxSanity = parseStatValue(baseStats["Max Sanity"]);
+        const parsedSkillDMG = parseStatValue(baseStats["Skill DMG"]);
+        const parsedSkillRange = parseStatValue(baseStats["Skill Range"]);
+        const parsedSkillDuration = parseStatValue(baseStats["Skill Duration"]);
+        const parsedSkillEfficiency = parseStatValue(baseStats["Skill Efficiency"]);
+        const parsedMorale = parseStatValue(baseStats.Morale);
+        const parsedResolve = parseStatValue(baseStats.Resolve);
 
-        return applyWedgeStats(normalizedBase, aggregatedWedgeStats);
+        const baseStatsFinal: FinalStats = {
+            ATK: parsedATK.value,
+            HP: parsedHP.value,
+            Shield: parsedShield.value,
+            DEF: parsedDEF.value,
+            MaxSanity: parsedMaxSanity.value,
+            SkillDMG: parsedSkillDMG.value,
+            SkillRange: parsedSkillRange.value,
+            SkillDuration: parsedSkillDuration.value,
+            SkillEfficiency: parsedSkillEfficiency.value,
+            Morale: parsedMorale.value,
+            Resolve: parsedResolve.value,
+        };
+
+        // 3. Collect all enabled wedge stats (normal + consonance)
+        const allWedges = [...preset, ...consonance].filter(item => item && item.enabled);
+        const normalizedWedgeStats = collectWedgeStats(allWedges);
+
+        // 4. Apply all wedge stats to base stats
+        return applyWedgeStats(baseStatsFinal, normalizedWedgeStats);
     }
 
     const handleOpenWedgeModal = (preset: 'A' | 'B', slot: number, isConsonance = false) => {
