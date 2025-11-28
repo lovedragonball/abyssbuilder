@@ -4,6 +4,7 @@ requirements.txt
 
 # Ignore data files
 *.txt
+!Patch.txt
 !package.json
 !tsconfig.json
 

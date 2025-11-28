@@ -142,12 +142,15 @@ export async function getPatchData(): Promise<PatchData> {
     // Try multiple possible paths for the Patch.txt file
     // On Vercel, process.cwd() should point to the project root
     const cwd = process.cwd();
+    
+    // On Vercel, process.cwd() should point to the project root
+    // Try multiple possible paths for the Patch.txt file
     const possiblePaths = [
       path.join(cwd, 'Patch.txt'),
       path.resolve(cwd, 'Patch.txt'),
-      // Fallback paths in case cwd is different
-      path.join(__dirname, '..', '..', '..', 'Patch.txt'),
-      path.join(__dirname, '..', '..', 'Patch.txt'),
+      // Additional fallback paths
+      '/Patch.txt',
+      './Patch.txt',
     ];
 
     let htmlContent: string | null = null;

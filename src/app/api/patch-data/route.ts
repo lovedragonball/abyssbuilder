@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 import { getPatchData } from '@/lib/patch-data-server';
 
+// Ensure this runs on Node.js runtime (not Edge)
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const patchData = await getPatchData();
