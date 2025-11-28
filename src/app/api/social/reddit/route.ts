@@ -45,9 +45,12 @@ export async function GET() {
     if (!res.ok) {
       console.error(`Reddit API failed: ${res.status} ${res.statusText}`);
       const fallback = await loadFallbackPosts()
+      if (fallback.length) {
+        return NextResponse.json({ posts: fallback, source: "fallback" }, { status: 200 })
+      }
       return NextResponse.json({ 
         error: "reddit_fetch_failed",
-        posts: fallback 
+        posts: [] 
       }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
@@ -65,9 +68,10 @@ export async function GET() {
         createdUtc: entry.created_utc ?? 0
       }))
 
-    const payload = posts.length ? posts : await loadFallbackPosts()
+    const fallback = await loadFallbackPosts()
+    const payload = posts.length ? posts : fallback
 
-    return NextResponse.json({ posts: payload }, {
+    return NextResponse.json({ posts: payload, source: posts.length ? "live" : "fallback" }, {
       headers: {
         'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
       },
@@ -75,9 +79,12 @@ export async function GET() {
   } catch (error) {
     console.error('Reddit fetch error:', error);
     const fallback = await loadFallbackPosts()
+    if (fallback.length) {
+      return NextResponse.json({ posts: fallback, source: "fallback" }, { status: 200 })
+    }
     return NextResponse.json({ 
       error: "reddit_fetch_error",
-      posts: fallback 
+      posts: [] 
     }, { status: 200 }) // Return 200 so client can handle gracefully
   }
 }

@@ -50,19 +50,15 @@ export function RedditCard() {
         // Always try to parse JSON, even if status is not ok
         const json = await response.json()
         
-        // Check if there's an error in the response
-        if (json.error) {
-          console.warn('Reddit API error:', json.error);
-          if (!cancelled) {
-            setStatus("error")
-            setPosts([])
-          }
-          return
-        }
-
         const parsed = (json?.posts ?? []) as RedditPost[]
 
         if (!cancelled) {
+          if (!parsed.length && json.error) {
+            console.warn('Reddit API error:', json.error);
+            setStatus("error")
+            setPosts([])
+            return
+          }
           setPosts(parsed)
           setStatus(parsed.length > 0 ? "ready" : "error")
         }

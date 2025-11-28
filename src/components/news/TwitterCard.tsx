@@ -99,13 +99,13 @@ export function TwitterCard() {
         // Always try to parse JSON, even if status is not ok
         const json = await res.json()
         
-        // Check if there's an error in the response
-        if (json.error) {
+        const tweets = (json?.tweets ?? []) as TweetItem[]
+        if (!tweets.length && json.error) {
           console.warn('Twitter API error:', json.error);
           throw new Error("fallback-failed")
         }
-        
-        return (json?.tweets ?? []) as TweetItem[]
+
+        return tweets
       })
       .then((tweets) => {
         setFallbackTweets(tweets)

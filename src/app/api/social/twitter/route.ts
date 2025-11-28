@@ -18,7 +18,7 @@ export type TweetItem = {
   statusId?: string
 }
 
-const TWITTER_PROXY = "https://r.jina.ai/http://nitter.net/DNAbyss_EN"
+const TWITTER_PROXY = "https://r.jina.ai/https://nitter.net/DNAbyss_EN"
 const FALLBACK_PATH = path.join(process.cwd(), "public", "social", "twitter-fallback.json")
 
 const IMAGE_LINK_PATTERN = /\[!\[[^\]]*]\((https?:\/\/[^\s)]+)\)]\((https?:\/\/[^\s)]+)\)/g
@@ -266,9 +266,12 @@ export async function GET() {
     if (!res.ok) {
       console.error(`Twitter proxy failed: ${res.status} ${res.statusText}`);
       const fallback = await loadFallbackTweets()
+      if (fallback.length) {
+        return NextResponse.json({ tweets: fallback, source: "fallback" }, { status: 200 })
+      }
       return NextResponse.json({ 
         error: "twitter_fetch_failed",
-        tweets: fallback 
+        tweets: [] 
       }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
@@ -283,7 +286,7 @@ export async function GET() {
       }, { status: 200 }) // Return 200 so client can handle gracefully
     }
 
-    return NextResponse.json({ tweets: payload }, {
+    return NextResponse.json({ tweets: payload, source: tweets.length ? "live" : "fallback" }, {
       headers: {
         'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
       },
@@ -291,9 +294,12 @@ export async function GET() {
   } catch (error) {
     console.error('Twitter fetch error:', error);
     const fallback = await loadFallbackTweets()
+    if (fallback.length) {
+      return NextResponse.json({ tweets: fallback, source: "fallback" }, { status: 200 })
+    }
     return NextResponse.json({ 
       error: "twitter_fetch_error",
-      tweets: fallback 
+      tweets: [] 
     }, { status: 200 }) // Return 200 so client can handle gracefully
   }
 }
