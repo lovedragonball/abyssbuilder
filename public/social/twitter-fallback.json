@@ -3,39 +3,34 @@
     {
       "id": "fallback-1",
       "text": "Duet Night Abyss — new story commission live now. Dive in, clear stages, and grab those rewards!",
-      "tweetUrl": "https://x.com/i/status/1872220000000000000",
-      "url": "https://x.com/i/status/1872220000000000000",
-      "imageUrl": "/social/twitter-placeholder.svg",
-      "statusId": "1872220000000000000"
+      "tweetUrl": "https://x.com/DNAbyss_EN",
+      "url": "https://x.com/DNAbyss_EN",
+      "imageUrl": "/social/twitter-placeholder.svg"
     },
     {
       "id": "fallback-2",
       "text": "Weekly known issues update: we’re working on co-op homing arrows and summon attribute inheritance. Thanks for your patience.",
-      "tweetUrl": "https://x.com/i/status/1872210000000000000",
-      "url": "https://x.com/i/status/1872210000000000000",
-      "statusId": "1872210000000000000"
+      "tweetUrl": "https://x.com/DNAbyss_EN",
+      "url": "https://x.com/DNAbyss_EN"
     },
     {
       "id": "fallback-3",
       "text": "Event reminder: Rainbow-coloured Dream continues this week. Don’t forget to claim Secret Letter rewards.",
-      "tweetUrl": "https://x.com/i/status/1872200000000000000",
-      "url": "https://x.com/i/status/1872200000000000000",
-      "imageUrl": "/social/twitter-placeholder.svg",
-      "statusId": "1872200000000000000"
+      "tweetUrl": "https://x.com/DNAbyss_EN",
+      "url": "https://x.com/DNAbyss_EN",
+      "imageUrl": "/social/twitter-placeholder.svg"
     },
     {
       "id": "fallback-4",
       "text": "Patch note highlights: fixed Secret Letter sources, resolved duplicated UI in event screens, and reissued missing clues via in-game mail.",
-      "tweetUrl": "https://x.com/i/status/1872190000000000000",
-      "url": "https://x.com/i/status/1872190000000000000",
-      "statusId": "1872190000000000000"
+      "tweetUrl": "https://x.com/DNAbyss_EN",
+      "url": "https://x.com/DNAbyss_EN"
     },
     {
       "id": "fallback-5",
       "text": "Co-op commissions: we’re monitoring feedback around bulk selling fish UI and will ship improvements soon.",
-      "tweetUrl": "https://x.com/i/status/1872180000000000000",
-      "url": "https://x.com/i/status/1872180000000000000",
-      "statusId": "1872180000000000000"
+      "tweetUrl": "https://x.com/DNAbyss_EN",
+      "url": "https://x.com/DNAbyss_EN"
     }
   ]
 }
