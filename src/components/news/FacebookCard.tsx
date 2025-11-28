@@ -26,6 +26,7 @@ export function FacebookCard() {
   const [embedStatus, setEmbedStatus] = React.useState<"loading" | "ready" | "error">("loading")
   const [reloadKey, setReloadKey] = React.useState(0)
   const [autoTriedLite, setAutoTriedLite] = React.useState(false)
+  const [showStaticFallback, setShowStaticFallback] = React.useState(false)
 
   const pagePluginSrc = React.useMemo(
     () =>
@@ -48,7 +49,7 @@ export function FacebookCard() {
   React.useEffect(() => {
     const timer = window.setTimeout(() => {
       setEmbedStatus((prev) => (prev === "loading" ? "error" : prev))
-    }, 6000)
+    }, 4000)
     return () => clearTimeout(timer)
   }, [view, reloadKey])
 
@@ -60,6 +61,12 @@ export function FacebookCard() {
       setEmbedStatus("loading")
     }
   }, [embedStatus, view, autoTriedLite])
+
+  React.useEffect(() => {
+    if (embedStatus === "error") {
+      setShowStaticFallback(true)
+    }
+  }, [embedStatus])
 
   const setViewWithReload = (next: "page" | "lite" | "video") => {
     setView(next)
@@ -118,18 +125,20 @@ export function FacebookCard() {
       <div className="flex-1 overflow-hidden rounded-b-lg bg-gray-900/50">
         {currentSrc ? (
           <div className="relative w-full h-full min-h-[520px]">
-            <iframe
-              key={`${view}-${reloadKey}`}
-              src={currentSrc}
-              title={view === "video" ? "Facebook video" : "Facebook feed"}
-              className="absolute inset-0 w-full h-full border-0"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              onLoad={() => setEmbedStatus("ready")}
-              onError={() => setEmbedStatus("error")}
-            />
+            {!showStaticFallback && (
+              <iframe
+                key={`${view}-${reloadKey}`}
+                src={currentSrc}
+                title={view === "video" ? "Facebook video" : "Facebook feed"}
+                className="absolute inset-0 w-full h-full border-0"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                onLoad={() => setEmbedStatus("ready")}
+                onError={() => setEmbedStatus("error")}
+              />
+            )}
 
             {embedStatus === "loading" && (
               <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 bg-gray-900/90 z-10 space-y-3">
@@ -138,7 +147,7 @@ export function FacebookCard() {
               </div>
             )}
 
-            {embedStatus === "error" && (
+            {(embedStatus === "error" || showStaticFallback) && (
               <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-200 bg-gray-900/95 z-20 p-6 text-center space-y-4">
                 <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-2">
                   <FacebookIcon className="w-6 h-6 text-gray-400" />
@@ -161,6 +170,7 @@ export function FacebookCard() {
                   </a>
                   <button
                     onClick={() => {
+                      setShowStaticFallback(false)
                       setReloadKey((k) => k + 1);
                       setEmbedStatus("loading");
                     }}
@@ -173,6 +183,12 @@ export function FacebookCard() {
                     className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
                   >
                     {view === "lite" ? "Try Feed View" : "Try Lite View"}
+                  </button>
+                  <button
+                    onClick={() => setShowStaticFallback(true)}
+                    className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
+                  >
+                    Show fallback card
                   </button>
                 </div>
               </div>

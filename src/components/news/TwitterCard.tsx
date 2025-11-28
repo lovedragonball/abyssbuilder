@@ -249,6 +249,24 @@ export function TwitterCard() {
       )
     }
 
+    // If we have a status ID but no media, fall back to a Twitframe embed for a visual preview
+    if (tweet.statusId && !poster && !tweet.videoUrl) {
+      const twitframe = `https://twitframe.com/show?url=${encodeURIComponent(`https://x.com/i/status/${tweet.statusId}`)}`
+      return (
+        <div className="w-full overflow-hidden rounded-md border border-gray-800/60 bg-black/60 relative pt-[56.25%]">
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src={twitframe}
+            title={tweet.statusId ? `Tweet ${tweet.statusId}` : "Tweet"}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      )
+    }
+
     if (poster) {
       return (
         <div className="relative w-full overflow-hidden rounded-md border border-gray-800/60 bg-black/50">
