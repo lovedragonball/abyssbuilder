@@ -222,6 +222,25 @@ export function TwitterCard() {
   const renderTweetMedia = (tweet: TweetItem) => {
     const poster = tweet.imageUrl ?? tweet.imageUrls?.[0]
 
+    // Priority 1: Display images first if available
+    if (poster) {
+      return (
+        <div className="relative w-full overflow-hidden rounded-md border border-gray-800/60 bg-gray-950/40">
+          <img
+            src={poster}
+            alt="Tweet media"
+            className="w-full h-auto object-cover max-h-[500px]"
+            loading="lazy"
+            onError={(e) => {
+              // Hide broken images
+              e.currentTarget.style.display = 'none'
+            }}
+          />
+        </div>
+      )
+    }
+
+    // Priority 2: Video embed URLs (YouTube, Piped, etc.)
     if (tweet.videoEmbedUrl) {
       return (
         <div className="w-full overflow-hidden rounded-md border border-gray-800/60 bg-black/60 relative pt-[56.25%]">
@@ -238,10 +257,11 @@ export function TwitterCard() {
       )
     }
 
+    // Priority 3: Direct video URLs
     if (tweet.videoUrl) {
       return (
         <div className="w-full overflow-hidden rounded-md border border-gray-800/60 bg-black/60">
-          <video className="w-full h-auto max-h-[400px]" controls preload="metadata" poster={poster}>
+          <video className="w-full h-auto max-h-[400px]" controls preload="metadata">
             <source src={tweet.videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -249,8 +269,8 @@ export function TwitterCard() {
       )
     }
 
-    // If we have a status ID but no media, fall back to a Twitframe embed for a visual preview
-    if (tweet.statusId && !poster && !tweet.videoUrl) {
+    // Priority 4: If we have a status ID but no media, try Twitframe embed
+    if (tweet.statusId) {
       const twitframe = `https://twitframe.com/show?url=${encodeURIComponent(`https://x.com/i/status/${tweet.statusId}`)}`
       return (
         <div className="w-full overflow-hidden rounded-md border border-gray-800/60 bg-black/60 relative pt-[56.25%]">
@@ -263,14 +283,6 @@ export function TwitterCard() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-        </div>
-      )
-    }
-
-    if (poster) {
-      return (
-        <div className="relative w-full overflow-hidden rounded-md border border-gray-800/60 bg-black/50">
-          <img src={poster} alt="Tweet media" className="w-full h-auto object-cover" loading="lazy" />
         </div>
       )
     }
@@ -373,11 +385,10 @@ export function TwitterCard() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setView("widget")}
-            className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${
-              view === "widget"
+            className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${view === "widget"
                 ? "bg-gray-900/80 border-gray-700 text-gray-100"
                 : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
-            }`}
+              }`}
           >
             Widget
           </button>
@@ -386,11 +397,10 @@ export function TwitterCard() {
               setView("fallback")
               if (fallbackStatus === "idle") loadFallback()
             }}
-            className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${
-              view === "fallback"
+            className={`px-2.5 py-1 rounded-md text-xs border transition-colors ${view === "fallback"
                 ? "bg-gray-900/80 border-gray-700 text-gray-100"
                 : "border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100"
-            }`}
+              }`}
           >
             Fallback
           </button>

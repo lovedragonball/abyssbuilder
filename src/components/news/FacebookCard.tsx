@@ -15,63 +15,48 @@ const FacebookIcon = ({ className }: { className?: string }) => (
 )
 
 export function FacebookCard() {
-  const pageUrl = process.env.NEXT_PUBLIC_FACEBOOK_PAGE_URL ?? "https://www.facebook.com/DuelNightAbyss"
-  const mobileUrl = process.env.NEXT_PUBLIC_FACEBOOK_MOBILE_URL ?? "https://m.facebook.com/DuelNightAbyss"
-  const featuredVideoUrl = process.env.NEXT_PUBLIC_FACEBOOK_VIDEO_URL
-  const videoEmbedUrl = featuredVideoUrl
-    ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(featuredVideoUrl)}&show_text=false&width=500`
-    : undefined
-
-  const [view, setView] = React.useState<"page" | "lite" | "video">("lite")
-  const [embedStatus, setEmbedStatus] = React.useState<"loading" | "ready" | "error">("loading")
-  const [reloadKey, setReloadKey] = React.useState(0)
-  const [autoTriedLite, setAutoTriedLite] = React.useState(false)
-  const [showStaticFallback, setShowStaticFallback] = React.useState(false)
-
-  const pagePluginSrc = React.useMemo(
-    () =>
-      `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(pageUrl)}&tabs=timeline&width=500&height=520&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`,
-    [pageUrl]
-  )
-
-  const liteEmbedSrc = React.useMemo(() => `${mobileUrl}?ref=embed`, [mobileUrl])
-
-  const currentSrc = React.useMemo(() => {
-    if (view === "lite") return liteEmbedSrc
-    if (view === "video" && videoEmbedUrl) return videoEmbedUrl
-    return pagePluginSrc
-  }, [view, liteEmbedSrc, pagePluginSrc, videoEmbedUrl])
+  const pageUrl = "https://www.facebook.com/DuelNightAbyss"
+  const [embedLoaded, setEmbedLoaded] = React.useState(false)
+  const [embedError, setEmbedError] = React.useState(false)
+  const iframeRef = React.useRef<HTMLIFrameElement>(null)
 
   React.useEffect(() => {
-    setEmbedStatus("loading")
-  }, [view, reloadKey])
+    // Set a timeout to detect if embed fails to load
+    const timer = setTimeout(() => {
+      if (!embedLoaded) {
+        setEmbedError(true)
+      }
+    }, 5000)
 
-  React.useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setEmbedStatus((prev) => (prev === "loading" ? "error" : prev))
-    }, 4000)
     return () => clearTimeout(timer)
-  }, [view, reloadKey])
+  }, [embedLoaded])
 
-  React.useEffect(() => {
-    if (embedStatus === "error" && view === "page" && !autoTriedLite) {
-      setAutoTriedLite(true)
-      setView("lite")
-      setReloadKey((k) => k + 1)
-      setEmbedStatus("loading")
-    }
-  }, [embedStatus, view, autoTriedLite])
-
-  React.useEffect(() => {
-    if (embedStatus === "error") {
-      setShowStaticFallback(true)
-    }
-  }, [embedStatus])
-
-  const setViewWithReload = (next: "page" | "lite" | "video") => {
-    setView(next)
-    setReloadKey((k) => k + 1)
+  const handleIframeLoad = () => {
+    setEmbedLoaded(true)
+    setEmbedError(false)
   }
+
+  const handleIframeError = () => {
+    setEmbedError(true)
+    setEmbedLoaded(false)
+  }
+
+  const reloadEmbed = () => {
+    setEmbedLoaded(false)
+    setEmbedError(false)
+    if (iframeRef.current) {
+      const src = iframeRef.current.src
+      iframeRef.current.src = ''
+      setTimeout(() => {
+        if (iframeRef.current) {
+          iframeRef.current.src = src
+        }
+      }, 100)
+    }
+  }
+
+  // Facebook Page Plugin URL
+  const embedSrc = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(pageUrl)}&tabs=timeline&width=500&height=520&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=`
 
   return (
     <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 overflow-hidden h-full flex flex-col">
@@ -86,28 +71,12 @@ export function FacebookCard() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex rounded-md border border-gray-700/60 overflow-hidden text-xs">
-            <button
-              onClick={() => setViewWithReload("page")}
-              className={`px-2 py-1 ${view === "page" ? "bg-[#1877F2]/20 text-[#1877F2]" : "text-gray-300 hover:bg-gray-800/70"}`}
-            >
-              Feed
-            </button>
-            <button
-              onClick={() => setViewWithReload("lite")}
-              className={`px-2 py-1 ${view === "lite" ? "bg-[#1877F2]/20 text-[#1877F2]" : "text-gray-300 hover:bg-gray-800/70"}`}
-            >
-              Lite
-            </button>
-            {videoEmbedUrl && (
-              <button
-                onClick={() => setViewWithReload("video")}
-                className={`px-2 py-1 ${view === "video" ? "bg-[#1877F2]/20 text-[#1877F2]" : "text-gray-300 hover:bg-gray-800/70"}`}
-              >
-                Video
-              </button>
-            )}
-          </div>
+          <button
+            onClick={reloadEmbed}
+            className="px-2.5 py-1 rounded-md text-xs border border-gray-700/60 text-gray-300 hover:border-gray-600 hover:text-gray-100 transition-colors"
+          >
+            Reload
+          </button>
           <a
             href={pageUrl}
             target="_blank"
@@ -122,93 +91,65 @@ export function FacebookCard() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-hidden rounded-b-lg bg-gray-900/50">
-        {currentSrc ? (
-          <div className="relative w-full h-full min-h-[520px]">
-            {!showStaticFallback && (
-              <iframe
-                key={`${view}-${reloadKey}`}
-                src={currentSrc}
-                title={view === "video" ? "Facebook video" : "Facebook feed"}
-                className="absolute inset-0 w-full h-full border-0"
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                onLoad={() => setEmbedStatus("ready")}
-                onError={() => setEmbedStatus("error")}
-              />
-            )}
+      <div className="flex-1 p-4 bg-gray-900/30">
+        <div className="text-sm font-medium text-gray-300 mb-3">Facebook Feed</div>
+        <div className="text-xs text-gray-400 mb-2">Duel Night Abyss Official</div>
 
-            {embedStatus === "loading" && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 bg-gray-900/90 z-10 space-y-3">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1877F2]" />
-                <p className="text-sm">Loading Facebook content...</p>
+        <div className="relative w-full h-full min-h-[520px] overflow-hidden rounded-lg bg-gray-950/40 border border-gray-800/60">
+          {/* Loading State */}
+          {!embedLoaded && !embedError && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 bg-gray-900/90 z-10 space-y-3">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1877F2]" />
+              <p className="text-sm">Loading Facebook content...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {embedError && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-200 bg-gray-900/95 z-20 p-6 text-center space-y-4">
+              <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-2">
+                <FacebookIcon className="w-6 h-6 text-gray-400" />
               </div>
-            )}
-
-            {(embedStatus === "error" || showStaticFallback) && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-200 bg-gray-900/95 z-20 p-6 text-center space-y-4">
-                <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-2">
-                  <FacebookIcon className="w-6 h-6 text-gray-400" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-100">Embedded feed unavailable</h4>
-                  <p className="text-xs text-gray-400 mt-1 max-w-[260px] mx-auto">
-                    The Facebook plugin was blocked. Use the link below or switch to Lite view.
-                  </p>
-                </div>
-
-                <div className="flex flex-col gap-2 w-full max-w-[240px]">
-                  <a
-                    href={pageUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-2 bg-[#1877F2] text-white text-xs font-medium rounded hover:bg-[#166fe5] transition-colors"
-                  >
-                    <span>Open on Facebook</span>
-                  </a>
-                  <button
-                    onClick={() => {
-                      setShowStaticFallback(false)
-                      setReloadKey((k) => k + 1);
-                      setEmbedStatus("loading");
-                    }}
-                    className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
-                  >
-                    Reload
-                  </button>
-                  <button
-                    onClick={() => setViewWithReload(view === "lite" ? "page" : "lite")}
-                    className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
-                  >
-                    {view === "lite" ? "Try Feed View" : "Try Lite View"}
-                  </button>
-                  <button
-                    onClick={() => setShowStaticFallback(true)}
-                    className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
-                  >
-                    Show fallback card
-                  </button>
-                </div>
+              <div>
+                <h4 className="font-semibold text-gray-100">Facebook feed unavailable</h4>
+                <p className="text-xs text-gray-400 mt-1 max-w-[260px] mx-auto">
+                  The Facebook plugin may be blocked by your browser or network. Please visit our page directly.
+                </p>
               </div>
-            )}
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center text-gray-300 bg-gray-900/50 p-6 text-center h-full space-y-3 min-h-[520px]">
-            <FacebookIcon className="w-12 h-12 text-gray-500" />
-            <p className="text-sm">Facebook Feed</p>
-            <p className="text-xs text-gray-400">Visit our official Facebook page</p>
-            <a
-              href={pageUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2 bg-[#1877F2] text-white text-xs font-medium rounded hover:bg-[#166fe5] transition-colors mt-2"
-            >
-              <span>Open on Facebook</span>
-            </a>
-          </div>
-        )}
+
+              <div className="flex flex-col gap-2 w-full max-w-[240px]">
+                <a
+                  href={pageUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-[#1877F2] text-white text-xs font-medium rounded hover:bg-[#166fe5] transition-colors"
+                >
+                  <span>Open on Facebook</span>
+                </a>
+                <button
+                  onClick={reloadEmbed}
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-600 text-gray-300 text-xs font-medium rounded hover:bg-gray-800 transition-colors"
+                >
+                  Try Again
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Facebook Embed */}
+          <iframe
+            ref={iframeRef}
+            src={embedSrc}
+            title="Facebook feed"
+            className="w-full h-full min-h-[520px] border-0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+            onLoad={handleIframeLoad}
+            onError={handleIframeError}
+            style={{ display: embedError ? 'none' : 'block' }}
+          />
+        </div>
       </div>
     </div>
   )
