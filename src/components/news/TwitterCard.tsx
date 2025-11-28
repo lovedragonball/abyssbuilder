@@ -71,7 +71,7 @@ function loadTwitterScript() {
 export function TwitterCard() {
   const timelineRef = React.useRef<HTMLDivElement>(null)
   const [widgetStatus, setWidgetStatus] = React.useState<WidgetStatus>("idle")
-  const [view, setView] = React.useState<"widget" | "fallback">("widget")
+  const [view, setView] = React.useState<"widget" | "fallback">("fallback")
   const [fallbackTweets, setFallbackTweets] = React.useState<TweetItem[]>([])
   const [fallbackStatus, setFallbackStatus] = React.useState<FallbackStatus>("idle")
 
@@ -218,9 +218,27 @@ export function TwitterCard() {
       loadFallback()
     }
   }, [view, fallbackStatus, loadFallback])
+
   const renderTweetMedia = (tweet: TweetItem) => {
+    const poster = tweet.imageUrl ?? tweet.imageUrls?.[0]
+
     // Priority 1: Display images first if available
-    // Removed image preview as per user request
+    if (poster) {
+      return (
+        <div className="relative w-full overflow-hidden rounded-md border border-gray-800/60 bg-gray-950/40">
+          <img
+            src={poster}
+            alt="Tweet media"
+            className="w-full h-auto object-cover max-h-[500px]"
+            loading="lazy"
+            onError={(e) => {
+              // Hide broken images
+              e.currentTarget.style.display = 'none'
+            }}
+          />
+        </div>
+      )
+    }
 
     // Priority 2: Video embed URLs (YouTube, Piped, etc.)
     if (tweet.videoEmbedUrl) {
