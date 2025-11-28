@@ -36,31 +36,31 @@ class ServerPatchParser {
 
   private static extractKnownIssues(htmlContent: string): KnownIssue[] {
     const issues: KnownIssue[] = [];
-    
+
     // Split content into lines
     const lines = htmlContent.split('\n');
     let inKnownIssuesSection = false;
-    
+
     for (const line of lines) {
       const text = line.replace(/<[^>]*>/g, '').trim(); // Remove HTML tags
-      
+
       if (text.includes('Known Issues')) {
         inKnownIssuesSection = true;
         continue;
       }
-      
+
       if (inKnownIssuesSection && text.includes('[Update Details')) {
         break;
       }
-      
+
       if (inKnownIssuesSection && text.startsWith('✧')) {
         const description = text.substring(1).trim();
         const highlightedTerms = PatchParser.extractHighlightedTerms(description);
-        
+
         // Extract translations from data attributes
         const enMatch = line.match(/data-lang-en="([^"]+)"/);
         const thMatch = line.match(/data-lang-th="([^"]+)"/);
-        
+
         issues.push({
           id: `issue-${issues.length + 1}`,
           description,
@@ -72,7 +72,7 @@ class ServerPatchParser {
         });
       }
     }
-    
+
     return issues;
   }
 
@@ -80,17 +80,17 @@ class ServerPatchParser {
     const updateGroups: UpdateGroup[] = [];
     const lines = htmlContent.split('\n');
     let currentGroup: UpdateGroup | null = null;
-    
+
     for (const line of lines) {
       const text = line.replace(/<[^>]*>/g, '').trim();
-      
+
       const updateMatch = text.match(/\[Update Details - (\d{4}-\d{2}-\d{2})\]/);
-      
+
       if (updateMatch) {
         if (currentGroup && currentGroup.notes.length > 0) {
           updateGroups.push(currentGroup);
         }
-        
+
         const date = updateMatch[1];
         currentGroup = {
           date,
@@ -99,16 +99,16 @@ class ServerPatchParser {
         };
         continue;
       }
-      
+
       if (currentGroup && text.startsWith('✦')) {
         const description = text.substring(1).trim();
         const highlightedTerms = PatchParser.extractHighlightedTerms(description);
         const type = PatchParser.determinePatchType(description);
-        
+
         // Extract translations from data attributes
         const enMatch = line.match(/data-lang-en="([^"]+)"/);
         const thMatch = line.match(/data-lang-th="([^"]+)"/);
-        
+
         currentGroup.notes.push({
           id: `${currentGroup.date}-note-${currentGroup.notes.length + 1}`,
           description,
@@ -121,13 +121,13 @@ class ServerPatchParser {
         });
       }
     }
-    
+
     if (currentGroup && currentGroup.notes.length > 0) {
       updateGroups.push(currentGroup);
     }
-    
+
     updateGroups.sort((a, b) => b.date.localeCompare(a.date));
-    
+
     return updateGroups;
   }
 }
@@ -142,10 +142,11 @@ export async function getPatchData(): Promise<PatchData> {
     // Try multiple possible paths for the Patch.txt file
     // On Vercel, process.cwd() should point to the project root
     const cwd = process.cwd();
-    
+
     // On Vercel, process.cwd() should point to the project root
     // Try multiple possible paths for the Patch.txt file
     const possiblePaths = [
+      path.join(cwd, 'public', 'Patch.txt'), // Check public folder first (for Vercel/Production)
       path.join(cwd, 'Patch.txt'),
       path.resolve(cwd, 'Patch.txt'),
       // Additional fallback paths
@@ -182,13 +183,13 @@ export async function getPatchData(): Promise<PatchData> {
 
     // If we couldn't read the file from any path
     if (!htmlContent) {
-      const errorMessage = lastError 
+      const errorMessage = lastError
         ? `Failed to load Patch.txt from any path. Last error: ${lastError.message}`
         : 'Failed to load Patch.txt: File not found in any expected location';
-      
+
       console.error(errorMessage);
       console.error('Tried paths:', possiblePaths);
-      
+
       return {
         knownIssues: [],
         updates: [],
@@ -196,10 +197,10 @@ export async function getPatchData(): Promise<PatchData> {
         error: errorMessage,
       };
     }
-    
+
     // Parse the HTML content using server-side parser
     const patchData = ServerPatchParser.parse(htmlContent);
-    
+
     return patchData;
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
