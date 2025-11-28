@@ -96,16 +96,7 @@ export const LazyGameMap = lazyLoad(
   { ssr: false }
 );
 
-// OCR Components - only needed on specific pages
-export const LazyOCRImagePaste = lazyLoad(
-  () => import('@/components/OCRImagePaste'),
-  { ssr: false }
-);
 
-export const LazyOCRLoadingAnimation = lazyLoad(
-  () => import('@/components/OCRLoadingAnimation'),
-  { ssr: false }
-);
 
 /**
  * Preload a component for better UX

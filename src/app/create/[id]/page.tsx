@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { allCharacters, allWeapons, allMods, allMeleeWeapons, allRangedWeapons } from '@/lib/data';
 import type { Character, Weapon } from '@/lib/types';
 import type { Mod, ModRarity, ModType, Element as ModElement } from '@/lib/types';
-import type { OcrMatchResponse } from '@/lib/ocr-matcher';
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -1117,7 +1117,7 @@ export default function CreateBuildDetailPage() {
     const [showCenterOnly, setShowCenterOnly] = useState(false);
     const [adjustSlotTrackMode, setAdjustSlotTrackMode] = useState(false);
     const [adjustedSlots, setAdjustedSlots] = useState<Set<number>>(new Set());
-    const [ocrApplied, setOcrApplied] = useState(false);
+
 
 
     const { item, itemType } = useMemo(() => {
@@ -1243,107 +1243,12 @@ export default function CreateBuildDetailPage() {
     };
 
     useEffect(() => {
-        if (!item || ocrApplied) return;
+        if (!item) return;
         if (typeof window === 'undefined') return;
 
         const params = new URLSearchParams(window.location.search);
-        if (params.get('source') !== 'ocr') return;
         if (params.get('buildId')) return; // Don't override existing builds
-
-        const raw = localStorage.getItem('dna_ocr_import');
-        if (!raw) return;
-
-        try {
-            const parsed = JSON.parse(raw) as { result?: OcrMatchResponse };
-            if (!parsed?.result?.slots) return;
-
-            console.log('📥 [OCR Import] Processing', parsed.result.slots.length, 'slots');
-            console.log('📥 [OCR Import] Matched slots:', parsed.result.slots.filter(s => s.matched).length);
-
-            const matchedMods = parsed.result.slots
-                .filter((slot) => {
-                    const isMatched = slot.matched && slot.mod_id;
-                    if (isMatched) {
-                        console.log(`  ✓ Slot #${slot.slot_index}: ${slot.mod_name} (ID: ${slot.mod_id})`);
-                    } else {
-                        console.log(`  ✗ Slot #${slot.slot_index}: Not matched. Reason: ${slot.reason || 'Unknown'}`);
-                    }
-                    return isMatched;
-                })
-                .map((slot) => {
-                    // If slot has selectedModData (from variant selection), use it to find exact mod
-                    if ((slot as any).selectedModData) {
-                        const modData = (slot as any).selectedModData;
-                        console.log(`    → Using selected mod data: ${modData.name} (${modData.rarity}★${modData.element ? ' ' + modData.element : ''})`);
-                        // Find exact mod by matching all properties
-                        const exactMod = allMods.find(m =>
-                            m.name === modData.name &&
-                            m.rarity === modData.rarity &&
-                            m.element === modData.element &&
-                            m.variant === modData.variant
-                        );
-                        if (exactMod) {
-                            console.log(`    → Found exact match: ${exactMod.name}${exactMod.variant ? ' • ' + exactMod.variant : ''}`);
-                            return exactMod;
-                        }
-                    }
-
-                    // Try to find by mod_id first (more accurate for variants)
-                    const modById = allMods.find(m => m.id === slot.mod_id);
-                    if (modById) {
-                        console.log(`    → Found by ID: ${modById.name} (${modById.rarity}★${modById.element ? ' ' + modById.element : ''})`);
-                        return resolveModForCharacter(modById.name, modById.rarity, modById.element);
-                    }
-
-                    // Fallback to name-based lookup
-                    console.log(`    → Fallback to name lookup: ${slot.mod_name}`);
-                    return resolveModForCharacter(slot.mod_name);
-                })
-                .filter((mod): mod is Mod => Boolean(mod));
-
-            console.log('📥 [OCR Import] Resolved', matchedMods.length, 'mods');
-            matchedMods.forEach((mod, idx) => {
-                console.log(`  ${idx + 1}. ${mod.name}${mod.variant ? ' • ' + mod.variant : ''} (${mod.rarity}★${mod.element ? ' ' + mod.element : ''})`);
-            });
-
-            const centerCandidate = matchedMods.find((mod) => mod.centerOnly) || null;
-            const nonCenterMods = matchedMods.filter((mod) => !mod.centerOnly);
-
-            const nextSlots = Array(8).fill(null) as (Mod | null)[];
-            nonCenterMods.slice(0, 8).forEach((mod, idx) => {
-                nextSlots[idx] = mod;
-            });
-
-            console.log('📥 [OCR Import] Setting', nonCenterMods.length, 'mods to build slots');
-
-            // Clear all adjusted slots BEFORE setting mods
-            setAdjustedSlots(new Set());
-            setAdjustSlotTrackMode(false);
-            setSupportAdjustedSlots(createEmptySupportAdjustedSlots());
-            console.log('📥 [OCR Import] Cleared all adjusted slots and reset adjust mode');
-
-            setBuildSlots(nextSlots);
-            if (centerCandidate) {
-                console.log('📥 [OCR Import] Setting center mod:', centerCandidate.name);
-                setCenterPreviewMod(centerCandidate);
-            }
-
-            setOcrApplied(true);
-            localStorage.removeItem('dna_ocr_import');
-
-            toast({
-                title: 'OCR Import Applied',
-                description: `นำเข้า Mods จาก OCR (${matchedMods.length} รายการ)`,
-            });
-        } catch (error) {
-            console.error('Failed to apply OCR import:', error);
-            toast({
-                title: 'OCR Import Failed',
-                description: 'ไม่สามารถเติมข้อมูลจาก OCR ได้',
-                variant: 'destructive',
-            });
-        }
-    }, [item, ocrApplied, toast, characterElement]);
+    }, [item]);
 
     if (!item) {
         notFound();

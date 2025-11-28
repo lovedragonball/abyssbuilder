@@ -165,7 +165,7 @@ These components can be used throughout the application:
 
 These components are ready to be integrated into:
 - Build list pages (my-builds, tier-list)
-- Image upload flows (OCR, build creation)
+- Image upload flows (build creation)
 - Map loading states
 - Material guide loading
 - Any async data fetching scenarios

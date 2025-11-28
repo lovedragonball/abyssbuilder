@@ -586,54 +586,7 @@ ogo character states */
   transition: all 0.2s ease;
 }
 
-/* OCR Loading Animations */
-@keyframes ocr-pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(0.95);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-}
 
-@keyframes ocr-scan {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes ocr-shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.ocr-loading-card {
-  animation: ocr-pulse 2s ease-in-out infinite;
-}
-
-.ocr-scan-line {
-  animation: ocr-scan 2s ease-in-out infinite;
-}
-
-.ocr-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(59, 130, 246, 0.3) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: ocr-shimmer 2s ease-in-out infinite;
-}
 
 /* Enhanced Micro-interaction Keyframes - GPU Accelerated */
 /* All animations use transform and opacity for optimal performance */

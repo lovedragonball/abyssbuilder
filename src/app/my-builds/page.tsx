@@ -11,8 +11,7 @@ import { Trash2, Edit, Download, Upload, Users, Info } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { EmptyState } from '@/components/ui/empty-state';
-import { OCRImagePaste } from '@/components/OCRImagePaste';
-import type { OcrMatchResponse } from '@/lib/ocr-matcher';
+
 import {
     AlertDialog,
     AlertDialogAction,
@@ -364,47 +363,10 @@ export default function MyBuildsPage() {
         });
     };
 
-    const [ocrCharacterSelectOpen, setOcrCharacterSelectOpen] = useState(false);
-    const [pendingOcrResult, setPendingOcrResult] = useState<OcrMatchResponse | null>(null);
-    const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(null);
-    const selectedCharacter = selectedCharacterId ? allCharacters.find((c) => c.id === selectedCharacterId) || null : null;
 
-    const applyOcrImport = (result: OcrMatchResponse, characterId: string) => {
-        const payload = {
-            result,
-            importedAt: Date.now(),
-            characterId,
-        };
-        localStorage.setItem('dna_ocr_import', JSON.stringify(payload));
 
-        router.push(`/create/${characterId}?source=ocr`);
-    };
 
-    const handleOcrSuccess = (result: OcrMatchResponse) => {
-        setPendingOcrResult(result);
 
-        toast({
-            title: 'OCR Import สำเร็จ',
-            description: `จับคู่ได้ ${result.summary.total_matched}/${result.summary.total_detected} mods • กรุณาเลือกตัวละคร`,
-        });
-
-        setOcrCharacterSelectOpen(true);
-    };
-
-    const handleCharacterSelect = (characterId: string) => {
-        // Just store the selected character, don't redirect yet
-        setSelectedCharacterId(characterId);
-    };
-
-    const handleConfirmOcrImport = () => {
-        if (!pendingOcrResult || !selectedCharacterId) return;
-        applyOcrImport(pendingOcrResult, selectedCharacterId);
-    };
-
-    const handleCancelOcrImport = () => {
-        setOcrCharacterSelectOpen(false);
-        setPendingOcrResult(null);
-    };
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -413,27 +375,7 @@ export default function MyBuildsPage() {
                 <div className="flex items-center justify-between">
                     <p className="text-muted-foreground">Manage and edit your saved builds</p>
                     <div className="flex gap-2 flex-wrap items-center">
-                        <Select
-                            value={selectedCharacterId ?? undefined}
-                            onValueChange={(value) => setSelectedCharacterId(value)}
-                        >
-                            <SelectTrigger className="w-[220px]">
-                                <SelectValue placeholder="เลือกตัวละครก่อน OCR" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {allCharacters.map((character) => (
-                                    <SelectItem key={character.id} value={character.id}>
-                                        {character.name} ({character.element})
-                                    </SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                        <OCRImagePaste
-                            onOcrSuccess={handleOcrSuccess}
-                            characterElement={selectedCharacter?.element}
-                            characterName={selectedCharacter?.name}
-                            disabled={!selectedCharacter}
-                        />
+
                         <Button
                             variant="outline"
                             onClick={() => setImportDialogOpen(true)}
@@ -738,162 +680,7 @@ export default function MyBuildsPage() {
                 </DialogContent>
             </Dialog>
 
-            {/* OCR Character Selection Dialog */}
-            <Dialog open={ocrCharacterSelectOpen} onOpenChange={handleCancelOcrImport}>
-                <DialogContent className="max-w-6xl max-h-[90vh]">
-                    <DialogHeader>
-                        <DialogTitle>OCR Import - เลือกตัวละครและตรวจสอบผลลัพธ์</DialogTitle>
-                        <DialogDescription>
-                            เลือกตัวละครที่ต้องการนำ mods ไปใช้ และตรวจสอบผลลัพธ์การอ่าน OCR
-                        </DialogDescription>
-                        {selectedCharacter && (
-                            <Alert className="mt-3 bg-primary/10 border-primary/30">
-                                <AlertTitle>Element ถูกล็อกแล้ว</AlertTitle>
-                                <AlertDescription>
-                                    ระบบจับคู่ mods ด้วย element {selectedCharacter.element} (ตัวละคร {selectedCharacter.name})
-                                </AlertDescription>
-                            </Alert>
-                        )}
-                    </DialogHeader>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-h-[calc(90vh-200px)] overflow-y-auto pr-2">
-                        {/* Left: Character Selection */}
-                        <div className="space-y-3">
-                            <h3 className="font-semibold text-sm flex items-center gap-2">
-                                <Users className="w-4 h-4" />
-                                เลือกตัวละคร
-                            </h3>
-                            <ScrollArea className="h-[400px] rounded-md border p-3">
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                    {allCharacters.map((character: Character) => (
-                                        <Card
-                                            key={character.id}
-                                            className={`overflow-hidden cursor-pointer transition-all group ${selectedCharacterId === character.id
-                                                    ? 'border-primary border-2 shadow-lg ring-2 ring-primary/20'
-                                                    : 'hover:border-primary/50 hover:shadow-md'
-                                                }`}
-                                            onClick={() => handleCharacterSelect(character.id)}
-                                        >
-                                            <div className="relative aspect-square">
-                                                <Image
-                                                    src={character.image}
-                                                    alt={character.name}
-                                                    fill
-                                                    className="object-cover group-hover:scale-110 transition-transform"
-                                                />
-                                                {selectedCharacterId === character.id && (
-                                                    <div className="absolute inset-0 bg-primary/20 flex items-center justify-center">
-                                                        <CheckCircle2 className="w-8 h-8 text-primary drop-shadow-lg" />
-                                                    </div>
-                                                )}
-                                            </div>
-                                            <div className="p-2 text-center">
-                                                <p className={`text-xs font-semibold truncate transition-colors ${selectedCharacterId === character.id ? 'text-primary' : 'group-hover:text-primary'
-                                                    }`}>
-                                                    {character.name}
-                                                </p>
-                                                <p className="text-[10px] text-muted-foreground">
-                                                    {character.element}
-                                                </p>
-                                            </div>
-                                        </Card>
-                                    ))}
-                                </div>
-                            </ScrollArea>
-                        </div>
-
-                        {/* Right: OCR Results */}
-                        <div className="space-y-3">
-                            <h3 className="font-semibold text-sm flex items-center gap-2">
-                                <Info className="w-4 h-4" />
-                                ผลลัพธ์ OCR
-                            </h3>
-                            {pendingOcrResult ? (
-                                <div className="space-y-3">
-                                    <Alert className={pendingOcrResult.summary.total_matched > 0 ? "border-green-500/50 bg-green-500/10" : "border-yellow-500/50 bg-yellow-500/10"}>
-                                        {pendingOcrResult.summary.total_matched > 0 ? (
-                                            <CheckCircle2 className="h-4 w-4 text-green-500" />
-                                        ) : (
-                                            <AlertCircle className="h-4 w-4 text-yellow-500" />
-                                        )}
-                                        <AlertTitle className={pendingOcrResult.summary.total_matched > 0 ? "text-green-500" : "text-yellow-500"}>
-                                            {pendingOcrResult.summary.total_matched > 0 ? 'ตรวจพบ Mods' : 'ไม่พบ Mods ที่ตรงกัน'}
-                                        </AlertTitle>
-                                        <AlertDescription>
-                                            พบ {pendingOcrResult.summary.total_matched} จาก {pendingOcrResult.summary.total_detected} รายการ
-                                            {pendingOcrResult.summary.total_unmatched > 0 && ` (ไม่ตรง: ${pendingOcrResult.summary.total_unmatched})`}
-                                        </AlertDescription>
-                                    </Alert>
-
-                                    <ScrollArea className="h-[350px] rounded-md border">
-                                        <div className="p-3 space-y-2">
-                                            {pendingOcrResult.slots.map((slot) => (
-                                                <div
-                                                    key={slot.slot_index}
-                                                    className={`p-2 rounded-lg border text-sm ${slot.matched
-                                                            ? 'bg-green-500/5 border-green-500/20'
-                                                            : 'bg-muted/30 border-border/50'
-                                                        }`}
-                                                >
-                                                    <div className="flex items-start justify-between gap-2">
-                                                        <div className="flex-1 min-w-0">
-                                                            <div className="flex items-center gap-2 mb-1">
-                                                                <span className="font-mono text-xs text-muted-foreground shrink-0">
-                                                                    #{slot.slot_index}
-                                                                </span>
-                                                                {slot.matched ? (
-                                                                    <span className="font-semibold text-xs text-green-600 dark:text-green-400 truncate">
-                                                                        {slot.mod_name}
-                                                                    </span>
-                                                                ) : (
-                                                                    <span className="font-medium text-xs text-muted-foreground">
-                                                                        ไม่พบ
-                                                                    </span>
-                                                                )}
-                                                            </div>
-                                                            <p className="text-[10px] text-muted-foreground truncate">
-                                                                OCR: "{slot.raw_ocr_text}"
-                                                            </p>
-                                                        </div>
-                                                        <span
-                                                            className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded font-medium ${slot.matched && slot.confidence >= 0.7
-                                                                    ? 'bg-green-500/20 text-green-600 dark:text-green-400'
-                                                                    : slot.matched && slot.confidence >= 0.5
-                                                                        ? 'bg-yellow-500/20 text-yellow-600 dark:text-yellow-400'
-                                                                        : 'bg-red-500/20 text-red-600 dark:text-red-400'
-                                                                }`}
-                                                        >
-                                                            {(slot.confidence * 100).toFixed(0)}%
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </ScrollArea>
-                                </div>
-                            ) : (
-                                <div className="h-[400px] flex items-center justify-center text-muted-foreground">
-                                    <p>ไม่มีข้อมูล OCR</p>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                    <DialogFooter className="gap-2">
-                        <Button variant="outline" onClick={handleCancelOcrImport}>
-                            ยกเลิก
-                        </Button>
-                        <Button
-                            onClick={handleConfirmOcrImport}
-                            disabled={!selectedCharacterId || !pendingOcrResult}
-                            className="gap-2"
-                        >
-                            <CheckCircle2 className="w-4 h-4" />
-                            ตกลง - ไปหน้าสร้าง Build
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
         </div>
     );
 }
