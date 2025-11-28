@@ -36,6 +36,29 @@ function formatDate(timestamp: number) {
 export function RedditCard() {
   const [posts, setPosts] = React.useState<RedditPost[]>([])
   const [status, setStatus] = React.useState<"loading" | "ready" | "error">("loading")
+  const fallbackUrl = "/social/reddit-fallback.json"
+
+  const fetchPosts = React.useCallback(async (): Promise<RedditPost[]> => {
+    try {
+      const response = await fetch("/api/social/reddit", { cache: "no-store" })
+      const json = await response.json().catch(() => null)
+      const parsed = (json?.posts ?? []) as RedditPost[]
+      if (parsed.length) return parsed
+      if (!response.ok) throw new Error(json?.error || "api_failed")
+    } catch (err) {
+      console.warn("Reddit API unavailable, using static fallback:", err)
+    }
+
+    try {
+      const res = await fetch(fallbackUrl, { cache: "no-store" })
+      const json = await res.json()
+      const parsed = (json?.posts ?? []) as RedditPost[]
+      return parsed
+    } catch (err) {
+      console.error("Reddit static fallback failed:", err)
+      return []
+    }
+  }, [])
 
   React.useEffect(() => {
     let cancelled = false
@@ -43,22 +66,9 @@ export function RedditCard() {
     const loadPosts = async () => {
       try {
         setStatus("loading")
-        const response = await fetch("/api/social/reddit", {
-          cache: 'no-store',
-        })
-
-        // Always try to parse JSON, even if status is not ok
-        const json = await response.json()
-        
-        const parsed = (json?.posts ?? []) as RedditPost[]
+        const parsed = await fetchPosts()
 
         if (!cancelled) {
-          if (!parsed.length && json.error) {
-            console.warn('Reddit API error:', json.error);
-            setStatus("error")
-            setPosts([])
-            return
-          }
           setPosts(parsed)
           setStatus(parsed.length > 0 ? "ready" : "error")
         }
@@ -116,31 +126,20 @@ export function RedditCard() {
           {status === "error" && (
             <div className="flex flex-col items-center justify-center gap-3 h-full text-gray-300 text-sm text-center px-4">
               <p>Unable to load Reddit right now.</p>
-              <div className="flex flex-col gap-2 items-center">
-                <button
-                  onClick={() => {
-                    setStatus("loading");
-                    // Retry loading
-                    const loadPosts = async () => {
-                      try {
-                        const response = await fetch("/api/social/reddit", { cache: 'no-store' });
-                        const json = await response.json();
-                        if (json.error) {
-                          setStatus("error");
-                          return;
-                        }
-                        const parsed = (json?.posts ?? []) as RedditPost[];
-                        setPosts(parsed);
-                        setStatus(parsed.length > 0 ? "ready" : "error");
-                      } catch (error) {
-                        setStatus("error");
-                      }
-                    };
-                    loadPosts();
-                  }}
-                  className="px-3 py-1.5 rounded-md border border-gray-700/70 bg-gray-900/70 text-xs text-gray-100 hover:border-gray-600 hover:bg-gray-800/70 transition-colors"
-                >
-                  Retry
+                  <div className="flex flex-col gap-2 items-center">
+                    <button
+                      onClick={() => {
+                        setStatus("loading");
+                        fetchPosts()
+                          .then((parsed) => {
+                            setPosts(parsed);
+                            setStatus(parsed.length > 0 ? "ready" : "error");
+                          })
+                          .catch(() => setStatus("error"));
+                      }}
+                      className="px-3 py-1.5 rounded-md border border-gray-700/70 bg-gray-900/70 text-xs text-gray-100 hover:border-gray-600 hover:bg-gray-800/70 transition-colors"
+                    >
+                      Retry
                 </button>
                 <a
                   href="https://www.reddit.com/user/DNAbyss_Official"

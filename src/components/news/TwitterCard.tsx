@@ -77,6 +77,29 @@ export function TwitterCard() {
 
   const widgetStatusRef = React.useRef<WidgetStatus>("idle")
   const fallbackStatusRef = React.useRef<FallbackStatus>("idle")
+  const fallbackUrl = "/social/twitter-fallback.json"
+
+  async function fetchTweets(): Promise<TweetItem[]> {
+    try {
+      const res = await fetch("/api/social/twitter", { cache: "no-store" })
+      const json = await res.json().catch(() => null)
+      const tweets = (json?.tweets ?? []) as TweetItem[]
+      if (tweets.length) return tweets
+      if (!res.ok) throw new Error(json?.error || "api_failed")
+    } catch (err) {
+      console.warn("Twitter API unavailable, using static fallback:", err)
+    }
+
+    try {
+      const res = await fetch(fallbackUrl, { cache: "no-store" })
+      const json = await res.json()
+      const tweets = (json?.tweets ?? []) as TweetItem[]
+      return tweets
+    } catch (err) {
+      console.error("Twitter static fallback failed:", err)
+      return []
+    }
+  }
 
   React.useEffect(() => {
     widgetStatusRef.current = widgetStatus
@@ -92,21 +115,7 @@ export function TwitterCard() {
     fallbackStatusRef.current = "loading"
     setFallbackTweets([])
 
-    fetch("/api/social/twitter", {
-      cache: 'no-store',
-    })
-      .then(async (res) => {
-        // Always try to parse JSON, even if status is not ok
-        const json = await res.json()
-        
-        const tweets = (json?.tweets ?? []) as TweetItem[]
-        if (!tweets.length && json.error) {
-          console.warn('Twitter API error:', json.error);
-          throw new Error("fallback-failed")
-        }
-
-        return tweets
-      })
+    fetchTweets()
       .then((tweets) => {
         setFallbackTweets(tweets)
         setFallbackStatus(tweets.length > 0 ? "ready" : "error")
