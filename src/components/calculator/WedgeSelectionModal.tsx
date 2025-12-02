@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Search, X, Check, Layers } from 'lucide-react';
 import { allDemonWedges, filterDemonWedges, getAllTypes, getAllElements, getAllTags, DemonWedge, DemonWedgeType, DemonWedgeRarity, DemonWedgeElement, DemonWedgeCategory } from '@/lib/demon-wedges-data';
 import { DemonWedgeCard } from '../DemonWedgeCard';
@@ -7,15 +7,28 @@ import { MultiSelectFilter } from '../MultiSelectFilter';
 interface WedgeSelectionModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSelect: (wedge: DemonWedge) => void;
+    onSelect: (wedge: DemonWedge, level: number) => void;
     onSelectMultiple?: (wedges: DemonWedge[]) => void;
     customFilter?: (wedge: DemonWedge) => boolean;
     allowedCategories?: DemonWedgeCategory[];
     maxSlots?: number; // Maximum number of wedges that can be selected
     currentSlotIndex?: number; // Current slot being edited
+    currentLevel?: number; // Current level of the wedge in the slot being edited
+    currentWedge?: DemonWedge | null; // Currently equipped wedge in the slot (if any)
 }
 
-export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultiple, customFilter, allowedCategories, maxSlots = 9, currentSlotIndex = 0 }: WedgeSelectionModalProps) {
+export function WedgeSelectionModal({
+    isOpen,
+    onClose,
+    onSelect,
+    onSelectMultiple,
+    customFilter,
+    allowedCategories,
+    maxSlots = 9,
+    currentSlotIndex = 0,
+    currentLevel = 0,
+    currentWedge = null
+}: WedgeSelectionModalProps) {
     const [search, setSearch] = useState('');
     const [selectedTypes, setSelectedTypes] = useState<DemonWedgeType[]>([]);
     const [selectedRarities, setSelectedRarities] = useState<DemonWedgeRarity[]>([]);
@@ -23,6 +36,30 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
     const [selectedWedges, setSelectedWedges] = useState<DemonWedge[]>([]);
     const [isMultiSelectMode, setIsMultiSelectMode] = useState(false);
+
+    // Map to store selected level for each wedge ID: { [wedgeId]: level }
+    const [wedgeLevels, setWedgeLevels] = useState<Record<string, number>>({});
+
+    // Keep amplification pre-filled for the currently edited slot so the modal shows the active value.
+    useEffect(() => {
+        if (isOpen && currentWedge) {
+            setWedgeLevels((prev) => ({
+                ...prev,
+                [currentWedge.id]: currentLevel
+            }));
+        }
+    }, [isOpen, currentWedge, currentLevel]);
+
+    const getLevelOptions = (wedge: DemonWedge) => {
+        if (wedge.levels?.length) {
+            return [...wedge.levels]
+                .map(level => level.level)
+                .sort((a, b) => a - b);
+        }
+        return wedge.rarity === 5 ? [0, 1, 2, 3, 4, 5] : [0];
+    };
+
+    const formatAmplification = (level: number) => `+${level + 5}`;
 
     // Calculate available slots from current position
     const availableSlots = maxSlots - currentSlotIndex;
@@ -46,7 +83,7 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
         }
 
         return results;
-    }, [search, selectedTypes, selectedRarities, selectedElements, selectedTags, customFilter]);
+    }, [search, selectedTypes, selectedRarities, selectedElements, selectedTags, customFilter, allowedCategories]);
 
     const handleWedgeClick = (wedge: DemonWedge) => {
         if (isMultiSelectMode) {
@@ -64,9 +101,17 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
                 }
             });
         } else {
-            // Single select mode - immediate selection
-            onSelect(wedge);
+            // Single select mode - immediate selection with the chosen level
+            const level = wedgeLevels[wedge.id] ?? getLevelOptions(wedge)[0];
+            onSelect(wedge, level);
         }
+    };
+
+    const handleLevelChange = (wedgeId: string, level: number) => {
+        setWedgeLevels(prev => ({
+            ...prev,
+            [wedgeId]: level
+        }));
     };
 
     const handleConfirmMultiple = () => {
@@ -100,11 +145,10 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
                                     setIsMultiSelectMode(!isMultiSelectMode);
                                     if (isMultiSelectMode) setSelectedWedges([]);
                                 }}
-                                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-2 ${
-                                    isMultiSelectMode
+                                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-2 ${isMultiSelectMode
                                         ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/40 scale-105'
                                         : 'bg-gradient-to-r from-amber-500/80 to-orange-500/80 text-white hover:from-amber-500 hover:to-orange-500 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-105 animate-pulse'
-                                }`}
+                                    }`}
                             >
                                 <Layers className="w-4 h-4" />
                                 {isMultiSelectMode ? 'Multi-Select ON' : 'Multi-Select'}
@@ -161,14 +205,13 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
                 <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         {filteredWedges.map(wedge => (
-                            <div key={wedge.id} className="relative">
+                            <div key={wedge.id} className="relative group">
                                 {isMultiSelectMode && (
-                                    <div 
-                                        className={`absolute top-2 left-2 z-10 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all cursor-pointer ${
-                                            isWedgeSelected(wedge)
+                                    <div
+                                        className={`absolute top-2 left-2 z-10 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all cursor-pointer ${isWedgeSelected(wedge)
                                                 ? 'bg-purple-500 border-purple-500'
                                                 : 'bg-black/60 border-white/30 hover:border-white/50'
-                                        } ${selectedWedges.length >= availableSlots && !isWedgeSelected(wedge) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                            } ${selectedWedges.length >= availableSlots && !isWedgeSelected(wedge) ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             handleWedgeClick(wedge);
@@ -177,6 +220,34 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
                                         {isWedgeSelected(wedge) && <Check className="w-4 h-4 text-white" />}
                                     </div>
                                 )}
+
+                                {/* Amplification Selector for 5-star wedges */}
+                                {!isMultiSelectMode && wedge.rarity === 5 && (
+                                    <div className="absolute top-2 right-2 z-20 flex flex-col items-end gap-1" onClick={e => e.stopPropagation()}>
+                                        <span className="px-2 py-1 text-[10px] uppercase font-semibold tracking-wide bg-black/70 border border-amber-500/40 text-amber-200 rounded-full shadow-lg">
+                                            Amplification
+                                        </span>
+                                        <select
+                                            aria-label="Amplification"
+                                            value={wedgeLevels[wedge.id] ?? (currentWedge?.id === wedge.id ? currentLevel : getLevelOptions(wedge)[0])}
+                                            onChange={(e) => handleLevelChange(wedge.id, parseInt(e.target.value))}
+                                            className="bg-black/80 backdrop-blur-sm border border-amber-500/50 text-amber-100 text-xs font-bold px-2 py-1 rounded-lg cursor-pointer hover:bg-amber-500/20 transition-colors focus:outline-none focus:ring-1 focus:ring-amber-500 shadow-lg"
+                                        >
+                                            {getLevelOptions(wedge).map((lvl) => (
+                                                <option key={lvl} value={lvl} className="bg-gray-900 text-white">
+                                                    {formatAmplification(lvl)}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                )}
+
+                                {!isMultiSelectMode && wedge.rarity === 5 && (
+                                    <div className="absolute bottom-2 left-2 z-20 px-2 py-1 bg-black/70 border border-amber-500/40 rounded-full text-[10px] font-semibold text-amber-100 shadow-md pointer-events-none">
+                                        Amp {formatAmplification(wedgeLevels[wedge.id] ?? (currentWedge?.id === wedge.id ? currentLevel : getLevelOptions(wedge)[0]))}
+                                    </div>
+                                )}
+
                                 <DemonWedgeCard
                                     wedge={wedge}
                                     onClick={() => handleWedgeClick(wedge)}

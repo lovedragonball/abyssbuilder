@@ -12,9 +12,20 @@ type PresetSlot = {
     wedge: DemonWedge;
     level: number;
     enabled: boolean;
-    conditions?: Record<string, boolean>;
+    conditions?: Record<string, number | boolean>;
 };
 type MaybePresetSlot = PresetSlot | undefined;
+
+const getAmplificationLevels = (wedge: DemonWedge) => {
+    if (wedge.levels?.length) {
+        return [...wedge.levels]
+            .map(level => level.level)
+            .sort((a, b) => a - b);
+    }
+    return wedge.rarity === 5 ? [0, 1, 2, 3, 4, 5] : [0];
+};
+
+const formatAmplificationLabel = (level: number) => `+${level + 5}`;
 
 interface DamageVisualizationProps {
     resultA: CalculationResult;
@@ -108,7 +119,7 @@ export function DamageVisualization({
         { label: 'Resolve', valueA: statsA.Resolve, valueB: statsB.Resolve, format: 'percentage' },
     ];
 
-    const [viewingStatsWedge, setViewingStatsWedge] = useState<DemonWedge | null>(null);
+    const [viewingWedge, setViewingWedge] = useState<{ wedge: DemonWedge; level?: number } | null>(null);
 
     const bucketRows = buildBucketRows(resultA, resultB);
     const [conditionEditor, setConditionEditor] = useState<'A' | 'B' | null>(null);
@@ -124,6 +135,14 @@ export function DamageVisualization({
             ...((conditionEditor === 'A' ? consonanceA : consonanceB) || []).map((slot, index) => ({ slot, index, isConsonance: true }))
         ].filter(item => item.slot && getConditionalEffects(item.slot.wedge).length > 0)
         : [];
+
+    const viewingLevelData = viewingWedge && viewingWedge.level !== undefined
+        ? viewingWedge.wedge.levels?.find(level => level.level === viewingWedge.level)
+        : undefined;
+    const viewingStatsList = viewingLevelData?.stats?.length
+        ? viewingLevelData.stats
+        : viewingWedge?.wedge.stats;
+    const viewingDescription = viewingLevelData?.description || viewingWedge?.wedge.description;
     return (
         <div className="bg-[#0c0c0f] border border-white/10 rounded-2xl p-6">
             <h2 className="text-2xl font-bold mb-6 text-center">Compare Stats</h2>
@@ -164,7 +183,7 @@ export function DamageVisualization({
                     onRemoveWedge={onRemoveWedge}
                     onUpdateLevel={onUpdateLevel}
                     onToggleEnabled={onToggleEnabled}
-                    onViewStats={setViewingStatsWedge}
+                    onViewStats={(wedge, level) => setViewingWedge({ wedge, level })}
                     onOpenConditionModal={() => openConditionModal('A')}
                     onLevelChange={onLevelChangeA}
                 />
@@ -272,52 +291,59 @@ export function DamageVisualization({
                     onRemoveWedge={onRemoveWedge}
                     onUpdateLevel={onUpdateLevel}
                     onToggleEnabled={onToggleEnabled}
-                    onViewStats={setViewingStatsWedge}
+                    onViewStats={(wedge, level) => setViewingWedge({ wedge, level })}
                     onOpenConditionModal={() => openConditionModal('B')}
                     onLevelChange={onLevelChangeB}
                 />
             </div>
 
             {/* Stats Modal */}
-            {viewingStatsWedge && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" onClick={() => setViewingStatsWedge(null)}>
+            {viewingWedge && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" onClick={() => setViewingWedge(null)}>
                     <div className="bg-[#1a1a1f] border border-white/20 rounded-2xl p-6 max-w-sm w-full shadow-2xl relative" onClick={e => e.stopPropagation()}>
                         <button
-                            onClick={() => setViewingStatsWedge(null)}
+                            onClick={() => setViewingWedge(null)}
                             className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors"
                         >
                             <X className="w-5 h-5" />
                         </button>
 
                         <div className="flex flex-col items-center text-center space-y-4">
-                            <div className={`w-24 h-24 rounded-xl border-2 flex items-center justify-center bg-black/40 ${viewingStatsWedge.rarity === 5 ? 'border-amber-500/50' :
-                                viewingStatsWedge.rarity === 4 ? 'border-purple-500/50' :
+                            <div className={`w-24 h-24 rounded-xl border-2 flex items-center justify-center bg-black/40 ${viewingWedge.wedge.rarity === 5 ? 'border-amber-500/50' :
+                                viewingWedge.wedge.rarity === 4 ? 'border-purple-500/50' :
                                     'border-blue-500/50'
                                 }`}>
-                                {viewingStatsWedge.image ? (
+                                {viewingWedge.wedge.image ? (
                                     <Image
-                                        src={viewingStatsWedge.image}
-                                        alt={viewingStatsWedge.name}
+                                        src={viewingWedge.wedge.image}
+                                        alt={viewingWedge.wedge.name}
                                         width={80}
                                         height={80}
                                         className="object-contain"
                                     />
                                 ) : (
-                                    <span className="text-4xl font-bold text-white">{viewingStatsWedge.name[0]}</span>
+                                    <span className="text-4xl font-bold text-white">{viewingWedge.wedge.name[0]}</span>
                                 )}
                             </div>
 
-                            <div>
-                                <h3 className="text-lg font-bold text-white">{viewingStatsWedge.name}</h3>
-                                <div className="flex justify-center gap-1 mt-1">
-                                    {Array.from({ length: viewingStatsWedge.rarity }).map((_, i) => (
-                                        <span key={i} className="text-amber-400 text-xs">★</span>
-                                    ))}
+                            <div className="space-y-2">
+                                <h3 className="text-lg font-bold text-white">{viewingWedge.wedge.name}</h3>
+                                <div className="flex justify-center items-center gap-2 flex-wrap">
+                                    <div className="flex justify-center gap-1">
+                                        {Array.from({ length: viewingWedge.wedge.rarity }).map((_, i) => (
+                                            <span key={i} className="text-amber-400 text-xs">★</span>
+                                        ))}
+                                    </div>
+                                    {viewingWedge.wedge.rarity === 5 && viewingWedge.level !== undefined && (
+                                        <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-amber-500/20 text-amber-100 border border-amber-500/40">
+                                            Amplification {formatAmplificationLabel(viewingWedge.level)}
+                                        </span>
+                                    )}
                                 </div>
                             </div>
 
                             <div className="w-full bg-white/5 rounded-xl p-4 space-y-2">
-                                {viewingStatsWedge.stats.map((stat, i) => (
+                                {(viewingStatsList || []).map((stat, i) => (
                                     <div key={i} className="flex justify-between items-center border-b border-white/5 last:border-0 pb-2 last:pb-0">
                                         <span className="text-white/60 text-sm">{stat.name}</span>
                                         <span className="text-green-400 font-mono font-bold">{stat.value}</span>
@@ -325,9 +351,9 @@ export function DamageVisualization({
                                 ))}
                             </div>
 
-                            {viewingStatsWedge.description && (
+                            {viewingDescription && (
                                 <p className="text-xs text-white/40 italic">
-                                    {viewingStatsWedge.description}
+                                    {viewingDescription}
                                 </p>
                             )}
                         </div>
@@ -393,11 +419,11 @@ export function DamageVisualization({
                                                 const isActive = Boolean(slot.conditions?.[effect.id]);
                                                 const bucketLabel = DAMAGE_BUCKETS[effect.bucketId]?.label || effect.bucketId;
                                                 const hasLevelOptions = effect.levelOptions && effect.levelOptions.length > 1;
-                                                
+
                                                 // Get current selected value from conditions
                                                 const currentValue = slot.conditions?.[`${effect.id}_value`] as unknown as number | undefined;
                                                 const displayValue = currentValue ?? effect.value;
-                                                
+
                                                 return (
                                                     <div
                                                         key={`${effect.id}-${effectIndex}`}
@@ -505,11 +531,11 @@ function PresetPanel({
     onRemoveWedge: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
     onUpdateLevel: (preset: 'A' | 'B', index: number, level: number, isConsonance?: boolean) => void;
     onToggleEnabled: (preset: 'A' | 'B', index: number, isConsonance?: boolean) => void;
-    onViewStats: (wedge: DemonWedge) => void;
+    onViewStats: (wedge: DemonWedge, level?: number) => void;
     onOpenConditionModal: () => void;
     onLevelChange?: (level: number) => void;
 }) {
-    const maxLevel = (rarity: number) => rarity === 5 ? 5 : 0;
+    const getLevelOptionsForWedge = (wedge: DemonWedge) => getAmplificationLevels(wedge);
 
     // Check if character requires consonance weapons
     const requiresConsonance = selectedCharacter && ['Lynn', 'Lisbell', 'Psyche', 'Berenica'].includes(selectedCharacter.name);
@@ -531,11 +557,14 @@ function PresetPanel({
             );
         }
 
+        const amplificationLevels = getLevelOptionsForWedge(item.wedge);
+        const selectedAmplification = amplificationLevels.includes(item.level) ? item.level : amplificationLevels[0];
+
         return (
             <div
                 key={slotIndex}
-                onClick={() => onViewStats(item.wedge)}
-                className="flex flex-col items-center group cursor-pointer"
+                onClick={() => onViewStats(item.wedge, item.level)}
+                className="flex flex-col items-center group cursor-pointer relative"
             >
                 <div
                     className={`relative rounded-lg border-2 overflow-hidden hover:border-white/40 transition-colors ${!item.enabled ? 'opacity-40 grayscale' : ''
@@ -558,35 +587,46 @@ function PresetPanel({
                         )}
                     </div>
 
-                    {maxLevel(item.wedge.rarity) > 0 && (
-                        <select
-                            value={item.level}
-                            onChange={(e) => { e.stopPropagation(); onUpdateLevel(presetId, slotIndex, parseInt(e.target.value)); }}
-                            className="absolute top-1 right-1 z-20 bg-black/80 backdrop-blur-sm text-white text-[9px] font-semibold px-1.5 py-0.5 rounded border border-purple-500/50 cursor-pointer hover:bg-purple-600/80 hover:border-purple-400 transition-all focus:outline-none focus:ring-1 focus:ring-purple-400"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            {Array.from({ length: maxLevel(item.wedge.rarity) + 1 }, (_, i) => (
-                                <option key={i} value={i} className="bg-gray-900">
-                                    +{i + 5}
-                                </option>
-                            ))}
-                        </select>
+                    {item.wedge.rarity === 5 && (
+                        <div className="absolute inset-x-2 bottom-2 z-20" onClick={(e) => e.stopPropagation()}>
+                            <label className="flex items-center justify-between gap-2 bg-black/70 border border-amber-500/40 rounded-lg px-2 py-1 shadow-lg cursor-pointer">
+                                <span className="text-[10px] uppercase font-semibold text-amber-100 tracking-wide">
+                                    Amplification
+                                </span>
+                                <select
+                                    value={selectedAmplification}
+                                    onChange={(e) => { e.stopPropagation(); onUpdateLevel(presetId, slotIndex, parseInt(e.target.value)); }}
+                                    className="bg-transparent text-amber-100 text-xs font-bold px-2 py-1 rounded-md border border-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer"
+                                >
+                                    {amplificationLevels.map((lvl) => (
+                                        <option key={lvl} value={lvl} className="bg-[#0c0c0f] text-white">
+                                            {formatAmplificationLabel(lvl)}
+                                        </option>
+                                    ))}
+                                </select>
+                            </label>
+                        </div>
                     )}
 
-                    <div className="absolute top-1 left-1 z-20 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {/* Action Buttons */}
+                    <div className="absolute top-1 left-1 z-20 flex gap-1.5">
                         <button
                             onClick={(e) => { e.stopPropagation(); onToggleEnabled(presetId, slotIndex); }}
-                            className={`${item.enabled ? 'bg-blue-500' : 'bg-gray-500'} text-white p-1 rounded shadow-lg hover:brightness-110`}
+                            className={`${item.enabled ? 'bg-blue-500' : 'bg-gray-500'} text-white p-1.5 rounded-md shadow-lg hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-white/30`}
+                            title={item.enabled ? "Disable" : "Enable"}
                         >
-                            {item.enabled ? <Eye className="w-2.5 h-2.5" /> : <EyeOff className="w-2.5 h-2.5" />}
-                        </button>
-                        <button
-                            onClick={(e) => { e.stopPropagation(); onRemoveWedge(presetId, slotIndex); }}
-                            className="bg-red-500 text-white p-1 rounded shadow-lg hover:brightness-110"
-                        >
-                            <X className="w-2.5 h-2.5" />
+                            {item.enabled ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
                         </button>
                     </div>
+
+                    {/* Remove Button - More prominent and easier to hit */}
+                    <button
+                        onClick={(e) => { e.stopPropagation(); onRemoveWedge(presetId, slotIndex); }}
+                        className="absolute top-1 right-1 z-20 bg-red-600/90 hover:bg-red-600 text-white px-2.5 py-1.5 rounded-md shadow-lg transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/40"
+                        title="Remove"
+                    >
+                        <X className="w-3 h-3" />
+                    </button>
                 </div>
 
                 <div className="w-full mt-1 text-center">
@@ -676,10 +716,13 @@ function PresetPanel({
                                 );
                             }
 
+                            const amplificationLevels = getLevelOptionsForWedge(item.wedge);
+                            const selectedAmplification = amplificationLevels.includes(item.level) ? item.level : amplificationLevels[0];
+
                             return (
                                 <div
                                     key={slotIndex}
-                                    onClick={() => onViewStats(item.wedge)}
+                                    onClick={() => onViewStats(item.wedge, item.level)}
                                     className="flex flex-col items-center group cursor-pointer"
                                 >
                                     <div
@@ -703,31 +746,37 @@ function PresetPanel({
                                             )}
                                         </div>
 
-                                        {maxLevel(item.wedge.rarity) > 0 && (
-                                            <select
-                                                value={item.level}
-                                                onChange={(e) => { e.stopPropagation(); onUpdateLevel(presetId, slotIndex, parseInt(e.target.value), true); }}
-                                                className="absolute top-1 right-1 z-20 bg-black/80 backdrop-blur-sm text-white text-[9px] font-semibold px-1.5 py-0.5 rounded border border-purple-500/50 cursor-pointer hover:bg-purple-600/80 hover:border-purple-400 transition-all focus:outline-none focus:ring-1 focus:ring-purple-400"
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                {Array.from({ length: maxLevel(item.wedge.rarity) + 1 }, (_, i) => (
-                                                    <option key={i} value={i} className="bg-gray-900">
-                                                        +{i + 5}
-                                                    </option>
-                                                ))}
-                                            </select>
+                                        {item.wedge.rarity === 5 && (
+                                            <div className="absolute inset-x-2 bottom-2 z-20" onClick={(e) => e.stopPropagation()}>
+                                                <label className="flex items-center justify-between gap-2 bg-black/70 border border-amber-500/40 rounded-lg px-2 py-1 shadow-lg cursor-pointer">
+                                                    <span className="text-[10px] uppercase font-semibold text-amber-100 tracking-wide">
+                                                        Amplification
+                                                    </span>
+                                                    <select
+                                                        value={selectedAmplification}
+                                                        onChange={(e) => { e.stopPropagation(); onUpdateLevel(presetId, slotIndex, parseInt(e.target.value), true); }}
+                                                        className="bg-transparent text-amber-100 text-xs font-bold px-2 py-1 rounded-md border border-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer"
+                                                    >
+                                                        {amplificationLevels.map((lvl) => (
+                                                            <option key={lvl} value={lvl} className="bg-[#0c0c0f] text-white">
+                                                                {formatAmplificationLabel(lvl)}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </label>
+                                            </div>
                                         )}
 
-                                        <div className="absolute top-1 left-1 z-20 flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <div className="absolute top-1 left-1 z-20 flex gap-0.5">
                                             <button
                                                 onClick={(e) => { e.stopPropagation(); onToggleEnabled(presetId, slotIndex, true); }}
-                                                className={`${item.enabled ? 'bg-blue-500' : 'bg-gray-500'} text-white p-1 rounded shadow-lg hover:brightness-110`}
+                                                className={`${item.enabled ? 'bg-blue-500' : 'bg-gray-500'} text-white p-1.5 rounded-md shadow-lg hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-white/30`}
                                             >
                                                 {item.enabled ? <Eye className="w-2.5 h-2.5" /> : <EyeOff className="w-2.5 h-2.5" />}
                                             </button>
                                             <button
                                                 onClick={(e) => { e.stopPropagation(); onRemoveWedge(presetId, slotIndex, true); }}
-                                                className="bg-red-500 text-white p-1 rounded shadow-lg hover:brightness-110"
+                                                className="bg-red-600/90 hover:bg-red-600 text-white px-2 py-1.5 rounded-md shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white/30"
                                             >
                                                 <X className="w-2.5 h-2.5" />
                                             </button>
@@ -865,7 +914,8 @@ function buildBucketRows(resultA: CalculationResult, resultB: CalculationResult)
         descA: `Rate ${Math.round(resultA.buckets.crit.critRate * 100)}% | DMG ${Math.round((resultA.buckets.crit.value - 1) * 100)}%`,
         descB: `Rate ${Math.round(resultB.buckets.crit.critRate * 100)}% | DMG ${Math.round((resultB.buckets.crit.value - 1) * 100)}%`,
         breakdownA: `Rate: ${summarizeContributions(resultA.buckets.crit.rateBreakdown)} • DMG: ${summarizeContributions(resultA.buckets.crit.breakdown)}`,
-        breakdownB: `Rate: ${summarizeContributions(resultB.buckets.crit.rateBreakdown)} • DMG: ${summarizeContributions(resultB.buckets.crit.breakdown)}`
+        breakdownB: `Rate: ${summarizeContributions(resultB.buckets.crit.rateBreakdown)} • DMG: ${summarizeContributions(resultB.buckets.crit.breakdown)}`,
+        subRows: undefined
     };
 
     return [...rows, critRow];
