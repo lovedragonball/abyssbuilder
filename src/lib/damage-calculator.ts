@@ -21,6 +21,7 @@ export interface CalculatorState {
     skillMultiplier: number; // Percentage (e.g., 200 for 200%)
     weaponTypeAtkPercent?: number; // For weapon damage only
     proficiency?: number; // For weapon damage only (default 1.0)
+    trialRankAtkBonus?: number; // ATK% bonus from Trial Rank (e.g., 0.5 for 50%)
     wedges: EquippedCalculatorWedge[];
 }
 
@@ -66,6 +67,7 @@ export function calculateDamage(state: CalculatorState): CalculationResult {
         skillMultiplier,
         weaponTypeAtkPercent = 0,
         proficiency = 1.0,
+        trialRankAtkBonus = 0,
         wedges
     } = state;
 
@@ -134,7 +136,7 @@ export function calculateDamage(state: CalculatorState): CalculationResult {
 
             // Use selected value from conditions if available, otherwise use default
             const selectedValue = (conditions[`${effect.id}_value`] as unknown as number) ?? effect.value;
-            
+
             addContribution(
                 bucketCombination,
                 effect.bucketId,
@@ -175,8 +177,12 @@ export function calculateDamage(state: CalculatorState): CalculationResult {
     let totalAtk: number;
     let atkMultiplier: number;
 
-    const charFinalAtk = characterBaseAtk * (1 + charAtkPercent) * (1 + elementalAtkPercent);
-    const weaponFinalAtk = weaponBaseAtk * (1 + weaponAtkPercent) * (1 + elementalAtkPercent) * proficiency;
+    // Combine Trial Rank ATK% with Character/Weapon ATK% additively
+    const charTotalAtkPercent = trialRankAtkBonus + charAtkPercent;
+    const weaponTotalAtkPercent = trialRankAtkBonus + weaponAtkPercent;
+
+    const charFinalAtk = characterBaseAtk * (1 + charTotalAtkPercent) * (1 + elementalAtkPercent);
+    const weaponFinalAtk = weaponBaseAtk * (1 + weaponTotalAtkPercent) * (1 + elementalAtkPercent) * proficiency;
 
     if (damageType === 'character') {
         totalAtk = charFinalAtk;
@@ -209,7 +215,7 @@ export function calculateDamage(state: CalculatorState): CalculationResult {
                 name: 'Attack',
                 value: atkMultiplier,
                 description: damageType === 'character'
-                    ? `(1 + ${Math.round(charAtkPercent * 100)}%) * (1 + ${Math.round(elementalAtkPercent * 100)}%)`
+                    ? `(1 + ${Math.round(charTotalAtkPercent * 100)}%) * (1 + ${Math.round(elementalAtkPercent * 100)}%)`
                     : `Char Final ATK ${Math.round(charFinalAtk)} + Weapon Final ATK ${Math.round(weaponFinalAtk)}`,
                 breakdown: bucketCombination.SCALAR_ATK.contributions
             },

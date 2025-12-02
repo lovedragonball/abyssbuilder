@@ -1,0 +1,1785 @@
+[
+  {
+    "id": "5bf2fffa-f71b-040d-5761-55c289524024",
+    "name": "Lilith's Crusher - Trammel",
+    "rarity": 2,
+    "tags": "Lilith's Crusher Trammel  2★ ranged smash atk trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "20%",
+        "Trigger Probability": "40%"
+      }
+    }
+  },
+  {
+    "id": "02f45c45-3d30-0d5e-99b9-75b5c1b85c92",
+    "name": "Lilith's Edge - Trammel",
+    "rarity": 2,
+    "tags": "Lilith's Edge Trammel  2★ ranged slash atk trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "20%",
+        "Trigger Probability": "40%"
+      }
+    }
+  },
+  {
+    "id": "974a1a51-7964-dbe1-9a7a-e0cc6aa37374",
+    "name": "Lilith's Penetration - Trammel",
+    "rarity": 2,
+    "tags": "Lilith's Penetration Trammel  2★ ranged spike atk trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "20%",
+        "Trigger Probability": "40%"
+      }
+    }
+  },
+  {
+    "id": "b866c61c-0c35-cdf5-9d05-750aa5ed24d1",
+    "name": "Lilith's Rage - Trammel",
+    "rarity": 2,
+    "tags": "Lilith's Rage Trammel  2★ ranged crit dmg trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "40%",
+        "Trigger Probability": "40%"
+      }
+    }
+  },
+  {
+    "id": "55902381-beb9-f476-5a4e-98b36b668456",
+    "name": "Lilith's Impetus - Focus",
+    "rarity": 2,
+    "tags": "Lilith's Impetus Focus  2★ ranged atk crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "30%",
+        "Crit Chance": "40%"
+      }
+    }
+  },
+  {
+    "id": "44cf7f05-1386-b57e-3fa4-cacfded2f487",
+    "name": "Eldritch Lilith's Crusher",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Crusher   2★ ranged consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "be043bf9-b21a-13a0-d214-3ab3655334e5",
+    "name": "Eldritch Lilith's Edge",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Edge   2★ ranged consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "d41f071f-4638-6c5a-4a95-5d3484234d91",
+    "name": "Eldritch Lilith's Penetration",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Penetration   2★ ranged consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "53b98d1c-7d66-13c1-f107-a78884dc39ec",
+    "name": "Eldritch Lilith's Impetus",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Impetus   2★ ranged consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "58b1c781-9627-0c5b-cf31-0e2db3d1d310",
+    "name": "Eldritch Lilith's Focus",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Focus   2★ ranged consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "20%"
+      }
+    }
+  },
+  {
+    "id": "62d64f24-b9be-079b-2703-0d7a4617fef2",
+    "name": "Eldritch Lilith's Celerity",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Celerity   2★ ranged consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "10%"
+      }
+    }
+  },
+  {
+    "id": "7f940dac-6714-7fc6-4ecc-3b8e9a2f85cb",
+    "name": "Eldritch Lilith's Rage",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Rage   2★ ranged consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "20%"
+      }
+    }
+  },
+  {
+    "id": "7bacbf9c-3772-f1ea-4a1e-e094d99fb29d",
+    "name": "Eldritch Lilith's Foldover",
+    "rarity": 2,
+    "tags": "Eldritch Lilith's Foldover   2★ ranged consonance multishot",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Multishot": "10%"
+      }
+    }
+  },
+  {
+    "id": "398ab020-46b7-d8cc-5f5d-8f02bda0dbfe",
+    "name": "Fafnir's Abundance",
+    "rarity": 3,
+    "tags": "Fafnir's Abundance   3★ ranged ammo conversion rate",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Ammo Conversion Rate": "30%"
+      }
+    }
+  },
+  {
+    "id": "65e128c0-bda6-205a-116b-24a0b0c0bd4a",
+    "name": "Fafnir's Arrow",
+    "rarity": 3,
+    "tags": "Fafnir's Arrow   3★ ranged max ammo",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Max Ammo": "90%"
+      }
+    }
+  },
+  {
+    "id": "65e01594-33eb-72d9-c594-824edbb6be6d",
+    "name": "Fafnir's Carefree",
+    "rarity": 3,
+    "tags": "Fafnir's Carefree   3★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "Upon triggering Bonus Effect, there is 30% chance to reload 1 bullet.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "6aa0f34c-31b9-316e-4614-5fa70c6b9c2e",
+    "name": "Fafnir's Coercion",
+    "rarity": 3,
+    "tags": "Fafnir's Coercion   3★ ranged projectile explosion range",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Projectile Explosion Range": "1.50"
+      }
+    }
+  },
+  {
+    "id": "b2c8eb2d-4943-b4dc-47ef-6e38bab4779c",
+    "name": "Fafnir's Decline",
+    "rarity": 3,
+    "tags": "Fafnir's Decline   3★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 8,
+    "effect": "When dealing CRIT Damage, there is 100% chance to disarm the target.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "0ce40454-5c54-74f8-1524-34990c4b95b2",
+    "name": "Fafnir's Dexterity",
+    "rarity": 3,
+    "tags": "Fafnir's Dexterity   3★ ranged reload speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Reload Speed": "30%"
+      }
+    }
+  },
+  {
+    "id": "c27fd4f5-9475-480b-8307-0083e6bb0acc",
+    "name": "Fafnir's Hunt",
+    "rarity": 3,
+    "tags": "Fafnir's Hunt   3★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 12,
+    "effect": "When triggering Bonus Effect, gain 1 stack that increases Multishot by 10% for 10s, up to 5 stacks.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "6e03afda-859c-2a3b-a5b9-43842b583a8b",
+    "name": "Fafnir's Lingering Might",
+    "rarity": 3,
+    "tags": "Fafnir's Lingering Might   3★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "Triggers an explosion at the targt location upon defeating enemy, dealing 15% of your Ranged Weapon damage to enemies within 6 metre range.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "639be5ac-7aec-6090-cc76-4495324cfa6b",
+    "name": "Fafnir's Quiver",
+    "rarity": 3,
+    "tags": "Fafnir's Quiver   3★ ranged mag capacity",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Mag Capacity": "30%"
+      }
+    }
+  },
+  {
+    "id": "6c76b59f-36b5-b562-55dd-d29fc4f7b0cc",
+    "name": "Fafnir's Tyranny",
+    "rarity": 3,
+    "tags": "Fafnir's Tyranny   3★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "When dealing CRIT Damage, gains 1 stack that increases Trigger Probability by 30% for 5s, up to 5 stacks.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "341563d2-1e38-79ae-e12a-5a67ae4a4d8a",
+    "name": "Lilith's Crusher",
+    "rarity": 3,
+    "tags": "Lilith's Crusher   3★ ranged smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 12,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "50%"
+      }
+    }
+  },
+  {
+    "id": "7f85876e-edd4-0916-8019-e115a25af585",
+    "name": "Lilith's Edge",
+    "rarity": 3,
+    "tags": "Lilith's Edge   3★ ranged slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 12,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "50%"
+      }
+    }
+  },
+  {
+    "id": "808297f1-0d33-47e5-a05c-a06c27cdc172",
+    "name": "Lilith's Penetration",
+    "rarity": 3,
+    "tags": "Lilith's Penetration   3★ ranged spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 12,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "50%"
+      }
+    }
+  },
+  {
+    "id": "5df86389-5627-b50c-be33-3cf816d6087a",
+    "name": "Lilith's Celerity",
+    "rarity": 3,
+    "tags": "Lilith's Celerity   3★ ranged atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 12,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "30%"
+      }
+    }
+  },
+  {
+    "id": "689c9f9f-44a8-5d7a-df60-00324c27aee0",
+    "name": "Eldritch Lilith's Crusher",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Crusher   3★ ranged consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 13,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "a78d18fb-ee05-49d5-5d13-76573d59d51e",
+    "name": "Eldritch Lilith's Edge",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Edge   3★ ranged consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 13,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "8bb04a41-0fde-bce3-157c-69257e056577",
+    "name": "Eldritch Lilith's Penetration",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Penetration   3★ ranged consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 13,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "6cdd0882-763d-1702-df6a-a2d2075786c9",
+    "name": "Eldritch Lilith's Impetus",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Impetus   3★ ranged consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 13,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "bcc66853-5138-5921-f46d-b02b0d2ac52d",
+    "name": "Eldritch Lilith's Focus",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Focus   3★ ranged consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "40%"
+      }
+    }
+  },
+  {
+    "id": "3c2eb288-7844-1c18-73f1-7cee49e3d46f",
+    "name": "Eldritch Lilith's Rage",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Rage   3★ ranged consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "40%"
+      }
+    }
+  },
+  {
+    "id": "af007ebf-10ac-02dd-bdf1-9e88d477daf6",
+    "name": "Eldritch Lilith's Foldover",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Foldover   3★ ranged consonance multishot",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 18,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Multishot": "20%"
+      }
+    }
+  },
+  {
+    "id": "7c2cd7fc-4653-e924-a5a9-379fe3823923",
+    "name": "Eldritch Lilith's Trammel",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Trammel   3★ ranged consonance trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 18,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Trigger Probability": "40%"
+      }
+    }
+  },
+  {
+    "id": "4bc202ef-71dc-f350-098f-c22bb8a5c696",
+    "name": "Eldritch Lilith's Celerity",
+    "rarity": 3,
+    "tags": "Eldritch Lilith's Celerity   3★ ranged consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "20%"
+      }
+    }
+  },
+  {
+    "id": "fce6bda7-3b1c-614b-0d1c-593d1fcae212",
+    "name": "Fafnir's Divine Herald Hunt",
+    "rarity": 4,
+    "tags": "Fafnir's Divine Herald Hunt   4★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "Increases Damage Dealt to The Elysian Church by 40%.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "70eff188-3f35-2259-e687-18b7ef43717f",
+    "name": "Fafnir's Filthoid Hunt",
+    "rarity": 4,
+    "tags": "Fafnir's Filthoid Hunt   4★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "Increases Damage Dealt to Filthoid by 40%.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "9686c8cc-9b94-cdd6-a3b2-411bb89e0617",
+    "name": "Fafnir's Forsaken Hunt",
+    "rarity": 4,
+    "tags": "Fafnir's Forsaken Hunt   4★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "Increases Damage Dealt to The Forsakens by 40%.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "43eaf2a3-b188-b84e-cfe6-00306c248ba3",
+    "name": "Fafnir's Legion Hunt",
+    "rarity": 4,
+    "tags": "Fafnir's Legion Hunt   4★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "Increases Damage Dealt to Hyperborean Soldiers by 40%.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "6451b08f-e06f-2a6b-4000-c0e548f01967",
+    "name": "Fafnir's Focus",
+    "rarity": 4,
+    "tags": "Fafnir's Focus   4★ ranged beam length",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 17,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Beam Length": "50%"
+      }
+    }
+  },
+  {
+    "id": "2c510bc4-d6b8-bb63-3b45-a2cbb46636af",
+    "name": "Fafnir's Frugality",
+    "rarity": 4,
+    "tags": "Fafnir's Frugality   4★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 17,
+    "effect": "When dealing damage, increase the damage according to the percentage of the remaining projectiles. The higher the percentage, the greater the increase, up to 30%.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "248bf892-68f8-9596-46da-288250af65ae",
+    "name": "Fafnir's Furious Beam",
+    "rarity": 4,
+    "tags": "Fafnir's Furious Beam   4★ ranged beam damage",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 20,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Beam Damage": "20%"
+      }
+    }
+  },
+  {
+    "id": "69689bb3-20d1-d69d-fed4-6662682b6dec",
+    "name": "Fafnir's Furious Blast",
+    "rarity": 4,
+    "tags": "Fafnir's Furious Blast   4★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 20,
+    "effect": "Increases explosive projectile damage by 20%.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "6c6de264-b654-2b5b-67ba-bba2367c7de8",
+    "name": "Fafnir's Loadout",
+    "rarity": 4,
+    "tags": "Fafnir's Loadout   4★ ranged ",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "After reloading, increases ATK Speed by 45% for 10s.",
+    "stats": {
+      "base": {}
+    }
+  },
+  {
+    "id": "f761e3b3-d209-849c-a3dc-e87965f12bba",
+    "name": "Fafnir's Pierce",
+    "rarity": 4,
+    "tags": "Fafnir's Pierce   4★ ranged hp reduce on bonus effect: spike",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "",
+    "stats": {
+      "base": {
+        "HP Reduce on Bonus Effect: Spike": "80%"
+      }
+    }
+  },
+  {
+    "id": "6e88be6e-8719-b734-cabc-0a3f7bf42639",
+    "name": "Fafnir's Severance",
+    "rarity": 4,
+    "tags": "Fafnir's Severance   4★ ranged hp reduce on bonus effect: slash",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "",
+    "stats": {
+      "base": {
+        "HP Reduce on Bonus Effect: Slash": "80%"
+      }
+    }
+  },
+  {
+    "id": "435a47a1-c751-b316-8147-0bbfde235cb4",
+    "name": "Fafnir's Speed Boost",
+    "rarity": 4,
+    "tags": "Fafnir's Speed Boost   4★ ranged projectile spd",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Projectile SPD": "60%"
+      }
+    }
+  },
+  {
+    "id": "f89cd7b6-f9eb-b460-61a4-5d449777f9af",
+    "name": "Fafnir's Stall",
+    "rarity": 4,
+    "tags": "Fafnir's Stall   4★ ranged projectile spd",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Fafnir01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Projectile SPD": "-60%"
+      }
+    }
+  },
+  {
+    "id": "c4b80639-dec3-90ba-5406-7c7fc0d85865",
+    "name": "Lilith's Celerity",
+    "rarity": 4,
+    "tags": "Lilith's Celerity   4★ ranged atk speed atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "60%",
+        "ATK": "-60%"
+      }
+    }
+  },
+  {
+    "id": "ceec3cd9-9820-6734-c56a-84ba30e47df7",
+    "name": "Lilith's Crusher",
+    "rarity": 4,
+    "tags": "Lilith's Crusher   4★ ranged smash atk mag capacity",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "36%",
+        "Mag Capacity": "60%"
+      }
+    }
+  },
+  {
+    "id": "9a24b7c4-856c-036e-54d4-28d1dd780083",
+    "name": "Lilith's Focus",
+    "rarity": 4,
+    "tags": "Lilith's Focus   4★ ranged crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 17,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "100%"
+      }
+    }
+  },
+  {
+    "id": "f7ae9be5-3a96-336a-59e4-d2d098be0bb6",
+    "name": "Lilith's Focus",
+    "rarity": 4,
+    "tags": "Lilith's Focus   4★ ranged crit chance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 13,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "100%",
+        "ATK Speed": "-60%"
+      }
+    }
+  },
+  {
+    "id": "98e2f18e-31d1-70f9-80cd-2fdc0a194ed8",
+    "name": "Lilith's Impetus",
+    "rarity": 4,
+    "tags": "Lilith's Impetus   4★ ranged atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "171392bd-542a-61a1-54c9-8e1fc1ad7653",
+    "name": "Lilith's Rage",
+    "rarity": 4,
+    "tags": "Lilith's Rage   4★ ranged crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 14,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "100%"
+      }
+    }
+  },
+  {
+    "id": "1563988b-d842-3459-e216-aa6c6b933e9b",
+    "name": "Lilith's Quiver - Loadout",
+    "rarity": 4,
+    "tags": "Lilith's Quiver Loadout  4★ ranged max ammmo reload speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Max Ammmo": "200%",
+        "Reload Speed": "-60%"
+      }
+    }
+  },
+  {
+    "id": "ade08512-36d2-a14a-3eca-dd97ad89437b",
+    "name": "Lilith's Rage - Trammel",
+    "rarity": 4,
+    "tags": "Lilith's Rage Trammel  4★ ranged crit dmg trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 19,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "80%",
+        "Trigger Probability": "80%"
+      }
+    }
+  },
+  {
+    "id": "163e5158-dfa2-f9ab-a2ea-c494387569cf",
+    "name": "Lilith's Rain of Quivers",
+    "rarity": 4,
+    "tags": "Lilith's Rain of Quivers   4★ ranged multishot",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "Decreases the damage dealt by 60% (unaffected by other modifiers).",
+    "stats": {
+      "base": {
+        "Multishot": "200%"
+      }
+    }
+  },
+  {
+    "id": "bbf2e874-0aec-1aec-5075-647f198cc673",
+    "name": "Lilith's Trammel",
+    "rarity": 4,
+    "tags": "Lilith's Trammel   4★ ranged trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 12,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Trigger Probability": "100%"
+      }
+    }
+  },
+  {
+    "id": "00dc74b4-6aae-5ce2-a02d-5b134b7a8971",
+    "name": "Eldritch Lilith's Crusher",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Crusher   4★ ranged consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "10b538dc-c54f-6521-a169-f9cd4b247eff",
+    "name": "Eldritch Lilith's Edge",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Edge   4★ ranged consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "47701bff-e52e-a1de-bce9-51a123118825",
+    "name": "Eldritch Lilith's Penetration",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Penetration   4★ ranged consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "422da026-b911-8f8d-fb07-19a952e24b9f",
+    "name": "Eldritch Lilith's Impetus",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Impetus   4★ ranged consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "8533964e-6bfd-ab16-c0b9-1859858b6296",
+    "name": "Eldritch Lilith's Focus",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Focus   4★ ranged consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 17,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "50%"
+      }
+    }
+  },
+  {
+    "id": "123cdd9b-b984-0d68-1d97-44f97f267df0",
+    "name": "Eldritch Lilith's Rage",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Rage   4★ ranged consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 17,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "50%"
+      }
+    }
+  },
+  {
+    "id": "e9667af0-5e97-ef43-88ee-9c0ccf4f0c08",
+    "name": "Eldritch Lilith's Foldover",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Foldover   4★ ranged consonance multishot",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Multishot": "25%"
+      }
+    }
+  },
+  {
+    "id": "e13eb2dc-fe3e-16c3-e43a-292d95ebe392",
+    "name": "Eldritch Lilith's Trammel",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Trammel   4★ ranged consonance trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/4.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Trigger Probability": "50%"
+      }
+    }
+  },
+  {
+    "id": "1a5fc409-0175-b61e-0516-40e8b1d3a937",
+    "name": "Eldritch Lilith's Celerity",
+    "rarity": 4,
+    "tags": "Eldritch Lilith's Celerity   4★ ranged consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "25%"
+      }
+    }
+  },
+  {
+    "id": "585215d8-196b-1333-20e6-5ee37aee9134",
+    "name": "Lilith's Crusher",
+    "rarity": 5,
+    "tags": "Lilith's Crusher   5★ ranged smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Smash ATK": "54%"
+      },
+      "refinement_1": {
+        "Smash ATK": "63.00%"
+      },
+      "refinement_2": {
+        "Smash ATK": "71.99%"
+      },
+      "refinement_3": {
+        "Smash ATK": "80.99%"
+      },
+      "refinement_4": {
+        "Smash ATK": "89.99%"
+      },
+      "refinement_5": {
+        "Smash ATK": "99%"
+      }
+    }
+  },
+  {
+    "id": "8c4f73f8-5b9a-a416-a2f7-1962ff4a3a21",
+    "name": "Lilith's Edge",
+    "rarity": 5,
+    "tags": "Lilith's Edge   5★ ranged slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Slash ATK": "54%"
+      },
+      "refinement_1": {
+        "Slash ATK": "63.00%"
+      },
+      "refinement_2": {
+        "Slash ATK": "71.99%"
+      },
+      "refinement_3": {
+        "Slash ATK": "80.99%"
+      },
+      "refinement_4": {
+        "Slash ATK": "89.99%"
+      },
+      "refinement_5": {
+        "Slash ATK": "99%"
+      }
+    }
+  },
+  {
+    "id": "ab690305-b328-715b-369b-be2f4dca6920",
+    "name": "Lilith's Penetration",
+    "rarity": 5,
+    "tags": "Lilith's Penetration   5★ ranged spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 9,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Spike ATK": "54%"
+      },
+      "refinement_1": {
+        "Spike ATK": "63.00%"
+      },
+      "refinement_2": {
+        "Spike ATK": "71.99%"
+      },
+      "refinement_3": {
+        "Spike ATK": "80.99%"
+      },
+      "refinement_4": {
+        "Spike ATK": "89.99%"
+      },
+      "refinement_5": {
+        "Spike ATK": "99%"
+      }
+    }
+  },
+  {
+    "id": "5387059b-cb1b-0cc4-046b-e7de93114ec5",
+    "name": "Lilith's Celerity",
+    "rarity": 5,
+    "tags": "Lilith's Celerity   5★ ranged atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 20,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK Speed": "42%"
+      },
+      "refinement_1": {
+        "ATK Speed": "48.594%"
+      },
+      "refinement_2": {
+        "ATK Speed": "55.188%"
+      },
+      "refinement_3": {
+        "ATK Speed": "61.782%"
+      },
+      "refinement_4": {
+        "ATK Speed": "68.376%"
+      },
+      "refinement_5": {
+        "ATK Speed": "75%"
+      }
+    }
+  },
+  {
+    "id": "38ae41d0-810f-32b0-95a5-105f1ba956fb",
+    "name": "Lilith's Foldover",
+    "rarity": 5,
+    "tags": "Lilith's Foldover   5★ ranged multishot",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Multishot": "82%"
+      },
+      "refinement_1": {
+        "Multishot": "95.66%"
+      },
+      "refinement_2": {
+        "Multishot": "109.32%"
+      },
+      "refinement_3": {
+        "Multishot": "122.98%"
+      },
+      "refinement_4": {
+        "Multishot": "136.64%"
+      },
+      "refinement_5": {
+        "Multishot": "150%"
+      }
+    }
+  },
+  {
+    "id": "1d10afe4-5629-63fe-0a28-6a28397d3dfe",
+    "name": "Lilith's Rage - Trammel",
+    "rarity": 5,
+    "tags": "Lilith's Rage Trammel  5★ ranged crit dmg trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/4.webp"
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Crit DMG": "54%",
+        "Trigger Probability": "54%"
+      },
+      "refinement_1": {
+        "Crit DMG": "63.00%",
+        "Trigger Probability": "63.00%"
+      },
+      "refinement_2": {
+        "Crit DMG": "71.99%",
+        "Trigger Probability": "71.99%"
+      },
+      "refinement_3": {
+        "Crit DMG": "80.99%",
+        "Trigger Probability": "80.99%"
+      },
+      "refinement_4": {
+        "Crit DMG": "89.99%",
+        "Trigger Probability": "89.99%"
+      },
+      "refinement_5": {
+        "Crit DMG": "99%",
+        "Trigger Probability": "99%"
+      }
+    }
+  },
+  {
+    "id": "b67306ea-b965-9aa6-3a2a-35b931fbb9ad",
+    "name": "Lilith's Impetus",
+    "rarity": 5,
+    "tags": "Lilith's Impetus   5★ ranged atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK": "82%"
+      },
+      "refinement_1": {
+        "ATK": "95.66%"
+      },
+      "refinement_2": {
+        "ATK": "109.32%"
+      },
+      "refinement_3": {
+        "ATK": "122.98%"
+      },
+      "refinement_4": {
+        "ATK": "136.64%"
+      },
+      "refinement_5": {
+        "ATK": "150%"
+      }
+    }
+  },
+  {
+    "id": "23f19c0a-732f-4c50-f4ec-a80b46ab7b3f",
+    "name": "Lilith's Impetus - Focus",
+    "rarity": 5,
+    "tags": "Lilith's Impetus Focus  5★ ranged atk crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith01.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 12,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK": "41%",
+        "Crit Chance": "54%"
+      },
+      "refinement_1": {
+        "ATK": "47.83%",
+        "Crit Chance": "63.00%"
+      },
+      "refinement_2": {
+        "ATK": "54.66%",
+        "Crit Chance": "71.99%"
+      },
+      "refinement_3": {
+        "ATK": "61.49%",
+        "Crit Chance": "80.99%"
+      },
+      "refinement_4": {
+        "ATK": "68.32%",
+        "Crit Chance": "89.99%"
+      },
+      "refinement_5": {
+        "ATK": "75%",
+        "Crit Chance": "99%"
+      }
+    }
+  },
+  {
+    "id": "92298c09-06e0-9017-31a6-5e2c69c6d804",
+    "name": "Eldritch Lilith's Crusher",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Crusher   5★ ranged consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Smash ATK": "81.60%"
+      },
+      "refinement_1": {
+        "Smash ATK": "95.19%"
+      },
+      "refinement_2": {
+        "Smash ATK": "108.79%"
+      },
+      "refinement_3": {
+        "Smash ATK": "122.38%"
+      },
+      "refinement_4": {
+        "Smash ATK": "135.98%"
+      },
+      "refinement_5": {
+        "Smash ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "019d55aa-be05-e759-2e53-b752398a27f1",
+    "name": "Eldritch Lilith's Edge",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Edge   5★ ranged consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Slash ATK": "81.60%"
+      },
+      "refinement_1": {
+        "Slash ATK": "95.19%"
+      },
+      "refinement_2": {
+        "Slash ATK": "108.79%"
+      },
+      "refinement_3": {
+        "Slash ATK": "122.38%"
+      },
+      "refinement_4": {
+        "Slash ATK": "135.98%"
+      },
+      "refinement_5": {
+        "Slash ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "7ab953f0-651b-cfae-3eaf-591224522ab9",
+    "name": "Eldritch Lilith's Penetration",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Penetration   5★ ranged consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Spike ATK": "81.60%"
+      },
+      "refinement_1": {
+        "Spike ATK": "95.19%"
+      },
+      "refinement_2": {
+        "Spike ATK": "108.79%"
+      },
+      "refinement_3": {
+        "Spike ATK": "122.38%"
+      },
+      "refinement_4": {
+        "Spike ATK": "135.98%"
+      },
+      "refinement_5": {
+        "Spike ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "058d8631-3351-d847-2959-fbaaae963676",
+    "name": "Eldritch Lilith's Impetus",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Impetus   5★ ranged consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK": "81.60%"
+      },
+      "refinement_1": {
+        "ATK": "95.19%"
+      },
+      "refinement_2": {
+        "ATK": "108.79%"
+      },
+      "refinement_3": {
+        "ATK": "122.38%"
+      },
+      "refinement_4": {
+        "ATK": "135.98%"
+      },
+      "refinement_5": {
+        "ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "0659c1fa-8959-779b-adff-5b04b4025049",
+    "name": "Eldritch Lilith's Focus",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Focus   5★ ranged consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 22,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Crit Chance": "54%"
+      },
+      "refinement_1": {
+        "Crit Chance": "63.00%"
+      },
+      "refinement_2": {
+        "Crit Chance": "71.99%"
+      },
+      "refinement_3": {
+        "Crit Chance": "80.99%"
+      },
+      "refinement_4": {
+        "Crit Chance": "89.99%"
+      },
+      "refinement_5": {
+        "Crit Chance": "99%"
+      }
+    }
+  },
+  {
+    "id": "0232b513-e123-3c6b-4b92-8ea818794ba8",
+    "name": "Eldritch Lilith's Rage",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Rage   5★ ranged consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 22,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Crit DMG": "54%"
+      },
+      "refinement_1": {
+        "Crit DMG": "63.00%"
+      },
+      "refinement_2": {
+        "Crit DMG": "71.99%"
+      },
+      "refinement_3": {
+        "Crit DMG": "80.99%"
+      },
+      "refinement_4": {
+        "Crit DMG": "89.99%"
+      },
+      "refinement_5": {
+        "Crit DMG": "99%"
+      }
+    }
+  },
+  {
+    "id": "f315ff9b-3c7a-4946-3331-e1ec5a44c9e4",
+    "name": "Eldritch Lilith's Foldover",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Foldover   5★ ranged consonance multishot",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 26,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Multishot": "27%"
+      },
+      "refinement_1": {
+        "Multishot": "31.50%"
+      },
+      "refinement_2": {
+        "Multishot": "36.00%"
+      },
+      "refinement_3": {
+        "Multishot": "40.49%"
+      },
+      "refinement_4": {
+        "Multishot": "44.99%"
+      },
+      "refinement_5": {
+        "Multishot": "49%"
+      }
+    }
+  },
+  {
+    "id": "e880160e-d246-29ba-3615-3d376beb6ede",
+    "name": "Eldritch Lilith's Trammel",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Trammel   5★ ranged consonance trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/4.webp"
+    },
+    "tolerance": 26,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Trigger Probability": "54%"
+      },
+      "refinement_1": {
+        "Trigger Probability": "63.00%"
+      },
+      "refinement_2": {
+        "Trigger Probability": "71.99%"
+      },
+      "refinement_3": {
+        "Trigger Probability": "80.99%"
+      },
+      "refinement_4": {
+        "Trigger Probability": "89.99%"
+      },
+      "refinement_5": {
+        "Trigger Probability": "99%"
+      }
+    }
+  },
+  {
+    "id": "12c7fbed-df06-7111-2f0e-8e11722eed14",
+    "name": "Eldritch Lilith's Celerity",
+    "rarity": 5,
+    "tags": "Eldritch Lilith's Celerity   5★ ranged consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Lilith02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 26,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK Speed": "27%"
+      },
+      "refinement_1": {
+        "ATK Speed": "31.4982%"
+      },
+      "refinement_2": {
+        "ATK Speed": "35.9964%"
+      },
+      "refinement_3": {
+        "ATK Speed": "40.4946%"
+      },
+      "refinement_4": {
+        "ATK Speed": "44.992799999999995%"
+      },
+      "refinement_5": {
+        "ATK Speed": "50%"
+      }
+    }
+  }
+]

@@ -1,0 +1,767 @@
+[
+  {
+    "id": "db57973f-4472-f370-196c-6af3b5a2b8da",
+    "name": "Eldritch Cerberus's Crusher",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Crusher   2★ melee consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "c0153f94-0fcf-80f8-07f2-1c3e0d7e878a",
+    "name": "Eldritch Cerberus's Edge",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Edge   2★ melee consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "b44308f2-450e-8c05-3dc9-e92607a3ce65",
+    "name": "Eldritch Cerberus's Penetration",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Penetration   2★ melee consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "7bc3f393-64ba-d4d3-9d18-39b701291af1",
+    "name": "Eldritch Cerberus's Impetus",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Impetus   2★ melee consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "30%"
+      }
+    }
+  },
+  {
+    "id": "1f7a1bb7-2e55-f653-e2b4-eddfa2778ac5",
+    "name": "Eldritch Cerberus's Focus",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Focus   2★ melee consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "20%"
+      }
+    }
+  },
+  {
+    "id": "7e6c6c5e-2495-d242-b53d-cd1f8ec7e822",
+    "name": "Eldritch Cerberus's Celerity",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Celerity   2★ melee consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "10%"
+      }
+    }
+  },
+  {
+    "id": "b2771151-4c08-331c-1fca-ff951cd42e7d",
+    "name": "Eldritch Cerberus's Rage",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Rage   2★ melee consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "20%"
+      }
+    }
+  },
+  {
+    "id": "51a7eee6-7500-7920-75d0-44983adb0275",
+    "name": "Eldritch Cerberus's Threshold",
+    "rarity": 2,
+    "tags": "Eldritch Cerberus's Threshold   2★ melee consonance atk range",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": null
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Range": "0.24"
+      }
+    }
+  },
+  {
+    "id": "f2da91ea-75a3-598c-05ad-d51912b3df65",
+    "name": "Eldritch Cerberus's Crusher",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Crusher   3★ melee consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "36605ebf-2f1f-a74e-ac24-b323c9885353",
+    "name": "Eldritch Cerberus's Edge",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Edge   3★ melee consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "49313ba3-17f7-c95f-e0bc-02767e661b11",
+    "name": "Eldritch Cerberus's Penetration",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Penetration   3★ melee consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "1736f3bb-ba88-8f95-a90e-777b6dc0c7d3",
+    "name": "Eldritch Cerberus's Impetus",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Impetus   3★ melee consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 10,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "60%"
+      }
+    }
+  },
+  {
+    "id": "07bff2d0-a28c-80f1-718a-221af19a3aff",
+    "name": "Eldritch Cerberus's Focus",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Focus   3★ melee consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "40%"
+      }
+    }
+  },
+  {
+    "id": "3fb3c2e0-677f-46a3-897f-b39f5665178b",
+    "name": "Eldritch Cerberus's Celerity",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Celerity   3★ melee consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "20%"
+      }
+    }
+  },
+  {
+    "id": "81c2b476-93a3-4b85-eae0-d1bdc486bd0a",
+    "name": "Eldritch Cerberus's Rage",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Rage   3★ melee consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 11,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "40%"
+      }
+    }
+  },
+  {
+    "id": "bcf9ed17-9cd9-a11d-bddf-a2fbed507815",
+    "name": "Eldritch Cerberus's Threshold",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Threshold   3★ melee consonance atk range",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 15,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Range": "0.48"
+      }
+    }
+  },
+  {
+    "id": "a77fa060-a51a-b62b-6a3b-61de52aad6e3",
+    "name": "Eldritch Cerberus's Trammel",
+    "rarity": 3,
+    "tags": "Eldritch Cerberus's Trammel   3★ melee consonance trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/1.webp"
+    },
+    "tolerance": 18,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Trigger Probability": "40%"
+      }
+    }
+  },
+  {
+    "id": "13e01ed4-a818-b4aa-3506-81457ac69466",
+    "name": "Eldritch Cerberus's Crusher",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Crusher   4★ melee consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Smash ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "419cbc03-3a83-1bb8-4fc6-8372547e1994",
+    "name": "Eldritch Cerberus's Edge",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Edge   4★ melee consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Slash ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "f0189f54-f96d-4092-6deb-f426f7d6104b",
+    "name": "Eldritch Cerberus's Penetration",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Penetration   4★ melee consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Spike ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "b5ba8b8a-f787-5ea0-3765-b9f1bb6b11c8",
+    "name": "Eldritch Cerberus's Impetus",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Impetus   4★ melee consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 16,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK": "75%"
+      }
+    }
+  },
+  {
+    "id": "086e0d2c-a4af-6647-5e3d-1a6cc67805ea",
+    "name": "Eldritch Cerberus's Focus",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Focus   4★ melee consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 17,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit Chance": "50%"
+      }
+    }
+  },
+  {
+    "id": "df69aaca-ad20-4977-9a7d-16da2f08580a",
+    "name": "Eldritch Cerberus's Celerity",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Celerity   4★ melee consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Speed": "25%"
+      }
+    }
+  },
+  {
+    "id": "6ccaf2f0-543b-3dff-6ba9-e7d6d85db695",
+    "name": "Eldritch Cerberus's Rage",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Rage   4★ melee consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 17,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Crit DMG": "50%"
+      }
+    }
+  },
+  {
+    "id": "276cccf6-148e-9123-1614-c4508659b76e",
+    "name": "Eldritch Cerberus's Threshold",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Threshold   4★ melee consonance atk range",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "base": {
+        "ATK Range": "0.60"
+      }
+    }
+  },
+  {
+    "id": "a241c071-84ff-5547-0425-56b3405ecc2a",
+    "name": "Eldritch Cerberus's Trammel",
+    "rarity": 4,
+    "tags": "Eldritch Cerberus's Trammel   4★ melee consonance trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/4.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "base": {
+        "Trigger Probability": "50%"
+      }
+    }
+  },
+  {
+    "id": "de2dcd76-dabc-ae64-486d-aad965d4f1ab",
+    "name": "Eldritch Cerberus's Crusher",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Crusher   5★ melee consonance smash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Smash ATK": "81.60%"
+      },
+      "refinement_1": {
+        "Smash ATK": "95.19%"
+      },
+      "refinement_2": {
+        "Smash ATK": "108.79%"
+      },
+      "refinement_3": {
+        "Smash ATK": "122.38%"
+      },
+      "refinement_4": {
+        "Smash ATK": "135.98%"
+      },
+      "refinement_5": {
+        "Smash ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "166a4bee-755f-20b9-1b95-17fd3c111c6f",
+    "name": "Eldritch Cerberus's Edge",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Edge   5★ melee consonance slash atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Slash ATK": "81.60%"
+      },
+      "refinement_1": {
+        "Slash ATK": "95.19%"
+      },
+      "refinement_2": {
+        "Slash ATK": "108.79%"
+      },
+      "refinement_3": {
+        "Slash ATK": "122.38%"
+      },
+      "refinement_4": {
+        "Slash ATK": "135.98%"
+      },
+      "refinement_5": {
+        "Slash ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "71f27c5d-ccdb-8366-88e1-0021f36676ba",
+    "name": "Eldritch Cerberus's Penetration",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Penetration   5★ melee consonance spike atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Spike ATK": "81.60%"
+      },
+      "refinement_1": {
+        "Spike ATK": "95.19%"
+      },
+      "refinement_2": {
+        "Spike ATK": "108.79%"
+      },
+      "refinement_3": {
+        "Spike ATK": "122.38%"
+      },
+      "refinement_4": {
+        "Spike ATK": "135.98%"
+      },
+      "refinement_5": {
+        "Spike ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "35e09db6-7193-cf92-0971-b9ef175eedb5",
+    "name": "Eldritch Cerberus's Impetus",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Impetus   5★ melee consonance atk",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 21,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK": "81.60%"
+      },
+      "refinement_1": {
+        "ATK": "95.19%"
+      },
+      "refinement_2": {
+        "ATK": "108.79%"
+      },
+      "refinement_3": {
+        "ATK": "122.38%"
+      },
+      "refinement_4": {
+        "ATK": "135.98%"
+      },
+      "refinement_5": {
+        "ATK": "149%"
+      }
+    }
+  },
+  {
+    "id": "126354b9-17cf-72b3-0c69-8874ac992fb2",
+    "name": "Eldritch Cerberus's Focus",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Focus   5★ melee consonance crit chance",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 22,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Crit Chance": "54%"
+      },
+      "refinement_1": {
+        "Crit Chance": "63.00%"
+      },
+      "refinement_2": {
+        "Crit Chance": "71.99%"
+      },
+      "refinement_3": {
+        "Crit Chance": "80.99%"
+      },
+      "refinement_4": {
+        "Crit Chance": "89.99%"
+      },
+      "refinement_5": {
+        "Crit Chance": "99%"
+      }
+    }
+  },
+  {
+    "id": "bf3a695b-ee46-410b-2738-6f66b69a5e36",
+    "name": "Eldritch Cerberus's Celerity",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Celerity   5★ melee consonance atk speed",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 26,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK Speed": "27%"
+      },
+      "refinement_1": {
+        "ATK Speed": "31.4982%"
+      },
+      "refinement_2": {
+        "ATK Speed": "35.9964%"
+      },
+      "refinement_3": {
+        "ATK Speed": "40.4946%"
+      },
+      "refinement_4": {
+        "ATK Speed": "44.992799999999995%"
+      },
+      "refinement_5": {
+        "ATK Speed": "50%"
+      }
+    }
+  },
+  {
+    "id": "6c918d61-d239-09d6-5a99-39a547836bfc",
+    "name": "Eldritch Cerberus's Rage",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Rage   5★ melee consonance crit dmg",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/2.webp"
+    },
+    "tolerance": 22,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Crit DMG": "54%"
+      },
+      "refinement_1": {
+        "Crit DMG": "63.00%"
+      },
+      "refinement_2": {
+        "Crit DMG": "71.99%"
+      },
+      "refinement_3": {
+        "Crit DMG": "80.99%"
+      },
+      "refinement_4": {
+        "Crit DMG": "89.99%"
+      },
+      "refinement_5": {
+        "Crit DMG": "99%"
+      }
+    }
+  },
+  {
+    "id": "c83f977b-65c1-a2ce-036f-f5afb0eeefc3",
+    "name": "Eldritch Cerberus's Threshold",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Threshold   5★ melee consonance atk range",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/3.webp"
+    },
+    "tolerance": 26,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "ATK Range": "0.66"
+      },
+      "refinement_1": {
+        "ATK Range": "0.77"
+      },
+      "refinement_2": {
+        "ATK Range": "0.88"
+      },
+      "refinement_3": {
+        "ATK Range": "0.99"
+      },
+      "refinement_4": {
+        "ATK Range": "1.10"
+      },
+      "refinement_5": {
+        "ATK Range": "1.21"
+      }
+    }
+  },
+  {
+    "id": "a45fc833-b503-c3e1-c471-91004b412fce",
+    "name": "Eldritch Cerberus's Trammel",
+    "rarity": 5,
+    "tags": "Eldritch Cerberus's Trammel   5★ melee consonance trigger probability",
+    "images": {
+      "main": "https://dna.interknot-network.com/images/wedges/T_Mod_Cerberus02.webp",
+      "element": null,
+      "polarity": "https://dna.interknot-network.com/images/polarities/4.webp"
+    },
+    "tolerance": 26,
+    "effect": "",
+    "stats": {
+      "refinement_0": {
+        "Trigger Probability": "54%"
+      },
+      "refinement_1": {
+        "Trigger Probability": "63.00%"
+      },
+      "refinement_2": {
+        "Trigger Probability": "71.99%"
+      },
+      "refinement_3": {
+        "Trigger Probability": "80.99%"
+      },
+      "refinement_4": {
+        "Trigger Probability": "89.99%"
+      },
+      "refinement_5": {
+        "Trigger Probability": "99%"
+      }
+    }
+  }
+]

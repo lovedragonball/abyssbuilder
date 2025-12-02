@@ -39,6 +39,7 @@ export interface NormalizedWedgeStat {
     statName: keyof FinalStats; // e.g. "ATK", "HP", "SkillDMG", etc.
     value: number;              // numeric amount (either flat or percentage)
     isPercentage: boolean;
+    tag?: 'elemental';
 }
 
 // Import character data
@@ -124,6 +125,12 @@ export function getAllCharacterNames(): string[] {
     return Object.keys(characterDataMap);
 }
 
+// Matches Demon Wedge stats like "Anemo ATK", "Pyro ATK", etc.
+const ELEMENTAL_ATK_REGEX = /\b(pyro|hydro|electro|lumino|anemo|umbro|elemental)\b.*\batk\b/i;
+function isElementalAtkStat(name: string): boolean {
+    return ELEMENTAL_ATK_REGEX.test(name);
+}
+
 /**
  * Parse and normalize a demon wedge stat to FinalStats key
  * @param rawName - Raw stat name from wedge data (e.g., "ATK", "Max Sanity", "Skill DMG")
@@ -136,7 +143,7 @@ export function parseDemonWedgeStat(
 ): NormalizedWedgeStat | null {
     // Parse the value
     const parsed = parseStatValue(rawValue);
-    
+
     // Map raw stat names to FinalStats keys
     const statNameMap: Record<string, keyof FinalStats> = {
         'ATK': 'ATK',
@@ -155,8 +162,9 @@ export function parseDemonWedgeStat(
 
     // Normalize the stat name (trim and check for exact match or contains)
     const normalizedName = rawName.trim();
+    const elementalAtk = isElementalAtkStat(normalizedName);
     const statKey = statNameMap[normalizedName];
-    
+
     // If no direct match, try case-insensitive lookup
     if (!statKey) {
         const lowerName = normalizedName.toLowerCase();
@@ -168,6 +176,15 @@ export function parseDemonWedgeStat(
                     isPercentage: parsed.isPercentage
                 };
             }
+        }
+        // Treat elemental ATK stats (Pyro/Hydro/etc.) as ATK% that scale from base stats
+        if (elementalAtk) {
+            return {
+                statName: 'ATK',
+                value: parsed.value,
+                isPercentage: true,
+                tag: 'elemental'
+            };
         }
         // Stat doesn't map to FinalStats (e.g., "Smash ATK", "Crit DMG", "Trigger Probability")
         return null;
@@ -184,11 +201,13 @@ export function parseDemonWedgeStat(
  * Apply normalized wedge stats to base stats
  * @param base - Base FinalStats to apply bonuses to
  * @param wedgeStats - Array of normalized wedge stats to apply
+ * @param baseOriginal - Optional original base stats (for percentage calculations on number stats)
  * @returns Updated FinalStats with all bonuses applied
  */
 export function applyWedgeStats(
     base: FinalStats,
-    wedgeStats: NormalizedWedgeStat[]
+    wedgeStats: NormalizedWedgeStat[],
+    baseOriginal?: FinalStats
 ): FinalStats {
     // Start with a shallow copy of base
     const result: FinalStats = { ...base };
@@ -197,19 +216,40 @@ export function applyWedgeStats(
     const numberStats: (keyof FinalStats)[] = ['ATK', 'HP', 'Shield', 'DEF', 'MaxSanity'];
     const percentageStats: (keyof FinalStats)[] = ['SkillDMG', 'SkillRange', 'SkillDuration', 'SkillEfficiency', 'Morale', 'Resolve'];
 
-    // Apply each wedge stat
+    // Track accumulated percentage bonuses for number stats
+    const accumulatedPercentages: Partial<Record<keyof FinalStats, number>> = {};
+    let atkPercent = 0;
+    let elementalAtkPercent = 0;
+
+    // First pass: Collect all percentage bonuses for number stats
+    wedgeStats.forEach(stat => {
+        const { statName, value, isPercentage, tag } = stat;
+
+        if (statName === 'ATK' && isPercentage) {
+            if (tag === 'elemental') {
+                elementalAtkPercent += value;
+            } else {
+                atkPercent += value;
+            }
+        } else if (numberStats.includes(statName) && isPercentage) {
+            if (!accumulatedPercentages[statName]) {
+                accumulatedPercentages[statName] = 0;
+            }
+            accumulatedPercentages[statName]! += value;
+        }
+    });
+
+    // Second pass: Apply flat bonuses to number stats and all bonuses to percentage stats
     wedgeStats.forEach(stat => {
         const { statName, value, isPercentage } = stat;
 
         if (numberStats.includes(statName)) {
             // For number stats (ATK, HP, Shield, DEF, MaxSanity):
-            if (isPercentage) {
-                // Percentage bonus: base * (1 + value / 100)
-                result[statName] = result[statName] * (1 + value / 100);
-            } else {
+            if (!isPercentage) {
                 // Flat bonus: base + value
                 result[statName] = result[statName] + value;
             }
+            // Percentage bonuses are handled in third pass below
         } else if (percentageStats.includes(statName)) {
             // For percentage stats (SkillDMG, SkillRange, etc.):
             // All bonuses are additive: base + value
@@ -217,6 +257,23 @@ export function applyWedgeStats(
             result[statName] = result[statName] + value;
         }
     });
+
+    // Third pass: Apply accumulated percentage bonuses to BASE stats (not current)
+    Object.entries(accumulatedPercentages).forEach(([statKey, totalPercent]) => {
+        const key = statKey as keyof FinalStats;
+        // Use original base value if provided, otherwise use current base
+        const baseValue = baseOriginal?.[key] ?? base[key];
+        // Apply total percentage to base, then add any flat bonuses already applied
+        const flatBonus = result[key] - base[key]; // Calculate any flat bonuses applied
+        result[key] = baseValue * (1 + totalPercent! / 100) + flatBonus;
+    });
+
+    // Apply ATK separately so Elemental ATK multiplies with general ATK
+    if (atkPercent !== 0 || elementalAtkPercent !== 0) {
+        const baseValue = baseOriginal?.ATK ?? base.ATK;
+        const flatBonus = result.ATK - base.ATK;
+        result.ATK = baseValue * (1 + atkPercent / 100) * (1 + elementalAtkPercent / 100) + flatBonus;
+    }
 
     return result;
 }

@@ -3,6 +3,7 @@ import { HeroSection } from '@/components/homepage/hero-section';
 import { FeatureGrid } from '@/components/homepage/feature-grid';
 import { RecentBuildsSection } from '@/components/homepage/recent-builds-section';
 import { NewsUpdatesSection } from '@/components/news/news-updates-section';
+import { ResetTimersSection } from '@/components/reset-timer/reset-timers-section';
 import { getPatchData } from '@/lib/patch-data-server';
 
 export default async function HomePage() {
@@ -22,6 +23,10 @@ export default async function HomePage() {
           },
         ]}
       />
+
+      {/* Reset Timers Section */}
+      <ResetTimersSection />
+
 
       {/* Feature Grid Section */}
       <FeatureGrid />
@@ -45,8 +50,8 @@ export default async function HomePage() {
               Stay informed about the latest patch notes and known issues
             </p>
           </div>
-          <NewsUpdatesSection 
-            patchData={patchData} 
+          <NewsUpdatesSection
+            patchData={patchData}
             maxVisibleUpdates={5}
           />
         </div>

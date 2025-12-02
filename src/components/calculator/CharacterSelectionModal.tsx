@@ -9,9 +9,10 @@ interface CharacterSelectionModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSelect: (character: Character) => void;
+    excludedCharacterIds?: string[];
 }
 
-export function CharacterSelectionModal({ isOpen, onClose, onSelect }: CharacterSelectionModalProps) {
+export function CharacterSelectionModal({ isOpen, onClose, onSelect, excludedCharacterIds = [] }: CharacterSelectionModalProps) {
     const [search, setSearch] = useState('');
     const [selectedElement, setSelectedElement] = useState<string | null>(null);
 
@@ -20,9 +21,10 @@ export function CharacterSelectionModal({ isOpen, onClose, onSelect }: Character
             const matchesSearch = char.name.toLowerCase().includes(search.toLowerCase()) ||
                 char.element.toLowerCase().includes(search.toLowerCase());
             const matchesElement = selectedElement ? char.element === selectedElement : true;
-            return matchesSearch && matchesElement;
+            const notExcluded = !excludedCharacterIds.includes(char.id);
+            return matchesSearch && matchesElement && notExcluded;
         });
-    }, [search, selectedElement]);
+    }, [search, selectedElement, excludedCharacterIds]);
 
     const elements: Element[] = ['Pyro', 'Hydro', 'Electro', 'Anemo', 'Lumino', 'Umbro'];
 
@@ -57,8 +59,8 @@ export function CharacterSelectionModal({ isOpen, onClose, onSelect }: Character
                         <button
                             onClick={() => setSelectedElement(null)}
                             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${selectedElement === null
-                                    ? 'bg-white text-black border-white'
-                                    : 'bg-white/5 text-white/60 border-white/10 hover:bg-white/10 hover:text-white'
+                                ? 'bg-white text-black border-white'
+                                : 'bg-white/5 text-white/60 border-white/10 hover:bg-white/10 hover:text-white'
                                 }`}
                         >
                             All
@@ -68,8 +70,8 @@ export function CharacterSelectionModal({ isOpen, onClose, onSelect }: Character
                                 key={el}
                                 onClick={() => setSelectedElement(selectedElement === el ? null : el)}
                                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border flex items-center gap-1.5 ${selectedElement === el
-                                        ? 'bg-white/10 text-white border-white/30 shadow-[0_0_10px_rgba(255,255,255,0.1)]'
-                                        : 'bg-white/5 text-white/60 border-white/10 hover:bg-white/10 hover:text-white'
+                                    ? 'bg-white/10 text-white border-white/30 shadow-[0_0_10px_rgba(255,255,255,0.1)]'
+                                    : 'bg-white/5 text-white/60 border-white/10 hover:bg-white/10 hover:text-white'
                                     }`}
                             >
                                 <ElementIcon element={el} className="w-3 h-3" />

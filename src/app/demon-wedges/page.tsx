@@ -3,8 +3,8 @@
 import { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import { MultiSelectFilter } from '@/components/MultiSelectFilter';
-import { allDemonWedges, getAllTags, getAllTypes, getAllElements, filterDemonWedges } from '@/lib/demon-wedges-data';
-import type { DemonWedgeRarity, DemonWedgeType, DemonWedgeElement, DemonWedgeUsage } from '@/lib/demon-wedges-data';
+import { allDemonWedges, getAllTags, getAllTypes, getAllElements, filterDemonWedges, getCategoryStats } from '@/lib/demon-wedges-data';
+import type { DemonWedgeRarity, DemonWedgeType, DemonWedgeElement, DemonWedgeCategory } from '@/lib/demon-wedges-data';
 import { DemonWedgeCard } from '@/components/DemonWedgeCard';
 
 export default function DemonWedgesPage() {
@@ -13,9 +13,9 @@ export default function DemonWedgesPage() {
     const [selectedRarities, setSelectedRarities] = useState<DemonWedgeRarity[]>([]);
     const [selectedElements, setSelectedElements] = useState<DemonWedgeElement[]>([]);
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
-    const [selectedUsage, setSelectedUsage] = useState<DemonWedgeUsage[]>([]);
+    const [selectedCategories, setSelectedCategories] = useState<DemonWedgeCategory[]>([]);
 
-
+    const categoryStats = useMemo(() => getCategoryStats(), []);
     const availableTypes = useMemo(() => getAllTypes(allDemonWedges), []);
     const availableTags = useMemo(() => getAllTags(allDemonWedges), []);
     const availableElements = useMemo(() => getAllElements(allDemonWedges), []);
@@ -27,9 +27,9 @@ export default function DemonWedgesPage() {
             rarities: selectedRarities.length > 0 ? selectedRarities : undefined,
             elements: selectedElements.length > 0 ? selectedElements : undefined,
             tags: selectedTags.length > 0 ? selectedTags : undefined,
-            usage: selectedUsage.length > 0 ? selectedUsage : undefined
+            categories: selectedCategories.length > 0 ? selectedCategories : undefined
         });
-    }, [search, selectedTypes, selectedRarities, selectedElements, selectedTags, selectedUsage]);
+    }, [search, selectedTypes, selectedRarities, selectedElements, selectedTags, selectedCategories]);
 
     return (
         <div className="container mx-auto p-6">
@@ -53,12 +53,17 @@ export default function DemonWedgesPage() {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                     <MultiSelectFilter
-                        label="Filter by Usage"
-                        options={['Character', 'Weapon', 'Consonance Weapon']}
-                        selected={selectedUsage}
-                        onChange={(s) => setSelectedUsage(s as DemonWedgeUsage[])}
+                        label="Filter by Category"
+                        options={categoryStats.map(stat => stat.label)}
+                        selected={selectedCategories.map(cat => categoryStats.find(s => s.category === cat)?.label || '')}
+                        onChange={(selected) => {
+                            const categories = selected
+                                .map(label => categoryStats.find(s => s.label === label)?.category)
+                                .filter(Boolean) as DemonWedgeCategory[];
+                            setSelectedCategories(categories);
+                        }}
                     />
                     <MultiSelectFilter
                         label="Filter by Type"

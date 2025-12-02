@@ -1,0 +1,145 @@
+[
+    {
+        "rank": "Lv. 15",
+        "level": 15,
+        "bonuses": {
+            "shield": 10,
+            "def": 0,
+            "hp": 0,
+            "atk": 0
+        },
+        "description": "10% Shield"
+    },
+    {
+        "rank": "Lv. 20",
+        "level": 20,
+        "bonuses": {
+            "shield": 15,
+            "def": 0,
+            "hp": 0,
+            "atk": 0
+        },
+        "description": "15% Shield"
+    },
+    {
+        "rank": "Lv. 25",
+        "level": 25,
+        "bonuses": {
+            "shield": 20,
+            "def": 20,
+            "hp": 0,
+            "atk": 0
+        },
+        "description": "20% Shield, 20% DEF"
+    },
+    {
+        "rank": "Lv. 30",
+        "level": 30,
+        "bonuses": {
+            "shield": 25,
+            "def": 25,
+            "hp": 0,
+            "atk": 0
+        },
+        "description": "25% Shield, 25% DEF"
+    },
+    {
+        "rank": "Lv. 35",
+        "level": 35,
+        "bonuses": {
+            "shield": 30,
+            "def": 30,
+            "hp": 30,
+            "atk": 0
+        },
+        "description": "30% Shield, 30% DEF, 30% HP"
+    },
+    {
+        "rank": "Lv. 40",
+        "level": 40,
+        "bonuses": {
+            "shield": 40,
+            "def": 40,
+            "hp": 40,
+            "atk": 0
+        },
+        "description": "40% Shield, 40% DEF, 40% HP"
+    },
+    {
+        "rank": "Lv. 45",
+        "level": 45,
+        "bonuses": {
+            "shield": 50,
+            "def": 50,
+            "hp": 50,
+            "atk": 50
+        },
+        "description": "50% Shield, 50% DEF, 50% HP, 50% ATK"
+    },
+    {
+        "rank": "Lv. 50",
+        "level": 50,
+        "bonuses": {
+            "shield": 75,
+            "def": 75,
+            "hp": 75,
+            "atk": 75
+        },
+        "description": "75% Shield, 75% DEF, 75% HP, 75% ATK"
+    },
+    {
+        "rank": "Lv. 55",
+        "level": 55,
+        "bonuses": {
+            "shield": 100,
+            "def": 100,
+            "hp": 100,
+            "atk": 100
+        },
+        "description": "100% Shield, 100% DEF, 100% HP, 100% ATK"
+    },
+    {
+        "rank": "Lv. 60",
+        "level": 60,
+        "bonuses": {
+            "shield": 150,
+            "def": 150,
+            "hp": 150,
+            "atk": 150
+        },
+        "description": "150% Shield, 150% DEF, 150% HP, 150% ATK"
+    },
+    {
+        "rank": "Lv. 62",
+        "level": 62,
+        "bonuses": {
+            "shield": 200,
+            "def": 200,
+            "hp": 200,
+            "atk": 200
+        },
+        "description": "200% Shield, 200% DEF, 200% HP, 200% ATK"
+    },
+    {
+        "rank": "Lv. 64",
+        "level": 64,
+        "bonuses": {
+            "shield": 250,
+            "def": 250,
+            "hp": 250,
+            "atk": 250
+        },
+        "description": "250% Shield, 250% DEF, 250% HP, 250% ATK"
+    },
+    {
+        "rank": "Lv. 65",
+        "level": 65,
+        "bonuses": {
+            "shield": 300,
+            "def": 300,
+            "hp": 300,
+            "atk": 300
+        },
+        "description": "300% Shield, 300% DEF, 300% HP, 300% ATK"
+    }
+]

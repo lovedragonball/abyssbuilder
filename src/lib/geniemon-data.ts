@@ -2,6 +2,9 @@ export type GeniemonRarity = 2 | 3 | 4 | 5;
 export type GeniemonElement = 'Lumino' | 'Anemo' | 'Hydro' | 'Pyro' | 'Electro' | 'Umbro' | 'Neutral';
 export type GeniemonStatus = 'Active' | 'Inactive';
 
+// Re-export GeniemonTrait from geniemon-traits
+export type { GeniemonTrait } from './geniemon-traits';
+
 export interface Geniemon {
     id: string;
     name: string;

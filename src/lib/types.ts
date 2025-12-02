@@ -79,14 +79,14 @@ export type Mod = {
 };
 
 export type Build = {
-    id: string;
-    userId: string;
-    buildName: string;
-    description: string;
-    guide?: string;
-    visibility: 'public' | 'private';
-    itemType: 'character' | 'weapon';
-    itemId: string;
+  id: string;
+  userId: string;
+  buildName: string;
+  description: string;
+  guide?: string;
+  visibility: 'public' | 'private';
+  itemType: 'character' | 'weapon';
+  itemId: string;
   itemName: string;
   itemImage: string;
   creator: string | null;
@@ -101,24 +101,48 @@ export type Build = {
   voteCount: number;
   votedBy?: string[]; // user IDs who voted
   views?: number;
-    createdAt: any; // serverTimestamp
-    updatedAt: any; // serverTimestamp
-    // Legacy fields for compatibility with existing mock data
-    character?: Character;
-    weapon?: Weapon;
-    upvotes?: number;
-    contentFocus?: Role[];
-  };
+  createdAt: any; // serverTimestamp
+  updatedAt: any; // serverTimestamp
+  // Legacy fields for compatibility with existing mock data
+  character?: Character;
+  weapon?: Weapon;
+  upvotes?: number;
+  contentFocus?: Role[];
+};
 
 export type UserProfile = {
-    uid: string;
-    username: string;
-    displayName: string;
-    photoURL: string;
-    bio?: string;
-    favoriteBuilds?: string[]; // build IDs
-    following?: string[]; // user IDs
-    followers?: string[]; // user IDs
-    achievements?: string[];
-    createdAt: string;
+  uid: string;
+  username: string;
+  displayName: string;
+  photoURL: string;
+  bio?: string;
+  favoriteBuilds?: string[]; // build IDs
+  following?: string[]; // user IDs
+  followers?: string[]; // user IDs
+  achievements?: string[];
+  createdAt: string;
+};
+
+export type WeaponRefinementStats = Record<string, string>;
+
+export type WeaponRefinement = {
+  level: number;
+  effect: string;
+  stats: WeaponRefinementStats;
+};
+
+// Weapon level progression (1-80) stats, generated from weapons_refinement_0_to_5.txt
+export type WeaponLevelProgressionEntry = {
+  level: number;
+  stats: WeaponRefinementStats;
+};
+
+export type WeaponDefinition = {
+  id: number;
+  name: string;
+  refinement_data: WeaponRefinement[];
+  category?: 'Melee' | 'Range';
+  image?: string;
+  // Optional: per-level stat progression (1-80) if available in source JSON
+  level_progression?: WeaponLevelProgressionEntry[];
 };
