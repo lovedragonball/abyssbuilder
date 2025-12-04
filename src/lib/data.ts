@@ -23,11 +23,11 @@ const mergeWeaponDetails = (weapon: Weapon): Weapon => {
 export const allCharacters: Character[] = [
   { name: 'Berenica', element: 'Umbro', role: 'DPS (Weapon DMG)', melee: 'Sword', ranged: 'Dual Pistols', hasConsonanceWeapon: true },
   { name: 'Daphne', element: 'Anemo', role: 'Support (CC, Healing)', melee: 'Whipsword', ranged: 'Assault Rifle' },
-  { name: 'Fina', element: 'Hydro', role: 'Support', melee: 'Whipsword', ranged: 'Pistol' },
-  { name: 'Fushu', element: 'Umbro', role: 'DPS (Weapon DMG)', melee: 'Katana', ranged: 'Pistol' },
+  { name: 'Fina', element: 'Lumino', role: 'Support', melee: 'Whipsword', ranged: 'Pistol' },
+  { name: 'Fushu', element: 'Hydro', role: 'DPS (Weapon DMG)', melee: 'Katana', ranged: 'Pistol' },
   { name: 'Hellfire', element: 'Pyro', role: 'DPS (Skill DMG)', melee: 'Greatsword', ranged: 'Grenade Launcher' },
-  { name: 'Hilda', element: 'Electro', role: 'DPS (Skill Damage)', melee: 'Whipsword', ranged: 'Assault Rifle' },
-  { name: 'Kezhou', element: 'Pyro', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Grenade Launcher' },
+  { name: 'Hilda', element: 'Pyro', role: 'DPS (Skill Damage)', melee: 'Whipsword', ranged: 'Assault Rifle' },
+  { name: 'Kezhou', element: 'Lumino', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Grenade Launcher' },
   { name: 'Lady Nifle', element: 'Lumino', role: 'DPS (Skill Damage)', melee: 'Katana', ranged: 'Pistol' },
   { name: 'Lisbell', element: 'Lumino', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Shotgun', hasConsonanceWeapon: true },
   { name: 'Lynn', element: 'Pyro', role: 'DPS (Weapon DMG)', melee: 'Greatsword', ranged: 'Dual Pistols', hasConsonanceWeapon: true },
@@ -43,8 +43,8 @@ export const allCharacters: Character[] = [
   { name: 'Tabethe', element: 'Hydro', role: 'Support (Summon, CC)', melee: 'Sword', ranged: 'Bow' },
   { name: 'Truffle and Filbert', element: 'Anemo', role: 'Support (Healing)', melee: 'Polearm', ranged: 'Bow' },
   { name: 'Yale and Oliver', element: 'Pyro', role: 'DPS (Skill DMG)', melee: 'Sword', ranged: 'Shotgun' },
-  { name: 'Yuming', element: 'Anemo', role: 'Support', melee: 'Polearm', ranged: 'Bow' },
-  { name: 'Zhiliu', element: 'Pyro', role: 'DPS (Skill DMG)', melee: 'Sword', ranged: 'Shotgun' }
+  { name: 'Yuming', element: 'Electro', role: 'Support', melee: 'Polearm', ranged: 'Bow' },
+  { name: 'Zhiliu', element: 'Electro', role: 'DPS (Skill DMG)', melee: 'Sword', ranged: 'Shotgun' }
 ].map(c => ({ ...c, id: generateId(c.name), image: getImage(`character-${generateId(c.name)}`) } as Character)).sort((a, b) => a.name.localeCompare(b.name));
 
 export const allMeleeWeapons: Weapon[] = [

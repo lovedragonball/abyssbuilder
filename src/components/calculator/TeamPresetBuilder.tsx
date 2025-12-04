@@ -18,10 +18,12 @@ import { allCharacters } from '@/lib/data';
 import { allGeniemon } from '@/lib/geniemon-data';
 import { WEAPONS_DATA } from '@/lib/weapons-data';
 import { WeaponDefinition } from '@/lib/types';
+import { TrialRankSelector } from './TrialRankSelector';
 import { ArrowLeft, ArrowRight, Check, X } from 'lucide-react';
 import Image from 'next/image';
 import { GeniemonTrait } from '@/lib/geniemon-data';
 import { DemonWedge } from '@/lib/demon-wedges-data';
+import { WEAPON_PRIMARY_STATS, type WeaponPrimaryStat } from '@/data/weaponPrimaryStats';
 
 interface TeamPresetBuilderProps {
     isOpen: boolean;
@@ -51,6 +53,75 @@ export function TeamPresetBuilder({ isOpen, onClose, onSave, initialPreset }: Te
     const [preset, setPreset] = useState<TeamPreset>(createEmptyTeamPreset());
     const [weaponModalTarget, setWeaponModalTarget] = useState<WeaponModalTarget | null>(null);
     const [wedgeModalTarget, setWedgeModalTarget] = useState<WedgeModalTarget | null>(null);
+
+    // NOTE: Helper function to check if a Demon Wedge is compatible with a weapon's primary stat
+    // A wedge is incompatible if it has a stat (Slash ATK, Smash ATK, or Spike ATK) that conflicts
+    // with the weapon's primary stat type. For example:
+    // - If weapon has Slash as primary stat, filter out wedges with "Smash ATK" or "Spike ATK"
+    // - If weapon has Smash as primary stat, filter out wedges with "Slash ATK" or "Spike ATK"
+    // - If weapon has Spike as primary stat, filter out wedges with "Slash ATK" or "Smash ATK"
+    // 
+    // Also checks for special wedges like Fenrir's/Fafnir's Pierce (spike) and Severance (slash)
+    // which have "bonus effect: spike/slash" in their tags or stat names
+    const isWedgeCompatibleWithWeapon = (wedge: DemonWedge, weaponName?: string): boolean => {
+        if (!weaponName) return true; // No weapon selected, show all wedges
+
+        const weaponPrimaryStat = WEAPON_PRIMARY_STATS[weaponName];
+        if (!weaponPrimaryStat) return true; // Weapon not in our database, show all wedges
+
+        // Get all stat names from the wedge
+        const wedgeStatNames = wedge.stats.map(stat => stat.name);
+
+        // Also get all stats from nested levels
+        const levelStatNames = wedge.levels?.flatMap(level =>
+            level.stats.map(stat => stat.name)
+        ) || [];
+
+        // Combine all stat names
+        const allStatNames = [...wedgeStatNames, ...levelStatNames];
+
+        // Define incompatible stats for each weapon primary stat type
+        const incompatibleStats: Record<WeaponPrimaryStat, string[]> = {
+            'Slash': ['Smash ATK', 'Spike ATK'],
+            'Smash': ['Slash ATK', 'Spike ATK'],
+            'Spike': ['Slash ATK', 'Smash ATK'],
+        };
+
+        // Check for direct stat conflicts
+        const conflictingStats = incompatibleStats[weaponPrimaryStat];
+        const hasStatConflict = allStatNames.some(statName => conflictingStats.includes(statName));
+
+        if (hasStatConflict) return false;
+
+        // Special check for bonus effect wedges (e.g., Fenrir's/Fafnir's Pierce, Severance)
+        // These have "bonus effect: spike" or "bonus effect: slash" in tags or stat names
+        const incompatibleBonusEffects: Record<WeaponPrimaryStat, string[]> = {
+            'Slash': ['bonus effect: smash', 'bonus effect: spike', 'Smash Reduce', 'Spike Reduce'],
+            'Smash': ['bonus effect: slash', 'bonus effect: spike', 'Slash Reduce', 'Spike Reduce'],
+            'Spike': ['bonus effect: slash', 'bonus effect: smash', 'Slash Reduce', 'Smash Reduce'],
+        };
+
+        const bonusEffectConflicts = incompatibleBonusEffects[weaponPrimaryStat];
+
+        // Check in tags
+        const tagsString = wedge.tags.join(' ').toLowerCase();
+        const hasTagConflict = bonusEffectConflicts.some(conflict =>
+            tagsString.includes(conflict.toLowerCase())
+        );
+
+        if (hasTagConflict) return false;
+
+        // Check in stat names (for stats like "HP Reduce on Bonus Effect: Spike")
+        const hasStatNameConflict = allStatNames.some(statName =>
+            bonusEffectConflicts.some(conflict =>
+                statName.toLowerCase().includes(conflict.toLowerCase())
+            )
+        );
+
+        if (hasStatNameConflict) return false;
+
+        return true; // No conflict found
+    };
 
     const applyDefaults = (value: TeamPreset): TeamPreset => ({
         ...value,
@@ -495,14 +566,21 @@ export function TeamPresetBuilder({ isOpen, onClose, onSave, initialPreset }: Te
                 onClose={() => setWedgeModalTarget(null)}
                 onSelect={handleWedgeSelected}
                 allowedCategories={
+                    // Main and Support character wedges
                     wedgeModalTarget?.entity === 'main'
                         ? ['character']
-                        : wedgeModalTarget?.entity === 'mainWeapon'
-                            ? wedgeModalTarget.category === 'Melee'
-                                ? ['melee-weapon']
-                                : ['ranged-weapon']
-                            : wedgeModalTarget?.entity === 'support'
-                                ? ['character']
+                        : wedgeModalTarget?.entity === 'support'
+                            ? ['character']
+                            // Main Melee/Range Weapon wedges
+                            // NOTE: Only 'melee-weapon' and 'ranged-weapon' categories allowed
+                            // Consonance weapon wedges ('melee-consonance', 'ranged-consonance') are EXCLUDED
+                            : wedgeModalTarget?.entity === 'mainWeapon'
+                                ? wedgeModalTarget.category === 'Melee'
+                                    ? ['melee-weapon']
+                                    : ['ranged-weapon']
+                                // Support Melee/Range Weapon wedges
+                                // NOTE: Only 'melee-weapon' and 'ranged-weapon' categories allowed
+                                // Consonance weapon wedges ('melee-consonance', 'ranged-consonance') are EXCLUDED
                                 : wedgeModalTarget?.entity === 'supportWeapon'
                                     ? wedgeModalTarget.category === 'Melee'
                                         ? ['melee-weapon']
@@ -515,6 +593,18 @@ export function TeamPresetBuilder({ isOpen, onClose, onSave, initialPreset }: Te
                             const mainCharacter = preset.mainCharacter.characterId
                                 ? allCharacters.find((c) => c.id === preset.mainCharacter.characterId)
                                 : null;
+                            const isCenterSlot = wedgeModalTarget.slotIndex === MAIN_WEDGE_SLOTS - 1;
+                            const isFeatheredSerpent = wedge.name.toLowerCase().includes("feathered serpent");
+
+                            // Center slot: only Feathered Serpent's wedges
+                            if (isCenterSlot) {
+                                return isFeatheredSerpent;
+                            }
+                            // Other slots: exclude Feathered Serpent's wedges
+                            if (isFeatheredSerpent) {
+                                return false;
+                            }
+
                             if (!mainCharacter) return true;
                             // Show wedges with no element (generic) or matching the character's element
                             return !wedge.element || wedge.element === mainCharacter.element;
@@ -525,11 +615,50 @@ export function TeamPresetBuilder({ isOpen, onClose, onSave, initialPreset }: Te
                                 const supportCharacter = preset.supportCharacters[supportIndex]?.characterId
                                     ? allCharacters.find((c) => c.id === preset.supportCharacters[supportIndex].characterId)
                                     : null;
+                                const isCenterSlot = wedgeModalTarget.slotIndex === SUPPORT_WEDGE_SLOTS - 1;
+                                const isFeatheredSerpent = wedge.name.toLowerCase().includes("feathered serpent");
+
+                                // Center slot: only Feathered Serpent's wedges
+                                if (isCenterSlot) {
+                                    return isFeatheredSerpent;
+                                }
+                                // Other slots: exclude Feathered Serpent's wedges
+                                if (isFeatheredSerpent) {
+                                    return false;
+                                }
+
                                 if (!supportCharacter) return true;
                                 // Show wedges with no element (generic) or matching the character's element
                                 return !wedge.element || wedge.element === supportCharacter.element;
                             }
-                            : undefined
+                            : wedgeModalTarget?.entity === 'mainWeapon'
+                                ? (wedge) => {
+                                    // Exclude Consonance Weapon wedges
+                                    if (wedge.usage === 'Consonance Weapon') return false;
+
+                                    // Get the weapon for this category
+                                    const weaponId = wedgeModalTarget.category === 'Melee'
+                                        ? preset.mainCharacter.meleeWeaponId
+                                        : preset.mainCharacter.rangeWeaponId;
+                                    const weapon = getWeaponById(weaponId);
+
+                                    // Filter based on weapon's primary stat
+                                    return isWedgeCompatibleWithWeapon(wedge, weapon?.name);
+                                }
+                                : wedgeModalTarget?.entity === 'supportWeapon'
+                                    ? (wedge) => {
+                                        // Exclude Consonance Weapon wedges
+                                        if (wedge.usage === 'Consonance Weapon') return false;
+
+                                        // Get the weapon for this support character
+                                        const supportIndex = wedgeModalTarget.supportIndex;
+                                        const weaponId = preset.supportCharacters[supportIndex]?.weaponId;
+                                        const weapon = getWeaponById(weaponId);
+
+                                        // Filter based on weapon's primary stat
+                                        return isWedgeCompatibleWithWeapon(wedge, weapon?.name);
+                                    }
+                                    : undefined
                 }
             />
         </div>
@@ -728,6 +857,17 @@ function MainCharacterStep({
                 placeholder={!character}
                 placeholderLabel="Tap to pick your lead character"
                 titleValue={character?.name}
+                rightContent={
+                    <TrialRankSelector
+                        selectedRankLevel={preset.mainCharacter.trialRank ?? null}
+                        onChange={(rank) =>
+                            setPreset({
+                                ...preset,
+                                mainCharacter: { ...preset.mainCharacter, trialRank: rank },
+                            })
+                        }
+                    />
+                }
             />
             {character && (
                 <>
@@ -1012,6 +1152,7 @@ function SupportStep({
                         onRemoveSlot={onRemoveWedge}
                         onToggleEnabled={onToggleWedge}
                         onLevelChange={onWedgeLevelChange}
+                        layoutMode="centered-3x3"
                     />
                     {supportWeapon && support.weaponCategory && (
                         <TeamPresetWedgeGrid
@@ -1098,6 +1239,7 @@ function StepSection({
     placeholder,
     placeholderLabel,
     titleValue,
+    rightContent,
 }: {
     title: string;
     description: string;
@@ -1107,7 +1249,9 @@ function StepSection({
     placeholder?: boolean;
     placeholderLabel?: string;
     titleValue?: string | null;
+    rightContent?: ReactNode;
 }) {
+
     if (placeholder) {
         return (
             <button
@@ -1126,31 +1270,38 @@ function StepSection({
     }
 
     return (
-        <button
-            onClick={onAction}
-            className="group relative h-[90px] w-full max-w-md mx-auto overflow-hidden rounded-xl border border-white/10 bg-white/5 text-left transition-all hover:border-white/20 hover:bg-white/10"
-        >
-            {media && (
-                <div className="absolute bottom-0 right-0 top-0 w-[60%]">
-                    <div
-                        className="relative h-full w-full opacity-80"
-                        style={{
-                            maskImage: 'linear-gradient(to left, black 40%, transparent 100%)',
-                            WebkitMaskImage: 'linear-gradient(to left, black 40%, transparent 100%)',
-                        }}
-                    >
-                        {media}
+        <div className="w-full max-w-md mx-auto space-y-2">
+            <button
+                onClick={onAction}
+                className="group relative h-[90px] w-full overflow-hidden rounded-xl border border-white/10 bg-white/5 text-left transition-all hover:border-white/20 hover:bg-white/10"
+            >
+                {media && (
+                    <div className="absolute bottom-0 right-0 top-0 w-[60%]">
+                        <div
+                            className="relative h-full w-full opacity-80"
+                            style={{
+                                maskImage: 'linear-gradient(to left, black 40%, transparent 100%)',
+                                WebkitMaskImage: 'linear-gradient(to left, black 40%, transparent 100%)',
+                            }}
+                        >
+                            {media}
+                        </div>
+                    </div>
+                )}
+                <div className="relative z-10 flex h-full items-center px-6 justify-between">
+                    <div className="flex flex-col justify-center">
+                        <p className="text-xs font-medium uppercase tracking-wider text-white/40">{title}</p>
+                        <p className="text-lg font-bold text-white">{titleValue}</p>
+                        <p className="text-xs text-white/60">{description}</p>
                     </div>
                 </div>
-            )}
-            <div className="relative z-10 flex h-full items-center justify-between px-6">
-                <div className="flex flex-col justify-center">
-                    <p className="text-xs font-medium uppercase tracking-wider text-white/40">{title}</p>
-                    <p className="text-lg font-bold text-white">{titleValue}</p>
-                    <p className="text-xs text-white/60">{description}</p>
+            </button>
+            {rightContent && (
+                <div className="flex justify-end">
+                    {rightContent}
                 </div>
-            </div>
-        </button>
+            )}
+        </div>
     );
 }
 
@@ -1233,6 +1384,33 @@ function NumberField({
     max?: number;
     isTextField?: boolean;
 }) {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (isTextField) {
+            onChange(event.target.value);
+            return;
+        }
+
+        const inputValue = event.target.value;
+
+        // Allow empty input for typing
+        if (inputValue === '') {
+            onChange(min ?? 1);
+            return;
+        }
+
+        // Parse as integer (no decimals)
+        const parsed = parseInt(inputValue, 10);
+
+        // Validate: must be a positive integer within range
+        if (isNaN(parsed) || parsed < (min ?? 1)) {
+            onChange(min ?? 1);
+        } else if (max !== undefined && parsed > max) {
+            onChange(max);
+        } else {
+            onChange(parsed);
+        }
+    };
+
     return (
         <div>
             <label className="mb-2 block text-sm font-medium text-white/70">{label}</label>
@@ -1240,10 +1418,15 @@ function NumberField({
                 type={isTextField ? 'text' : 'number'}
                 min={min}
                 max={max}
+                step={isTextField ? undefined : 1}
                 value={value}
-                onChange={(event) =>
-                    onChange(isTextField ? event.target.value : Number(event.target.value))
-                }
+                onChange={handleChange}
+                onKeyDown={(event) => {
+                    // Prevent decimal point and minus sign for number inputs
+                    if (!isTextField && (event.key === '.' || event.key === '-' || event.key === 'e')) {
+                        event.preventDefault();
+                    }
+                }}
                 className="w-full rounded-xl bg-white/5 px-4 py-3 text-white outline-none ring-1 ring-white/10 focus:ring-2 focus:ring-blue-500"
             />
         </div>

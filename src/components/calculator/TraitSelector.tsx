@@ -16,10 +16,16 @@ interface TraitModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSelect: (trait: GeniemonTrait, rarity: 'blue' | 'purple' | 'gold') => void;
+    selectedTraitNames: string[];
 }
 
-function TraitSelectionModal({ isOpen, onClose, onSelect }: TraitModalProps) {
+function TraitSelectionModal({ isOpen, onClose, onSelect, selectedTraitNames }: TraitModalProps) {
     const [selectedRarity, setSelectedRarity] = useState<'blue' | 'purple' | 'gold'>('gold');
+
+    // Filter out already selected traits
+    const availableTraits = geniemonTraits.filter(
+        trait => !selectedTraitNames.includes(trait.name)
+    );
 
     if (!isOpen) return null;
 
@@ -77,7 +83,7 @@ function TraitSelectionModal({ isOpen, onClose, onSelect }: TraitModalProps) {
                 {/* Trait Grid */}
                 <div className="overflow-y-auto p-6" style={{ maxHeight: 'calc(90vh - 300px)' }}>
                     <div className="grid gap-3">
-                        {geniemonTraits.map((trait, index) => {
+                        {availableTraits.map((trait, index) => {
                             const effect =
                                 selectedRarity === 'blue' ? trait.blueEffect :
                                     selectedRarity === 'purple' ? trait.purpleEffect :
@@ -176,8 +182,12 @@ export function TraitSelector({ traits, onUpdateTrait, maxSlots }: TraitSelector
                                             <div className="truncate text-sm font-semibold text-white">
                                                 {traitSlot.trait!.name}
                                             </div>
-                                            <div className="text-xs capitalize text-white/60">
-                                                {traitSlot.rarity}
+                                            <div className="text-xs text-white/60 line-clamp-2">
+                                                {traitSlot.rarity === 'blue'
+                                                    ? traitSlot.trait!.blueEffect
+                                                    : traitSlot.rarity === 'purple'
+                                                        ? traitSlot.trait!.purpleEffect
+                                                        : traitSlot.trait!.goldEffect}
                                             </div>
                                         </div>
                                         <button
@@ -211,6 +221,9 @@ export function TraitSelector({ traits, onUpdateTrait, maxSlots }: TraitSelector
                     setEditingSlotIndex(-1);
                 }}
                 onSelect={handleSelectTrait}
+                selectedTraitNames={traits
+                    .filter(t => t.trait && t.slotIndex !== editingSlotIndex)
+                    .map(t => t.trait!.name)}
             />
         </>
     );

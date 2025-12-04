@@ -30,6 +30,14 @@
                 <div class="ace-line" data-lang-en="In the current version, within the Mystic Maze Lv. 80 difficulty, if the [Domain of Malignant Growth] effect (which increases enemy max HP) is active during combat with high-risk enemies, the portion of the health bar exceeding the enemy's initial maximum HP may not be shown. This issue is scheduled to be fixed in a future version." data-lang-th="ในเวอร์ชันปัจจุบัน ใน Mystic Maze ระดับความยาก 80 หากเอฟเฟกต์ [Domain of Malignant Growth] (ซึ่งเพิ่ม HP สูงสุดของศัตรู) ทำงานระหว่างการต่อสู้กับศัตรูความเสี่ยงสูง ส่วนของแถบ HP ที่เกิน HP สูงสุดเริ่มต้นของศัตรูอาจไม่แสดง ปัญหานี้จะได้รับการแก้ไขในเวอร์ชันอนาคต">✧ In the current version, within the Mystic Maze Lv. 80 difficulty, if the [Domain of Malignant Growth] effect (which increases enemy max HP) is active during combat with high-risk enemies, the portion of the health bar exceeding the enemy's initial maximum HP may not be shown. This issue is scheduled to be fixed in a future version.</div>
                 <div class="ace-line">&nbsp;</div>
                 
+                <div class="ace-line"><strong>[Update Details - 2025-12-03]</strong></div>
+                <div class="ace-line" data-lang-en="Fixed some text translation errors." data-lang-th="แก้ไขข้อผิดพลาดในการแปลข้อความบางส่วน">✦ Fixed some text translation errors.</div>
+                <div class="ace-line">&nbsp;</div>
+                
+                <div class="ace-line"><strong>[Update Details - 2025-12-02]</strong></div>
+                <div class="ace-line" data-lang-en="Fixed some abnormal interface display." data-lang-th="แก้ไขการแสดงอินเทอร์เฟซที่ผิดปกติบางส่วน">✦ Fixed some abnormal interface display.</div>
+                <div class="ace-line">&nbsp;</div>
+                
                 <div class="ace-line"><strong>[Update Details - 2025-11-27]</strong></div>
                 <div class="ace-line" data-lang-en="Fixed an issue in the [A Rainbow-coloured Dream] event where First Clear Rewards were not distributed properly. Missing Secret Letter Clues have now been reissued via in-game mail." data-lang-th="แก้ไขปัญหาในกิจกรรม [A Rainbow-coloured Dream] ที่รางวัล First Clear ไม่ได้รับการแจกจ่ายอย่างถูกต้อง Secret Letter Clues ที่หายไปได้ถูกส่งใหม่ผ่านเมลในเกมแล้ว">✦ Fixed an issue in the [A Rainbow-coloured Dream] event where First Clear Rewards were not distributed properly. Missing Secret Letter Clues have now been reissued via in-game mail.</div>
                 <div class="ace-line">&nbsp;</div>
@@ -84,6 +92,7 @@
                 <div class="ace-line" data-lang-en="Fixed an issue in co-op commissions where teammate names could display incorrectly after they left the commission." data-lang-th="แก้ไขปัญหาในภารกิจร่วมที่ชื่อเพื่อนร่วมทีมอาจแสดงไม่ถูกต้องหลังจากออกจากภารกิจ">✦ Fixed an issue in co-op commissions where teammate names could display incorrectly after they left the commission.</div>
                 <div class="ace-line" data-lang-en="Fixed some text translation errors." data-lang-th="แก้ไขข้อผิดพลาดในการแปลข้อความบางส่วน">✦ Fixed some text translation errors.</div>
                 <div class="ace-line">&nbsp;</div>
+                
                 <div class="ace-line"><strong>[Update Details - 2025-11-12]</strong></div>
                 <div class="ace-line" data-lang-en="Optimized performance on selected mobile devices in the co-op area of Icelake." data-lang-th="ปรับปรุงประสิทธิภาพบนอุปกรณ์มือถือที่เลือกในพื้นที่ co-op ของ Icelake">✦ Optimized performance on selected mobile devices in the co-op area of Icelake.</div>
                 <div class="ace-line" data-lang-en="Fixed some text translation errors." data-lang-th="แก้ไขข้อผิดพลาดในการแปลข้อความบางส่วน">✦ Fixed some text translation errors.</div>

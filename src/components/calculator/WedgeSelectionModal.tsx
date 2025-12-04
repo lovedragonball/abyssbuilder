@@ -101,11 +101,10 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
                                     setIsMultiSelectMode(!isMultiSelectMode);
                                     if (isMultiSelectMode) setSelectedWedges([]);
                                 }}
-                                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-2 ${
-                                    isMultiSelectMode
+                                className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-2 ${isMultiSelectMode
                                         ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/40 scale-105'
                                         : 'bg-gradient-to-r from-amber-500/80 to-orange-500/80 text-white hover:from-amber-500 hover:to-orange-500 hover:shadow-lg hover:shadow-amber-500/30 hover:scale-105 animate-pulse'
-                                }`}
+                                    }`}
                             >
                                 <Layers className="w-4 h-4" />
                                 {isMultiSelectMode ? 'Multi-Select ON' : 'Multi-Select'}
@@ -123,7 +122,7 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
                         <Search className="absolute left-3 top-3 h-4 w-4 text-white/40" />
                         <input
                             type="text"
-                            placeholder="Search by name, description..."
+                            placeholder="Search by name, stats, description, element, type..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             className="w-full pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors"
@@ -164,12 +163,11 @@ export function WedgeSelectionModal({ isOpen, onClose, onSelect, onSelectMultipl
                         {filteredWedges.map(wedge => (
                             <div key={wedge.id} className="relative">
                                 {isMultiSelectMode && (
-                                    <div 
-                                        className={`absolute top-2 left-2 z-10 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all cursor-pointer ${
-                                            isWedgeSelected(wedge)
+                                    <div
+                                        className={`absolute top-2 left-2 z-10 w-6 h-6 rounded-md border-2 flex items-center justify-center transition-all cursor-pointer ${isWedgeSelected(wedge)
                                                 ? 'bg-purple-500 border-purple-500'
                                                 : 'bg-black/60 border-white/30 hover:border-white/50'
-                                        } ${selectedWedges.length >= availableSlots && !isWedgeSelected(wedge) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                            } ${selectedWedges.length >= availableSlots && !isWedgeSelected(wedge) ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         onClick={(e) => {
                                             e.stopPropagation();
                                             handleWedgeClick(wedge);

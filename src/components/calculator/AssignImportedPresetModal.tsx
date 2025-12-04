@@ -23,6 +23,8 @@ export function AssignImportedPresetModal({
 
     const mainCharacter = allCharacters.find((character) => character.id === preset.mainCharacter.characterId);
     const geniemon = allGeniemon.find((entry) => entry.id === preset.geniemon.geniemonId);
+    const support1 = allCharacters.find((character) => character.id === preset.supportCharacters[0]?.characterId);
+    const support2 = allCharacters.find((character) => character.id === preset.supportCharacters[1]?.characterId);
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
@@ -40,8 +42,7 @@ export function AssignImportedPresetModal({
                         <p className="text-xs uppercase tracking-wide text-emerald-400">Shared Preset Detected</p>
                         <h2 className="text-2xl font-semibold text-white mt-1">{preset.name}</h2>
                         <p className="text-sm text-white/60">
-                            Choose whether to load this team into Preset A or Preset B. The existing team on that side
-                            will be replaced.
+                            Review the team composition below and import it.
                         </p>
                     </div>
 
@@ -62,12 +63,26 @@ export function AssignImportedPresetModal({
                             }
                             image={geniemon?.image}
                         />
+                        <SummaryTile
+                            label="Support 1"
+                            title={support1?.name ?? 'Empty'}
+                            subtitle={support1 ? `${support1.element} • ${support1.role}` : 'No support selected'}
+                            image={support1?.image}
+                        />
+                        <SummaryTile
+                            label="Support 2"
+                            title={support2?.name ?? 'Empty'}
+                            subtitle={support2 ? `${support2.element} • ${support2.role}` : 'No support selected'}
+                            image={support2?.image}
+                        />
                     </div>
 
-                    <div className="grid gap-3 md:grid-cols-2">
-                        <AssignButton side="A" onClick={() => onAssign('A')} />
-                        <AssignButton side="B" onClick={() => onAssign('B')} />
-                    </div>
+                    <button
+                        onClick={() => onAssign('A')}
+                        className="w-full rounded-xl border border-white/10 bg-gradient-to-r from-emerald-500 to-teal-500 px-4 py-3 text-center transition hover:opacity-90"
+                    >
+                        <p className="text-lg font-semibold text-white">Import Preset</p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -105,17 +120,5 @@ function SummaryTile({
     );
 }
 
-function AssignButton({ side, onClick }: { side: 'A' | 'B'; onClick: () => void }) {
-    const gradient = side === 'A' ? 'from-cyan-500 to-blue-500' : 'from-purple-500 to-pink-500';
-    return (
-        <button
-            onClick={onClick}
-            className={`rounded-xl border border-white/10 bg-gradient-to-r ${gradient} px-4 py-3 text-left transition hover:opacity-90`}
-        >
-            <p className="text-xs uppercase tracking-wide text-white/80">Load into Preset {side}</p>
-            <p className="text-lg font-semibold text-white">Replace Team {side}</p>
-            <p className="text-xs text-white/70">Existing data on side {side} will be overwritten.</p>
-        </button>
-    );
-}
+
 

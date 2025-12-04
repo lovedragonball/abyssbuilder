@@ -3,8 +3,9 @@
 import { TeamPreset } from '@/lib/team-preset-types';
 import { allCharacters } from '@/lib/data';
 import { allGeniemon } from '@/lib/geniemon-data';
-import { Copy, Edit, Share2, Plus, Users, Trash2 } from 'lucide-react';
+import { Copy, Edit, Share2, Plus, Users, Trash2, Shield } from 'lucide-react';
 import Image from 'next/image';
+import trialRanks from '@/lib/trial-rank.json';
 
 interface TeamPresetCardProps {
     preset: TeamPreset | null;
@@ -65,6 +66,11 @@ export function TeamPresetCard({
     const geniemon = allGeniemon.find(g => g.id === preset.geniemon.geniemonId);
     const support1 = allCharacters.find(c => c.id === preset.supportCharacters[0].characterId);
     const support2 = allCharacters.find(c => c.id === preset.supportCharacters[1].characterId);
+
+    // Get trial rank data
+    const trialRank = preset.mainCharacter.trialRank
+        ? trialRanks.find(r => r.level === preset.mainCharacter.trialRank)
+        : null;
 
     // Count items
     const totalWedges =
@@ -134,11 +140,19 @@ export function TeamPresetCard({
                         <div className="text-xs text-white/60">Main Character</div>
                         <div className="font-semibold">{mainCharacter?.name || 'Not selected'}</div>
                         {mainCharacter && (
-                            <div className="mt-1 text-xs text-white/60">
-                                Lv.{preset.mainCharacter.characterLevel}
-                                {preset.mainCharacter.meleeWeaponId && ' • Melee'}
-                                {preset.mainCharacter.rangeWeaponId && ' • Range'}
-                            </div>
+                            <>
+                                <div className="mt-1 text-xs text-white/60">
+                                    Lv.{preset.mainCharacter.characterLevel}
+                                    {preset.mainCharacter.meleeWeaponId && ' • Melee'}
+                                    {preset.mainCharacter.rangeWeaponId && ' • Range'}
+                                </div>
+                                {trialRank && (
+                                    <div className="mt-1.5 flex items-center gap-1.5 rounded bg-amber-500/10 px-2 py-1 w-fit">
+                                        <Shield className="h-3 w-3 text-amber-400" />
+                                        <span className="text-xs font-bold text-amber-400">{trialRank.rank}</span>
+                                    </div>
+                                )}
+                            </>
                         )}
                     </div>
                 </div>
@@ -206,15 +220,7 @@ export function TeamPresetCard({
                 </div>
             </div>
 
-            {/* Stats */}
-            <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4 text-sm">
-                <div className="text-white/60">
-                    <span className="font-semibold text-white">{totalWedges}</span> Demon Wedges
-                </div>
-                <div className="text-white/60">
-                    <span className="font-semibold text-white">{totalTraits}</span> Traits
-                </div>
-            </div>
+
         </div>
     );
 }

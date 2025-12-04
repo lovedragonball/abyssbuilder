@@ -20,6 +20,10 @@ import { allDemonWedges } from '@/lib/demon-wedges-data';
 
 type MaybePresetSlot = (EquippedCalculatorWedge & { enabled: boolean }) | undefined;
 
+// LocalStorage keys
+const STORAGE_KEY_PRESET_A = 'abyssbuilder_team_preset_a';
+const STORAGE_KEY_PRESET_B = 'abyssbuilder_team_preset_b';
+
 export default function CalculatorPage() {
     const [damageType, setDamageType] = useState<'character' | 'weapon'>('character');
 
@@ -36,6 +40,25 @@ export default function CalculatorPage() {
     const [isImportModalOpen, setIsImportModalOpen] = useState(false);
     const [pendingImportedPreset, setPendingImportedPreset] = useState<TeamPreset | null>(null);
 
+    // Load presets from localStorage on mount
+    useEffect(() => {
+        try {
+            const savedPresetA = localStorage.getItem(STORAGE_KEY_PRESET_A);
+            const savedPresetB = localStorage.getItem(STORAGE_KEY_PRESET_B);
+
+            if (savedPresetA) {
+                const parsed = JSON.parse(savedPresetA) as TeamPreset;
+                setTeamPresetA(parsed);
+            }
+            if (savedPresetB) {
+                const parsed = JSON.parse(savedPresetB) as TeamPreset;
+                setTeamPresetB(parsed);
+            }
+        } catch (error) {
+            console.error('Failed to load presets from localStorage:', error);
+        }
+    }, []);
+
     // Check for shared preset on mount
     useEffect(() => {
         const sharedPreset = parseSharedPresetFromURL();
@@ -44,6 +67,31 @@ export default function CalculatorPage() {
             clearPresetQueryParam();
         }
     }, []);
+
+    // Save presets to localStorage whenever they change
+    useEffect(() => {
+        try {
+            if (teamPresetA) {
+                localStorage.setItem(STORAGE_KEY_PRESET_A, JSON.stringify(teamPresetA));
+            } else {
+                localStorage.removeItem(STORAGE_KEY_PRESET_A);
+            }
+        } catch (error) {
+            console.error('Failed to save preset A to localStorage:', error);
+        }
+    }, [teamPresetA]);
+
+    useEffect(() => {
+        try {
+            if (teamPresetB) {
+                localStorage.setItem(STORAGE_KEY_PRESET_B, JSON.stringify(teamPresetB));
+            } else {
+                localStorage.removeItem(STORAGE_KEY_PRESET_B);
+            }
+        } catch (error) {
+            console.error('Failed to save preset B to localStorage:', error);
+        }
+    }, [teamPresetB]);
 
     // Convert team preset to old format for damage calculation
     // This maintains compatibility with existing DamageVisualization component
@@ -232,6 +280,40 @@ export default function CalculatorPage() {
                     <p className="text-white/60 max-w-2xl">
                         Build and compare team configurations <span className="font-semibold text-white">Head-to-Head</span>.
                     </p>
+                </div>
+            </div>
+
+            {/* Team Presets Header */}
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <div className="space-y-1">
+                    <h2 className="text-2xl font-bold">Team Presets</h2>
+                    <p className="text-sm text-white/60">Create and compare team configurations</p>
+                </div>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                    <button
+                        onClick={() => setIsImportModalOpen(true)}
+                        className="flex items-center justify-center gap-2 rounded-lg border border-white/15 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white"
+                    >
+                        Import Shared Preset
+                    </button>
+                    <button
+                        onClick={() => {
+                            if (!teamPresetA) {
+                                handleCreatePreset('A');
+                            } else if (!teamPresetB) {
+                                handleCreatePreset('B');
+                            } else {
+                                handleCreatePreset('A');
+                            }
+                        }}
+                        className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-6 py-3 font-semibold text-white transition hover:from-blue-600 hover:to-purple-600"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-plus h-5 w-5">
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5v14"></path>
+                        </svg>
+                        New Team Preset
+                    </button>
                 </div>
             </div>
 
