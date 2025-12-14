@@ -48,7 +48,6 @@ const nextConfig: NextConfig = {
       // Icons
       'lucide-react',
       // Utilities
-      'date-fns',
       'clsx',
       'zod',
       // Radix UI - all packages

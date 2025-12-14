@@ -33,7 +33,6 @@ import {
 } from "@/components/ui/tooltip"
 import { useAuth } from '@/contexts/auth-context';
 import { useToast } from '@/hooks/use-toast';
-import { v4 as uuidv4 } from 'uuid';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { MultiSelectFilter } from '@/components/multi-select-filter';
 import { CharacterOverviewEmbed } from '@/components/CharacterOverviewEmbed';
@@ -1263,7 +1262,7 @@ export default function CreateBuildDetailPage() {
         const normalizedSupportAdjustedSlots = normalizeSupportAdjustedSlots(supportAdjustedSlots);
 
         const buildData: any = {
-            id: existingBuildId || uuidv4(),
+            id: existingBuildId || crypto.randomUUID(),
             userId: user.uid,
             buildName: buildName,
             description: buildDescription,
