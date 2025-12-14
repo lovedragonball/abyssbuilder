@@ -51,7 +51,21 @@ const nextConfig: NextConfig = {
   },
 
   // External packages for serverless (reduce bundle size)
+  // External packages for serverless (reduce bundle size)
   serverExternalPackages: ['leaflet', 'react-leaflet'],
+
+  // Exclude heavy files from the serverless function bundle
+  experimental: {
+    outputFileTracingExcludes: {
+      '*': [
+        'node_modules/@swc/core-linux-x64-gnu',
+        'node_modules/@swc/core-linux-x64-musl',
+        'node_modules/@esbuild/linux-x64',
+        'node_modules/webpack',
+        'node_modules/terser',
+      ],
+    },
+  },
 
   // Turbopack config (Next.js 16+)
   turbopack: {},
