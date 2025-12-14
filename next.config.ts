@@ -76,12 +76,21 @@ const nextConfig: NextConfig = {
       'node_modules/webpack',
       'node_modules/terser',
       'node_modules/esbuild',
+      'node_modules/sharp', // Vercel provides sharp in the runtime
+      'node_modules/@next/swc-linux-x64-gnu',
+      'node_modules/@next/swc-linux-x64-musl',
+      'node_modules/typescript',
+      'node_modules/eslint',
+      'node_modules/jest',
+      'node_modules/@jest',
+      'node_modules/postcss',
+      'node_modules/tailwindcss',
       '**/*.map',
       '**/*.d.ts',
       '**/*.test.js',
       '**/*.test.ts',
-      'public/maps/**/*', // Exclude large maps if possible, or warn user
-      'public/Forging/**/*', // Exclude large forging assets if possible
+      'public/maps/**/*',
+      'public/Forging/**/*',
     ],
   },
 
