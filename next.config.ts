@@ -57,27 +57,8 @@ const nextConfig: NextConfig = {
   //   optimizeCss: true, // Disabled: requires 'critters' package
   // },
 
-  // Webpack optimizations
-  webpack: (config, { isServer, dev }) => {
-    // Production optimizations
-    if (!dev && !isServer) {
-      // Enable tree shaking
-      config.optimization = {
-        ...config.optimization,
-        usedExports: true,
-        sideEffects: false,
-      };
-
-      // Performance budgets
-      config.performance = {
-        maxAssetSize: 244000, // 244kb
-        maxEntrypointSize: 244000,
-        hints: 'warning',
-      };
-    }
-
-    return config;
-  },
+  // Turbopack config (Next.js 16+)
+  turbopack: {},
 };
 
 export default nextConfig;
