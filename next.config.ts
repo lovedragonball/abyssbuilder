@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: false, // Disable Strict Mode to avoid double Leaflet initialization
+  output: 'standalone', // Reduce serverless function size
   typescript: {
     ignoreBuildErrors: true,
   },
