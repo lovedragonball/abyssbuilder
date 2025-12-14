@@ -168,17 +168,17 @@ export async function getPatchData(baseUrl?: string): Promise<PatchData> {
     if (!htmlContent) {
       try {
         // Get the base URL - prioritize passed parameter, then environment variables
-        const url = baseUrl 
+        const url = baseUrl
           || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null)
           || process.env.NEXT_PUBLIC_BASE_URL
           || (process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : null);
-        
+
         if (url) {
           const patchUrl = `${url}/Patch.txt`;
           console.log(`Attempting to fetch Patch.txt from URL: ${patchUrl}`);
-          
+
           const response = await fetch(patchUrl, {
-            cache: 'no-store',
+            next: { revalidate: 3600 }, // Revalidate every hour instead of no-store
             headers: {
               'User-Agent': 'AbyssBuilder/1.0',
             },
@@ -219,7 +219,7 @@ export async function getPatchData(baseUrl?: string): Promise<PatchData> {
               htmlContent = await fs.promises.readFile(altPublicPath, 'utf-8');
               loadMethod = `filesystem: ${altPublicPath}`;
               console.log(`✅ Loaded Patch.txt from public: ${altPublicPath}`);
-            } catch {}
+            } catch { }
           }
         }
       } catch (altErr) {
