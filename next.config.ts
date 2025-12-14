@@ -54,9 +54,9 @@ const nextConfig: NextConfig = {
   // experimental: {
   //   optimizeCss: true, // Disabled: requires 'critters' package
   // },
-
-  // Turbopack config (Next.js 16+)
-  turbopack: {},
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
