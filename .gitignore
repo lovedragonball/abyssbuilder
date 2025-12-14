@@ -58,3 +58,10 @@ ENV/
 pip-log.txt
 pip-delete-this-directory.txt
 .pytest_cache/
+
+# Large image assets (served from public folder, excluded from Git to reduce bundle size)
+/Forging/
+/My Map/
+/DW Image/
+*.png
+!/.idx/icon.png
