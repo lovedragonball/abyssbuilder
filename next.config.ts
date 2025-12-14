@@ -144,6 +144,11 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // Include Patch.txt in the serverless function bundle
+  outputFileTracingIncludes: {
+    '/': ['./public/Patch.txt'],
+  },
+
   // Turbopack config (Next.js 16+)
   turbopack: {},
 };

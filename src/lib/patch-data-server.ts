@@ -146,12 +146,16 @@ export async function getPatchData(baseUrl?: string): Promise<PatchData> {
     // Method 1: Try to read from filesystem (for local development and Vercel serverless)
     const cwd = process.cwd();
     // Prioritize public folder which is standard for Next.js static assets
+    // On Vercel, process.cwd() is usually /var/task
     const possiblePaths = [
       path.join(cwd, 'public', 'Patch.txt'),
       path.join(cwd, 'Patch.txt'),
+      // Try resolving relative to the current file location
+      path.resolve(__dirname, '../../../../public/Patch.txt'),
+      path.resolve(__dirname, '../../../public/Patch.txt'),
     ];
 
-    console.log(`[PatchData] Attempting to load Patch.txt from filesystem. CWD: ${cwd}`);
+    console.log(`[PatchData] Attempting to load Patch.txt from filesystem. CWD: ${cwd}, __dirname: ${__dirname}`);
 
     for (const filePath of possiblePaths) {
       try {
@@ -163,7 +167,8 @@ export async function getPatchData(baseUrl?: string): Promise<PatchData> {
         console.log(`[PatchData] ✅ Successfully loaded Patch.txt from: ${filePath}`);
         break;
       } catch (err) {
-        console.log(`[PatchData] ⚠️ Could not read from ${filePath}:`, err instanceof Error ? err.message : String(err));
+        // Only log if it's NOT a simple "no such file" error to reduce noise, unless debugging
+        // console.log(`[PatchData] ⚠️ Could not read from ${filePath}:`, err instanceof Error ? err.message : String(err));
         continue;
       }
     }
