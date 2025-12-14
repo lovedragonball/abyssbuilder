@@ -50,13 +50,11 @@ const nextConfig: NextConfig = {
     } : false,
   },
 
-  // Optimize CSS
-  // experimental: {
-  //   optimizeCss: true, // Disabled: requires 'critters' package
-  // },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // External packages for serverless (reduce bundle size)
+  serverExternalPackages: ['leaflet', 'react-leaflet'],
+
+  // Turbopack config (Next.js 16+)
+  turbopack: {},
 };
 
 export default nextConfig;
