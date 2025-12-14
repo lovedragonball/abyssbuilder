@@ -125,7 +125,7 @@ export const BuildCard = React.forwardRef<HTMLDivElement, BuildCardProps>(
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-10 w-10 sm:h-9 sm:w-9 rounded-full bg-black/40 backdrop-blur-sm hover:bg-black/60 border border-white/10 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0"
+                className="h-10 w-10 sm:h-9 sm:w-9 rounded-full bg-black/60 hover:bg-black/80 border border-white/10 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0"
                 onClick={handleBookmark}
               >
                 <AnimatePresence mode="wait">
@@ -160,7 +160,7 @@ export const BuildCard = React.forwardRef<HTMLDivElement, BuildCardProps>(
                 {buildName}
               </h3>
               <p className="text-white/80 text-xs sm:text-sm">{itemName}</p>
-              <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded-full bg-white/10 backdrop-blur-sm text-white/90 border border-white/20">
+              <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded-full bg-black/40 text-white/90 border border-white/20">
                 {itemType}
               </span>
             </div>
@@ -169,7 +169,7 @@ export const BuildCard = React.forwardRef<HTMLDivElement, BuildCardProps>(
             <AnimatePresence>
               {isHovered && (
                 <motion.div
-                  className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center gap-1 z-40 flex-nowrap rounded-t-lg pointer-events-none"
+                  className="absolute inset-0 bg-black/80 flex items-center justify-center gap-1 z-40 flex-nowrap rounded-t-lg pointer-events-none"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

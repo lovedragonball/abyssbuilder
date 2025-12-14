@@ -43,16 +43,16 @@ export function HeroSection({
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // Reduced particle count for better GPU performance (was 30)
-    const particleCount = 12;
+    // Static stars for minimal GPU usage
+    const particleCount = 6;
     const particles: HTMLDivElement[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'absolute rounded-full pointer-events-none';
 
-      // Random size between 2-5px (slightly smaller)
-      const size = Math.random() * 3 + 2;
+      // Random size between 2-3px
+      const size = Math.random() * 1 + 2;
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
 
@@ -63,15 +63,9 @@ export function HeroSection({
       // Random color (blue to purple gradient)
       const hue = Math.random() * 60 + 210; // 210-270 (blue to purple)
       particle.style.backgroundColor = `hsl(${hue}, 80%, 60%)`;
-      // Removed boxShadow to reduce GPU load
 
-      // Slower animation for better performance (was 15-25s, now 20-35s)
-      const duration = Math.random() * 15 + 20;
-      const delay = Math.random() * 5;
-      particle.style.animation = `particle-float ${duration}s ${delay}s ease-in-out infinite`;
-      particle.style.opacity = `${Math.random() * 0.4 + 0.2}`;
-      // Use will-change sparingly
-      particle.style.willChange = 'transform';
+      // Static opacity - no animation
+      particle.style.opacity = `${Math.random() * 0.3 + 0.1}`;
 
       container.appendChild(particle);
       particles.push(particle);
@@ -133,9 +127,19 @@ export function HeroSection({
           className="absolute inset-0 opacity-30"
           style={{ y }}
         >
-          {/* Gradient orbs for depth - reduced size and blur for GPU performance */}
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/15 rounded-full blur-2xl" style={{ animation: 'float 8s ease-in-out infinite' }} />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl" style={{ animation: 'float 8s ease-in-out infinite', animationDelay: '1s' }} />
+          {/* Gradient orbs - static for minimal GPU usage */}
+          <div
+            className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full"
+            style={{
+              background: 'radial-gradient(circle, hsl(var(--primary) / 0.15) 0%, transparent 70%)',
+            }}
+          />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full"
+            style={{
+              background: 'radial-gradient(circle, hsl(var(--accent) / 0.15) 0%, transparent 70%)',
+            }}
+          />
         </motion.div>
       </div>
 
@@ -159,22 +163,10 @@ export function HeroSection({
               {title}
             </span>
           </h1>
-          {/* Sparkle decoration - optimized animation */}
-          <motion.div
-            className="inline-block ml-2 sm:ml-4"
-            animate={{
-              rotate: [0, 5, -5, 0],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'easeInOut',
-            }}
-          >
+          {/* Sparkle decoration - static */}
+          <div className="inline-block ml-2 sm:ml-4">
             <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 text-accent" />
-          </motion.div>
+          </div>
         </motion.div>
 
         <motion.p

@@ -60,7 +60,7 @@ export function FacebookCard() {
   }
 
   return (
-    <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 overflow-hidden h-full flex flex-col">
+    <div className="bg-gray-800/80 rounded-lg border border-gray-700/50 overflow-hidden h-full flex flex-col">
       <div className="p-4 border-b border-gray-700/50 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-[#1877F2]/10 flex items-center justify-center">

@@ -106,7 +106,7 @@ export function NotificationSubscribe() {
     };
 
     return (
-        <div className="w-full max-w-md mx-auto mt-6 p-4 rounded-xl border border-border bg-card/50 backdrop-blur-sm">
+        <div className="w-full max-w-md mx-auto mt-6 p-4 rounded-xl border border-border bg-card/80">
             <div className="flex items-center gap-2 mb-4">
                 <Bell className="w-5 h-5 text-primary" />
                 <h4 className="text-base font-semibold">Email Notifications</h4>

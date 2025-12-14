@@ -89,7 +89,7 @@ export function RedditCard() {
   }, [])
 
   return (
-    <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 overflow-hidden">
+    <div className="bg-gray-800/80 rounded-lg border border-gray-700/50 overflow-hidden">
       <div className="p-4 border-b border-gray-700/50 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-[#FF4500]/10 flex items-center justify-center">
@@ -126,20 +126,20 @@ export function RedditCard() {
           {status === "error" && (
             <div className="flex flex-col items-center justify-center gap-3 h-full text-gray-300 text-sm text-center px-4">
               <p>Unable to load Reddit right now.</p>
-                  <div className="flex flex-col gap-2 items-center">
-                    <button
-                      onClick={() => {
-                        setStatus("loading");
-                        fetchPosts()
-                          .then((parsed) => {
-                            setPosts(parsed);
-                            setStatus(parsed.length > 0 ? "ready" : "error");
-                          })
-                          .catch(() => setStatus("error"));
-                      }}
-                      className="px-3 py-1.5 rounded-md border border-gray-700/70 bg-gray-900/70 text-xs text-gray-100 hover:border-gray-600 hover:bg-gray-800/70 transition-colors"
-                    >
-                      Retry
+              <div className="flex flex-col gap-2 items-center">
+                <button
+                  onClick={() => {
+                    setStatus("loading");
+                    fetchPosts()
+                      .then((parsed) => {
+                        setPosts(parsed);
+                        setStatus(parsed.length > 0 ? "ready" : "error");
+                      })
+                      .catch(() => setStatus("error"));
+                  }}
+                  className="px-3 py-1.5 rounded-md border border-gray-700/70 bg-gray-900/70 text-xs text-gray-100 hover:border-gray-600 hover:bg-gray-800/70 transition-colors"
+                >
+                  Retry
                 </button>
                 <a
                   href="https://www.reddit.com/user/DNAbyss_Official"

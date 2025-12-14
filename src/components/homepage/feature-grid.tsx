@@ -104,8 +104,14 @@ export function FeatureGrid() {
 
       {/* Background decoration - optimized for GPU performance */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-2xl" />
+        <div
+          className="absolute top-1/2 left-1/4 w-96 h-96 -translate-y-1/2"
+          style={{ background: 'radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 70%)' }}
+        />
+        <div
+          className="absolute top-1/2 right-1/4 w-96 h-96 -translate-y-1/2"
+          style={{ background: 'radial-gradient(circle, hsl(var(--accent) / 0.1) 0%, transparent 70%)' }}
+        />
       </div>
     </section>
   );
