@@ -81,22 +81,12 @@ function StatCard({ stat, index }: { stat: StatItem; index: number }) {
 
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Icon with pulse animation */}
-        <motion.div
+        {/* Icon - removed infinite pulse animation for GPU performance */}
+        <div
           className="mb-3 sm:mb-4 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center bg-primary/10"
-          animate={{
-            boxShadow: [
-              '0 0 0 0 rgba(59, 130, 246, 0.4)',
-              '0 0 0 10px rgba(59, 130, 246, 0)',
-            ],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            repeatType: 'loop',
-          }}
         >
           <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-        </motion.div>
+        </div>
 
         {/* Stat value with gradient text */}
         <div className="mb-1.5 sm:mb-2">
@@ -162,9 +152,9 @@ export function StatsSection({
         </div>
       </div>
 
-      {/* Background decoration */}
+      {/* Background decoration - reduced size for GPU performance */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-primary/5 rounded-full blur-2xl" />
       </div>
     </section>
   );

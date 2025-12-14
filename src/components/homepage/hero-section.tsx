@@ -29,43 +29,50 @@ export function HeroSection({
 }: HeroSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  
+
   // Parallax effect - moves slower than scroll
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // Particle system
+  // Particle system - optimized for performance
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const particleCount = 30;
+    // Check for reduced-motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    // Reduced particle count for better GPU performance (was 30)
+    const particleCount = 12;
     const particles: HTMLDivElement[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'absolute rounded-full pointer-events-none';
-      
-      // Random size between 2-6px
-      const size = Math.random() * 4 + 2;
+
+      // Random size between 2-5px (slightly smaller)
+      const size = Math.random() * 3 + 2;
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
-      
+
       // Random position
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
-      
+
       // Random color (blue to purple gradient)
       const hue = Math.random() * 60 + 210; // 210-270 (blue to purple)
       particle.style.backgroundColor = `hsl(${hue}, 80%, 60%)`;
-      particle.style.boxShadow = `0 0 ${size * 2}px hsl(${hue}, 80%, 60%)`;
-      
-      // Random animation duration and delay
-      const duration = Math.random() * 10 + 15; // 15-25s
+      // Removed boxShadow to reduce GPU load
+
+      // Slower animation for better performance (was 15-25s, now 20-35s)
+      const duration = Math.random() * 15 + 20;
       const delay = Math.random() * 5;
       particle.style.animation = `particle-float ${duration}s ${delay}s ease-in-out infinite`;
-      particle.style.opacity = `${Math.random() * 0.5 + 0.3}`;
-      
+      particle.style.opacity = `${Math.random() * 0.4 + 0.2}`;
+      // Use will-change sparingly
+      particle.style.willChange = 'transform';
+
       container.appendChild(particle);
       particles.push(particle);
     }
@@ -126,9 +133,9 @@ export function HeroSection({
           className="absolute inset-0 opacity-30"
           style={{ y }}
         >
-          {/* Gradient orbs for depth */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+          {/* Gradient orbs for depth - reduced size and blur for GPU performance */}
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/15 rounded-full blur-2xl" style={{ animation: 'float 8s ease-in-out infinite' }} />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/15 rounded-full blur-2xl" style={{ animation: 'float 8s ease-in-out infinite', animationDelay: '1s' }} />
         </motion.div>
       </div>
 
@@ -148,21 +155,22 @@ export function HeroSection({
       >
         <motion.div variants={titleVariants} className="mb-4 sm:mb-6">
           <h1 className="font-headline text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter px-2">
-            <span className="inline-block gradient-text animate-text-shimmer bg-[length:200%_auto]">
+            <span className="inline-block gradient-text">
               {title}
             </span>
           </h1>
-          {/* Sparkle decoration */}
+          {/* Sparkle decoration - optimized animation */}
           <motion.div
             className="inline-block ml-2 sm:ml-4"
             animate={{
-              rotate: [0, 10, -10, 0],
-              scale: [1, 1.2, 1],
+              rotate: [0, 5, -5, 0],
+              scale: [1, 1.1, 1],
             }}
             transition={{
-              duration: 2,
+              duration: 4,
               repeat: Infinity,
               repeatType: 'reverse',
+              ease: 'easeInOut',
             }}
           >
             <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 text-accent" />
@@ -202,35 +210,21 @@ export function HeroSection({
           ))}
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - using CSS animation for better performance */}
         <motion.div
           variants={itemVariants}
           className="mt-12 sm:mt-16 flex flex-col items-center gap-2 hidden sm:flex"
         >
           <span className="text-xs sm:text-sm text-muted-foreground">Scroll to explore</span>
-          <motion.div
-            animate={{
-              y: [0, 10, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: 'loop',
-            }}
-            className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-muted-foreground/30 rounded-full flex items-start justify-center p-2"
+          <div
+            className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-muted-foreground/30 rounded-full flex items-start justify-center p-2 animate-bounce"
+            style={{ animationDuration: '2s' }}
           >
-            <motion.div
-              animate={{
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: 'loop',
-              }}
-              className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-muted-foreground/50 rounded-full"
+            <div
+              className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-muted-foreground/50 rounded-full animate-pulse"
+              style={{ animationDuration: '2s' }}
             />
-          </motion.div>
+          </div>
         </motion.div>
       </motion.div>
 
