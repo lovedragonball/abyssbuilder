@@ -2,13 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { Redis } from '@upstash/redis';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend client inside the handler to avoid build-time errors
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Initialize Upstash Redis client
-const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL || process.env.UPSTASH_REDIS_KV_REST_API_URL || process.env.KV_REST_API_URL || '',
-    token: process.env.UPSTASH_REDIS_REST_TOKEN || process.env.UPSTASH_REDIS_KV_REST_API_TOKEN || process.env.KV_REST_API_TOKEN || '',
-});
+// Initialize Upstash Redis client inside handler
+// const redis = new Redis({ ... });
 
 // Base dates for cyclic resets (21:00 UTC = 04:00 UTC+7 next day)
 const FISH_MAZE_BASE = new Date(Date.UTC(2025, 10, 23, 21, 0, 0, 0));
@@ -95,6 +93,26 @@ function generateEmailHtml(resets: string[]): string {
 
 export async function GET(request: NextRequest) {
     try {
+        const apiKey = process.env.RESEND_API_KEY;
+        if (!apiKey) {
+            console.error("RESEND_API_KEY is missing");
+            return NextResponse.json({ error: 'Configuration error: Missing Email API Key' }, { status: 500 });
+        }
+        const resend = new Resend(apiKey);
+
+        const redisUrl = process.env.UPSTASH_REDIS_REST_URL || process.env.UPSTASH_REDIS_KV_REST_API_URL || process.env.KV_REST_API_URL;
+        const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.UPSTASH_REDIS_KV_REST_API_TOKEN || process.env.KV_REST_API_TOKEN;
+
+        if (!redisUrl || !redisToken) {
+            console.error("Redis configuration missing");
+            return NextResponse.json({ error: 'Configuration error: Missing Redis credentials' }, { status: 500 });
+        }
+
+        const redis = new Redis({
+            url: redisUrl,
+            token: redisToken,
+        });
+
         // Verify cron secret (optional security measure)
         const authHeader = request.headers.get('authorization');
         if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
