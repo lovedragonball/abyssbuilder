@@ -51,16 +51,6 @@ const nextConfig: NextConfig = {
       'date-fns',
       'clsx',
       'zod',
-      // Charts
-      'recharts',
-      'd3-array',
-      'd3-scale',
-      'd3-shape',
-      'd3-interpolate',
-      'd3-color',
-      'd3-format',
-      'd3-time',
-      'd3-time-format',
       // Radix UI - all packages
       '@radix-ui/react-accordion',
       '@radix-ui/react-alert-dialog',
@@ -85,12 +75,6 @@ const nextConfig: NextConfig = {
       '@radix-ui/react-tooltip',
       // Animation
       'framer-motion',
-      // Form
-      'react-hook-form',
-      '@hookform/resolvers',
-      // Other
-      'embla-carousel-react',
-      'react-day-picker',
     ],
   },
   compiler: {
