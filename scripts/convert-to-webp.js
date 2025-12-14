@@ -28,7 +28,7 @@ try {
 
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const QUALITY = 80; // WebP quality (0-100)
-const MIN_SIZE_KB = 100; // Only convert files larger than 100KB
+const MIN_SIZE_KB = 1; // Convert all files larger than 1KB
 
 let totalSaved = 0;
 let filesConverted = 0;
