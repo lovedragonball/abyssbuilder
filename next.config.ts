@@ -43,6 +43,20 @@ const nextConfig: NextConfig = {
   },
 
   // Performance optimizations
+  experimental: {
+    optimizePackageImports: [
+      'lucide-react',
+      'date-fns',
+      'recharts',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-select',
+      '@radix-ui/react-tooltip',
+      'framer-motion',
+    ],
+  },
   compiler: {
     // Remove console logs in production
     removeConsole: process.env.NODE_ENV === 'production' ? {
@@ -50,7 +64,6 @@ const nextConfig: NextConfig = {
     } : false,
   },
 
-  // External packages for serverless (reduce bundle size)
   // External packages for serverless (reduce bundle size)
   serverExternalPackages: ['leaflet', 'react-leaflet'],
 
@@ -62,6 +75,13 @@ const nextConfig: NextConfig = {
       'node_modules/@esbuild/linux-x64',
       'node_modules/webpack',
       'node_modules/terser',
+      'node_modules/esbuild',
+      '**/*.map',
+      '**/*.d.ts',
+      '**/*.test.js',
+      '**/*.test.ts',
+      'public/maps/**/*', // Exclude large maps if possible, or warn user
+      'public/Forging/**/*', // Exclude large forging assets if possible
     ],
   },
 

@@ -1,30 +1,41 @@
-# Ignore Python API files (not needed for deployment)
-api/
-requirements.txt
-
-# Ignore data files
+# Vercel Ignore File
+# Exclude large source files not needed for production build
+*.xlsx
 *.txt
-!Patch.txt
+*.json
 !package.json
 !tsconfig.json
+!next.config.ts
+!src/**/*.json
+!public/**/*.json
 
-# Ignore scripts directory
-scripts/
-
-# Ignore test files
-__tests__/
-__mocks__/
-*.test.ts
-*.test.tsx
-*.spec.ts
-*.spec.tsx
-jest.config.js
-jest.setup.js
-
-# Ignore other unnecessary files
-.git/
-.vscode/
-.idx/
-.kiro/
+# Exclude large documentation/backup files
 *.md
 !README.md
+__mocks__
+__nitter.txt
+check_reset_time.py
+cleanup-quotes.js
+extract_weapon_stats.js
+generate_weapons_data.js
+inspect_formulas.py
+read_excel_summary.py
+test-conditions.js
+temp_demon_wedges_backup.ts
+
+# Exclude test files
+jest.config.js
+jest.setup.js
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Exclude git
+.git
+.gitignore
+
+# Exclude dev tools
+.idx
+.kiro
+.vscode
